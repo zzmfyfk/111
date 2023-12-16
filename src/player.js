@@ -1,6 +1,6 @@
 let player_speed    = 250;
-let jump_init_speed = 300;
-let floor_height    = 620;
+let jump_init_speed = 120;
+let floor_height    = 964;
 
 let curr_anim = "stop"; // Questa variabile contiene l'animazione corrente
 
@@ -41,10 +41,24 @@ function manage_player_update(s, player) {
         PP.physics.set_velocity_x(player, 0);
         next_anim = "stop";
     }
+    
+    //Gestisco il caso in cui il player è su una piattaforma, così da abilitare il salto ecc
+
+    if(player.is_on_platform) {
+        // Se mi trovo sul pavimento OPPURE su una piattaforma...
+        if(PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
+            // ... e premo il tasto spazio, allo salto
+            PP.physics.set_velocity_y(player, -jump_init_speed);
+        }
+
+        // Non gestisco qui le animazioni del salto, ma piu' avanti
+    }
+    player.is_on_platform = false;  // Resetto il flag che viene messo a true quando il giocatore 
+    // si trova sulla piattaforma
 
 
- 
-    // Le animazioni del salto vengono gestite in base alla velocita'
+
+ // Le animazioni del salto vengono gestite in base alla velocita'
     // verticale
     if(PP.physics.get_velocity_y(player) < 0) {
         next_anim = "jump_up";
@@ -53,6 +67,11 @@ function manage_player_update(s, player) {
         next_anim = "jump_down";
     }
 
+    
+  
+
+ 
+    
     // Nota: non gestisco il caso == 0, perche' in quel caso l'animazione
     // e' quella del movimento scelta prima.
 
@@ -73,7 +92,36 @@ function manage_player_update(s, player) {
         player.geometry.flip_x = false;
     }
 
+   
+   
+    //gestisco la salita e discesa dalle scale a vista frontale
+    if(player.is_on_scala==true) {
+        console.log(PP.physics.get_velocity_y(player));
+        
+        PP.physics.set_velocity_y(player, -3.3);
+        if(PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
+           
+            PP.physics.set_velocity_y(player, -70);
+        }
+        if(PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
+       
+            PP.physics.set_velocity_y(player, 70);
+        }
+
+        
+    }
+
+    player.is_on_scala = false; //resetto il flag che era a true quando il player era sulle scale
+
+    //tento di gestire il caso in cui il player ha un dialogo (nel mentre che ha il dialogo non dovrebbe potersi spostare)
+    //non funziona giusto
+    if (player.is_talking==true){
+        PP.physics.set_velocity_x(player, 0);
+    }
+
+    player.is_talking=false;
 }
+
 
 let weapon_disabled = false;
 
