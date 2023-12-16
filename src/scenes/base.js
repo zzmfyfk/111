@@ -17,7 +17,7 @@ let floor_4;
 let floor_5;
 let floor_basso_2;
 let floor_basso_3;
-let acqua;
+
 let txt_score;
 let txt_time;
 
@@ -36,6 +36,7 @@ function preload(s) {
     preload_player(s);
     preload_giada(s);
   
+  
 
 }
 
@@ -47,9 +48,8 @@ function collision_floor(s,player,floor) {
     player.is_on_platform = true;
 }
 
-function collision_acqua(s,player,acqua) {
-    console.log("acqua!")
-}
+
+
 
 function create(s) {
     console.log("Executing create() - SCENE");
@@ -101,9 +101,7 @@ function create(s) {
     PP.physics.add(s, floor_5, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, floor_5, collision_floor);
 
-    acqua = PP.shapes.rectangle_add(s,7800, 955, 4000, 0, "0x008000", 0);
-    PP.physics.add(s, acqua, PP.physics.type.STATIC); 
-    PP.physics.add_collider_f(s, player, acqua, collision_acqua);
+    
     
     floor_basso_2 = PP.shapes.rectangle_add(s,4000, 1010, 550, 0, "0x008000", 0);
     PP.physics.add(s, floor_basso_2, PP.physics.type.STATIC); 
@@ -122,6 +120,10 @@ function create(s) {
     create_personaggi(s, player);
 
     create_scala(s, player);
+   
+    create_punti_mortali(s, player);
+    collision_punti_mortali(s,player,lampione);
+    
 
     //SCORE GIADE
     // Creo una variabile per lo "score" della scena
@@ -153,7 +155,6 @@ function update(s) {
     manage_player_weapon(s, player);    // Gestione armi
     update_personaggi(s, player, mercante);
 
- //   update_timer(s, player)
 
     // Aggiorno il punteggio visualizzato:
     PP.shapes.text_change(txt_score, "Score: " + PP.gameState.get_variable("score"));
