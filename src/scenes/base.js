@@ -136,24 +136,9 @@ function create(s) {
     // Impostiamo la camera che segua il giocatore
     PP.camera.start_follow(s, player, 0, 220);
 
-    //Provo a fare il timer 
-    PP.timers.add_timer(s, 60, function_to_call, false)
-     
-    txt_time= PP.shapes.text_styled_add(s, 900, 10, "Time: ", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
-    txt_time.tile_geometry.scroll_factor_x = 0;
-    txt_time.tile_geometry.scroll_factor_y = 0;
     
-    function function_to_call(s){
-        if (PP.timers.getTime (s)>0){
-            console.log("tempo") 
-            //da fare: aggiungere comandi che portino alla schermata di "gameover"-finale negativo allo scadere del tempo
-        }
-
-        //Da fare: successivamente creo funzione con un nuovo timer di 1 secondo e valore boleano true
-        //Da Prendo tempo inizio e tempo corrente, sottraggo e trasformo in secondi
-    }   
-    
-
+    //creo timer
+    create_timer(s, player);
     
 
 }
@@ -168,7 +153,7 @@ function update(s) {
     manage_player_weapon(s, player);    // Gestione armi
     update_personaggi(s, player, mercante);
 
- 
+ //   update_timer(s, player)
 
     // Aggiorno il punteggio visualizzato:
     PP.shapes.text_change(txt_score, "Score: " + PP.gameState.get_variable("score"));
