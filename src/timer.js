@@ -1,12 +1,12 @@
 //Provo a fare il timer 
 function create_timer(s, player) {
 
-    PP.timers.add_timer(s, 60000, time_over, false)
+    PP.timers.add_timer(s, 120000, time_over, false)
 
     // setto variabile globale time a 60000
-    PP.gameState.set_variable("Time", 60000);
+    PP.gameState.set_variable("Time", 120000);
     // aggiunto testo timer 
-    txt_time = PP.shapes.text_styled_add(s, 1100, 10, "Time: 60", 30, "Helvetica", "normal", "0x000000", null, 0, 0);
+    txt_time = PP.shapes.text_styled_add(s, 1100, 10, "Time: 120", 30, "Helvetica", "normal", "0x000000", null, 0, 0);
 
     //fisso la scritta in alto in modo che rimanga ferma
     txt_time.tile_geometry.scroll_factor_x = 0;
@@ -14,7 +14,7 @@ function create_timer(s, player) {
 
     //una volta scaduto il tempo, esce la schermata di game over (successivamente andrà sostituita con la schermata della tavola di finale negativo)
     function time_over(s) {
-        if (PP.timers.getTime(s) > 60000) {
+        if (PP.timers.getTime(s) > 120000) {
             console.log("tempo scaduto")
             PP.scenes.start("game_over");
         }
@@ -38,4 +38,6 @@ function create_timer(s, player) {
     }
 
 }
+
+
 
