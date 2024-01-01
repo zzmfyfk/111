@@ -44,6 +44,9 @@ function preload(s) {
     preload_cassa(s);
     preload_nuvola(s);
 
+    preload_dialogo1(s);
+    preload_dialogo2(s);
+
 }
 
 function collider_test(s, a, b) {
@@ -157,6 +160,9 @@ function create(s) {
  
     create_nuvola (s, player);
 
+    create_dialogo1(s, player);
+
+    create_dialogo2(s, player);
 
 
 
@@ -219,6 +225,10 @@ function update(s) {
     update_barca(s);
 
     update_personaggi(s, player, mercante);
+
+    update_dialogo1(s, player, genitori);
+
+    update_dialogo2(s, player, mercante);
 
 
 
