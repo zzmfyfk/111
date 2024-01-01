@@ -1,8 +1,10 @@
 let img_background;
 let img_player;
+let img_background_3;
 let img_background_2;
 let img_background_1;
 
+let ts_background_3;
 let ts_background_2;
 let ts_background_1;
 let mercante;
@@ -22,7 +24,6 @@ let is_menu_open = false;
 
 let menu_open;
 
-
 function preload(s) {
     console.log("Executing preload() - SCENE");
 
@@ -34,11 +35,14 @@ function preload(s) {
 
     img_background_1 = PP.assets.image.load(s, "assets/images/parallax/background_1.png");
     img_background_2 = PP.assets.image.load(s, "assets/images/parallax/background_2.png");
+    img_background_3 = PP.assets.image.load(s, "assets/images/parallax/background_3.png");
+
 
     preload_player(s);
     preload_giada(s);
     preload_barca(s);
-
+    preload_cassa(s);
+    preload_nuvola(s);
 
 }
 
@@ -62,19 +66,21 @@ function create(s) {
 
 
 
-    ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 0, 10800, 1296, 0, 0);
-    ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 0, 10800, 1296, 0, 0);
-
+    ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, -800, 10800, 2400, 0, 0);
+    ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 0, 10800, 2400, 0, 0);
+    ts_background_3 = PP.assets.tilesprite.add(s, img_background_3, 0, -551, 10800, 2400, 0, 0);
 
     // Disabilitiamo il tilesprite scroll factor per tutti i background (lo gestiremo manualmente)
 
 
+
+    ts_background_3.tile_geometry.scroll_factor_x = 0;
     ts_background_2.tile_geometry.scroll_factor_x = 0;
     ts_background_1.tile_geometry.scroll_factor_x = 0;
 
 
 
-    player = PP.assets.sprite.add(s, img_player, 936, 964, 0.5, 1);
+    player = PP.assets.sprite.add(s, img_player, 936, 1518, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);
 
@@ -140,7 +146,16 @@ function create(s) {
     create_punti_mortali(s, player);
 
     collision_punti_mortali(s, player, lampione);
-
+    
+    create_cassa(s, player, cassa);
+  
+    // collision_casse(s, player, cassa);
+     
+     overlap_casse(s, player, cassaoverlap);
+     
+    // configure_casse_animations(s, img_cassa);
+ 
+    create_nuvola (s, player);
 
 
 
@@ -211,8 +226,9 @@ function update(s) {
     PP.shapes.text_change(txt_score, "Score: " + PP.gameState.get_variable("score"));
 
 
-    ts_background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
-    ts_background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_3.tile_geometry.x = PP.camera.get_scroll_x(s) * 1;
+    ts_background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.5; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.2; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
 
 
 }

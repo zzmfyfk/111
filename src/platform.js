@@ -1,12 +1,4 @@
-let tetto_1;
-let tetto_2;
-let tetto_3;
-let tetto_4;
-let tetto_5;
-let tetto_6;
-let tetto_7;
-let tetto_8;
-let tetto_9;
+
 
 let rami_1;
 
@@ -39,45 +31,109 @@ function create_platform(s, player) {
     PP.physics.add(s, tetto_3, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_3, collision_platform);
 
-    tetto_4 =  PP.shapes.rectangle_add(s, 3236, 600, 700, 0, "0x000000", 0);
+    tetto_4 =  PP.shapes.rectangle_add(s, 3150, 465, 726, 1, "0x000000", 0); //tetto su edificio  ponte
     PP.physics.add(s, tetto_4, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_4, collision_platform);
 
-    tetto_5 =  PP.shapes.rectangle_add(s, 3899, 560, 130, 0, "0x000000", 0);
+    tetto_ponte =  PP.shapes.rectangle_add(s, 3145, 552, 909, 1, "0x000000", 0); //tetto giu edificio  ponte
+    PP.physics.add(s, tetto_ponte, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_ponte, collision_platform);
+
+    tetto_5 =  PP.shapes.rectangle_add(s, 3690, 543, 54, 0, "0x000000", 0); //tetto sx edificio pt1
     PP.physics.add(s, tetto_5, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_5, collision_platform);
 
-    tetto_6 =  PP.shapes.rectangle_add(s, 4239, 500, 450, 0, "0x000000", 0);
+    tetto_5 =  PP.shapes.rectangle_add(s, 3804, 543, 18, 0, "0x000000", 0); //tetto sx edificio pt2
+    PP.physics.add(s, tetto_5, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_5, collision_platform);
+
+    tetto_6 =  PP.shapes.rectangle_add(s, 4147, 471, 543, 0, "0x000000", 0); //tetto su edificio 3
     PP.physics.add(s, tetto_6, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_6, collision_platform);
 
-    tetto_7 =  PP.shapes.rectangle_add(s, 4579, 560, 150, 0, "0x000000", 0);
+    tetto_7 =  PP.shapes.rectangle_add(s, 4555, 543, 150, 0, "0x000000", 0); // parte dx ed 3
     PP.physics.add(s, tetto_7, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_7, collision_platform);
 
-    tetto_6 =  PP.shapes.rectangle_add(s, 5336,  430, 650, 0, "0x000000", 0);
+    tetto_6 =  PP.shapes.rectangle_add(s, 4804,  507, 147, 0, "0x000000", 0); // ed 4 piano 1 sx 
     PP.physics.add(s, tetto_6, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_6, collision_platform);
 
-    tetto_7 =  PP.shapes.rectangle_add(s, 5336,  230, 650, 0, "0x000000", 0);
+    tetto_7 =  PP.shapes.rectangle_add(s, 5638,  507, 147, 0, "0x000000", 0); //ed 4 piano 1 dx
     PP.physics.add(s, tetto_7, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_7, collision_platform);
    
-    tetto_8 =  PP.shapes.rectangle_add(s, 5872,  490, 150, 0, "0x000000", 0);
+    tetto_8 =  PP.shapes.rectangle_add(s, 5221,  435, 597, 0, "0x000000", 0); // ed 4 piano 1 su
     PP.physics.add(s, tetto_8, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_8, collision_platform);
     
-    tetto_9 =  PP.shapes.rectangle_add(s, 5736,  490, 150, 0, "0x000000", 0);
+    tetto_9 =  PP.shapes.rectangle_add(s, 5223,  543, 894, 0, "0x000000", 0); //ed 4 piano 1 giu
     PP.physics.add(s, tetto_9, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_9, collision_platform);
  
-    tetto_10 =  PP.shapes.rectangle_add(s, 6636,  500, 600, 0, "0x000000", 0);
+    tetto_10 =  PP.shapes.rectangle_add(s, 4900,  210, 135, 0, "0x000000", 0); //ed 4 piano 2 sx
     PP.physics.add(s, tetto_10, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_10, collision_platform);
+
+    tetto_11 =  PP.shapes.rectangle_add(s, 5545,  210, 135, 0, "0x000000", 0); //ed 4 piano 2 dx nel file photoshop è da sistemare perche non è uguale a sx
+    PP.physics.add(s, tetto_11, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_11, collision_platform);
+
+    tetto_12 =  PP.shapes.rectangle_add(s, 5164,  157, 333, 0, "0x000000", 0); //ed 4 piano 2 su sx
+    PP.physics.add(s, tetto_12, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_12, collision_platform);
+
+    tetto_13 =  PP.shapes.rectangle_add(s, 5427,  157, 42, 0, "0x000000", 0); //ed 4 piano 2 su dx
+    PP.physics.add(s, tetto_13, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_13, collision_platform);
+
+    tetto_14 =  PP.shapes.rectangle_add(s, 5104,  246, 453, 0, "0x000000", 0); //ed 4 piano 2 giu sx
+    PP.physics.add(s, tetto_14, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_14, collision_platform);
+
+    tetto_15 =  PP.shapes.rectangle_add(s, 5479,  246, 147, 0, "0x000000", 0); //ed 4 piano 2 giu dx
+    PP.physics.add(s, tetto_15, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_15, collision_platform);
+
+    tetto_16 =  PP.shapes.rectangle_add(s, 4192,  576, 789, 0, "0x000000", 0); //ed 3 giu
+    PP.physics.add(s, tetto_16, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_16, collision_platform);
+
+
+    tetto_17 =  PP.shapes.rectangle_add(s, 5881,  186, 141, 0, "0x000000", 0); //ed 5 sx su
+    PP.physics.add(s, tetto_17, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_17, collision_platform);
+
+    tetto_18 =  PP.shapes.rectangle_add(s, 6619,  186, 141, 0, "0x000000", 0); //ed 5 dx su
+    PP.physics.add(s, tetto_18, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_18, collision_platform);
+
+    tetto_19 =  PP.shapes.rectangle_add(s, 6249,  93, 552, 0, "0x000000", 0); //ed 5 base su
+    PP.physics.add(s, tetto_19, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_19, collision_platform);
+
+    tetto_20 =  PP.shapes.rectangle_add(s, 5881,  558, 141, 0, "0x000000", 0); //ed 5 sx giu
+    PP.physics.add(s, tetto_20, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_20, collision_platform);
+
+
+    tetto_21 =  PP.shapes.rectangle_add(s,  6619,  558, 141, 0, "0x000000", 0); //ed 5 dx giu
+    PP.physics.add(s, tetto_21, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_21, collision_platform);
+
+    tetto_22 =  PP.shapes.rectangle_add(s, 6249,  465, 552, 0, "0x000000", 0); //ed 5 base giu
+    PP.physics.add(s, tetto_22, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_22, collision_platform);
+
+
+
 
     rami_1 = PP.shapes.rectangle_add(s, 950, 900, 100, 0, "0x000000", 0);
     PP.physics.add(s, tetto_10, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_10, collision_platform);
+
+
+
 
 
 
