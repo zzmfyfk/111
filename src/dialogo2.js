@@ -166,7 +166,6 @@ function update_dialogo2(s, player){
                     dialog_state1=3;
                     player_speed=0;
                     jump_init_speed=0;
-                    already_buy=true;
                     enable_mercante_A=false;
                     enable_Zhu_S=false;
                 }
@@ -193,8 +192,13 @@ function update_dialogo2(s, player){
                 dialog_state1=5;
                 player_speed=0;
                 jump_init_speed=0;
+                already_buy=true;
                 player.is_on_mercante=false;
                 enable_mercante_A=false;
+            }
+            else if(dialog_state1 == 3 && already_buy){
+                //hai gia comprato stupid.
+                
             }
             else if(dialog_state1==5&&PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
 
