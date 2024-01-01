@@ -140,8 +140,6 @@ function create(s) {
 
     create_platform(s, player);
 
-    create_personaggi(s, player);
-
     create_barca(s, player);
 
     create_scala(s, player);
@@ -223,8 +221,6 @@ function update(s) {
     manage_player_weapon(s, player);    // Gestione armi
 
     update_barca(s);
-
-    update_personaggi(s, player, mercante);
 
     update_dialogo1(s, player, genitori);
 
