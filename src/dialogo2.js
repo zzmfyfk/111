@@ -1,10 +1,11 @@
 let img_mercante;
 let img_casella_mercante;
-let img_casella_zhu;
+let img_casella_Zhu;
 
 let img_domande_mercante;
 let img_testo1_mercante;
 let img_testo2_mercante;
+let img_testo3_mercante;
 let img_tasto_A;
 let img_opzione_original_Zhu;
 let img_opzione_si_Zhu;
@@ -14,10 +15,11 @@ let img_opzione_no_Zhu;
 
 let tasto_A;
 let casella_mercante;
-let casella_zhu;
+let casella_Zhu;
 
 let testo1_mercante;
 let testo2_mercante;
+let testo3_mercante;
 let opzione_original_Zhu;
 let opzione_si_Zhu;
 let opzione_no_Zhu;
@@ -28,19 +30,20 @@ let mercante;
 
 function preload_dialogo2(s){
     
-    img_mercante=PP.assets.image.load(s,"assets/images/mercante.png");
-    img_casella_mercante=PP.assets.image.load(s,"assets/images/casella_mercante.png");
-    img_casella_zhu=PP.assets.image.load(s,"assets/images/casella_zhu.png");
+    img_mercante = PP.assets.image.load(s,"assets/images/mercante.png");
+    img_casella_mercante = PP.assets.image.load(s,"assets/images/casella_mercante.png");
+    img_casella_Zhu = PP.assets.image.load(s,"assets/images/casella_zhu.png");
 
-    img_domande_mercante=PP.assets.image.load(s,"assets/images/domande_mercante.png");
-    img_tasto_A=PP.assets.image.load(s,"assets/images/tasto_A.png");
+    img_domande_mercante = PP.assets.image.load(s,"assets/images/domande_mercante.png");
+    img_tasto_A = PP.assets.image.load(s,"assets/images/tasto_A.png");
 
-    img_testo1_mercante=PP.assets.image.load(s,"assets/images/testo1_mercante.png");
-    img_testo2_mercante=PP.assets.image.load(s,"assets/images/testo2_mercante.png");
+    img_testo1_mercante = PP.assets.image.load(s,"assets/images/testo1_mercante.png");
+    img_testo2_mercante = PP.assets.image.load(s,"assets/images/testo2_mercante.png");
+    img_testo3_mercante = PP.assets.image.load(s,"assets/images/testo3_mercante.png");
 
-    img_opzione_original_Zhu=PP.assets.image.load(s,"assets/images/opzione_original_Zhu.png");
-    img_opzione_si_Zhu=PP.assets.image.load(s,"assets/images/opzione_si_Zhu.png");
-    img_opzione_no_Zhu=PP.assets.image.load(s,"assets/images/opzione_no_Zhu.png");
+    img_opzione_original_Zhu = PP.assets.image.load(s,"assets/images/opzione_original_Zhu.png");
+    img_opzione_si_Zhu = PP.assets.image.load(s,"assets/images/opzione_si_Zhu.png");
+    img_opzione_no_Zhu = PP.assets.image.load(s,"assets/images/opzione_no_Zhu.png");
 
 }
 
@@ -60,8 +63,8 @@ function create_dialogo2(s,player){
     casella_mercante=PP.assets.image.add(s,img_casella_mercante,8,960,0,0);
     casella_mercante.visibility.alpha=0;
 
-    casella_zhu=PP.assets.image.add(s,img_casella_zhu,8,960,0,0);
-    casella_zhu.visibility.alpha=0;
+    casella_Zhu=PP.assets.image.add(s,img_casella_Zhu,8,960,0,0);
+    casella_Zhu.visibility.alpha=0;
 
     tasto_A=PP.assets.image.add(s,img_tasto_A,1480,1100,0,0);
     tasto_A.visibility.alpha=0;
@@ -70,6 +73,9 @@ function create_dialogo2(s,player){
     testo1_mercante.visibility.alpha=0;
     testo2_mercante=PP.assets.image.add(s,img_testo2_mercante,790,988,0,0);
     testo2_mercante.visibility.alpha=0;
+    testo3_mercante=PP.assets.image.add(s,img_testo3_mercante,790,988,0,0);
+    testo3_mercante.visibility.alpha=0;
+
 
     opzione_original_Zhu=PP.assets.image.add(s,img_opzione_original_Zhu,790,988,0,0);
     opzione_original_Zhu.visibility.alpha=0;
@@ -103,7 +109,26 @@ function update_dialogo2(s, player){
         }
 
         if(enable_mercante_A){
+            
+            if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state1 == 0 && already_buy){
+                //hai gia comprato stupid.
+                console.log("player is talking");
+                console.log("state:",dialog_state1);
 
+                domande_mercante.visibility.alpha=0;
+
+                casella_mercante.visibility.alpha=1;
+
+                tasto_A.visibility.alpha=1;
+                testo3_mercante.visibility.alpha=1;
+
+                dialog_state1=5;
+                player_speed=0;
+                jump_init_speed=0;
+                enable_mercante_A=false;
+                return;
+            }
+            
             if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state1==0){
 
                 console.log("player is talking");
@@ -129,7 +154,7 @@ function update_dialogo2(s, player){
                 testo1_mercante.visibility.alpha=0;
                 tasto_A.visibility.alpha=0;
 
-                casella_zhu.visibility.alpha=1;
+                casella_Zhu.visibility.alpha=1;
                 opzione_original_Zhu.visibility.alpha=1;
             
                 dialog_state1=2;
@@ -174,7 +199,7 @@ function update_dialogo2(s, player){
                     opzione_original_Zhu.visibility.alpha=0;
                     opzione_no_Zhu.visibility.alpha=1;
 
-                    dialog_state1=4;
+                    dialog_state1=5;
                     player_speed=0;
                     jump_init_speed=0;
                     enable_mercante_A=false;
@@ -185,7 +210,7 @@ function update_dialogo2(s, player){
             if(dialog_state1==3 && !already_buy){
 
                 opzione_si_Zhu.visibility.alpha=0;
-                casella_zhu.visibility.alpha=0;
+                casella_Zhu.visibility.alpha=0;
                 casella_mercante.visibility.alpha=1;
                 testo2_mercante.visibility.alpha=1;
                 
@@ -196,14 +221,16 @@ function update_dialogo2(s, player){
                 player.is_on_mercante=false;
                 enable_mercante_A=false;
             }
-            else if(dialog_state1 == 3 && already_buy){
-                //hai gia comprato stupid.
-                
-            }
-            else if(dialog_state1==5&&PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
+            else if(dialog_state1 == 5 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
 
                 testo2_mercante.visibility.alpha=0;
                 casella_mercante.visibility.alpha=0;
+                casella_Zhu.visibility.alpha=0;
+
+                tasto_A.visibility.alpha=0;
+                testo3_mercante.visibility.alpha=0;
+                opzione_si_Zhu.visibility.alpha=0;
+                opzione_no_Zhu.visibility.alpha=0;
 
                 dialog_state1=0;
                 player_speed=250;
