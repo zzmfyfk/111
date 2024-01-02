@@ -142,31 +142,16 @@ function create_platform(s, player) {
 
 
     //gradini delle scale del ponte
-    scale =  PP.shapes.rectangle_add(s, 2753, 878, 26, 12, "0x000000", 0);
+    scale =  PP.shapes.rectangle_add(s, 2586, 945, 72, 24, "0x000000", 0);
     PP.physics.add(s, scale, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, scale, collision_platform);
-    scale =  PP.shapes.rectangle_add(s, 2728, 890, 26, 12, "0x000000", 0);
+    scale =  PP.shapes.rectangle_add(s, 2658, 921, 72, 24, "0x000000", 0);
     PP.physics.add(s, scale, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, scale, collision_platform);
-    scale =  PP.shapes.rectangle_add(s, 2703, 902, 26, 12, "0x000000", 0);
+    scale =  PP.shapes.rectangle_add(s, 2730, 897, 72, 24, "0x000000", 0);
     PP.physics.add(s, scale, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, scale, collision_platform);
-    scale =  PP.shapes.rectangle_add(s, 2678, 914, 26, 12, "0x000000", 0);
-    PP.physics.add(s, scale, PP.physics.type.STATIC); 
-    PP.physics.add_collider_f(s, player, scale, collision_platform);
-    scale =  PP.shapes.rectangle_add(s, 2653, 926, 26, 12, "0x000000", 0);
-    PP.physics.add(s, scale, PP.physics.type.STATIC); 
-    PP.physics.add_collider_f(s, player, scale, collision_platform);
-    scale =  PP.shapes.rectangle_add(s, 2628, 938, 26, 12, "0x000000", 0);
-    PP.physics.add(s, scale, PP.physics.type.STATIC); 
-    PP.physics.add_collider_f(s, player, scale, collision_platform);
-    scale =  PP.shapes.rectangle_add(s, 2603, 950, 26, 12, "0x000000", 0);
-    PP.physics.add(s, scale, PP.physics.type.STATIC); 
-    PP.physics.add_collider_f(s, player, scale, collision_platform);
-    scale =  PP.shapes.rectangle_add(s, 2578, 962, 26, 12, "0x000000", 0);
-    PP.physics.add(s, scale, PP.physics.type.STATIC); 
-    PP.physics.add_collider_f(s, player, scale, collision_platform);
-    }
+}
 
     function collision_platform(s,player, platform) {
         player.is_on_platform = true;
