@@ -10,7 +10,9 @@ let ts_background_1;
 let mercante;
 let muroinvisibile;
 
+let levelTimer;
 
+let giadaCount = 0;
 let player;
 let floor;
 let floor_1;
@@ -67,11 +69,16 @@ function create(s) {
     // Inseriamo background e giocatore
     //  PP.assets.tilesprite.add(s, img_background, 0, 0, 9009, 1296, 0, 0);
 
-
+    // Create a 120-second timer
+    levelTimer = s.time.addEvent({
+        delay: 120000,                // 120 seconds in milliseconds
+        callback: endLevel,
+        callbackScope: s
+    });
 
     ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, -800, 10800, 2400, 0, 0);
     ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 0, 10800, 2400, 0, 0);
-    ts_background_3 = PP.assets.tilesprite.add(s, img_background_3, 0, -252, 10800, 2400, 0, 0);
+    ts_background_3 = PP.assets.tilesprite.add(s, img_background_3, 0, -551, 10800, 2400, 0, 0);
 
     // Disabilitiamo il tilesprite scroll factor per tutti i background (lo gestiremo manualmente)
 
@@ -245,3 +252,30 @@ function destroy(s) {
 }
 
 PP.scenes.add("base", preload, create, update, destroy);
+
+function endLevel() {
+    // This function will be called when the timer ends
+    checkGiadasAndTransition(this);  // 'this' refers to the scene
+}
+
+function collectGiada(player, giada) {
+    giadaCount++;
+    // ...existing collection code...
+}
+
+function checkGiadasAndTransition(scene) {
+    // Check if all Giadas have been collected
+    if (giadaCount >= 0 && giadaCount <= 3) {
+        // If Giadas are between 0 and 3
+        scene.scene.start('LevelX1');  // Replace 'LevelX1' with the actual scene name for this range
+    } else if (giadaCount > 3 && giadaCount <= 8) {
+        // If Giadas are between 4 and 8
+        scene.scene.start('LevelX2');  // Replace 'LevelX2' with the actual scene name for this range
+    } else if (giadaCount > 8 && giadaCount <= 10) {
+        // If Giadas are between 9 and 10
+        scene.scene.start('LevelX3');  // Replace 'LevelX3' with the actual scene name for this range
+    } else {
+        // In case the count doesn't fit any range, consider adding a default transition or handling
+        console.log("Giada count doesn't fit any expected range.");
+    }
+}
