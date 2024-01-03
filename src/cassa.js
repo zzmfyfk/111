@@ -24,11 +24,19 @@ function create_cassa(s, player) {
     PP.assets.sprite.animation_play(cassa, "static");
 }
 
+let enable_interaction_cassa = true;
+
 function overlap_casse(s, player, cassaoverlap) {
     player.is_near_cassa = true;
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)&&xiaojiji) {
         PP.assets.sprite.animation_play(cassa, "destroycassa");
-        PP.assets.destroy(cassaoverlap);   
+        PP.assets.sprite.animation_play(cassa, "destroycassa");
+        enable_interaction_cassa = false;
+        // Ascolta l'evento di completamento dell'animazione
+        cassa.ph_obj.on('animationcomplete', () => {
+            PP.assets.destroy(cassa);
+            PP.assets.destroy(cassaoverlap);
+        }, this);   
     }
 }
 
@@ -40,6 +48,5 @@ function collision_cassa(s, player, cassa) {
         PP.physics.remove_collider_f(s, player, cassa, collision_platform);
     } else {
         PP.assets.sprite.animation_play(cassa, "static");
-        
     }
 }
