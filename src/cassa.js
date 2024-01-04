@@ -28,7 +28,7 @@ let enable_interaction_cassa = true;
 
 function overlap_casse(s, player, cassaoverlap) {
     player.is_near_cassa = true;
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)&&xiaojiji) {
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A) && enable_interaction_cassa) {
         PP.assets.sprite.animation_play(cassa, "destroycassa");
         PP.assets.sprite.animation_play(cassa, "destroycassa");
         enable_interaction_cassa = false;
