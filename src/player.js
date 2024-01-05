@@ -54,6 +54,21 @@ function manage_player_update(s, player) {
         PP.physics.set_velocity_y(player, 0);
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
             PP.physics.set_velocity_y(player, -70);
+            next_anim = "go_up";
+        } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
+            PP.physics.set_velocity_y(player, 70);
+            next_anim = "go_down";
+        }
+    } else if (PP.physics.get_velocity_y(player) < 0) {
+        next_anim = "jump_up";
+    } else if (PP.physics.get_velocity_y(player) > 0) {
+        next_anim = "jump_down";
+    }
+
+    if (player.is_on_scala_) {
+        PP.physics.set_velocity_y(player, 0);
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
+            PP.physics.set_velocity_y(player, -70);
             next_anim = "climb";
         } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
             PP.physics.set_velocity_y(player, 70);
@@ -72,7 +87,7 @@ function manage_player_update(s, player) {
         curr_anim = next_anim;
     }
 
-    
+
     if (PP.physics.get_velocity_x(player) < 0) {
         player.geometry.flip_x = true;
     } else if (PP.physics.get_velocity_x(player) > 0) {
