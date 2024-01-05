@@ -10,6 +10,7 @@
   <style>
     body {
       background-image: url('assets/images/tavola_1.png');
+      background-color:black;
         background-size: 1280px 720px;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -56,10 +57,16 @@
         <nav>
             
             <p class="text">In Cina, molto tempo fa, viveva una giovane donna,<br> Zhu, che desiderava ardentemente poter studiare;<br> purtroppo all’epoca solo i maschi avevano <br>questo privilegio. <br> <br>Se però fosse riuscita a farsi ammettere in <br>una scuola, suo padre non le avrebbe impedito <br>di studiare. <br> Zhu decise quindi di camuffarsi da ragazzo <br>e infine riuscì a entrare in un istituto <br>a Hangzhou.</p>
-            <a href="story_tavola2.html" class="text-link"> →</a>
+            <a href="story_tavola2.html" id="tavola_2" class="text-link"> →</a>
             
         </nav>
     </section>
+    <script>
+      //questo script serve a far partire la pagina successiva toccando un qualsiasi tasto
+      document.addEventListener('keydown', function(event) {
+          window.location.href = document.getElementById('tavola_2').href;
+      });
+  </script>
         
 </body>
 </html>

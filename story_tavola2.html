@@ -56,10 +56,15 @@
         <nav>
             
             <p class="text">Durante il suo periodo di studio strinse una profonda amicizia con un giovane di nome Liang, che frequentava la sua stessa scuola. Passando sempre più tempo con l’amico, i sentimenti di Zhu crebbero fino a quando non si rese conto di essersi innamorata di Liang.</p>
-            <a href="story_tavola3.html" class="text-link"> → </a>
+            <a href="story_tavola3.html" id="tavola_3" class="text-link"> → </a>
             
         </nav>
     </section>
-        
+    <script>
+      //questo script serve a far partire la pagina successiva toccando un qualsiasi tasto
+      document.addEventListener('keydown', function(event) {
+          window.location.href = document.getElementById('tavola_3').href;
+      });
+  </script>  
 </body>
 </html>
