@@ -65,7 +65,7 @@ function manage_player_update(s, player) {
         next_anim = "jump_down";
     }
 
-    if (player.is_on_scala_) {
+    if (player.is_on_scala_pioli) {
         PP.physics.set_velocity_y(player, 0);
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
             PP.physics.set_velocity_y(player, -70);
