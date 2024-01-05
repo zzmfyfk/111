@@ -6,7 +6,7 @@ function create_scala(s, player){
     PP.physics.add(s, scala_1, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, scala_1, overlap_scala_1);
 
-    let scala_2 = PP.shapes.rectangle_add(s, 1716, 1060, 90, 200,"0x000000", 0); //scala 1 che va sotto
+    let scala_2 = PP.shapes.rectangle_add(s, 1720, 1060, 90, 200,"0x000000", 0); //scala 1 che va sotto
     PP.physics.add(s, scala_2, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, scala_2, overlap_scala_1);
 
@@ -22,7 +22,7 @@ function create_scala(s, player){
     PP.physics.add(s, scala_5, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, scala_5, overlap_scala_1);
  
-    let scala_6 = PP.shapes.rectangle_add(s, 5370, 300, 10, 300,"0x000000", 0); //scala 3 ed 4
+    let scala_6 = PP.shapes.rectangle_add(s, 5370, 300, 12, 300,"0x000000", 0); //scala 3 ed 4
     PP.physics.add(s, scala_6, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, scala_6, overlap_scala_1);
     

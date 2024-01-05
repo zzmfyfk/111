@@ -1,5 +1,5 @@
 let player_speed    = 250;
-let jump_init_speed = 200;
+let jump_init_speed = 170;
 let floor_height    = 964;
 
 let curr_anim = "stop"; // Questa variabile contiene l'animazione corrente
