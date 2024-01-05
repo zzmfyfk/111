@@ -167,6 +167,8 @@ function create(s) {
 
     create_scala(s, player);
 
+    create_scala_pioli(s, player);
+
     create_punti_mortali(s, player);
 
     collision_punti_mortali(s, player, lampione);
