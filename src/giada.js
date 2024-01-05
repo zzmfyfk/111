@@ -72,9 +72,9 @@ function create_giada(s, player) {
 
       
         //giada luminosa 
-        giada = PP.assets.sprite.add(s,sprite_giada, 800, 964, 0.5, 1);
+        giada = PP.assets.sprite.add(s,sprite_giada, 800, 970, 0.5, 1);
         PP.physics.add(s, giada, PP.physics.type.STATIC);
-        PP.physics.set_collision_rectangle(giada, 30, 30, 30, 14); //rettangolo di collisione della cassa
+        PP.physics.set_collision_rectangle(giada, 21, 27, 39, 36); //rettangolo di collisione della cassa
         
         PP.physics.add_overlap_f(s, player, giada, collision_giada);
     
