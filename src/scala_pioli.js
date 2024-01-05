@@ -25,7 +25,7 @@ function create_scala_pioli(s, player){
 
 
    function overlap_scala_1(s, player, scala_1) {
-   player.is_on_scala = true;
+   player.is_on_scala_pioli = true;
    }
 
 }

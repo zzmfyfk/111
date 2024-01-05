@@ -110,7 +110,23 @@ function manage_player_update(s, player) {
 
 
 
+    if(player.is_on_scala_pioli==true) {
+        console.log(PP.physics.get_velocity_y(player));
+        
+        PP.physics.set_velocity_y(player, -5);
+        if(PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
+           
+            PP.physics.set_velocity_y(player, -70);
+        }
+        if(PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
+       
+            PP.physics.set_velocity_y(player, 70);
+        }
 
+        
+    }
+
+    player.is_on_scala_pioli = false;
 
 
     
