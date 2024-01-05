@@ -130,14 +130,14 @@ function create(s) {
     PP.physics.add_collider_f(s, player, floor_4, collision_floor);
 
 
-    floor_5 = PP.shapes.rectangle_add(s, 5428, 1008, 2343, 1, "0x008000", 0); //pavimento basso dopo ponte 1
+    floor_5 = PP.shapes.rectangle_add(s, 5536, 1122, 2553, 1, "0x008000", 0); //pavimento basso dopo ponte 1
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_5, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_5, collision_floor);
 
-    floor_6 = PP.shapes.rectangle_add(s, 6078, 1125, 2130, 1, "0x008000", 0); //pavimento basso dopo ponte 2
-    PP.physics.add(s, floor_6, PP.physics.type.STATIC);
-    PP.physics.add_collider_f(s, player, floor_6, collision_floor);
+   // floor_6 = PP.shapes.rectangle_add(s, 6078, 1125, 2130, 1, "0x008000", 0); //pavimento basso dopo ponte 2
+ //   PP.physics.add(s, floor_6, PP.physics.type.STATIC);
+  //  PP.physics.add_collider_f(s, player, floor_6, collision_floor);
 
 
     floor_7 = PP.shapes.rectangle_add(s, 6051, 862, 2574, 0, "0x008000", 0); //pavimento dopo ponte pt2
