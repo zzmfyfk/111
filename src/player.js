@@ -10,8 +10,8 @@ function preload_player(s) {
 function configure_player_animations(s, player) {
   
     PP.assets.sprite.animation_add_list(player, "run", [0, 1, 2, 3, 4, 5, 6], 10, -1);    // Lista di frame, a 10 fps, inifito
-    PP.assets.sprite.animation_add(player, "jump_up", 21, 24, 8, 0); 
-    PP.assets.sprite.animation_add(player, "jump_down", 26, 27, 5, 0); 
+    PP.assets.sprite.animation_add(player, "jump_up", 22, 24, 10, 0); 
+    PP.assets.sprite.animation_add(player, "jump_down", 25, 27, 3, 0); 
 
     PP.assets.sprite.animation_add(player, "go_down", 7, 10, 5, -1);
     PP.assets.sprite.animation_add(player, "go_up", 11, 14, 5, -1);
