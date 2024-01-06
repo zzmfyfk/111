@@ -148,7 +148,7 @@ function update(s) {
 
     update_giada(s);                // Azioni funghetti
 
-    manage_player_weapon(s, player);    // Gestione armi
+    //manage_player_weapon(s, player);    // Gestione armi
 
     update_barca(s);
     
