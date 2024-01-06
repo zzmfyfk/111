@@ -69,6 +69,11 @@ function create(s) {
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
+    //creo un livello specifico per il player, e setto z-index1, così che rimanga in primo piano rispetto agli altri personaggi
+    let layer_player = PP.layers.create(s);
+    PP.layers.add_to_layer(layer_player, player);
+    PP.layers.set_z_index(layer_player, 1);
+
 
     // Creiamo un pavimento "trasparente"
     floor = PP.shapes.rectangle_add(s, 215, 1359, 430, 1, "0x000000", 0);

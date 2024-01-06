@@ -69,6 +69,8 @@ function collision_muroinvisibile(s, player, muroinvisibile) {
 function create(s) {
     console.log("Executing create() - SCENE");
 
+    
+
     // Inseriamo background e giocatore
     //  PP.assets.tilesprite.add(s, img_background, 0, 0, 9009, 1296, 0, 0);
 
@@ -97,6 +99,10 @@ function create(s) {
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);
 
+    //creo un livello specifico per il player, e setto z-index1, così che rimanga in primo piano rispetto agli altri personaggi
+    let layer_player = PP.layers.create(s);
+    PP.layers.add_to_layer(layer_player, player);
+    PP.layers.set_z_index(layer_player, 1);
 
     // Creiamo un pavimento "trasparente"
     floor = PP.shapes.rectangle_add(s, 825, 964, 1650, 1, "0x000000", 0); //prima parte pavimento iniziale
@@ -135,7 +141,7 @@ function create(s) {
     PP.physics.add(s, floor_5, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_5, collision_floor);
 
-   floor_6 = PP.shapes.rectangle_add(s, 7789, 861, 500, 1, "0x008000", 0); //pavimento dopo ponte rotto
+   floor_6 = PP.shapes.rectangle_add(s, 7889, 861, 270, 1, "0x008000", 0); //pavimento dopo ponte rotto
     PP.physics.add(s, floor_6, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_6, collision_floor);
 

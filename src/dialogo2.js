@@ -27,6 +27,8 @@ let opzione_no_Zhu;
 
 let domande_mercante;
 let mercante;
+let ponte_ricostruito;
+let piattaforma_ponte;
 
 function preload_dialogo2(s){
     
@@ -44,7 +46,7 @@ function preload_dialogo2(s){
     img_opzione_original_Zhu = PP.assets.image.load(s,"assets/images/opzione_original_Zhu.png");
     img_opzione_si_Zhu = PP.assets.image.load(s,"assets/images/opzione_si_Zhu.png");
     img_opzione_no_Zhu = PP.assets.image.load(s,"assets/images/opzione_no_Zhu.png");
-
+    img_ponte_ricostruito=PP.assets.image.load(s,"assets/images/ponte_ricostruito.png");
 }
 
 function create_dialogo2(s,player){
@@ -83,6 +85,12 @@ function create_dialogo2(s,player){
     opzione_si_Zhu.visibility.alpha=0;
     opzione_no_Zhu=PP.assets.image.add(s,img_opzione_no_Zhu,790,988,0,0);
     opzione_no_Zhu.visibility.alpha=0;
+
+    ponte_ricostruito=PP.assets.image.add(s,img_ponte_ricostruito,0,0,0,0);
+    ponte_ricostruito.visibility.alpha=0;
+    let layer_ponte_ricostruito = PP.layers.create(s);
+                    PP.layers.add_to_layer(layer_ponte_ricostruito, ponte_ricostruito);
+                    PP.layers.set_z_index(layer_ponte_ricostruito, 2);
 
 }
 
@@ -184,9 +192,14 @@ function update_dialogo2(s, player){
 
             if(enable_Zhu_S && dialog_state1 == 2){
                 if(PP.interactive.kb.is_key_down(s,PP.key_codes.S)){
-
+                    
                     opzione_original_Zhu.visibility.alpha=0;
                     opzione_si_Zhu.visibility.alpha=1;
+                    ponte_ricostruito.visibility.alpha=1;
+                    piattaforma_ponte=  PP.shapes.rectangle_add(s, 7550,  861, 400, 0, "0x000000", 1);
+                    PP.physics.add(s, piattaforma_ponte, PP.physics.type.STATIC); 
+                    PP.physics.add_collider_f(s, player, piattaforma_ponte, collision_floor);
+                    
 
                     dialog_state1=3;
                     player_speed=0;
@@ -251,5 +264,9 @@ function update_dialogo2(s, player){
         if(dialog_state1==0){
             domande_mercante.visibility.alpha=0;
         }
+    }
+
+    function collision_floor(s,player,floor) {
+        player.is_on_platform = true;
     }
 }
