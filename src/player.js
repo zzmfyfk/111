@@ -10,8 +10,8 @@ function preload_player(s) {
 function configure_player_animations(s, player) {
   
     PP.assets.sprite.animation_add_list(player, "run", [0, 1, 2, 3, 4, 5, 6], 10, -1);    // Lista di frame, a 10 fps, inifito
-    PP.assets.sprite.animation_add(player, "jump_up", 21, 24, 8, 0); //✅
-    PP.assets.sprite.animation_add(player, "jump_down", 26, 27, 5, 0); //✅
+    PP.assets.sprite.animation_add(player, "jump_up", 21, 24, 8, 0); 
+    PP.assets.sprite.animation_add(player, "jump_down", 26, 27, 5, 0); 
 
     PP.assets.sprite.animation_add(player, "go_down", 7, 10, 5, -1);
     PP.assets.sprite.animation_add(player, "go_up", 11, 14, 5, -1);
@@ -39,40 +39,48 @@ function manage_player_update(s, player) {
         next_anim = "stop";
     }
 
-    if (player.is_on_platform && PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
-        PP.physics.set_velocity_y(player, -jump_init_speed);
-        if (PP.physics.get_velocity_y(player) < 0) {
-            next_anim = "jump_up";
-        } else if (PP.physics.get_velocity_y(player) > 0) {
-            next_anim = "jump_down";
+    if (player.is_on_platform) {
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
+            console.log("Jumping!"); 
+            PP.physics.set_velocity_y(player, -jump_init_speed);
+            if (PP.physics.get_velocity_y(player) < 0) {
+                next_anim = "jump_up";
+            } else if (PP.physics.get_velocity_y(player) > 0) {
+                next_anim = "jump_down";
+            }
         }
+    } else {
+        next_anim = "stop";
     }
 
     player.is_on_platform = false;
 
     if (player.is_on_scala) {
+        
         PP.physics.set_velocity_y(player, 0);
+    
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
             PP.physics.set_velocity_y(player, -70);
+    
             next_anim = "go_up";
         } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
             PP.physics.set_velocity_y(player, 70);
+    
             next_anim = "go_down";
         }
-    } else if (PP.physics.get_velocity_y(player) < 0) {
-        next_anim = "jump_up";
-    } else if (PP.physics.get_velocity_y(player) > 0) {
-        next_anim = "jump_down";
-    }
-
-    if (player.is_on_scala_pioli) {
+    } else if (player.is_on_scala_pioli) {
         PP.physics.set_velocity_y(player, 0);
+    
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
             PP.physics.set_velocity_y(player, -70);
+    
             next_anim = "climb";
         } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
             PP.physics.set_velocity_y(player, 70);
+    
             next_anim = "climb";
+        } else {
+            next_anim = "climbstop";
         }
     } else if (PP.physics.get_velocity_y(player) < 0) {
         next_anim = "jump_up";
@@ -81,12 +89,12 @@ function manage_player_update(s, player) {
     }
 
     player.is_on_scala = false;
+    player.is_on_scala_pioli = false; 
 
     if (next_anim !== curr_anim) {
         PP.assets.sprite.animation_play(player, next_anim);
         curr_anim = next_anim;
     }
-
 
     if (PP.physics.get_velocity_x(player) < 0) {
         player.geometry.flip_x = true;
