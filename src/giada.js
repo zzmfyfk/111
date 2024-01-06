@@ -34,7 +34,14 @@ function collision_giada(s, player, giada) {
 
     // 2) aumento di 10 lo score
     let prev_score = PP.gameState.get_variable("score");
-    PP.gameState.set_variable("score", prev_score+1);
+    PP.gameState.set_variable("score", prev_score + 1);
+
+    if (giada.isLastGiada) {
+        // Imposta la variabile per indicare che l'ultima Giada è stata raccolta
+        lastGiadaCollected = true;
+        // Potresti voler aggiungere qui ulteriori azioni o transizioni
+        checkGiadasAndTransition(s);
+    }
 }
 
 
@@ -70,7 +77,9 @@ function create_giada(s, player) {
         PP.physics.add(s, giada_7, PP.physics.type.STATIC);
         PP.physics.add_overlap_f(s, player, giada_7, collision_giada);
 
-      
+
+    // Imposta giada_8 come l'ultima Giada
+        giada_7.isLastGiada = true;
         //giada luminosa 
         giada = PP.assets.sprite.add(s,sprite_giada, 800, 970, 0.5, 1);
         PP.physics.add(s, giada, PP.physics.type.STATIC);
@@ -92,4 +101,22 @@ function create_giada(s, player) {
 
 function update_giada(s) {
     // Nothing to do...
+}
+
+
+function checkGiadasAndTransition(s) {
+    // Ottieni lo score attuale
+    let score = PP.gameState.get_variable("score");
+
+    // Controlla il punteggio per decidere la transizione
+    if (score >= 1 && score <= 4) {
+        // Se lo score è tra 10 e 40 (cioè tra 1 e 4 giade raccolte)
+        window.location.href = 'index2.html';  // Versione livello 2 con farfalla
+    } else if (score >= 5 && score <= 8) {
+        // Se lo score è tra 50 e 80 (cioè tra 5 e 8 giade raccolte)
+        window.location.href = 'index2.html';  // Versione livello 2 con Liang
+    } else {
+        // Se il numero di giade (basato sullo score) non rientra in nessun range previsto
+        console.log("Score inaspettato: " + score);
+    }
 }
