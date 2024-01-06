@@ -92,7 +92,7 @@ function create_giada(s, player) {
         PP.physics.add(s, giada_6, PP.physics.type.STATIC);
         PP.physics.add_overlap_f(s, player, giada_6, collision_giada);
 
-        let giada_7 = PP.assets.image.add(s, img_giada_7, 1200, 900, 0, 0);
+        let giada_7 = PP.assets.image.add(s, img_giada_7, 9500, 780, 0, 0);
         PP.physics.add(s, giada_7, PP.physics.type.STATIC);
         PP.physics.add_overlap_f(s, player, giada_7, collision_giada);
 
@@ -100,7 +100,7 @@ function create_giada(s, player) {
     // Imposta giada_8 come l'ultima Giada
         giada_7.isLastGiada = true;
         //giada luminosa 
-        giada = PP.assets.sprite.add(s,sprite_giada, 800, 970, 0.5, 1);
+        giada = PP.assets.sprite.add(s,sprite_giada, 2300, 1150, 0.5, 1);
         PP.physics.add(s, giada, PP.physics.type.STATIC);
         PP.physics.set_collision_rectangle(giada, 21, 27, 39, 36); //rettangolo di collisione della cassa
         

@@ -8,11 +8,11 @@ function preload_cassa(s) {
 }
 
 function create_cassa(s, player) {
-    cassaoverlap = PP.shapes.rectangle_add(s, 800, 964, 180, 75, "0x000000", 0);
+    cassaoverlap = PP.shapes.rectangle_add(s, 2300, 1150, 180, 75, "0x000000", 0);
     PP.physics.add(s, cassaoverlap, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, cassaoverlap, overlap_casse);
 
-    cassa = PP.assets.sprite.add(s, sprite_cassa, 800, 964, 0.5, 1);
+    cassa = PP.assets.sprite.add(s, sprite_cassa, 2300, 1150, 0.5, 1);
     PP.physics.add(s, cassa, PP.physics.type.STATIC);
     PP.physics.set_collision_rectangle(cassa, 69, 57, 55, 14);
     PP.physics.add_overlap_f(s, player, cassa, overlap_casse);
