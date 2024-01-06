@@ -57,7 +57,7 @@ function manage_player_update(s, player) {
 
     if (player.is_on_scala) {
         
-        PP.physics.set_velocity_y(player, 0);
+        PP.physics.set_velocity_y(player, -5);
     
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
             PP.physics.set_velocity_y(player, -70);
@@ -69,7 +69,7 @@ function manage_player_update(s, player) {
             next_anim = "go_down";
         }
     } else if (player.is_on_scala_pioli) {
-        PP.physics.set_velocity_y(player, 0);
+        PP.physics.set_velocity_y(player, -5);
     
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
             PP.physics.set_velocity_y(player, -70);
