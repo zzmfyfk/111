@@ -55,11 +55,12 @@ function manage_player_update(s, player) {
         next_anim = "stop";
     }
 
-    player.is_on_platform = false;
+    
+    PP.physics.set_allow_gravity(player, true);
 
     if (player.is_on_scala) {
         console.log ("p is on scala")
-        PP.physics.set_velocity_y(player, -5);
+        PP.physics.set_allow_gravity(player, false);
     
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
             PP.physics.set_velocity_y(player, -70);
@@ -79,23 +80,25 @@ function manage_player_update(s, player) {
             next_anim = "run";
         } else {
             PP.physics.set_velocity_x(player, 0);
+            PP.physics.set_velocity_y(player, 0);
             next_anim = "stoponscala";
         }
          //chiedere come fare parrtire l'animazione stopupscala
 
 
     } else if (player.is_on_scala_pioli) {
-        PP.physics.set_velocity_y(player, -5);
+        PP.physics.set_allow_gravity(player, false);
     
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
             PP.physics.set_velocity_y(player, -70);
-    
+            player.is_climbing = true;
             next_anim = "climb";
         } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
             PP.physics.set_velocity_y(player, 70);
-    
+            player.is_climbing = true;    
             next_anim = "climb";
-        } else {
+        } else if(player.is_climbing) {
+            PP.physics.set_velocity_y(player, 0);
             next_anim = "climbstop";
         }
     } else if (PP.physics.get_velocity_y(player) < 0) {
@@ -103,10 +106,11 @@ function manage_player_update(s, player) {
     } else if (PP.physics.get_velocity_y(player) > 0) {
         next_anim = "jump_down";
     }
+    console.log(player.is_on_scala_pioli, player.is_on_platform);
 
     player.is_on_scala = false;
     player.is_on_scala_pioli = false; 
-
+    player.is_on_platform = false;
  
     if(player.is_on_barca) {
         // Se mi trovo sul pavimento OPPURE su una piattaforma...

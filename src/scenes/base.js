@@ -59,6 +59,7 @@ function collider_test(s, a, b) {
 }
 
 function collision_floor(s, player, floor) {
+    player.is_climbing = false;
     player.is_on_platform = true;
 }
 
