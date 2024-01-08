@@ -66,6 +66,10 @@ function collision_muroinvisibile(s, player, muroinvisibile) {
     player.is_on_muroinvisibile = true;
 }
 
+function collision_barca(s, player, barca) {
+            player.is_on_barca = true;
+    }
+
 function create(s) {
     console.log("Executing create() - SCENE");
 
