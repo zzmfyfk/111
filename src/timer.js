@@ -1,8 +1,11 @@
-function create_timer(s, player) {
+
+    function create_timer(s, player) {
     PP.timers.add_timer(s, 120000, time_over, false);
     PP.gameState.set_variable("Time", 120000);
 
-    let txt_time = PP.shapes.text_styled_add(s, 1100, 10, "Time: 120", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
+    
+
+    let txt_time = PP.shapes.text_styled_add(s, 1050, 27, "Time: 120", 22, "Helvetica", "normal", "0x424242", null, 0, 0);
     txt_time.tile_geometry.scroll_factor_x = 0;
     txt_time.tile_geometry.scroll_factor_y = 0;
 

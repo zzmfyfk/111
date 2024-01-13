@@ -29,6 +29,10 @@ let is_menu_open = false;
 
 let menu_open;
 
+let img_book_icon;
+let img_book_open;
+let img_timer_icon;
+
 function preload(s) {
     console.log("Executing preload() - SCENE");
 
@@ -41,7 +45,11 @@ function preload(s) {
     img_background_1 = PP.assets.image.load(s, "assets/images/parallax/background_1.png");
     img_background_2 = PP.assets.image.load(s, "assets/images/parallax/background_2.png");
     img_background_3 = PP.assets.image.load(s, "assets/images/parallax/background_3.png");
-
+    
+    //carichiamo immagini per l'interfaccia
+    img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
+    img_book_open = PP.assets.image.load(s, "assets/images/menu_book_open.png");
+    img_timer_icon   = PP.assets.image.load(s, "assets/images/timer_icon.png");
 
     preload_player(s);
     preload_giada(s);
@@ -193,6 +201,8 @@ function create(s) {
 
     create_dialogo2(s, player);
 
+    
+
 
 
 
@@ -214,17 +224,25 @@ function create(s) {
     PP.camera.start_follow(s, player, 0, 220);
 
 
-    //PROVA INTERACTIVE MOUSE
-    let menu_cliccabile = PP.shapes.rectangle_add(s, 1500, 400, 30, 30, "0x008000", 1);
-
+    //Creo elementi dell'interfaccia (menu cliccabile e timer)
+    let menu_cliccabile = PP.assets.image.add(s, img_book_icon,130, 1, 0, 0);
+    menu_cliccabile.tile_geometry.scroll_factor_x = 0;
+    menu_cliccabile.tile_geometry.scroll_factor_y = 0;
     //menu_cliccabile.tile_geometry.scroll_factor_x = 0;
     //menu_cliccabile.tile_geometry.scroll_factor_y = 0; 
 
     PP.interactive.mouse.add(menu_cliccabile, "pointerdown", clicco_menu);
-    menu_open = PP.shapes.rectangle_add(s, 1000, 700, 500, 500, "0x008000", 1);
+    menu_open = PP.assets.image.add(s, img_book_open,90, 60, 0, 0);
     menu_open.visibility.alpha = 0;
+    menu_open.tile_geometry.scroll_factor_x = 0;
+    menu_open.tile_geometry.scroll_factor_y = 0;
+    let layer_menu_open = PP.layers.create(s);
+    PP.layers.add_to_layer(layer_menu_open, menu_open);
+    PP.layers.set_z_index(layer_menu_open, 2);
 
-
+    let timer_icon=PP.assets.image.add(s, img_timer_icon, 100, -1, 0, 0);
+    timer_icon.tile_geometry.scroll_factor_x = 0;
+    timer_icon.tile_geometry.scroll_factor_y = 0;
 
     //creo timer
     create_timer(s, player);
