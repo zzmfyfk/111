@@ -59,31 +59,34 @@ function manage_player_update(s, player) {
     PP.physics.set_allow_gravity(player, true);
 
     if (player.is_on_scala) {
-        console.log("Player is on ladder");
-        // 禁用重力，防止角色下落
+        console.log ("p is on scala")
         PP.physics.set_allow_gravity(player, false);
-
+    
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
-            // 上键被按下时
             PP.physics.set_velocity_y(player, -70);
+    
             next_anim = "go_up";
         } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
-            // 下键被按下时
             PP.physics.set_velocity_y(player, 70);
+    
             next_anim = "go_down";
+        }
+      
+        else if (PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {
+            PP.physics.set_velocity_x(player, player_speed);
+            next_anim = "run";
+        } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
+            PP.physics.set_velocity_x(player, -player_speed);
+            next_anim = "run";
         } else {
-            // 没有按键时，角色保持当前状态
             PP.physics.set_velocity_x(player, 0);
             PP.physics.set_velocity_y(player, 0);
-            next_anim = curr_anim; // 保持当前动画状态
+            next_anim = "stoponscala";
         }
-    } else {
-        // 当不在梯子上时，启用重力
-        PP.physics.set_allow_gravity(player, true);
+         //chiedere come fare parrtire l'animazione stopupscala
 
 
-
-    } if (player.is_on_scala_pioli) {
+    } else if (player.is_on_scala_pioli) {
         PP.physics.set_allow_gravity(player, false);
     
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
@@ -103,17 +106,11 @@ function manage_player_update(s, player) {
     } else if (PP.physics.get_velocity_y(player) > 0) {
         next_anim = "jump_down";
     }
-
-    if (next_anim !== curr_anim) {
-        PP.assets.sprite.animation_play(player, next_anim);
-        curr_anim = next_anim;
-    }
     console.log(player.is_on_scala_pioli, player.is_on_platform);
 
     player.is_on_scala = false;
-    player.is_on_scala_pioli = false;
+    player.is_on_scala_pioli = false; 
     player.is_on_platform = false;
-    player.is_on_barca = false;
  
     if(player.is_on_barca) {
         // Se mi trovo sul pavimento OPPURE su una piattaforma...
