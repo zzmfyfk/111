@@ -192,11 +192,7 @@ function create(s) {
 
     create_punti_mortali(s, player);
 
-<<<<<<< HEAD
-    collision_punti_mortali(s, player);
-=======
     collision_punti_mortali(s, player, fondo);
->>>>>>> edaf1b19c9ef884be11e9b196c524b2117b195b9
     
     create_cassa(s, player, cassa);
   
