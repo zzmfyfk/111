@@ -100,6 +100,13 @@ function manage_player_update(s, player) {
         } else if(player.is_climbing) {
             PP.physics.set_velocity_y(player, 0);
             next_anim = "climbstop";
+
+            // if colida con end_scale
+            if(player.is_on_fine_scala){
+                console.log("isOnFineScala")
+                next_anim = "stop";
+            }
+
         }
     } else if (PP.physics.get_velocity_y(player) < 0) {
         next_anim = "jump_up";
@@ -111,6 +118,7 @@ function manage_player_update(s, player) {
     player.is_on_scala = false;
     player.is_on_scala_pioli = false; 
     player.is_on_platform = false;
+    player.is_on_fine_scala = false;
  
     if(player.is_on_barca) {
         // Se mi trovo sul pavimento OPPURE su una piattaforma...

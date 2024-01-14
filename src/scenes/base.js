@@ -206,13 +206,6 @@ function create(s) {
 
     create_dialogo2(s, player);
 
-    
-
-
-
-
-
-
 
 
     // Creo una variabile per lo "score" della scena
@@ -259,10 +252,11 @@ function clicco_menu(s) {
     if (!is_menu_open) {
         menu_open.visibility.alpha = 1;
         is_menu_open = true;
-        console.log(is_menu_open);
+        console.log("ismenuOpen: ", is_menu_open);
     }else {
         menu_open.visibility.alpha = 0;
         is_menu_open = false;
+        console.log("ismenuOpen: ", is_menu_open);
     }
 }
 
