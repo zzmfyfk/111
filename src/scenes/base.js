@@ -227,7 +227,7 @@ function create(s) {
 
 
     //Creo elementi dell'interfaccia (menu cliccabile e timer)
-    let menu_cliccabile = PP.assets.image.add(s, img_book_icon,130, 1, 0, 0);
+    let menu_cliccabile = PP.assets.image.add(s, img_book_icon,1220, 8, 0, 0);
     menu_cliccabile.tile_geometry.scroll_factor_x = 0;
     menu_cliccabile.tile_geometry.scroll_factor_y = 0;
     //menu_cliccabile.tile_geometry.scroll_factor_x = 0;
