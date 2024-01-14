@@ -192,7 +192,7 @@ function create(s) {
 
     create_punti_mortali(s, player);
 
-    collision_punti_mortali(s, player, lampione);
+    collision_punti_mortali(s, player, fondo);
     
     create_cassa(s, player, cassa);
   
