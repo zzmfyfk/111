@@ -282,6 +282,8 @@ function update(s) {
 
     update_cassa(s, player);
 
+    update_vaso(s, player);
+
 
 
     // Aggiorno il punteggio visualizzato:

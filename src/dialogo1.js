@@ -30,9 +30,9 @@ function create_dialogo1(s,player){
     domande = PP.assets.image.add(s,img_domande,1233,790,0,0);
     domande.visibility.alpha = 0;
 
-    casella_genitori=PP.assets.image.add(s,img_casella_genitori,200,980,0,0);
+    casella_genitori=PP.assets.image.add(s,img_casella_genitori,200,939,0,0);
     casella_genitori.visibility.alpha=0;
-    testo_genitori=PP.assets.image.add(s,img_testo_genitori,1000,1010,0,0);
+    testo_genitori=PP.assets.image.add(s,img_testo_genitori,1000,990,0,0);
     testo_genitori.visibility.alpha=0;
 
 }

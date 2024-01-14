@@ -64,11 +64,11 @@ function manage_player_update(s, player) {
     
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
             PP.physics.set_velocity_y(player, -70);
-    
+            player.is_going_up_scala=true;
             next_anim = "go_up";
         } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
             PP.physics.set_velocity_y(player, 70);
-    
+            player.is_going_up_scala=false;
             next_anim = "go_down";
         }
       
@@ -81,9 +81,13 @@ function manage_player_update(s, player) {
         } else {
             PP.physics.set_velocity_x(player, 0);
             PP.physics.set_velocity_y(player, 0);
-            next_anim = "stoponscala";
+            if( !player.is_going_up_scala){
+                next_anim = "stoponscala"; //se il giocatore sta scendendo e si ferma
+            } else{
+                next_anim = "stopupscala"; //se il giocatore sta salendo e si ferma
+            }
         }
-         //chiedere come fare parrtire l'animazione stopupscala
+        
 
 
     } else if (player.is_on_scala_pioli) {

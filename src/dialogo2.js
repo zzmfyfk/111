@@ -51,7 +51,7 @@ function preload_dialogo2(s){
 
 function create_dialogo2(s,player){
 
-    mercante=PP.assets.image.add(s,img_mercante,1000,810,0,0);
+    mercante=PP.assets.image.add(s,img_mercante,6200,970,0,0);
     PP.physics.add(s,mercante,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,mercante,overlap_mercante);
 
@@ -59,31 +59,31 @@ function create_dialogo2(s,player){
         player.is_on_mercante=true;
     }
 
-    domande_mercante = PP.assets.image.add(s,img_domande,1030,790,0,0);
+    domande_mercante = PP.assets.image.add(s,img_domande,6230,950,0,0);
     domande_mercante.visibility.alpha = 0;
 
-    casella_mercante=PP.assets.image.add(s,img_casella_mercante,8,960,0,0);
+    casella_mercante=PP.assets.image.add(s,img_casella_mercante,5208,1100,0,0);
     casella_mercante.visibility.alpha=0;
 
-    casella_Zhu=PP.assets.image.add(s,img_casella_Zhu,8,960,0,0);
+    casella_Zhu=PP.assets.image.add(s,img_casella_Zhu,5208,1100,0,0);
     casella_Zhu.visibility.alpha=0;
 
-    tasto_A=PP.assets.image.add(s,img_tasto_A,1480,1100,0,0);
+    tasto_A=PP.assets.image.add(s,img_tasto_A,6600,1200,0,0);
     tasto_A.visibility.alpha=0;
 
-    testo1_mercante=PP.assets.image.add(s,img_testo1_mercante,790,988,0,0);
+    testo1_mercante=PP.assets.image.add(s,img_testo1_mercante,5990,1148,0,0);
     testo1_mercante.visibility.alpha=0;
-    testo2_mercante=PP.assets.image.add(s,img_testo2_mercante,790,988,0,0);
+    testo2_mercante=PP.assets.image.add(s,img_testo2_mercante,5990,1148,0,0);
     testo2_mercante.visibility.alpha=0;
-    testo3_mercante=PP.assets.image.add(s,img_testo3_mercante,790,988,0,0);
+    testo3_mercante=PP.assets.image.add(s,img_testo3_mercante,5990,1148,0,0);
     testo3_mercante.visibility.alpha=0;
 
 
-    opzione_original_Zhu=PP.assets.image.add(s,img_opzione_original_Zhu,790,988,0,0);
+    opzione_original_Zhu=PP.assets.image.add(s,img_opzione_original_Zhu,5990,1148,0,0);
     opzione_original_Zhu.visibility.alpha=0;
-    opzione_si_Zhu=PP.assets.image.add(s,img_opzione_si_Zhu,790,988,0,0);
+    opzione_si_Zhu=PP.assets.image.add(s,img_opzione_si_Zhu,5990,1148,0,0);
     opzione_si_Zhu.visibility.alpha=0;
-    opzione_no_Zhu=PP.assets.image.add(s,img_opzione_no_Zhu,790,988,0,0);
+    opzione_no_Zhu=PP.assets.image.add(s,img_opzione_no_Zhu,5990,1148,0,0);
     opzione_no_Zhu.visibility.alpha=0;
 
     ponte_ricostruito=PP.assets.image.add(s,img_ponte_ricostruito,0,0,0,0);
