@@ -57,6 +57,8 @@ function preload(s) {
     preload_cassa(s);
     preload_nuvola(s);
 
+    preload_lanterna(s);
+    
     preload_dialogo1(s);
     preload_dialogo2(s);
 
@@ -205,6 +207,8 @@ function create(s) {
     create_dialogo1(s, player);
 
     create_dialogo2(s, player);
+
+    create_lanterna(s, player, lanterna);
 
 
 
