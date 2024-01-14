@@ -1,11 +1,4 @@
-let img_giada_1;
-let img_giada_2;
-let img_giada_3;
-let img_giada_4;
-let img_giada_5;
-let img_giada_6;
-let img_giada_7;
-let img_giada_8;
+
 
 let giadaluce_1;
 let sprite_giada;
@@ -18,15 +11,7 @@ let giadaIcons = [];
 
 function preload_giada(s) {
     // Load delle immagini della giada
-    img_giada_1   = PP.assets.image.load(s, "assets/images/giada_1.png");
-    img_giada_2   = PP.assets.image.load(s, "assets/images/giada_2.png");
-    img_giada_3   = PP.assets.image.load(s, "assets/images/giada_3.png");
-    img_giada_4   = PP.assets.image.load(s, "assets/images/giada_4.png");
-    img_giada_5   = PP.assets.image.load(s, "assets/images/giada_5.png");
-    img_giada_6   = PP.assets.image.load(s, "assets/images/giada_6.png");
-    img_giada_7   = PP.assets.image.load(s, "assets/images/giada_7.png");
-    img_giada_8   = PP.assets.image.load(s, "assets/images/giada_8.png");
-
+ 
     img_giada_gray = PP.assets.image.load(s, "assets/images/giada0.png");
     img_giada_green = PP.assets.image.load(s, "assets/images/giada1.png");
 
@@ -69,57 +54,73 @@ function create_giada(s, player) {
 
         // creo la giada, la aggiungo alla fisica e imposto la funzione
         // di collisione
-        let giada_1 = PP.assets.image.add(s, img_giada_1, 1053, 228, 0, 0);
-        PP.physics.add(s, giada_1, PP.physics.type.STATIC);
-        PP.physics.add_overlap_f(s, player, giada_1, collision_giada);
+       
     
-        let giada_2 = PP.assets.image.add(s, img_giada_2, 1179, 900, 0, 0);
-        PP.physics.add(s, giada_2, PP.physics.type.STATIC);
-        PP.physics.add_overlap_f(s, player, giada_2, collision_giada);
-
-        let giada_3 = PP.assets.image.add(s, img_giada_3,1850, 1100, 0, 0);
-        PP.physics.add(s, giada_3, PP.physics.type.STATIC);
-        PP.physics.add_overlap_f(s, player, giada_3, collision_giada);
-
-        let giada_4 = PP.assets.image.add(s, img_giada_4, 1000, 900, 0, 0);
-        PP.physics.add(s, giada_4, PP.physics.type.STATIC);
-        PP.physics.add_overlap_f(s, player, giada_4, collision_giada);
-    
-        let giada_5 = PP.assets.image.add(s, img_giada_5, 900, 900, 0, 0);
-        PP.physics.add(s, giada_5, PP.physics.type.STATIC);
-        PP.physics.add_overlap_f(s, player, giada_5, collision_giada);
-
-        let giada_6 = PP.assets.image.add(s, img_giada_6, 1100, 900, 0, 0);
-        PP.physics.add(s, giada_6, PP.physics.type.STATIC);
-        PP.physics.add_overlap_f(s, player, giada_6, collision_giada);
-
-        let giada_7 = PP.assets.image.add(s, img_giada_7, 9500, 780, 0, 0);
-        PP.physics.add(s, giada_7, PP.physics.type.STATIC);
-        PP.physics.add_overlap_f(s, player, giada_7, collision_giada);
+  
 
 
     // Imposta giada_8 come l'ultima Giada
-        giada_7.isLastGiada = true;
+       
         
         //giada luminosa cassa
         giada_cassa = PP.assets.sprite.add(s,sprite_giada, 2300, 1150, 0.5, 1);
         PP.physics.add(s, giada_cassa, PP.physics.type.STATIC);
         PP.physics.set_collision_rectangle(giada_cassa, 21, 27, 39, 36); //rettangolo di collisione della cassa
-        
         PP.physics.add_overlap_f(s, player, giada_cassa, collision_giada);
-    
         PP.assets.sprite.animation_add(giada_cassa, "light", 0,3,4,-1);
         PP.assets.sprite.animation_play(giada_cassa, "light");
 
        //giada luminosa vaso
         giada_vaso = PP.assets.sprite.add(s,sprite_giada,  1161, 963, 0.5, 1);
         PP.physics.add(s, giada_vaso, PP.physics.type.STATIC);
-        PP.physics.set_collision_rectangle(giada_vaso, 21, 27, 39, 36); //rettangolo di collisione della cassa
-        
+        PP.physics.set_collision_rectangle(giada_vaso, 21, 27, 39, 36); 
         PP.physics.add_overlap_f(s, player, giada_vaso, collision_giada);
-    
         PP.assets.sprite.animation_add(giada_vaso, "light", 0,3,4,-1);
         PP.assets.sprite.animation_play(giada_vaso, "light");
+
+        giada_tetto1 = PP.assets.sprite.add(s,sprite_giada,  1053, 228, 0.5, 1);
+        PP.physics.add(s,  giada_tetto1, PP.physics.type.STATIC);
+        PP.physics.set_collision_rectangle( giada_tetto1, 21, 27, 39, 36); 
+        PP.physics.add_overlap_f(s, player,  giada_tetto1, collision_giada);
+        PP.assets.sprite.animation_add( giada_tetto1, "light", 0,3,4,-1);
+        PP.assets.sprite.animation_play( giada_tetto1, "light");
+
+        giada_ponte = PP.assets.sprite.add(s,sprite_giada,  2817, 516, 0.5, 1);
+        PP.physics.add(s,  giada_ponte, PP.physics.type.STATIC);
+        PP.physics.set_collision_rectangle( giada_ponte, 21, 27, 39, 36); 
+        PP.physics.add_overlap_f(s, player,  giada_ponte, collision_giada);
+        PP.assets.sprite.animation_add( giada_ponte, "light", 0,3,4,-1);
+        PP.assets.sprite.animation_play( giada_ponte, "light");
+
+        giada_lanterna = PP.assets.sprite.add(s,sprite_giada,  5586,700, 0.5, 1);
+        PP.physics.add(s,  giada_lanterna, PP.physics.type.STATIC);
+        PP.physics.set_collision_rectangle( giada_lanterna, 21, 27, 39, 36); 
+        PP.physics.add_overlap_f(s, player,  giada_lanterna, collision_giada);
+        PP.assets.sprite.animation_add( giada_lanterna, "light", 0,3,4,-1);
+        PP.assets.sprite.animation_play( giada_lanterna, "light");
+
+        giada_su = PP.assets.sprite.add(s,sprite_giada,  6219, 18, 0.5, 1);
+        PP.physics.add(s,  giada_su, PP.physics.type.STATIC);
+        PP.physics.set_collision_rectangle( giada_su, 21, 27, 39, 36); 
+        PP.physics.add_overlap_f(s, player,  giada_su, collision_giada);
+        PP.assets.sprite.animation_add( giada_su, "light", 0,3,4,-1);
+        PP.assets.sprite.animation_play( giada_su, "light");
+
+        giada_giu = PP.assets.sprite.add(s,sprite_giada, 6396, 390, 0.5, 1);
+        PP.physics.add(s,  giada_giu, PP.physics.type.STATIC);
+        PP.physics.set_collision_rectangle( giada_giu, 21, 27, 39, 36); 
+        PP.physics.add_overlap_f(s, player,  giada_giu, collision_giada);
+        PP.assets.sprite.animation_add( giada_giu, "light", 0,3,4,-1);
+        PP.assets.sprite.animation_play( giada_giu, "light");
+       
+        giada_piattaforma = PP.assets.sprite.add(s,sprite_giada,9624, 750, 0.5, 1);
+        PP.physics.add(s,  giada_piattaforma, PP.physics.type.STATIC);
+        PP.physics.set_collision_rectangle( giada_piattaforma, 21, 27, 39, 36); 
+        PP.physics.add_overlap_f(s, player,  giada_piattaforma, collision_giada);
+        PP.assets.sprite.animation_add( giada_piattaforma, "light", 0,3,4,-1);
+        PP.assets.sprite.animation_play( giada_piattaforma, "light");
+
+        giada_piattaforma.isLastGiada = true;
 
     for (let i = 0; i < 8; i++) {
         // 灰色图标
