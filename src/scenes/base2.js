@@ -55,7 +55,7 @@ function create(s) {
   
 
     ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, 0, 9000, 1590, 0, 0);
-    ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, -1500, 8, 9000, 1590, 0, 0);
+    ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0,0, 9000, 1590, 0, 0);
    
 
     // Disabilitiamo il tilesprite scroll factor per tutti i background (lo gestiremo manualmente)
@@ -65,7 +65,7 @@ function create(s) {
 
 
 
-    player = PP.assets.sprite.add(s, img_player, 100, 1359, 0.5, 1);
+    player = PP.assets.sprite.add(s, img_player, 2000, 1359, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -76,7 +76,7 @@ function create(s) {
 
 
     // Creiamo un pavimento "trasparente"
-    floor = PP.shapes.rectangle_add(s, 215, 1359, 430, 1, "0x000000", 0);
+    floor = PP.shapes.rectangle_add(s, 215, 1359, 430, 1, "0x000000", 0); 
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
 

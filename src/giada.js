@@ -25,12 +25,13 @@ function preload_giada(s) {
     img_giada_5   = PP.assets.image.load(s, "assets/images/giada_5.png");
     img_giada_6   = PP.assets.image.load(s, "assets/images/giada_6.png");
     img_giada_7   = PP.assets.image.load(s, "assets/images/giada_7.png");
-    img_giada_8 = PP.assets.image.load(s, "assets/images/giada_8.png");
+    img_giada_8   = PP.assets.image.load(s, "assets/images/giada_8.png");
+
     img_giada_gray = PP.assets.image.load(s, "assets/images/giada0.png");
     img_giada_green = PP.assets.image.load(s, "assets/images/giada1.png");
 
     sprite_giada = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_giada.png", 99, 99);
-
+   // sprite_giada_1 = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_giada.png", 99, 99);
 }
 
 function collision_giada(s, player, giada) {
@@ -99,15 +100,26 @@ function create_giada(s, player) {
 
     // Imposta giada_8 come l'ultima Giada
         giada_7.isLastGiada = true;
-        //giada luminosa 
-        giada = PP.assets.sprite.add(s,sprite_giada, 2300, 1150, 0.5, 1);
-        PP.physics.add(s, giada, PP.physics.type.STATIC);
-        PP.physics.set_collision_rectangle(giada, 21, 27, 39, 36); //rettangolo di collisione della cassa
         
-        PP.physics.add_overlap_f(s, player, giada, collision_giada);
+        //giada luminosa cassa
+        giada_cassa = PP.assets.sprite.add(s,sprite_giada, 2300, 1150, 0.5, 1);
+        PP.physics.add(s, giada_cassa, PP.physics.type.STATIC);
+        PP.physics.set_collision_rectangle(giada_cassa, 21, 27, 39, 36); //rettangolo di collisione della cassa
+        
+        PP.physics.add_overlap_f(s, player, giada_cassa, collision_giada);
     
-        PP.assets.sprite.animation_add(giada, "light", 0,3,4,-1);
-        PP.assets.sprite.animation_play(giada, "light");
+        PP.assets.sprite.animation_add(giada_cassa, "light", 0,3,4,-1);
+        PP.assets.sprite.animation_play(giada_cassa, "light");
+
+       //giada luminosa vaso
+        giada_vaso = PP.assets.sprite.add(s,sprite_giada,  1161, 963, 0.5, 1);
+        PP.physics.add(s, giada_vaso, PP.physics.type.STATIC);
+        PP.physics.set_collision_rectangle(giada_vaso, 21, 27, 39, 36); //rettangolo di collisione della cassa
+        
+        PP.physics.add_overlap_f(s, player, giada_vaso, collision_giada);
+    
+        PP.assets.sprite.animation_add(giada_vaso, "light", 0,3,4,-1);
+        PP.assets.sprite.animation_play(giada_vaso, "light");
 
     for (let i = 0; i < 8; i++) {
         // 灰色图标
