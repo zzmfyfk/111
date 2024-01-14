@@ -76,7 +76,7 @@ function create(s) {
 
 
     // Creiamo un pavimento "trasparente"
-    floor = PP.shapes.rectangle_add(s, 215, 1359, 430, 1, "0x000000", 0); 
+    floor = PP.shapes.rectangle_add(s, 300, 1359, 430, 1, "0x000000", 0); 
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
 
