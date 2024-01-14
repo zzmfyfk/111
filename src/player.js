@@ -103,7 +103,6 @@ function manage_player_update(s, player) {
 
             // if colida con end_scale
             if(player.is_on_fine_scala){
-                console.log("isOnFineScala")
                 next_anim = "stop";
             }
 
@@ -113,7 +112,7 @@ function manage_player_update(s, player) {
     } else if (PP.physics.get_velocity_y(player) > 0) {
         next_anim = "jump_down";
     }
-    console.log(player.is_on_scala_pioli, player.is_on_platform);
+    //console.log(player.is_on_scala_pioli, player.is_on_platform);
 
     player.is_on_scala = false;
     player.is_on_scala_pioli = false; 

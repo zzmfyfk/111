@@ -196,7 +196,7 @@ function create(s) {
   
     // collision_casse(s, player, cassa);
      
-     overlap_casse(s, player, cassaoverlap);
+    //overlap_casse(s, player, cassaoverlap);
      
     // configure_casse_animations(s, img_cassa);
  
@@ -275,6 +275,8 @@ function update(s) {
     update_dialogo1(s, player, genitori);
 
     update_dialogo2(s, player, mercante);
+
+    update_cassa(s, player);
 
 
 
