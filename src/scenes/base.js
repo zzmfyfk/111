@@ -192,7 +192,7 @@ function create(s) {
 
     create_punti_mortali(s, player);
 
-    collision_punti_mortali(s, player, lampione);
+    collision_punti_mortali(s, player);
     
     create_cassa(s, player, cassa);
   
@@ -281,6 +281,8 @@ function update(s) {
     update_dialogo2(s, player, mercante);
 
     update_cassa(s, player);
+
+    update_vaso(s, player);
 
 
 

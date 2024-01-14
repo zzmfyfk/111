@@ -1,16 +1,20 @@
 
+//In questo file troviamo gli elementi della cassa e del vaso da distruggere per guadagnare la gemma all'interno
+
 let sprite_cassa;
 let cassa;
 let cassaoverlap;
 
-let suggerimenti;
+let suggerimenti_cassa;
+let suggerimenti_vaso;
 let img_suggerimenti;
 
 
 function preload_cassa(s) {
     sprite_cassa = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_cassa.png", 168, 75);
-    img_suggerimenti=PP.assets.image.load(s,"assets/images/domande.png");
+    img_suggerimenti=PP.assets.image.load(s,"assets/images/tasto_A.png");
     sprite_vaso = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_vaso.png", 132, 78);
+    
 
 }
 
@@ -30,8 +34,9 @@ function create_cassa(s, player) {
     PP.assets.sprite.animation_add(cassa, "destroycassa", 0, 11, 6, 0);
     PP.assets.sprite.animation_play(cassa, "static");
 
-    suggerimenti = PP.assets.image.add(s,img_suggerimenti,2280,1050,0,0);
-    suggerimenti.visibility.alpha = 0;
+    suggerimenti_cassa = PP.assets.image.add(s,img_suggerimenti,2280,1050,0,0);
+    suggerimenti_cassa.visibility.alpha = 0;
+
     vasooverlap = PP.shapes.rectangle_add(s, 1161, 963, 180, 100, "0x000000", 0);
     PP.physics.add(s, vasooverlap, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, vasooverlap, overlap_vaso);
@@ -40,6 +45,9 @@ function create_cassa(s, player) {
     PP.physics.add(s, vaso, PP.physics.type.STATIC);
     PP.physics.set_collision_rectangle(vaso, 75, 69, 30, 10);
     PP.physics.add_overlap_f(s, player, vaso, overlap_vaso);
+
+    suggerimenti_vaso = PP.assets.image.add(s,img_suggerimenti,1145,860,0,0);
+    suggerimenti_vaso.visibility.alpha = 0;
 
     PP.physics.add_collider_f(s, player, vaso, collision_platform);
 
@@ -76,13 +84,15 @@ function collision_cassa(s, player, cassa) {
     }
 }
 
+//per far comparire e scomparire il suggerimento "A" quando sei vicino alla cassa:
+
 function update_cassa(s, player){
     if(player.is_near_cassa){
        
-        suggerimenti.visibility.alpha=1;
+        suggerimenti_cassa.visibility.alpha=1;
     }else{
         
-        suggerimenti.visibility.alpha=0;
+        suggerimenti_cassa.visibility.alpha=0;
     }
 
     player.is_near_cassa = false;
@@ -111,4 +121,19 @@ function collision_vaso(s, player, vaso) {
     } else {
         PP.assets.sprite.animation_play(vaso, "static");
     }
+}
+
+//per far comparire e scomparire il suggerimento "A" quando sei vicino al vaso:
+
+function update_vaso(s, player){
+    if(player.is_near_vaso){
+       
+        suggerimenti_vaso.visibility.alpha=1;
+    }else{
+        
+        suggerimenti_vaso.visibility.alpha=0;
+    }
+
+    player.is_near_vaso = false;
+
 }
