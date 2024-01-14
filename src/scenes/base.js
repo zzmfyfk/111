@@ -10,8 +10,6 @@ let ts_background_1;
 let mercante;
 let muroinvisibile;
 
-let levelTimer;
-
 let giadaCount = 0;
 let player;
 let floor;
@@ -89,12 +87,6 @@ function create(s) {
     // Inseriamo background e giocatore
     //  PP.assets.tilesprite.add(s, img_background, 0, 0, 9009, 1296, 0, 0);
 
-    // Create a 120-second timer
-    levelTimer = s.time.addEvent({
-        delay: 120000,                // 120 seconds in milliseconds
-        callback: endLevel,
-        callbackScope: s
-    });
 
     ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 100, 10800, 1800, 0, 0);
     ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 230, 10800, 1800, 0, 0);
@@ -256,10 +248,14 @@ function clicco_menu(s) {
     if (!is_menu_open) {
         menu_open.visibility.alpha = 1;
         is_menu_open = true;
+        player_speed=0;
+        jump_init_speed=0;
         console.log("ismenuOpen: ", is_menu_open);
     }else {
         menu_open.visibility.alpha = 0;
         is_menu_open = false;
+        player_speed=250;
+        jump_init_speed=200;
         console.log("ismenuOpen: ", is_menu_open);
     }
 }
