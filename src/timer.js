@@ -12,7 +12,7 @@
         function time_over(s) {
             if (PP.timers.getTime(s) > 120000) {
                 console.log("tempo scaduto");
-                PP.scenes.start("game_over");
+                PP.scenes.start("finale_negativo");
             }
         }
 

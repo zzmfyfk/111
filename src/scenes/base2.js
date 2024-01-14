@@ -30,7 +30,6 @@ function preload(s) {
   
     preload_player(s);
     preload_giada(s);
-    preload_barca(s);
   
 
 }
@@ -115,7 +114,6 @@ function create(s) {
     
     create_personaggi (s,player);
 
-    create_barca (s, player);
     //mercante overlap   
     
 
@@ -156,7 +154,7 @@ function update(s) {
    // manage_player_weapon(s, player);    // Gestione armi
     //manage_player_weapon(s, player);    // Gestione armi
 
-    update_barca(s);
+ 
     
 
     // Aggiorno il punteggio visualizzato:

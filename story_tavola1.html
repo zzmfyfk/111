@@ -64,8 +64,12 @@
     <script>
       //questo script serve a far partire la pagina successiva toccando un qualsiasi tasto
       document.addEventListener('keydown', function(event) {
+        if (event.keyCode === 39) {
+        // Se è la freccia destra, esegui il reindirizzamento
           window.location.href = document.getElementById('tavola_2').href;
+      }
       });
+      
   </script>
         
 </body>
