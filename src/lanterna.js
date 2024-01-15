@@ -8,11 +8,11 @@ function preload_lanterna(s) {
 }
 
 function create_lanterna(s, player) {
-    lanternaoverlap = PP.shapes.rectangle_add(s, 700, 950, 100, 100, "0x000000", 0);
+    lanternaoverlap = PP.shapes.rectangle_add(s, 900, 950, 100, 100, "0x000000", 0);
     PP.physics.add(s, lanternaoverlap, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, lanternaoverlap, overlap_lanterna);
 
-    lanterna = PP.assets.sprite.add(s, sprite_lanterna, 700, 950, 0.5, 1);
+    lanterna = PP.assets.sprite.add(s, sprite_lanterna, 900, 950, 0.5, 1);
     PP.physics.add(s, lanterna, PP.physics.type.STATIC);
     PP.physics.set_collision_rectangle(lanterna, 66, 48, 1, 14);
     PP.physics.add_overlap_f(s, player, lanterna, overlap_lanterna);

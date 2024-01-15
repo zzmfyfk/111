@@ -35,7 +35,7 @@ function create_barca(s, player) {
 
     // Riduco i collision boundaries in modo che
     // l'erba non causi un "innalzamento" del giocatore
-    PP.physics.set_collision_rectangle(barca, 348, 50, 0, 30);
+    PP.physics.set_collision_rectangle(barca, 270, 54, 0, 20);
 
 }
 
@@ -45,12 +45,12 @@ function update_barca(s) {
     // caso in cui si trovi al limite destro o il limite sinistro
     // scelto (800 - 1200)
 
-    if(barca.geometry.x >= 8631) {
-        PP.physics.set_velocity_x(barca, -100);
+    if(barca.geometry.x >= 8700) {
+        PP.physics.set_velocity_x(barca, -120);
         barca.geometry.flip_x = false; //flippa la barca
         }
     else if(barca.geometry.x <= 8043) {
-        PP.physics.set_velocity_x(barca, 100);
+        PP.physics.set_velocity_x(barca, 120);
         barca.geometry.flip_x = true;
     }
 

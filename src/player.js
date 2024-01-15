@@ -64,11 +64,11 @@ function manage_player_update(s, player) {
     
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
             PP.physics.set_velocity_y(player, -70);
-    
+            player.is_going_up_scala=true;
             next_anim = "go_up";
         } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
             PP.physics.set_velocity_y(player, 70);
-    
+            player.is_going_up_scala=false;
             next_anim = "go_down";
         }
       
@@ -78,12 +78,27 @@ function manage_player_update(s, player) {
         } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
             PP.physics.set_velocity_x(player, -player_speed);
             next_anim = "run";
+            
+        }else if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)&&player.is_on_fine_scala_2) {
+            PP.physics.set_velocity_y(player, -jump_init_speed);
+            if (PP.physics.get_velocity_y(player) < 0) {
+                next_anim = "jump_up";
+            } else if (PP.physics.get_velocity_y(player) > 0) {
+                next_anim = "jump_down";
+            }
         } else {
             PP.physics.set_velocity_x(player, 0);
             PP.physics.set_velocity_y(player, 0);
-            next_anim = "stoponscala";
+            if( !player.is_going_up_scala){
+                next_anim = "stoponscala"; //se il giocatore sta scendendo e si ferma
+            } else{
+                next_anim = "stopupscala"; //se il giocatore sta salendo e si ferma
+            }
+            if(player.is_on_fine_scala_2){
+                next_anim = "stop";
+            }
         }
-         //chiedere come fare parrtire l'animazione stopupscala
+        
 
 
     } else if (player.is_on_scala_pioli) {
@@ -97,7 +112,14 @@ function manage_player_update(s, player) {
             PP.physics.set_velocity_y(player, 70);
             player.is_climbing = true;    
             next_anim = "climb";
-        } else if(player.is_climbing) {
+        } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)&&player.is_on_fine_scala) {
+            PP.physics.set_velocity_y(player, -jump_init_speed);
+            if (PP.physics.get_velocity_y(player) < 0) {
+                next_anim = "jump_up";
+            } else if (PP.physics.get_velocity_y(player) > 0) {
+                next_anim = "jump_down";
+            }
+        }else if(player.is_climbing) {
             PP.physics.set_velocity_y(player, 0);
             next_anim = "climbstop";
 
@@ -118,6 +140,7 @@ function manage_player_update(s, player) {
     player.is_on_scala_pioli = false; 
     player.is_on_platform = false;
     player.is_on_fine_scala = false;
+    player.is_on_fine_scala_2 = false;
  
     if(player.is_on_barca) {
         // Se mi trovo sul pavimento OPPURE su una piattaforma...
