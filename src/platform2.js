@@ -2,6 +2,7 @@ let platformacqua_1;
 let platformacqua_2;
 let platformacqua_3;
 let scale;
+let acqua;
 
 function preload_platform(s) {
     
@@ -71,9 +72,23 @@ function collision_platform(s,player, platform) {
     PP.physics.add(s, scale, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, scale, collision_platform);
 
+    acqua = PP.shapes.rectangle_add(s,1000, 1500, 20000, 0, "0x008000", 0);
+    PP.physics.add(s, acqua, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, acqua, collision_punti_mortali);
+}
 
-    }
 
+
+    
+
+function collision_punti_mortali(s,player,fondo) {
+    console.log("collisione mortale")
+    //qui è da inserire un animazione o qualcosa che fa capire che sei "morta" !!
+    
+    //ora riporto il giocatore al punto iniziale
+    player.geometry.x=936;
+    player.geometry.y=950;
+}
 
 
 
