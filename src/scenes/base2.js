@@ -29,13 +29,13 @@ function preload(s) {
     img_background_2_2  = PP.assets.image.load(s, "assets/images/parallax/background_2_2.png");
   
     preload_player(s);
-<<<<<<< HEAD
+
 
     preload_barca(s);
     preload_frammenti(s);
-=======
-    preload_giada(s);
->>>>>>> f014d3b05d933c001742ba878d22bda38ef4dccc
+
+  
+
   
 
 }
@@ -120,12 +120,10 @@ function create(s) {
     
     create_personaggi (s,player);
 
-<<<<<<< HEAD
   
 
     create_frammenti (s, player);
-=======
->>>>>>> f014d3b05d933c001742ba878d22bda38ef4dccc
+
     //mercante overlap   
     
 
