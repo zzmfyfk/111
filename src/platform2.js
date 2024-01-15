@@ -42,12 +42,35 @@ function collision_platform(s,player, platform) {
  
     
     
-    //gradini che salgono delle scale del ponte
-    scale =  PP.shapes.rectangle_add(s, 4506, 1353, 114, 30, "0x000000", 0);
+    //gradini scale del ponte
+    scale =  PP.shapes.rectangle_add(s, 4563, 1368, 114, 30, "0x000000", 0); // primo scalino salendo a sx
     PP.physics.add(s, scale, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, scale, collision_platform);
-  
-    
+    scale =  PP.shapes.rectangle_add(s, 4675.5, 1335, 111, 36, "0x000000", 0); // secondo scalino salendo a sx
+    PP.physics.add(s, scale, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, scale, collision_platform);
+    scale =  PP.shapes.rectangle_add(s, 4786.5, 1299, 111, 36, "0x000000", 0); // terzo scalino salendo a sx
+    PP.physics.add(s, scale, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, scale, collision_platform);
+    scale =  PP.shapes.rectangle_add(s, 4897.5, 1263, 111, 36, "0x000000", 0); // quarto scalino salendo a sx
+    PP.physics.add(s, scale, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, scale, collision_platform);
+    scale =  PP.shapes.rectangle_add(s, 5389.5, 1227, 873, 36, "0x000000", 0); // scalino lungo al centro
+    PP.physics.add(s, scale, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, scale, collision_platform);
+    scale =  PP.shapes.rectangle_add(s, 5881.5, 1263, 111, 36, "0x000000", 0); // primo scalino scendendo a dx
+    PP.physics.add(s, scale, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, scale, collision_platform);
+    scale =  PP.shapes.rectangle_add(s, 5992.5, 1299, 111, 36, "0x000000", 0); // secondo scalino scendendo a dx
+    PP.physics.add(s, scale, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, scale, collision_platform);
+    scale =  PP.shapes.rectangle_add(s, 6103.5, 1335, 111, 36, "0x000000", 0); // terzo scalino scendendo a dx
+    PP.physics.add(s, scale, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, scale, collision_platform);
+    scale =  PP.shapes.rectangle_add(s, 6216, 1368, 114, 30, "0x000000", 0); // quarto scalino scendendo a dx
+    PP.physics.add(s, scale, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, scale, collision_platform);
+
 
     }
 

@@ -76,11 +76,11 @@ function create(s) {
 
 
     // Creiamo un pavimento "trasparente"
-    floor = PP.shapes.rectangle_add(s, 215, 1359, 430, 1, "0x000000", 0); 
+    floor = PP.shapes.rectangle_add(s, 1351.5, 1350.5, 1209, 1, "0x000000", 0); // prima piattaforma
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
 
-    floor_1 = PP.shapes.rectangle_add(s,5196, 1383, 7608, 1, "0x008000", 0);
+    floor_1 = PP.shapes.rectangle_add(s,6688.5, 1383.5, 7677, 1, "0x008000", 0); // da rocce in poi
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
 
@@ -90,14 +90,7 @@ function create(s) {
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
 
-    floor_2 = PP.shapes.rectangle_add(s,3885, 1131, 990, 1, "0x008000", 0);
-    // Aggiungiamo il pavimento alla fisica come entità statica
-    PP.physics.add(s, floor_2, PP.physics.type.STATIC); 
-
-    // Creiamo un collider tra pavimento e giocatore
-    PP.physics.add_collider_f(s, player, floor_2, collision_floor);
-
-    floor_3 = PP.shapes.rectangle_add(s,8560, 828, 879, 1, "0x008000", 0);
+    floor_3 = PP.shapes.rectangle_add(s,2382, 1428.5, 882, 1, "0x008000", 0); //supporto per non cadere tra prima piattaforma e rocce (sarà da togliere)
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_3, PP.physics.type.STATIC); 
 
