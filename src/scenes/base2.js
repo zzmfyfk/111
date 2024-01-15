@@ -21,7 +21,7 @@ function preload(s) {
 
     // Carichiamo gli asset grafici
    // img_background = PP.assets.image.load(s, "assets/images/background.png");
-    img_player     = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_player.png", 96, 147);
+   img_player = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_player.png", 99, 150);
    
 
     
@@ -29,9 +29,13 @@ function preload(s) {
     img_background_2_2  = PP.assets.image.load(s, "assets/images/parallax/background_2_2.png");
   
     preload_player(s);
+<<<<<<< HEAD
 
     preload_barca(s);
     preload_frammenti(s);
+=======
+    preload_giada(s);
+>>>>>>> f014d3b05d933c001742ba878d22bda38ef4dccc
   
 
 }
@@ -116,9 +120,12 @@ function create(s) {
     
     create_personaggi (s,player);
 
-    create_barca (s, player);
+<<<<<<< HEAD
+  
 
     create_frammenti (s, player);
+=======
+>>>>>>> f014d3b05d933c001742ba878d22bda38ef4dccc
     //mercante overlap   
     
 
@@ -159,7 +166,7 @@ function update(s) {
    // manage_player_weapon(s, player);    // Gestione armi
     //manage_player_weapon(s, player);    // Gestione armi
 
-    update_barca(s);
+ 
     
 
     // Aggiorno il punteggio visualizzato:
