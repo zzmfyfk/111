@@ -12,19 +12,19 @@ function preload_platform(s) {
 
 function create_platform(s, player) {
 
-    platformacqua_1 =  PP.shapes.rectangle_add(s, 600, 1365, 120,60, "0x000000", 0);
+    platformacqua_1 =  PP.shapes.rectangle_add(s, 2059.5, 1456.5, 97, 63, "0x000000", 0); // prima ninfea
     PP.physics.add(s, platformacqua_1, PP.physics.type.STATIC); 
    // PP.physics.add_collider(s, player, platformacqua_1);
     //collisione per far saltare
    PP.physics.add_collider_f(s, player, platformacqua_1, collision_platform);
     
 
-    platformacqua_2 =  PP.shapes.rectangle_add(s, 900, 1365, 120,60, "0x000000", 0);
+    platformacqua_2 =  PP.shapes.rectangle_add(s, 2341.5, 1456.5, 103, 63, "0x000000", 0); // seconda ninfea
     PP.physics.add(s, platformacqua_2, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, platformacqua_2, collision_platform);
     
 
-    platformacqua_3 =  PP.shapes.rectangle_add(s, 1200, 1365, 120,60, "0x000000", 0);
+    platformacqua_3 =  PP.shapes.rectangle_add(s, 2611.5, 1456.5, 97, 63, "0x000000", 0); // terza ninfea
     PP.physics.add(s, platformacqua_3, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, platformacqua_3, collision_platform);
     
@@ -72,7 +72,7 @@ function collision_platform(s,player, platform) {
     PP.physics.add(s, scale, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, scale, collision_platform);
 
-    acqua = PP.shapes.rectangle_add(s,1000, 1500, 20000, 0, "0x008000", 0);
+    acqua = PP.shapes.rectangle_add(s,1000, 1570, 20000, 0, "0x008000", 0);
     PP.physics.add(s, acqua, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, acqua, collision_punti_mortali);
 }
