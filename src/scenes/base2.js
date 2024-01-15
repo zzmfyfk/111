@@ -29,8 +29,9 @@ function preload(s) {
     img_background_2_2  = PP.assets.image.load(s, "assets/images/parallax/background_2_2.png");
   
     preload_player(s);
-    preload_giada(s);
+
     preload_barca(s);
+    preload_frammenti(s);
   
 
 }
@@ -109,13 +110,15 @@ function create(s) {
 
     configure_player_animations(s, player); // Impostazione animazioni giocatore
 
-    create_giada(s, player);            // Creazione funghetti
+            // Creazione funghetti
 
     create_platform(s, player);
     
     create_personaggi (s,player);
 
     create_barca (s, player);
+
+    create_frammenti (s, player);
     //mercante overlap   
     
 
@@ -151,7 +154,7 @@ function update(s) {
 
     manage_player_update(s, player);    // Posizione del giocatore e animazioni
 
-    update_giada(s);                // Azioni funghetti
+    update_frammenti(s);                // Azioni funghetti
 
    // manage_player_weapon(s, player);    // Gestione armi
     //manage_player_weapon(s, player);    // Gestione armi
