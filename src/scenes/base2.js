@@ -19,6 +19,16 @@ let txt_score;
 let img_pavimentazione_e_ponte_2;
 let is_menu_open = false;
 
+let frammento;
+let frammenti;
+let frammento_1;
+let frammento_2;
+let frammento_3;
+let frammento_4;
+let frammento_5;
+let frammento_6;
+let frammento_7;
+
 let menu_open;
 
 let img_book_icon;
@@ -82,7 +92,7 @@ function create(s) {
     ts_background_1_2.tile_geometry.scroll_factor_x = 0;
     //ts_pavimentazione_e_ponte_2.tile_geometry.scroll_factor_x = 0;
 
-    player = PP.assets.sprite.add(s, img_player, 2000, 1359, 0.5, 1);
+    player = PP.assets.sprite.add(s, img_player, 1500, 1370, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -157,14 +167,16 @@ function create(s) {
     
     create_personaggi (s,player);
 
-  
+    //overlap_frammenti(s, player, frammento_1);
 
     create_frammenti (s, player);
 
     //mercante overlap   
     
 
-
+    //collision_frammenti (s, player, frammento);
+    collision_frammento1(s, player, frammento_1);
+   
     
 
 
@@ -197,11 +209,14 @@ function update(s) {
 
     manage_player_update(s, player);    // Posizione del giocatore e animazioni
 
-    update_frammenti(s);                // Azioni funghetti
-
-   // manage_player_weapon(s, player);    // Gestione armi
-    //manage_player_weapon(s, player);    // Gestione armi
-
+    //update_frammenti (s, frammenti);               // Azioni funghetti
+    update_frammento1(s, player);
+    update_frammento2(s, player);
+    update_frammento3(s, player);
+    update_frammento4(s, player);
+    update_frammento5(s, player);
+    update_frammento6(s, player);
+    update_frammento7(s, player);
  
     
 
