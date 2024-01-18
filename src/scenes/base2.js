@@ -118,12 +118,13 @@ function create(s) {
 
     create_platform(s, player);
     
-    create_personaggi (s,player);
+   // create_personaggi (s,player);
 
-  
+    //overlap_frammento1(s, player, frammento_1);
 
     create_frammenti (s, player);
 
+    collision_frammenti (s, player, frammento_1);
     //mercante overlap   
     
 
@@ -158,8 +159,8 @@ function update(s) {
     // Azioni che vengono eseguite a ogni frame del gioco
 
     manage_player_update(s, player);    // Posizione del giocatore e animazioni
-
-    update_frammenti(s);                // Azioni funghetti
+    update_frammento1 (s, player);
+   // update_frammenti(s);                // Azioni funghetti
 
    // manage_player_weapon(s, player);    // Gestione armi
     //manage_player_weapon(s, player);    // Gestione armi
