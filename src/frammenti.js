@@ -49,9 +49,12 @@ function collision_giada(s, player, frammento) {
     let prev_score = PP.gameState.get_variable("score");
     PP.gameState.set_variable("score", prev_score + 10);
 
-
-
+    redirectToLiangIfScoreIsHighEnough(prev_score + 10);
 }
+
+
+
+
 
 
 function updateFraIcons(score) {
@@ -219,4 +222,11 @@ function collision_frammenti(s, player, frammento) {
 
 function update_frammenti(s) {
     // Nothing to do...
+}
+
+function redirectToLiangIfScoreIsHighEnough(score) {
+    if (score >= 70) {
+        // 执行跳转到 'liang.html'
+        window.location.href = 'liang.html';
+    }
 }

@@ -17,6 +17,13 @@ let floor_2;
 let floor_3;
 let txt_score;
 let img_pavimentazione_e_ponte_2;
+let is_menu_open = false;
+
+let menu_open;
+
+let img_book_icon;
+let img_book_open;
+let img_timer_icon;
 
 function preload(s) {
     console.log("Executing preload() - SCENE");
@@ -75,7 +82,7 @@ function create(s) {
     ts_background_1_2.tile_geometry.scroll_factor_x = 0;
     //ts_pavimentazione_e_ponte_2.tile_geometry.scroll_factor_x = 0;
 
-    player = PP.assets.sprite.add(s, img_player, 1500, 1395, 0.5, 1);
+    player = PP.assets.sprite.add(s, img_player, 2000, 1359, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -88,6 +95,7 @@ function create(s) {
     let layer_1 = PP.layers.create(s);
     PP.layers.add_to_layer(layer_1, pavimentazione_e_ponte_2);
     PP.layers.set_z_index(layer_1, 2);
+
 
 
 
@@ -129,13 +137,12 @@ function create(s) {
 
     create_platform(s, player);
     
-   // create_personaggi (s,player);
+    create_personaggi (s,player);
 
-    //overlap_frammento1(s, player, frammento_1);
+  
 
     create_frammenti (s, player);
 
-    collision_frammenti (s, player, frammento_1);
     //mercante overlap   
     
 
@@ -151,6 +158,7 @@ function create(s) {
     // con la camera (essendo HUD deve rimanere fisso)
     txt_score.tile_geometry.scroll_factor_x = 0;
     txt_score.tile_geometry.scroll_factor_y = 0;
+    txt_score.ph_obj.setVisible(false);
 
     // Impostiamo la camera che segua il giocatore
     PP.camera.start_follow(s, player, 0, 220);
@@ -170,8 +178,8 @@ function update(s) {
     // Azioni che vengono eseguite a ogni frame del gioco
 
     manage_player_update(s, player);    // Posizione del giocatore e animazioni
-    update_frammento1 (s, player);
-   // update_frammenti(s);                // Azioni funghetti
+
+    update_frammenti(s);                // Azioni funghetti
 
    // manage_player_weapon(s, player);    // Gestione armi
     //manage_player_weapon(s, player);    // Gestione armi
