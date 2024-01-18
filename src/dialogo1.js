@@ -12,7 +12,7 @@ function preload_dialogo1(s){
     
     img_genitori=PP.assets.image.load(s,"assets/images/genitori.png");
     img_casella_genitori=PP.assets.image.load(s,"assets/images/casella_genitori.png");
-    img_domande=PP.assets.image.load(s,"assets/images/domande.png");
+    img_domande=PP.assets.image.load(s,"assets/images/tasto_A.png");
     img_testo_genitori=PP.assets.image.load(s,"assets/images/testo_genitori.png");
 
 }
@@ -27,7 +27,7 @@ function create_dialogo1(s,player){
         player.is_on_genitori=true;
     }
 
-    domande = PP.assets.image.add(s,img_domande,533,790,0,0);
+    domande = PP.assets.image.add(s,img_domande,540,780,0,0);
     domande.visibility.alpha = 0;
 
     casella_genitori=PP.assets.image.add(s,img_casella_genitori,-500,939,0,0);

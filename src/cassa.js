@@ -34,7 +34,7 @@ function create_cassa(s, player) {
     PP.assets.sprite.animation_add(cassa, "destroycassa", 0, 11, 6, 0);
     PP.assets.sprite.animation_play(cassa, "static");
 
-    suggerimenti_cassa = PP.assets.image.add(s,img_suggerimenti,2280,1050,0,0);
+    suggerimenti_cassa = PP.assets.image.add(s,img_suggerimenti,2290,1050,0,0);
     suggerimenti_cassa.visibility.alpha = 0;
 
     vasooverlap = PP.shapes.rectangle_add(s, 1161, 963, 180, 100, "0x000000", 0);
@@ -46,7 +46,7 @@ function create_cassa(s, player) {
     PP.physics.set_collision_rectangle(vaso, 75, 69, 30, 10);
     PP.physics.add_overlap_f(s, player, vaso, overlap_vaso);
 
-    suggerimenti_vaso = PP.assets.image.add(s,img_suggerimenti,1145,860,0,0);
+    suggerimenti_vaso = PP.assets.image.add(s,img_suggerimenti,1148,860,0,0);
     suggerimenti_vaso.visibility.alpha = 0;
 
     PP.physics.add_collider_f(s, player, vaso, collision_platform);

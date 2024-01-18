@@ -5,6 +5,7 @@ let img_background_1_2;
 
 let ts_background_2_2;
 let ts_background_1_2;
+let pavimentazione_e_ponte_2;
 let mercante;
 
 
@@ -15,6 +16,7 @@ let floor_1;
 let floor_2;
 let floor_3;
 let txt_score;
+let img_pavimentazione_e_ponte_2;
 
 function preload(s) {
     console.log("Executing preload() - SCENE");
@@ -27,6 +29,8 @@ function preload(s) {
     
     img_background_1_2 = PP.assets.image.load(s, "assets/images/parallax/background_1_2.png");
     img_background_2_2  = PP.assets.image.load(s, "assets/images/parallax/background_2_2.png");
+
+    img_pavimentazione_e_ponte_2  = PP.assets.image.load(s, "assets/images/parallax/pavimentazione_e_ponte_2.png");
   
     preload_player(s);
 
@@ -61,14 +65,15 @@ function create(s) {
 
     ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, 0, 9000, 1590, 0, 0);
     ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0,0, 9000, 1590, 0, 0);
+
+    pavimentazione_e_ponte_2 = PP.assets.image.add(s, img_pavimentazione_e_ponte_2, 0, 0, 0, 0);
    
 
     // Disabilitiamo il tilesprite scroll factor per tutti i background (lo gestiremo manualmente)
 
     ts_background_2_2.tile_geometry.scroll_factor_x = 0;
     ts_background_1_2.tile_geometry.scroll_factor_x = 0;
-
-
+    //ts_pavimentazione_e_ponte_2.tile_geometry.scroll_factor_x = 0;
 
     player = PP.assets.sprite.add(s, img_player, 2000, 1359, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
@@ -78,36 +83,42 @@ function create(s) {
     let layer_player = PP.layers.create(s);
     PP.layers.add_to_layer(layer_player, player);
     PP.layers.set_z_index(layer_player, 1);
+    
+    //creo un altro livello per ciò che deve stare in primo piano rispetto al player
+    let layer_1 = PP.layers.create(s);
+    PP.layers.add_to_layer(layer_1, pavimentazione_e_ponte_2);
+    PP.layers.set_z_index(layer_1, 2);
+
+
+
+    
 
 
     // Creiamo un pavimento "trasparente"
-    floor = PP.shapes.rectangle_add(s, 300, 1359, 430, 1, "0x000000", 0); 
+
+    floor = PP.shapes.rectangle_add(s, 1219.5, 1392.5, 1209, 1, "0x000000", 0); // prima piattaforma
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
-
-    floor_1 = PP.shapes.rectangle_add(s,5196, 1383, 7608, 1, "0x008000", 0);
-    // Aggiungiamo il pavimento alla fisica come entità statica
-    PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
-
     // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
+    floor = PP.shapes.rectangle_add(s, 1840.5, 1401.5, 33, 1, "0x000000", 0); // prima piattaformina
+    // Aggiungiamo il pavimento alla fisica come entità statica
+    PP.physics.add(s, floor, PP.physics.type.STATIC);
+    // Creiamo un collider tra pavimento e giocatore
+    PP.physics.add_collider_f(s, player, floor, collision_floor);
+
+    floor = PP.shapes.rectangle_add(s, 1872.5, 1413.5, 33, 1, "0x000000", 0); // seconda piattaformina
+    // Aggiungiamo il pavimento alla fisica come entità statica
+    PP.physics.add(s, floor, PP.physics.type.STATIC);
+    // Creiamo un collider tra pavimento e giocatore
+    PP.physics.add_collider_f(s, player, floor, collision_floor);
+
+    floor_1 = PP.shapes.rectangle_add(s,6688.5, 1383.5, 7677, 1, "0x008000", 0); // da rocce in poi
+    // Aggiungiamo il pavimento alla fisica come entità statica
+    PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
+    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
-
-
-    floor_2 = PP.shapes.rectangle_add(s,3885, 1131, 990, 1, "0x008000", 0);
-    // Aggiungiamo il pavimento alla fisica come entità statica
-    PP.physics.add(s, floor_2, PP.physics.type.STATIC); 
-
-    // Creiamo un collider tra pavimento e giocatore
-    PP.physics.add_collider_f(s, player, floor_2, collision_floor);
-
-    floor_3 = PP.shapes.rectangle_add(s,8560, 828, 879, 1, "0x008000", 0);
-    // Aggiungiamo il pavimento alla fisica come entità statica
-    PP.physics.add(s, floor_3, PP.physics.type.STATIC); 
-
-    // Creiamo un collider tra pavimento e giocatore
-    PP.physics.add_collider_f(s, player, floor_3, collision_floor);
 
     
 

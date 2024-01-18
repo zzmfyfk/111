@@ -36,8 +36,8 @@ function preload_dialogo2(s){
     img_casella_mercante = PP.assets.image.load(s,"assets/images/casella_mercante.png");
     img_casella_Zhu = PP.assets.image.load(s,"assets/images/casella_zhu.png");
 
-    img_domande_mercante = PP.assets.image.load(s,"assets/images/domande_mercante.png");
-    img_tasto_A = PP.assets.image.load(s,"assets/images/tasto_A.png");
+    img_domande_mercante = PP.assets.image.load(s,"assets/images/tasto_A.png");
+    img_tasto_A = PP.assets.image.load(s,"assets/images/tasto_A_dialoghi.png");
 
     img_testo1_mercante = PP.assets.image.load(s,"assets/images/testo1_mercante.png");
     img_testo2_mercante = PP.assets.image.load(s,"assets/images/testo2_mercante.png");
@@ -59,7 +59,7 @@ function create_dialogo2(s,player){
         player.is_on_mercante=true;
     }
 
-    domande_mercante = PP.assets.image.add(s,img_domande,6230,950,0,0);
+    domande_mercante = PP.assets.image.add(s,img_domande,6240,941,0,0);
     domande_mercante.visibility.alpha = 0;
 
     casella_mercante=PP.assets.image.add(s,img_casella_mercante,5208,1100,0,0);
