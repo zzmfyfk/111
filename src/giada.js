@@ -16,7 +16,7 @@ function preload_giada(s) {
     img_giada_green = PP.assets.image.load(s, "assets/images/giada1.png");
 
     sprite_giada = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_giada.png", 99, 99);
-   // sprite_giada_1 = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_giada.png", 99, 99);
+  
 }
 
 function collision_giada(s, player, giada) {
