@@ -25,7 +25,7 @@ function create_barca(s, player) {
    // PP.physics.add_collider_f(s, player, barca, collision_barca);
 
     // Piattaforma mobile
-    barca = PP.assets.image.add(s, img_barca, 8043, 827, 0, 0);
+    barca = PP.assets.image.add(s, img_barca, 8043, 858, 0, 0);
     PP.physics.add(s, barca, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(barca, true);
     PP.physics.set_allow_gravity(barca, false);    
@@ -41,7 +41,7 @@ function create_barca(s, player) {
 
 function update_barca(s) {
 
-    // Aggiorno la velocita' della piattaforma mobile nels
+    // Aggiorno la velocita' della piattaforma mobile nel
     // caso in cui si trovi al limite destro o il limite sinistro
     // scelto (800 - 1200)
 
