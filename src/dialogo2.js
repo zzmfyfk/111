@@ -2,18 +2,18 @@ let img_mercante;
 let img_casella_mercante;
 let img_casella_Zhu;
 
-let img_domande_mercante;
+let img_suggerimento_A_dialogo2;
 let img_testo1_mercante;
 let img_testo2_mercante;
 let img_testo3_mercante;
-let img_tasto_A;
+let img_continua_A_dialogo2;
 let img_opzione_original_Zhu;
 let img_opzione_si_Zhu;
 let img_opzione_no_Zhu;
 
 
 
-let tasto_A;
+let continua_A_dialogo2;
 let casella_mercante;
 let casella_Zhu;
 
@@ -25,11 +25,9 @@ let opzione_si_Zhu;
 let opzione_no_Zhu;
 
 
-let domande_mercante;
+let suggerimento_A_dialogo2;
 let mercante;
 let ponte_ricostruito;
-let img_ponte_ricostruito_primopiano;
-let ponte_ricostruito_primopiano;
 let piattaforma_ponte;
 
 function preload_dialogo2(s){
@@ -38,8 +36,8 @@ function preload_dialogo2(s){
     img_casella_mercante = PP.assets.image.load(s,"assets/images/casella_mercante.png");
     img_casella_Zhu = PP.assets.image.load(s,"assets/images/casella_zhu.png");
 
-    img_domande_mercante = PP.assets.image.load(s,"assets/images/tasto_A.png");
-    img_tasto_A = PP.assets.image.load(s,"assets/images/tasto_A_dialoghi.png");
+    img_suggerimento_A_dialogo2 = PP.assets.image.load(s,"assets/images/tasto_A.png");
+    img_continua_A_dialogo2 = PP.assets.image.load(s,"assets/images/continua_A.png");
 
     img_testo1_mercante = PP.assets.image.load(s,"assets/images/testo1_mercante.png");
     img_testo2_mercante = PP.assets.image.load(s,"assets/images/testo2_mercante.png");
@@ -49,7 +47,6 @@ function preload_dialogo2(s){
     img_opzione_si_Zhu = PP.assets.image.load(s,"assets/images/opzione_si_Zhu.png");
     img_opzione_no_Zhu = PP.assets.image.load(s,"assets/images/opzione_no_Zhu.png");
     img_ponte_ricostruito=PP.assets.image.load(s,"assets/images/ponte_ricostruito.png");
-    img_ponte_ricostruito_primopiano=PP.assets.image.load(s,"assets/images/ponte_ricostruito_primo piano.png");
 }
 
 function create_dialogo2(s,player){
@@ -62,8 +59,8 @@ function create_dialogo2(s,player){
         player.is_on_mercante=true;
     }
 
-    domande_mercante = PP.assets.image.add(s,img_domande,6240,941,0,0);
-    domande_mercante.visibility.alpha = 0;
+    suggerimento_A_dialogo2 = PP.assets.image.add(s,img_suggerimento_A_dialogo2,6230,950,0,0);
+    suggerimento_A_dialogo2.visibility.alpha = 0;
 
     casella_mercante=PP.assets.image.add(s,img_casella_mercante,5208,1100,0,0);
     casella_mercante.visibility.alpha=0;
@@ -71,8 +68,8 @@ function create_dialogo2(s,player){
     casella_Zhu=PP.assets.image.add(s,img_casella_Zhu,5208,1100,0,0);
     casella_Zhu.visibility.alpha=0;
 
-    tasto_A=PP.assets.image.add(s,img_tasto_A,6600,1200,0,0);
-    tasto_A.visibility.alpha=0;
+    continua_A_dialogo2=PP.assets.image.add(s,img_continua_A_dialogo2,6600,1200,0,0);
+    continua_A_dialogo2.visibility.alpha=0;
 
     testo1_mercante=PP.assets.image.add(s,img_testo1_mercante,5990,1148,0,0);
     testo1_mercante.visibility.alpha=0;
@@ -91,11 +88,9 @@ function create_dialogo2(s,player){
 
     ponte_ricostruito=PP.assets.image.add(s,img_ponte_ricostruito,0,0,0,0);
     ponte_ricostruito.visibility.alpha=0;
-    ponte_ricostruito_primopiano=PP.assets.image.add(s,img_ponte_ricostruito_primopiano,0,0,0,0);
-    ponte_ricostruito_primopiano.visibility.alpha=0;
-    let layer_ponte_ricostruito_primopiano = PP.layers.create(s);
-                    PP.layers.add_to_layer(layer_ponte_ricostruito_primopiano, ponte_ricostruito_primopiano);
-                    PP.layers.set_z_index(layer_ponte_ricostruito_primopiano, 2);
+    let layer_ponte_ricostruito = PP.layers.create(s);
+            PP.layers.add_to_layer(layer_ponte_ricostruito, ponte_ricostruito);
+            PP.layers.set_z_index(layer_ponte_ricostruito, 2);
 
 }
 
@@ -113,7 +108,7 @@ function update_dialogo2(s, player){
 
         if(dialog_state1==0){
 
-            domande_mercante.visibility.alpha=1;
+            suggerimento_A_dialogo2.visibility.alpha=1;
         }
         
         if(PP.interactive.kb.is_key_up(s,PP.key_codes.A)){
@@ -128,11 +123,11 @@ function update_dialogo2(s, player){
                 console.log("player is talking");
                 console.log("state:",dialog_state1);
 
-                domande_mercante.visibility.alpha=0;
+                suggerimento_A_dialogo2.visibility.alpha=0;
 
                 casella_mercante.visibility.alpha=1;
 
-                tasto_A.visibility.alpha=1;
+                continua_A_dialogo2.visibility.alpha=1;
                 testo3_mercante.visibility.alpha=1;
 
                 dialog_state1=5;
@@ -143,14 +138,14 @@ function update_dialogo2(s, player){
             }
             
             if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state1==0){
-
+                //benvenuta, sono il mercante locale
                 console.log("player is talking");
                 console.log("state:",dialog_state1);
 
-                domande_mercante.visibility.alpha=0;
+                suggerimento_A_dialogo2.visibility.alpha=0;
 
                 casella_mercante.visibility.alpha=1;
-                tasto_A.visibility.alpha=1;
+                continua_A_dialogo2.visibility.alpha=1;
                 testo1_mercante.visibility.alpha=1;
 
                 dialog_state1=1;
@@ -159,13 +154,13 @@ function update_dialogo2(s, player){
                 enable_mercante_A=false;
             }
             else if(dialog_state1==1&&PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
-
+                //opzione si compro o no non compro
                 console.log("primo dialogo");
                 console.log("state:",dialog_state1);
 
                 casella_mercante.visibility.alpha=0;
                 testo1_mercante.visibility.alpha=0;
-                tasto_A.visibility.alpha=0;
+                continua_A_dialogo2.visibility.alpha=0;
 
                 casella_Zhu.visibility.alpha=1;
                 opzione_original_Zhu.visibility.alpha=1;
@@ -191,22 +186,22 @@ function update_dialogo2(s, player){
             }*/
 
             if(PP.interactive.kb.is_key_up(s,PP.key_codes.S)){
+                //attivo tasto S
                 enable_Zhu_S=true;
             }
             
-
+            //entro if enable_Zhu_S se true e dialogo state==2
             if(enable_Zhu_S && dialog_state1 == 2){
                 if(PP.interactive.kb.is_key_down(s,PP.key_codes.S)){
-                    
+                    //schiaccio S, si compro
                     opzione_original_Zhu.visibility.alpha=0;
                     opzione_si_Zhu.visibility.alpha=1;
+                    
                     ponte_ricostruito.visibility.alpha=1;
-                    ponte_ricostruito_primopiano.visibility.alpha=1;
-                    piattaforma_ponte=  PP.shapes.rectangle_add(s, 7550,  861, 400, 0, "0x000000", 1);
+                    piattaforma_ponte =  PP.shapes.rectangle_add(s, 7550,  861, 400, 0, "0x000000", 1);
                     PP.physics.add(s, piattaforma_ponte, PP.physics.type.STATIC); 
                     PP.physics.add_collider_f(s, player, piattaforma_ponte, collision_floor);
                     
-
                     dialog_state1=3;
                     player_speed=0;
                     jump_init_speed=0;
@@ -214,7 +209,7 @@ function update_dialogo2(s, player){
                     enable_Zhu_S=false;
                 }
                 else if(PP.interactive.kb.is_key_down(s,PP.key_codes.D)){
-
+                    //Schiaccio D, No non compro
                     opzione_original_Zhu.visibility.alpha=0;
                     opzione_no_Zhu.visibility.alpha=1;
 
@@ -227,12 +222,13 @@ function update_dialogo2(s, player){
             }
 
             if(dialog_state1==3 && !already_buy){
-
+                //Compro, e non ho ancora comprato
                 opzione_si_Zhu.visibility.alpha=0;
                 casella_Zhu.visibility.alpha=0;
                 casella_mercante.visibility.alpha=1;
                 testo2_mercante.visibility.alpha=1;
                 
+                //chiude comunque tutto
                 dialog_state1=5;
                 player_speed=0;
                 jump_init_speed=0;
@@ -241,12 +237,12 @@ function update_dialogo2(s, player){
                 enable_mercante_A=false;
             }
             else if(dialog_state1 == 5 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
-
+                //non compro, e chiudo tutto, e si ricomincia quindi dialog state 0
                 testo2_mercante.visibility.alpha=0;
                 casella_mercante.visibility.alpha=0;
                 casella_Zhu.visibility.alpha=0;
 
-                tasto_A.visibility.alpha=0;
+                continua_A_dialogo2.visibility.alpha=0;
                 testo3_mercante.visibility.alpha=0;
                 opzione_si_Zhu.visibility.alpha=0;
                 opzione_no_Zhu.visibility.alpha=0;
@@ -262,13 +258,13 @@ function update_dialogo2(s, player){
 
     else if(player.is_on_mercante==false){
 
-        domande_mercante.visibility.alpha=0;
+        suggerimento_A_dialogo2.visibility.alpha=0;
     }
     
     if(player.is_on_mercante=false){
 
         if(dialog_state1==0){
-            domande_mercante.visibility.alpha=0;
+            suggerimento_A_dialogo2.visibility.alpha=0;
         }
     }
 

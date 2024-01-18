@@ -8,7 +8,8 @@ let ts_background_3;
 let ts_background_2;
 let ts_background_1;
 let mercante;
-let muroinvisibile;
+let muroinvisibileinizio;
+let muroinvisibilefine;
 
 let giadaCount = 0;
 let player;
@@ -88,8 +89,8 @@ function create(s) {
     //  PP.assets.tilesprite.add(s, img_background, 0, 0, 9009, 1296, 0, 0);
 
 
-    ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 100, 10800, 1800, 0, 0);
-    ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 230, 10800, 1800, 0, 0);
+    ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 0, 10800, 1800, 0, 0);
+    ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 0,  10800, 1800, 0, 0);
     ts_background_3 = PP.assets.tilesprite.add(s, img_background_3, 0, -252, 10800, 1800, 0, 0);
 
     // Disabilitiamo il tilesprite scroll factor per tutti i background (lo gestiremo manualmente)
@@ -158,11 +159,13 @@ function create(s) {
     PP.physics.add(s, floor_7, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_7, collision_floor);
 
-    muroinvisibile = PP.shapes.rectangle_add(s, 594, 648, 1, 1296, "0x000000", 0);
-    PP.physics.add(s, muroinvisibile, PP.physics.type.STATIC);
-    PP.physics.add_collider_f(s, player, muroinvisibile, collision_muroinvisibile);
+    muroinvisibileinizio = PP.shapes.rectangle_add(s, 594, 648, 1, 1296, "0x000000", 0);
+    PP.physics.add(s, muroinvisibileinizio, PP.physics.type.STATIC);
+    PP.physics.add_collider_f(s, player, muroinvisibileinizio, collision_muroinvisibile);
 
-
+    muroinvisibilefine = PP.shapes.rectangle_add(s, 9960, 648, 1, 1296, "0x000000", 0);
+    PP.physics.add(s, muroinvisibilefine, PP.physics.type.STATIC);
+    PP.physics.add_collider_f(s, player, muroinvisibilefine, collision_muroinvisibile);
 
 
 

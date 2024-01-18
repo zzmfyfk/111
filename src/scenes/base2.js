@@ -8,7 +8,8 @@ let ts_background_1_2;
 let pavimentazione_e_ponte_2;
 let mercante;
 
-
+let muroinvisibileinizio;
+let muroinvisibilefine;
 
 let player;
 let floor;
@@ -18,6 +19,16 @@ let floor_3;
 let txt_score;
 let img_pavimentazione_e_ponte_2;
 let is_menu_open = false;
+
+let frammento;
+let frammenti;
+let frammento_1;
+let frammento_2;
+let frammento_3;
+let frammento_4;
+let frammento_5;
+let frammento_6;
+let frammento_7;
 
 let menu_open;
 
@@ -44,7 +55,7 @@ function preload(s) {
 
     preload_barca(s);
     preload_frammenti(s);
-
+    //preload_dialogo_indovinello(s);
   
 
   
@@ -82,7 +93,7 @@ function create(s) {
     ts_background_1_2.tile_geometry.scroll_factor_x = 0;
     //ts_pavimentazione_e_ponte_2.tile_geometry.scroll_factor_x = 0;
 
-    player = PP.assets.sprite.add(s, img_player, 2000, 1359, 0.5, 1);
+    player = PP.assets.sprite.add(s, img_player, 1500, 1370, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -146,7 +157,13 @@ function create(s) {
     // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
-    
+    muroinvisibileinizio = PP.shapes.rectangle_add(s, 1050, 648, 1, 1296, "0x000000", 0);
+    PP.physics.add(s, muroinvisibileinizio, PP.physics.type.STATIC);
+    PP.physics.add_collider_f(s, player, muroinvisibileinizio, collision_muroinvisibile);
+
+    muroinvisibilefine = PP.shapes.rectangle_add(s, 10500, 648, 1, 1296, "0x000000", 0);
+    PP.physics.add(s, muroinvisibilefine, PP.physics.type.STATIC);
+    PP.physics.add_collider_f(s, player, muroinvisibilefine, collision_muroinvisibile);
 
 
     configure_player_animations(s, player); // Impostazione animazioni giocatore
@@ -157,14 +174,16 @@ function create(s) {
     
     create_personaggi (s,player);
 
-  
+    //overlap_frammenti(s, player, frammento_1);
 
     create_frammenti (s, player);
 
     //mercante overlap   
     
 
-
+    //collision_frammenti (s, player, frammento);
+    collision_frammento1(s, player, frammento_1);
+   
     
 
 
@@ -186,22 +205,29 @@ function create(s) {
     //PP.physics.set_collision_circle(player, 80, 50, 10);
 
 
+    //create_dialogo_indovinello(s,player);
+
     
 
 }
 
-
+function collision_muroinvisibile(s, player, muroinvisibile) {
+    player.is_on_muroinvisibile = true;
+}
 
 function update(s) {
     // Azioni che vengono eseguite a ogni frame del gioco
 
     manage_player_update(s, player);    // Posizione del giocatore e animazioni
 
-    update_frammenti(s);                // Azioni funghetti
-
-   // manage_player_weapon(s, player);    // Gestione armi
-    //manage_player_weapon(s, player);    // Gestione armi
-
+    //update_frammenti (s, frammenti);               // Azioni funghetti
+    update_frammento1(s, player);
+    update_frammento2(s, player);
+    update_frammento3(s, player);
+    update_frammento4(s, player);
+    update_frammento5(s, player);
+    update_frammento6(s, player);
+    update_frammento7(s, player);
  
     
 
@@ -211,6 +237,8 @@ function update(s) {
 
     ts_background_2_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
     ts_background_1_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+
+    //update_dialogo_indovinello (s,player,mercante_indovinello);
 
 
 }
