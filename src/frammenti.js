@@ -270,6 +270,8 @@ function collision_frammento1(s, player, frammento_1) {
     // 2) aumento di 10 lo score
     let prev_score = PP.gameState.get_variable("score");
     PP.gameState.set_variable("score", prev_score + 1);
+
+    
 }
     
 }

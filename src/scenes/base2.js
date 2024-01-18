@@ -8,7 +8,8 @@ let ts_background_1_2;
 let pavimentazione_e_ponte_2;
 let mercante;
 
-
+let muroinvisibileinizio;
+let muroinvisibilefine;
 
 let player;
 let floor;
@@ -156,7 +157,13 @@ function create(s) {
     // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
-    
+    muroinvisibileinizio = PP.shapes.rectangle_add(s, 1050, 648, 1, 1296, "0x000000", 0);
+    PP.physics.add(s, muroinvisibileinizio, PP.physics.type.STATIC);
+    PP.physics.add_collider_f(s, player, muroinvisibileinizio, collision_muroinvisibile);
+
+    muroinvisibilefine = PP.shapes.rectangle_add(s, 10500, 648, 1, 1296, "0x000000", 0);
+    PP.physics.add(s, muroinvisibilefine, PP.physics.type.STATIC);
+    PP.physics.add_collider_f(s, player, muroinvisibilefine, collision_muroinvisibile);
 
 
     configure_player_animations(s, player); // Impostazione animazioni giocatore
@@ -204,7 +211,9 @@ function create(s) {
 
 }
 
-
+function collision_muroinvisibile(s, player, muroinvisibile) {
+    player.is_on_muroinvisibile = true;
+}
 
 function update(s) {
     // Azioni che vengono eseguite a ogni frame del gioco
