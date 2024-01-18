@@ -20,6 +20,7 @@ let txt_score;
 let img_pavimentazione_e_ponte_2;
 let is_menu_open = false;
 
+
 let frammento;
 let frammenti;
 let frammento_1;
@@ -50,6 +51,13 @@ function preload(s) {
 
     img_pavimentazione_e_ponte_2  = PP.assets.image.load(s, "assets/images/parallax/pavimentazione_e_ponte_2.png");
   
+
+
+
+    img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
+    img_book_open = PP.assets.image.load(s, "assets/images/menu_book_open.png");
+    img_timer_icon   = PP.assets.image.load(s, "assets/images/timer_icon.png");
+
     preload_player(s);
 
 
@@ -207,9 +215,41 @@ function create(s) {
 
     //create_dialogo_indovinello(s,player);
 
+    let menu_cliccabile = PP.assets.image.add(s, img_book_icon,1220, 8, 0, 0);
+    menu_cliccabile.tile_geometry.scroll_factor_x = 0;
+    menu_cliccabile.tile_geometry.scroll_factor_y = 0;
+    //menu_cliccabile.tile_geometry.scroll_factor_x = 0;
+    //menu_cliccabile.tile_geometry.scroll_factor_y = 0; 
+
+    PP.interactive.mouse.add(menu_cliccabile, "pointerdown", clicco_menu);
+    menu_open = PP.assets.image.add(s, img_book_open,90, 60, 0, 0);
+    menu_open.visibility.alpha = 0;
+    menu_open.tile_geometry.scroll_factor_x = 0;
+    menu_open.tile_geometry.scroll_factor_y = 0;
+    let layer_menu_open = PP.layers.create(s);
+    PP.layers.add_to_layer(layer_menu_open, menu_open);
+    PP.layers.set_z_index(layer_menu_open, 2);
+
     
 
 }
+
+function clicco_menu(s) {
+    if (!is_menu_open) {
+        menu_open.visibility.alpha = 1;
+        is_menu_open = true;
+        player_speed=0;
+        jump_init_speed=0;
+        console.log("ismenuOpen: ", is_menu_open);
+    }else {
+        menu_open.visibility.alpha = 0;
+        is_menu_open = false;
+        player_speed=250;
+        jump_init_speed=200;
+        console.log("ismenuOpen: ", is_menu_open);
+    }
+}
+
 
 function collision_muroinvisibile(s, player, muroinvisibile) {
     player.is_on_muroinvisibile = true;
