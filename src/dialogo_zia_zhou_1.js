@@ -1,8 +1,8 @@
-let img_mercante;
-let img_casella_mercante;
-let img_casella_Zhu;
+let img_zia_zhou;
+let img_casella_zia_zhou_1;
+let img_casella_Zhu_dialogo_zia1;
 
-let img_suggerimento_A_dialogo2;
+let img_suggerimento_A_dialogo_zia1;
 let img_testo1_mercante;
 let img_testo2_mercante;
 let img_testo3_mercante;
