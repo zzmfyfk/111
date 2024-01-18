@@ -158,7 +158,7 @@ function create(s) {
     PP.physics.add(s, floor_6, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_6, collision_floor);
 
-
+    
     floor_7 = PP.shapes.rectangle_add(s, 6051, 862, 2574, 0, "0x008000", 0); //pavimento dopo ponte pt2
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_7, PP.physics.type.STATIC);
