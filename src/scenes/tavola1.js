@@ -3,11 +3,17 @@ let home;
 let img_tasto_home;
 let img_freccia_destra;
 let freccia_destra;
+let base_testo_1;
+let img_base_testo1;
+let testo_tav1;
+let img_testo_tav1;
 
 function preload(s) {
     tavola_1 = PP.assets.image.load(s, "assets/images/1mod(1).png");
     img_freccia_destra = PP.assets.image.load(s, "assets/images/freccia_destra.png");
     img_tasto_home = PP.assets.image.load(s, "assets/images/tasto_home.png");
+    img_testo_tav1=PP.assets.image.load(s, "assets/images/testo_tav_1.png");
+    img_base_testo1=PP.assets.image.load(s, "assets/images/base_testo.png");
 
 }
 
@@ -15,6 +21,12 @@ function create(s) {
 
 
     PP.assets.tilesprite.add(s, tavola_1, 0, 0, 0, 0, 0, 0);
+    base_testo_1=PP.assets.image.add(s, img_base_testo1, 0,0, 0, 0);
+    testo_tav1=PP.assets.image.add(s, img_testo_tav1, 50,130, 0, 0);
+   // testo_tav1.geometry.scale_x=1.2;
+    //testo_tav1.geometry.scale_y=1.2
+
+    
 
     //CREO TASTO PER TORNARE ALLA COPERTINA
 

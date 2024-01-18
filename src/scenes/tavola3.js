@@ -3,11 +3,17 @@ let freccia_precedente;
 let freccia_successivo;
 let img_freccia_successivo;
 let img_freccia_precedente;
+let base_testo_1;
+let img_base_testo1;
+let testo_tav1;
+let img_testo_tav1;
 
 function preload(s) {
     tavola_3 = PP.assets.image.load(s, "assets/images/tavola3.png");
     img_freccia_successivo= PP.assets.image.load(s, "assets/images/freccia_destra.png");
     img_freccia_precedente= PP.assets.image.load(s, "assets/images/freccia_sinistra.png");
+    img_testo_tav1=PP.assets.image.load(s, "assets/images/testo_tav_1.png");
+    img_base_testo1=PP.assets.image.load(s, "assets/images/base_testo.png");
 
 }
 
@@ -15,6 +21,8 @@ function create(s) {
 
 
     PP.assets.tilesprite.add(s, tavola_3, 0, 0, 0, 0, 0, 0);
+    base_testo_1=PP.assets.image.add(s, img_base_testo1, 0,0, 0, 0);
+    testo_tav1=PP.assets.image.add(s, img_testo_tav1, 50,130, 0, 0);
 
     //CREO TASTO PER PASSARE A TAVOLA SUCCESIVA
 
