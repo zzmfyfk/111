@@ -1,17 +1,16 @@
-let tavola_finale_negativo;
+let tavola_finale_positivo;
 let img_book_icon;
 let tasto_rigioca;
 let tasto_home;
 function preload(s) {
-    tavola_finale_negativo = PP.assets.image.load(s, "assets/images/tavola_finale_negativo.png");
+    tavola_finale_positivo = PP.assets.image.load(s, "assets/images/tavola_finale_positivo.png");
     img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
 }
 
 function create(s) {
 
-    // una volta scaduto il tempo, esce la tavola
-    //per ora è solo uno schizzo
-    PP.assets.tilesprite.add(s, tavola_finale_negativo, 0, 0, 0, 0, 0, 0);
+    // dovremo fare in modo che appaia dopo aver parlato con liang
+    PP.assets.tilesprite.add(s, tavola_finale_positivo, 0, 0, 0, 0, 0, 0);
     PP.shapes.text_styled_add(s,
         PP.game.config.canvas_width / 2,
         PP.game.config.canvas_height / 2,
@@ -26,7 +25,7 @@ function create(s) {
     PP.shapes.text_styled_add(s,
         PP.game.config.canvas_width / 9,
         PP.game.config.canvas_height / 5,
-        "Schizzo tavola finale negativo",
+        "Schizzo tavola finale positivo",
         30,
         "Arial",
         "normal",
@@ -99,4 +98,4 @@ function destroy(s) {
 
 }
 
-PP.scenes.add("finale_negativo", preload, create, update, destroy);
+PP.scenes.add("finale_positivo", preload, create, update, destroy);

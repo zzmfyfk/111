@@ -168,7 +168,7 @@ function checkGiadasAndTransition(s) {
         window.location.href = 'index2.html';  // Versione livello 2 con farfalla
     } else if (score >= 5 && score <= 8) {
         // Se lo score è tra 50 e 80 (cioè tra 5 e 8 giade raccolte)
-        window.location.href = 'index2.html';  // Versione livello 2 con Liang
+        window.location.href = 'index3.html';  // Versione livello 2 con Liang
     } else {
         // Se il numero di giade (basato sullo score) non rientra in nessun range previsto
         console.log("Score inaspettato: " + score);
