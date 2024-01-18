@@ -88,8 +88,8 @@ function create(s) {
     //  PP.assets.tilesprite.add(s, img_background, 0, 0, 9009, 1296, 0, 0);
 
 
-    ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 100, 10800, 1800, 0, 0);
-    ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 230, 10800, 1800, 0, 0);
+    ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 0, 10800, 1800, 0, 0);
+    ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 0,  10800, 1800, 0, 0);
     ts_background_3 = PP.assets.tilesprite.add(s, img_background_3, 0, -252, 10800, 1800, 0, 0);
 
     // Disabilitiamo il tilesprite scroll factor per tutti i background (lo gestiremo manualmente)
