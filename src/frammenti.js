@@ -168,6 +168,7 @@ function update_frammento1(s, player){
          PP.assets.destroy(frammento_1);
          PP.assets.destroy(luce1);
        }
+      }
 
    else if(player.is_on_frammento1==false){
 
@@ -180,8 +181,10 @@ function update_frammento1(s, player){
            luce1.visibility.alpha=0;
        }
    }
+
+ 
 }
-}
+
 
 
 

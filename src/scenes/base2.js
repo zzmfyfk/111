@@ -75,7 +75,7 @@ function create(s) {
     ts_background_1_2.tile_geometry.scroll_factor_x = 0;
     //ts_pavimentazione_e_ponte_2.tile_geometry.scroll_factor_x = 0;
 
-    player = PP.assets.sprite.add(s, img_player, 2000, 1359, 0.5, 1);
+    player = PP.assets.sprite.add(s, img_player, 1500, 1395, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
