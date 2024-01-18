@@ -1,13 +1,9 @@
 let tavola_3;
 let freccia_precedente;
 let freccia_successivo;
-let img_freccia_successivo;
-let img_freccia_precedente;
 
 function preload(s) {
     tavola_3 = PP.assets.image.load(s, "assets/images/tavola3.png");
-    img_freccia_successivo= PP.assets.image.load(s, "assets/images/freccia_destra.png");
-    img_freccia_precedente= PP.assets.image.load(s, "assets/images/freccia_sinistra.png");
 
 }
 
@@ -18,7 +14,16 @@ function create(s) {
 
     //CREO TASTO PER PASSARE A TAVOLA SUCCESIVA
 
-    freccia_successivo = PP.assets.image.add(s, img_freccia_successivo, 80, 20, 0, 0);
+    freccia_successivo = PP.shapes.text_styled_add(s,
+        200, 50,
+        "⭢",
+        30,
+        "Pixelify Sans",
+        "normal",
+        "0x000000",
+        null,
+        0.2,
+        0.2);
 
 
     PP.interactive.mouse.add(freccia_successivo, "pointerdown", down_freccia_successivo);
@@ -27,7 +32,16 @@ function create(s) {
 
     //CREO TASTO PER PASSARE A TAVOLA PRECEDENTE
 
-    freccia_precedente = PP.assets.image.add(s, img_freccia_precedente, 20, 20, 0, 0);
+    freccia_precedente = PP.shapes.text_styled_add(s,
+        50, 50,
+        "⭠",
+        30,
+        "Pixelify Sans",
+        "normal",
+        "0x000000",
+        null,
+        0.2,
+        0.2);
 
 
     PP.interactive.mouse.add(freccia_precedente, "pointerdown", down_freccia_precedente);

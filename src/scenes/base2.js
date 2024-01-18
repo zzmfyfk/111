@@ -17,6 +17,13 @@ let floor_2;
 let floor_3;
 let txt_score;
 let img_pavimentazione_e_ponte_2;
+let is_menu_open = false;
+
+let menu_open;
+
+let img_book_icon;
+let img_book_open;
+let img_timer_icon;
 
 function preload(s) {
     console.log("Executing preload() - SCENE");
@@ -75,7 +82,7 @@ function create(s) {
     ts_background_1_2.tile_geometry.scroll_factor_x = 0;
     //ts_pavimentazione_e_ponte_2.tile_geometry.scroll_factor_x = 0;
 
-    player = PP.assets.sprite.add(s, img_player, 1500, 1395, 0.5, 1);
+    player = PP.assets.sprite.add(s, img_player, 2000, 1359, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -91,10 +98,23 @@ function create(s) {
 
 
 
+
     
 
 
     // Creiamo un pavimento "trasparente"
+
+    floor = PP.shapes.rectangle_add(s, 570, 1413.5, 30, 1, "0x000000", 0); // prima piattaformina
+    // Aggiungiamo il pavimento alla fisica come entità statica
+    PP.physics.add(s, floor, PP.physics.type.STATIC);
+    // Creiamo un collider tra pavimento e giocatore
+    PP.physics.add_collider_f(s, player, floor, collision_floor);
+
+    floor = PP.shapes.rectangle_add(s, 597, 1401.5, 30, 1, "0x000000", 0); // seconda piattaformina
+    // Aggiungiamo il pavimento alla fisica come entità statica
+    PP.physics.add(s, floor, PP.physics.type.STATIC);
+    // Creiamo un collider tra pavimento e giocatore
+    PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor = PP.shapes.rectangle_add(s, 1219.5, 1392.5, 1209, 1, "0x000000", 0); // prima piattaforma
     // Aggiungiamo il pavimento alla fisica come entità statica
@@ -102,19 +122,25 @@ function create(s) {
     // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
-    floor = PP.shapes.rectangle_add(s, 1840.5, 1401.5, 33, 1, "0x000000", 0); // prima piattaformina
+    floor = PP.shapes.rectangle_add(s, 1840.5, 1401.5, 33, 1, "0x000000", 0); // terza piattaformina
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
     // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
-    floor = PP.shapes.rectangle_add(s, 1872.5, 1413.5, 33, 1, "0x000000", 0); // seconda piattaformina
+    floor = PP.shapes.rectangle_add(s, 1872.5, 1413.5, 33, 1, "0x000000", 0); // quarta piattaformina
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
     // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
-    floor_1 = PP.shapes.rectangle_add(s,6688.5, 1383.5, 7677, 1, "0x008000", 0); // da rocce in poi
+    floor_1 = PP.shapes.rectangle_add(s, 3675, 1401.5, 1668, 1, "0x008000", 0); // rocce prima del ponte
+    // Aggiungiamo il pavimento alla fisica come entità statica
+    PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
+    // Creiamo un collider tra pavimento e giocatore
+    PP.physics.add_collider_f(s, player, floor_1, collision_floor);
+
+    floor_1 = PP.shapes.rectangle_add(s, 8398.5, 1413.5, 4251, 1, "0x008000", 0); // rocce dopo il ponte
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
     // Creiamo un collider tra pavimento e giocatore
@@ -129,13 +155,12 @@ function create(s) {
 
     create_platform(s, player);
     
-   // create_personaggi (s,player);
+    create_personaggi (s,player);
 
-    //overlap_frammento1(s, player, frammento_1);
+  
 
     create_frammenti (s, player);
 
-    collision_frammenti (s, player, frammento_1);
     //mercante overlap   
     
 
@@ -151,6 +176,7 @@ function create(s) {
     // con la camera (essendo HUD deve rimanere fisso)
     txt_score.tile_geometry.scroll_factor_x = 0;
     txt_score.tile_geometry.scroll_factor_y = 0;
+    txt_score.ph_obj.setVisible(false);
 
     // Impostiamo la camera che segua il giocatore
     PP.camera.start_follow(s, player, 0, 220);
@@ -170,8 +196,8 @@ function update(s) {
     // Azioni che vengono eseguite a ogni frame del gioco
 
     manage_player_update(s, player);    // Posizione del giocatore e animazioni
-    update_frammento1 (s, player);
-   // update_frammenti(s);                // Azioni funghetti
+
+    update_frammenti(s);                // Azioni funghetti
 
    // manage_player_weapon(s, player);    // Gestione armi
     //manage_player_weapon(s, player);    // Gestione armi
