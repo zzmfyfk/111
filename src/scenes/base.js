@@ -9,6 +9,8 @@ let ts_background_2;
 let ts_background_1;
 let mercante;
 let muroinvisibile;
+let ponte_iniziale;
+let img_ponte_iniziale_1;
 
 let giadaCount = 0;
 let player;
@@ -43,6 +45,8 @@ function preload(s) {
     img_background_1 = PP.assets.image.load(s, "assets/images/parallax/background_1.png");
     img_background_2 = PP.assets.image.load(s, "assets/images/parallax/background_2.png");
     img_background_3 = PP.assets.image.load(s, "assets/images/parallax/background_3.png");
+
+    img_ponte_iniziale_1  = PP.assets.image.load(s, "assets/images/ponte_iniziale_1.png");
     
     //carichiamo immagini per l'interfaccia
     img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
@@ -91,6 +95,8 @@ function create(s) {
     ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 100, 10800, 1800, 0, 0);
     ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 230, 10800, 1800, 0, 0);
     ts_background_3 = PP.assets.tilesprite.add(s, img_background_3, 0, -252, 10800, 1800, 0, 0);
+
+    ponte_iniziale = PP.assets.image.add(s, img_ponte_iniziale_1, 0, 0, 0, 0);
 
     // Disabilitiamo il tilesprite scroll factor per tutti i background (lo gestiremo manualmente)
 
@@ -148,11 +154,11 @@ function create(s) {
     PP.physics.add(s, floor_5, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_5, collision_floor);
 
-   floor_6 = PP.shapes.rectangle_add(s, 7889, 861, 270, 1, "0x008000", 0); //pavimento dopo ponte rotto
+   floor_6 = PP.shapes.rectangle_add(s, 7915, 861, 265, 1, "0x008000", 0); //pavimento dopo ponte rotto
     PP.physics.add(s, floor_6, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_6, collision_floor);
 
-
+    
     floor_7 = PP.shapes.rectangle_add(s, 6051, 862, 2574, 0, "0x008000", 0); //pavimento dopo ponte pt2
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_7, PP.physics.type.STATIC);
@@ -168,7 +174,7 @@ function create(s) {
 
 
 
-
+    create_nuvola (s, player);
 
     configure_player_animations(s, player); // Impostazione animazioni giocatore
 
@@ -194,7 +200,7 @@ function create(s) {
      
     // configure_casse_animations(s, img_cassa);
  
-    create_nuvola (s, player);
+    
 
     create_dialogo1(s, player);
 
@@ -230,9 +236,11 @@ function create(s) {
     menu_open.visibility.alpha = 0;
     menu_open.tile_geometry.scroll_factor_x = 0;
     menu_open.tile_geometry.scroll_factor_y = 0;
-    let layer_menu_open = PP.layers.create(s);
-    PP.layers.add_to_layer(layer_menu_open, menu_open);
-    PP.layers.set_z_index(layer_menu_open, 2);
+    
+    let layer_2 = PP.layers.create(s);
+    PP.layers.add_to_layer(layer_2, menu_open);
+    PP.layers.add_to_layer(layer_2, ponte_iniziale);
+    PP.layers.set_z_index(layer_2, 2);
 
     let timer_icon=PP.assets.image.add(s, img_timer_icon, 100, -1, 0, 0);
     timer_icon.tile_geometry.scroll_factor_x = 0;

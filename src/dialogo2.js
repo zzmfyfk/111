@@ -28,6 +28,8 @@ let opzione_no_Zhu;
 let domande_mercante;
 let mercante;
 let ponte_ricostruito;
+let img_ponte_ricostruito_primopiano;
+let ponte_ricostruito_primopiano;
 let piattaforma_ponte;
 
 function preload_dialogo2(s){
@@ -36,8 +38,8 @@ function preload_dialogo2(s){
     img_casella_mercante = PP.assets.image.load(s,"assets/images/casella_mercante.png");
     img_casella_Zhu = PP.assets.image.load(s,"assets/images/casella_zhu.png");
 
-    img_domande_mercante = PP.assets.image.load(s,"assets/images/domande_mercante.png");
-    img_tasto_A = PP.assets.image.load(s,"assets/images/tasto_A.png");
+    img_domande_mercante = PP.assets.image.load(s,"assets/images/tasto_A.png");
+    img_tasto_A = PP.assets.image.load(s,"assets/images/tasto_A_dialoghi.png");
 
     img_testo1_mercante = PP.assets.image.load(s,"assets/images/testo1_mercante.png");
     img_testo2_mercante = PP.assets.image.load(s,"assets/images/testo2_mercante.png");
@@ -47,6 +49,7 @@ function preload_dialogo2(s){
     img_opzione_si_Zhu = PP.assets.image.load(s,"assets/images/opzione_si_Zhu.png");
     img_opzione_no_Zhu = PP.assets.image.load(s,"assets/images/opzione_no_Zhu.png");
     img_ponte_ricostruito=PP.assets.image.load(s,"assets/images/ponte_ricostruito.png");
+    img_ponte_ricostruito_primopiano=PP.assets.image.load(s,"assets/images/ponte_ricostruito_primo piano.png");
 }
 
 function create_dialogo2(s,player){
@@ -59,7 +62,7 @@ function create_dialogo2(s,player){
         player.is_on_mercante=true;
     }
 
-    domande_mercante = PP.assets.image.add(s,img_domande,6230,950,0,0);
+    domande_mercante = PP.assets.image.add(s,img_domande,6240,941,0,0);
     domande_mercante.visibility.alpha = 0;
 
     casella_mercante=PP.assets.image.add(s,img_casella_mercante,5208,1100,0,0);
@@ -88,9 +91,11 @@ function create_dialogo2(s,player){
 
     ponte_ricostruito=PP.assets.image.add(s,img_ponte_ricostruito,0,0,0,0);
     ponte_ricostruito.visibility.alpha=0;
-    let layer_ponte_ricostruito = PP.layers.create(s);
-                    PP.layers.add_to_layer(layer_ponte_ricostruito, ponte_ricostruito);
-                    PP.layers.set_z_index(layer_ponte_ricostruito, 2);
+    ponte_ricostruito_primopiano=PP.assets.image.add(s,img_ponte_ricostruito_primopiano,0,0,0,0);
+    ponte_ricostruito_primopiano.visibility.alpha=0;
+    let layer_ponte_ricostruito_primopiano = PP.layers.create(s);
+                    PP.layers.add_to_layer(layer_ponte_ricostruito_primopiano, ponte_ricostruito_primopiano);
+                    PP.layers.set_z_index(layer_ponte_ricostruito_primopiano, 2);
 
 }
 
@@ -196,6 +201,7 @@ function update_dialogo2(s, player){
                     opzione_original_Zhu.visibility.alpha=0;
                     opzione_si_Zhu.visibility.alpha=1;
                     ponte_ricostruito.visibility.alpha=1;
+                    ponte_ricostruito_primopiano.visibility.alpha=1;
                     piattaforma_ponte=  PP.shapes.rectangle_add(s, 7550,  861, 400, 0, "0x000000", 1);
                     PP.physics.add(s, piattaforma_ponte, PP.physics.type.STATIC); 
                     PP.physics.add_collider_f(s, player, piattaforma_ponte, collision_floor);

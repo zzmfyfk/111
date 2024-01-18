@@ -1,16 +1,16 @@
 
     function create_timer(s, player) {
-        PP.timers.add_timer(s, 120000, time_over, false);
-        PP.gameState.set_variable("", 120000);
+        PP.timers.add_timer(s, 300000, time_over, false);
+        PP.gameState.set_variable("", 300000);
 
     
 
-        let txt_time = PP.shapes.text_styled_add(s, 1050, 27, " 120", 22, "Helvetica", "normal", "0x424242", null, 0, 0);
+        let txt_time = PP.shapes.text_styled_add(s, 1050, 27, " 300", 22, "Helvetica", "normal", "0x424242", null, 0, 0);
         txt_time.tile_geometry.scroll_factor_x = 0;
         txt_time.tile_geometry.scroll_factor_y = 0;
 
         function time_over(s) {
-            if (PP.timers.getTime(s) > 120000) {
+            if (PP.timers.getTime(s) > 300000) {
                 console.log("tempo scaduto");
                 PP.scenes.start("finale_negativo");
             }
