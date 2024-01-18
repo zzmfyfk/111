@@ -96,25 +96,43 @@ function create(s) {
 
     // Creiamo un pavimento "trasparente"
 
+    floor = PP.shapes.rectangle_add(s, 570, 1413.5, 30, 1, "0x000000", 0); // prima piattaformina
+    // Aggiungiamo il pavimento alla fisica come entità statica
+    PP.physics.add(s, floor, PP.physics.type.STATIC);
+    // Creiamo un collider tra pavimento e giocatore
+    PP.physics.add_collider_f(s, player, floor, collision_floor);
+
+    floor = PP.shapes.rectangle_add(s, 597, 1401.5, 30, 1, "0x000000", 0); // seconda piattaformina
+    // Aggiungiamo il pavimento alla fisica come entità statica
+    PP.physics.add(s, floor, PP.physics.type.STATIC);
+    // Creiamo un collider tra pavimento e giocatore
+    PP.physics.add_collider_f(s, player, floor, collision_floor);
+
     floor = PP.shapes.rectangle_add(s, 1219.5, 1392.5, 1209, 1, "0x000000", 0); // prima piattaforma
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
     // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
-    floor = PP.shapes.rectangle_add(s, 1840.5, 1401.5, 33, 1, "0x000000", 0); // prima piattaformina
+    floor = PP.shapes.rectangle_add(s, 1840.5, 1401.5, 33, 1, "0x000000", 0); // terza piattaformina
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
     // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
-    floor = PP.shapes.rectangle_add(s, 1872.5, 1413.5, 33, 1, "0x000000", 0); // seconda piattaformina
+    floor = PP.shapes.rectangle_add(s, 1872.5, 1413.5, 33, 1, "0x000000", 0); // quarta piattaformina
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
     // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
-    floor_1 = PP.shapes.rectangle_add(s,6688.5, 1383.5, 7677, 1, "0x008000", 0); // da rocce in poi
+    floor_1 = PP.shapes.rectangle_add(s, 3675, 1401.5, 1668, 1, "0x008000", 0); // rocce prima del ponte
+    // Aggiungiamo il pavimento alla fisica come entità statica
+    PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
+    // Creiamo un collider tra pavimento e giocatore
+    PP.physics.add_collider_f(s, player, floor_1, collision_floor);
+
+    floor_1 = PP.shapes.rectangle_add(s, 8398.5, 1413.5, 4251, 1, "0x008000", 0); // rocce dopo il ponte
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
     // Creiamo un collider tra pavimento e giocatore
