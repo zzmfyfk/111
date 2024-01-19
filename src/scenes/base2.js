@@ -88,7 +88,7 @@ function preload(s) {
 
     preload_barca(s);
     preload_frammenti(s);
-    //preload_dialogo_indovinello(s);
+    preload_dialogo_indovinello(s);
     preload_dialogo_liang(s);
     preload_dialogo_zia_zhou_2(s);
   
@@ -225,7 +225,7 @@ function create(s) {
     // Impostiamo la camera che segua il giocatore
     PP.camera.start_follow(s, player, 0, 220);
 
-    //create_dialogo_indovinello(s,player);
+    create_dialogo_indovinello(s,player);
     create_dialogo_liang(s,player);
     create__dialogo_zia_zhou_2(s,player);
 
@@ -299,7 +299,7 @@ function update(s) {
 
 
 
-    //update_dialogo_indovinello (s,player,mercante_indovinello);
+    update_dialogo_indovinello (s,player,mercante_indovinello);
     update_dialogo_liang(s,player,liang);
     update_dialogo_zia_zhou_2(s, player,zia2);
 
