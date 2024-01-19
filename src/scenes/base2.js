@@ -94,7 +94,7 @@ function collision_floor(s,player,floor) {
 function create(s) {
     console.log("Executing create() - SCENE");
 
-     player = PP.assets.sprite.add(s, img_player, 1500, 1370, 0.5, 1);
+     player = PP.assets.sprite.add(s, img_player, 1450, 1393, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -159,7 +159,8 @@ function create(s) {
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
-    muroinvisibileinizio = PP.shapes.rectangle_add(s, 1050, 648, 1, 1296, "0x000000", 0);
+    //creo i confini del livello
+    muroinvisibileinizio = PP.shapes.rectangle_add(s, 1210, 648, 1, 1296, "0x000000", 0);
     PP.physics.add(s, muroinvisibileinizio, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, muroinvisibileinizio, collision_muroinvisibile);
 

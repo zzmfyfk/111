@@ -117,7 +117,7 @@ function create_frammenti(s, player) {
 
 
 
-        let frammento_2 = PP.assets.image.add(s, img_frammento_2, 5391, 1089, 0, 0);
+        let frammento_2 = PP.assets.image.add(s, img_frammento_2, 5530, 1089, 0, 0);
         PP.physics.add(s, frammento_2, PP.physics.type.STATIC);
         //PP.physics.add_overlap_f(s, player, frammento_2, collision_frammenti);
         PP.physics.add_overlap_f(s, player, frammento_2, collision_frammento2);
@@ -129,7 +129,7 @@ function create_frammenti(s, player) {
         }
  
  
-       luce2 = PP.assets.image.add(s,img_luce2, 5391, 1089,0,0);
+       luce2 = PP.assets.image.add(s,img_luce2, 5530, 1089,0,0);
        luce2.visibility.alpha = 0;
 
 
