@@ -55,7 +55,7 @@ function preload(s) {
 
 
     img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
-    img_book_open = PP.assets.image.load(s, "assets/images/menu_book_open.png");
+    img_book_open = PP.assets.image.load(s, "assets/images/menu_book_open_2.png");
     img_timer_icon   = PP.assets.image.load(s, "assets/images/timer_icon.png");
 
     preload_player(s);

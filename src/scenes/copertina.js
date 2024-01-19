@@ -104,7 +104,7 @@ function out_storia(s) {
 
 
 function down_crediti(s) {
-    PP.scenes.start("tavola1");
+    PP.scenes.start("crediti");
 }
 function over_crediti(s) {
     crediti.geometry.scale_x = 1.3;

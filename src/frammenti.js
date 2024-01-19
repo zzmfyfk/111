@@ -30,7 +30,7 @@ let luce1;
 
 function preload_frammenti(s) {
 
-    img_suggerimenti=PP.assets.image.load(s,"assets/images/tasto_A.png");
+    img_suggerimenti=PP.assets.image.load(s,"assets/images/tasto_C.png");
     // Load delle immagini del funghetto
     img_frammento_1   = PP.assets.image.load(s, "assets/images/frammento_1.png");
     img_frammento_2   = PP.assets.image.load(s, "assets/images/frammento_2.png");
@@ -268,7 +268,7 @@ function collision_frammento1(s, player, frammento_1) {
    player.is_on_frammenti = true;
   
 
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)) {
 
         frammento_1.ph_obj.x = 10; // X 坐标
         frammento_1.ph_obj.y = 10; // Y 坐标
@@ -299,7 +299,7 @@ function collision_frammento2(s, player, frammento_2) {
     player.is_on_frammenti = true;
 
 
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)) {
 
         frammento_2.ph_obj.x = 60; // X 坐标
         frammento_2.ph_obj.y = 10; // Y 坐标
@@ -329,7 +329,7 @@ function collision_frammento3(s, player, frammento_3) {
     player.is_on_frammenti = true;
 
 
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)) {
 
         frammento_3.ph_obj.x = 110; // X 坐标
         frammento_3.ph_obj.y = 10; // Y 坐标
@@ -359,7 +359,7 @@ function collision_frammento4(s, player, frammento_4) {
     player.is_on_frammenti = true;
 
 
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)) {
 
         frammento_4.ph_obj.x = 160; // X 坐标
         frammento_4.ph_obj.y = 10; // Y 坐标
@@ -389,7 +389,7 @@ function collision_frammento5(s, player, frammento_5) {
     player.is_on_frammenti = true;
 
 
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)) {
 
         frammento_5.ph_obj.x = 210; // X 坐标
         frammento_5.ph_obj.y = 10; // Y 坐标
@@ -419,7 +419,7 @@ function collision_frammento6(s, player, frammento_6) {
     player.is_on_frammenti = true;
 
 
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)) {
 
         frammento_6.ph_obj.x = 260; // X 坐标
         frammento_6.ph_obj.y = 10; // Y 坐标
@@ -449,7 +449,7 @@ function collision_frammento7(s, player, frammento_7) {
     player.is_on_frammenti = true;
 
 
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)) {
 
         frammento_7.ph_obj.x = 310; // X 坐标
         frammento_7.ph_obj.y = 10; // Y 坐标
@@ -540,7 +540,7 @@ function update_frammento1(s, player){
             
         }
        
-        if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)){
           // 1) distruggo giada
 
           PP.assets.destroy(luce1);
@@ -569,7 +569,7 @@ function update_frammento1(s, player){
             luce2.visibility.alpha=0.5;
         }
        
-        if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)){
           // 1) distruggo giada
           PP.assets.destroy(luce2);
         }
@@ -594,7 +594,7 @@ function update_frammento1(s, player){
             luce3.visibility.alpha=0.5;
         }
        
-        if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)){
           // 1) distruggo giada
 
           PP.assets.destroy(luce3);
@@ -620,7 +620,7 @@ function update_frammento1(s, player){
             luce4.visibility.alpha=0.5;
         }
        
-        if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)){
           // 1) distruggo giada
 
           PP.assets.destroy(luce4);
@@ -645,7 +645,7 @@ function update_frammento1(s, player){
             luce5.visibility.alpha=0.5;
         }
        
-        if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)){
           // 1) distruggo giada
 
           PP.assets.destroy(luce5);
@@ -670,7 +670,7 @@ function update_frammento1(s, player){
             luce6.visibility.alpha=0.5;
         }
        
-        if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)){
           // 1) distruggo giada
 
           PP.assets.destroy(luce6);
@@ -695,7 +695,7 @@ function update_frammento1(s, player){
             luce7.visibility.alpha=0.5;
         }
        
-        if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)){
           // 1) distruggo giada
 
           PP.assets.destroy(luce7);

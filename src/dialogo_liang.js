@@ -21,7 +21,7 @@ function create_dialogo_liang(s,player){
 
     liang = PP.assets.image.add(s,img_liang,3700,1238,0,0);
     PP.physics.add(s,liang,PP.physics.type.STATIC);
-    s.physics.add.collider(player.ph_obj, liang.ph_obj, () => collision_liang(s, player, liang));
+    //s.physics.add.collider(player.ph_obj, liang.ph_obj, () => collision_liang(s, player, liang));
 
     casella_zhu_dialogo_liang = PP.assets.image.add(s,img_casella_zhu_dialogo_liang,650,1370,0,0);
     casella_zhu_dialogo_liang.visibility.alpha=0;
