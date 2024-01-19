@@ -24,9 +24,9 @@ function create(s) {
     testo_tav1=PP.assets.image.add(s, img_testo_tav1, 50,130, 0, 0);
     
 
-        //creazione di tasti "home" e "rigioca". DA SOSTITUIRE
+        //creazione di tasti "home" e "rigioca". 
 
-        tasto_rigioca = PP.assets.image.add(s, img_rigioca,80, 20, 0, 0);
+        tasto_rigioca = PP.assets.image.add(s, img_rigioca,52, 280, 0, 0);
         tasto_home= PP.assets.image.add(s, img_home,20, 20, 0, 0);
         
     
@@ -80,8 +80,6 @@ function update(s) {
         
     }
     
-
-    //da inserire tasti che permettono di scegliere tra rigioca e torna alla copertina
 }
 
 function destroy(s) {
