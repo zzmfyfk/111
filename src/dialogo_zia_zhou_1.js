@@ -114,7 +114,7 @@ function update_dialogo_zia1(s, player){
                 dialog_state_zia1=6;
                 player_speed=0;
                 jump_init_speed=0;
-                enable_mercante_A=false;
+                enable_dialogo_zia1_A=false;
                 return;
             }
             
@@ -229,7 +229,6 @@ function update_dialogo_zia1(s, player){
 
                 casella_zia_zhou_1.visibility.alpha=0;
                 testo_risposta_finale_dialogo_zia1.visibility.alpha=0;
-
                 dialog_state_zia1=0;
                 player_speed=250;
                 jump_init_speed=200;
