@@ -98,6 +98,11 @@ function update(s) {
         PP.scenes.start("tavola2");
 
     }
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
+
+        PP.scenes.start("copertina");
+
+    }
 
 
 }

@@ -93,6 +93,7 @@ function create_dialogo2(s,player){
     ponte_ricostruito=PP.assets.image.add(s,img_ponte_ricostruito,0,0,0,0);
     ponte_ricostruito_primopiano=PP.assets.image.add(s,img_ponte_ricostruito_primopiano,0,0,0,0);
     ponte_ricostruito_primopiano.visibility.alpha=0;
+    ponte_ricostruito.visibility.alpha=0;
     let layer_ponte_ricostruito_primopiano = PP.layers.create(s);
                     PP.layers.add_to_layer(layer_ponte_ricostruito_primopiano, ponte_ricostruito_primopiano);
                     PP.layers.set_z_index(layer_ponte_ricostruito_primopiano, 2);
