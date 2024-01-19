@@ -1,32 +1,43 @@
-let tavola_finale_negativo
+let tavola_finale_positivo;
+let img_book_icon;
 let tasto_rigioca;
 let tasto_home;
-let img_rigioca;
-let base_testo_1;
-let img_base_testo1;
-let testo_tav1;
-let img_testo_tav1;
 function preload(s) {
-    tavola_finale_negativo = PP.assets.image.load(s, "assets/images/finale_negativo.png");
-    img_home = PP.assets.image.load(s, "assets/images/tasto_home.png");
-    img_rigioca = PP.assets.image.load(s, "assets/images/tasto_rigioca.png");
-    img_testo_tav1=PP.assets.image.load(s, "assets/images/testo_tav_1.png");
-    img_base_testo1=PP.assets.image.load(s, "assets/images/base_testo.png");
+    tavola_finale_positivo = PP.assets.image.load(s, "assets/images/tavola_finale_positivo.png");
+    img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
 }
 
 function create(s) {
 
-    // una volta scaduto il tempo, esce la tavola
-    //per ora è solo uno schizzo
-    PP.assets.tilesprite.add(s, tavola_finale_negativo, 0, 0, 0, 0, 0, 0);
-    base_testo_1=PP.assets.image.add(s, img_base_testo1, 0,0, 0, 0);
-    testo_tav1=PP.assets.image.add(s, img_testo_tav1, 50,130, 0, 0);
-    
+    // dovremo fare in modo che appaia dopo aver parlato con liang
+    PP.assets.tilesprite.add(s, tavola_finale_positivo, 0, 0, 0, 0, 0, 0);
+    PP.shapes.text_styled_add(s,
+        PP.game.config.canvas_width / 2,
+        PP.game.config.canvas_height / 2,
+        "Game Over",
+        100,
+        "Arial",
+        "normal",
+        "0x000000",
+        null,
+        0.5,
+        0.5);
+    PP.shapes.text_styled_add(s,
+        PP.game.config.canvas_width / 9,
+        PP.game.config.canvas_height / 5,
+        "Schizzo tavola finale positivo",
+        30,
+        "Arial",
+        "normal",
+        "0x000000",
+        null,
+        0.2,
+        0.2);
 
         //creazione di tasti "home" e "rigioca". DA SOSTITUIRE
 
-        tasto_rigioca = PP.assets.image.add(s, img_rigioca,80, 20, 0, 0);
-        tasto_home= PP.assets.image.add(s, img_home,20, 20, 0, 0);
+        tasto_rigioca = PP.assets.image.add(s, img_book_icon,130, 1, 0, 0);
+       tasto_home= PP.assets.image.add(s, img_book_icon,0, 0, 0, 0);
         
     
         PP.interactive.mouse.add(tasto_rigioca, "pointerdown", rigioca);
@@ -87,4 +98,4 @@ function destroy(s) {
 
 }
 
-PP.scenes.add("finale_negativo", preload, create, update, destroy);
+PP.scenes.add("finale_positivo", preload, create, update, destroy);
