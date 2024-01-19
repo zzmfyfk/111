@@ -114,7 +114,7 @@ function create_frammenti(s, player) {
         let frammento_2 = PP.assets.image.add(s, img_frammento_2, 5391, 1089, 0, 0);
         PP.physics.add(s, frammento_2, PP.physics.type.STATIC);
         //PP.physics.add_overlap_f(s, player, frammento_2, collision_frammenti);
-        PP.physics.add_overlap_f(s, player, frammento_2, collision_frammento1);
+        PP.physics.add_overlap_f(s, player, frammento_2, collision_frammento2);
         PP.physics.add_overlap_f(s, player, frammento_2, overlap_frammento2);
         frammento_2.id = "frammento_2";
 
@@ -133,7 +133,7 @@ function create_frammenti(s, player) {
 
         let frammento_3 = PP.assets.image.add(s, img_frammento_1, 5382, 345, 0, 0);
         PP.physics.add(s, frammento_3, PP.physics.type.STATIC);
-        PP.physics.add_overlap_f(s, player, frammento_2, collision_frammento1);
+        PP.physics.add_overlap_f(s, player, frammento_2, collision_frammento3);
         PP.physics.add_overlap_f(s, player, frammento_2, overlap_frammento3);
         frammento_3.id = "frammento_3";
 
@@ -148,7 +148,7 @@ function create_frammenti(s, player) {
 
         let frammento_4 = PP.assets.image.add(s, img_frammento_4,6546, 1221, 0, 0);
         PP.physics.add(s, frammento_4, PP.physics.type.STATIC);
-       PP.physics.add_overlap_f(s, player,frammento_4, collision_frammento1);
+       PP.physics.add_overlap_f(s, player,frammento_4, collision_frammento4);
        PP.physics.add_overlap_f(s, player, frammento_4, overlap_frammento4);
        frammento_4.id = "frammento_4";
 
@@ -162,7 +162,7 @@ function create_frammenti(s, player) {
 
         let frammento_5 = PP.assets.image.add(s, img_frammento_5, 8121, 330, 0, 0);
         PP.physics.add(s, frammento_5, PP.physics.type.STATIC);
-        PP.physics.add_overlap_f(s, player,frammento_5, collision_frammento1);
+        PP.physics.add_overlap_f(s, player,frammento_5, collision_frammento5);
        PP.physics.add_overlap_f(s, player, frammento_5, overlap_frammento5);
        frammento_5.id = "frammento_5";
 
@@ -177,7 +177,7 @@ function create_frammenti(s, player) {
 
         let frammento_6 = PP.assets.image.add(s, img_frammento_6,7977, 873, 0, 0);
         PP.physics.add(s, frammento_6, PP.physics.type.STATIC);
-        PP.physics.add_overlap_f(s, player, frammento_6, collision_frammento1);
+        PP.physics.add_overlap_f(s, player, frammento_6, collision_frammento6);
        PP.physics.add_overlap_f(s, player, frammento_6, overlap_frammento6);
        frammento_6.id = "frammento_6";
 
@@ -191,7 +191,7 @@ function create_frammenti(s, player) {
 
         let frammento_7 = PP.assets.image.add(s, img_frammento_7, 8397, 1149, 0, 0);
         PP.physics.add(s, frammento_7, PP.physics.type.STATIC);
-        PP.physics.add_overlap_f(s, player,frammento_7, collision_frammento1);
+        PP.physics.add_overlap_f(s, player,frammento_7, collision_frammento7);
         PP.physics.add_overlap_f(s, player, frammento_7, overlap_frammento7);
        frammento_7.id = "frammento_7";
 
@@ -262,19 +262,210 @@ function collision_frammento1(s, player, frammento_1) {
    player.is_on_frammenti = true;
   
 
-   if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+
+        frammento_1.ph_obj.x = 10; // X 坐标
+        frammento_1.ph_obj.y = 10; // Y 坐标
+
+        // 固定 frammento_1 到摄像机视图
+        frammento_1.ph_obj.setScrollFactor(0);
+
+        // 确保 frammento_1 位于最上层
+        frammento_1.ph_obj.setDepth(10);
     // 1) distruggo giada
-    PP.assets.destroy(frammento_1);
+
     //PP.assets.destroy(luce_frammento1);
 
     // 2) aumento di 10 lo score
     let prev_score = PP.gameState.get_variable("score");
-    PP.gameState.set_variable("score", prev_score + 1);
+    PP.gameState.set_variable("score", prev_score + 10);
 
     
 }
     
 }
+
+
+function collision_frammento2(s, player, frammento_2) {
+    // In caso di collisione procedo come segue:
+    // PP.assets.sprite.animation_play(frammento_1, "lighton");
+
+    player.is_on_frammenti = true;
+
+
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+
+        frammento_2.ph_obj.x = 60; // X 坐标
+        frammento_2.ph_obj.y = 10; // Y 坐标
+
+        // 固定 frammento_1 到摄像机视图
+        frammento_2.ph_obj.setScrollFactor(0);
+
+        // 确保 frammento_1 位于最上层
+        frammento_2.ph_obj.setDepth(10);
+        // 1) distruggo giada
+
+        //PP.assets.destroy(luce_frammento1);
+
+        // 2) aumento di 10 lo score
+        let prev_score = PP.gameState.get_variable("score");
+        PP.gameState.set_variable("score", prev_score + 10);
+
+
+    }
+
+}
+
+function collision_frammento3(s, player, frammento_3) {
+    // In caso di collisione procedo come segue:
+    // PP.assets.sprite.animation_play(frammento_1, "lighton");
+
+    player.is_on_frammenti = true;
+
+
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+
+        frammento_3.ph_obj.x = 110; // X 坐标
+        frammento_3.ph_obj.y = 10; // Y 坐标
+
+        // 固定 frammento_1 到摄像机视图
+        frammento_3.ph_obj.setScrollFactor(0);
+
+        // 确保 frammento_1 位于最上层
+        frammento_3.ph_obj.setDepth(10);
+        // 1) distruggo giada
+
+        //PP.assets.destroy(luce_frammento1);
+
+        // 2) aumento di 10 lo score
+        let prev_score = PP.gameState.get_variable("score");
+        PP.gameState.set_variable("score", prev_score + 10);
+
+
+    }
+
+}
+
+function collision_frammento4(s, player, frammento_4) {
+    // In caso di collisione procedo come segue:
+    // PP.assets.sprite.animation_play(frammento_1, "lighton");
+
+    player.is_on_frammenti = true;
+
+
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+
+        frammento_4.ph_obj.x = 160; // X 坐标
+        frammento_4.ph_obj.y = 10; // Y 坐标
+
+        // 固定 frammento_1 到摄像机视图
+        frammento_4.ph_obj.setScrollFactor(0);
+
+        // 确保 frammento_1 位于最上层
+        frammento_4.ph_obj.setDepth(10);
+        // 1) distruggo giada
+
+        //PP.assets.destroy(luce_frammento1);
+
+        // 2) aumento di 10 lo score
+        let prev_score = PP.gameState.get_variable("score");
+        PP.gameState.set_variable("score", prev_score + 10);
+
+
+    }
+
+}
+
+function collision_frammento5(s, player, frammento_5) {
+    // In caso di collisione procedo come segue:
+    // PP.assets.sprite.animation_play(frammento_1, "lighton");
+
+    player.is_on_frammenti = true;
+
+
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+
+        frammento_5.ph_obj.x = 210; // X 坐标
+        frammento_5.ph_obj.y = 10; // Y 坐标
+
+        // 固定 frammento_1 到摄像机视图
+        frammento_5.ph_obj.setScrollFactor(0);
+
+        // 确保 frammento_1 位于最上层
+        frammento_5.ph_obj.setDepth(10);
+        // 1) distruggo giada
+
+        //PP.assets.destroy(luce_frammento1);
+
+        // 2) aumento di 10 lo score
+        let prev_score = PP.gameState.get_variable("score");
+        PP.gameState.set_variable("score", prev_score + 10);
+
+
+    }
+
+}
+
+function collision_frammento6(s, player, frammento_6) {
+    // In caso di collisione procedo come segue:
+    // PP.assets.sprite.animation_play(frammento_1, "lighton");
+
+    player.is_on_frammenti = true;
+
+
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+
+        frammento_6.ph_obj.x = 260; // X 坐标
+        frammento_6.ph_obj.y = 10; // Y 坐标
+
+        // 固定 frammento_1 到摄像机视图
+        frammento_6.ph_obj.setScrollFactor(0);
+
+        // 确保 frammento_1 位于最上层
+        frammento_6.ph_obj.setDepth(10);
+        // 1) distruggo giada
+
+        //PP.assets.destroy(luce_frammento1);
+
+        // 2) aumento di 10 lo score
+        let prev_score = PP.gameState.get_variable("score");
+        PP.gameState.set_variable("score", prev_score + 10);
+
+
+    }
+
+}
+
+function collision_frammento7(s, player, frammento_7) {
+    // In caso di collisione procedo come segue:
+    // PP.assets.sprite.animation_play(frammento_1, "lighton");
+
+    player.is_on_frammenti = true;
+
+
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+
+        frammento_7.ph_obj.x = 310; // X 坐标
+        frammento_7.ph_obj.y = 10; // Y 坐标
+
+        // 固定 frammento_1 到摄像机视图
+        frammento_7.ph_obj.setScrollFactor(0);
+
+        // 确保 frammento_1 位于最上层
+        frammento_7.ph_obj.setDepth(10);
+        // 1) distruggo giada
+
+        //PP.assets.destroy(luce_frammento1);
+
+        // 2) aumento di 10 lo score
+        let prev_score = PP.gameState.get_variable("score");
+        PP.gameState.set_variable("score", prev_score + 10);
+
+
+    }
+
+}
+
 
 
 
@@ -342,7 +533,7 @@ function update_frammento1(s, player){
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
           // 1) distruggo giada
-          PP.assets.destroy(frammento_1);
+
           PP.assets.destroy(luce1);
         }
        }
@@ -369,7 +560,6 @@ function update_frammento1(s, player){
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
           // 1) distruggo giada
-          PP.assets.destroy(frammento_2);
           PP.assets.destroy(luce2);
         }
        }
@@ -395,7 +585,7 @@ function update_frammento1(s, player){
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
           // 1) distruggo giada
-          PP.assets.destroy(frammento_3);
+
           PP.assets.destroy(luce3);
         }
        }
@@ -421,7 +611,7 @@ function update_frammento1(s, player){
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
           // 1) distruggo giada
-          PP.assets.destroy(frammento_4);
+
           PP.assets.destroy(luce4);
         }
        }
@@ -446,7 +636,7 @@ function update_frammento1(s, player){
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
           // 1) distruggo giada
-          PP.assets.destroy(frammento_5);
+
           PP.assets.destroy(luce5);
         }
        }
@@ -471,7 +661,7 @@ function update_frammento1(s, player){
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
           // 1) distruggo giada
-          PP.assets.destroy(frammento_6);
+
           PP.assets.destroy(luce6);
         }
        }
@@ -496,7 +686,7 @@ function update_frammento1(s, player){
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
           // 1) distruggo giada
-          PP.assets.destroy(frammento_7);
+
           PP.assets.destroy(luce7);
         }
        }
