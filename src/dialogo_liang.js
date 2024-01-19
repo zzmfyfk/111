@@ -61,6 +61,8 @@ function update_dialogo_liang(s, player) {
                 casella_zhu_dialogo_liang.visibility.alpha = 0;
                 testo_dialogofinale_positivo2.visibility.alpha = 0;
                 dialog_state_liang = 3; // Update state to indicate dialogue is closed
+
+                PP.scenes.start("finale_positivo");
                 break;
         }
     } else if (!PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {

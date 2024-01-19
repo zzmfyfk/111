@@ -39,8 +39,13 @@ let img_timer_icon;
 let panni_stesi;
 let img_panni_stesi;
 
+let img_liang;
+let liang;
+
 function preload(s) {
     console.log("Executing preload() - SCENE");
+
+    img_liang=PP.assets.image.load(s,"assets/images/Liang_complete.png");
 
     // Carichiamo gli asset grafici
    // img_background = PP.assets.image.load(s, "assets/images/background.png");

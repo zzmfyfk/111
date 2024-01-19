@@ -49,7 +49,7 @@ function preload(s) {
     img_background_1_2 = PP.assets.image.load(s, "assets/images/parallax/background_1_2.png");
     img_background_2_2  = PP.assets.image.load(s, "assets/images/parallax/background_2_2.png");
 
-    img_pavimentazione_e_ponte_2  = PP.assets.image.load(s, "assets/images/parallax/pavimentazione_e_ponte_2.png");
+    img_pavimentazione_e_ponte_2  = PP.assets.image.load(s, "assets/images/pavimentazione_e_ponte_2.png");
   
 
 

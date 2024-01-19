@@ -2,18 +2,22 @@ let copertina;
 let gioca;
 let storia;
 let crediti;
+let testo_copertina;
+let img_testo_copertina;
+
 
 function preload(s) {
     copertina = PP.assets.image.load(s, "assets/images/copertina.jpg");
+    img_testo_copertina= PP.assets.image.load(s, "assets/images/testo_copertina.png");
     // img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
-   
+
 }
 
 function create(s) {
 
-
+    
     PP.assets.tilesprite.add(s, copertina, 0, 0, 0, 0, 0, 0);
-
+testo_copertina=PP.assets.image.add(s, img_testo_copertina, 60,600, 0, 0);
     //crezione dei testi "gioca" "storia" "crediti":
     gioca = PP.shapes.text_styled_add(s,
         60, 450,
@@ -49,6 +53,10 @@ function create(s) {
         null,
         0,
         0);
+
+    
+
+
 
     //crezione dei tasti interattivi "gioca" "storia" "crediti":
 

@@ -90,6 +90,7 @@ function create_dialogo2(s,player){
     opzione_no_Zhu=PP.assets.image.add(s,img_opzione_no_Zhu,5990,1148,0,0);
     opzione_no_Zhu.visibility.alpha=0;
 
+    ponte_ricostruito=PP.assets.image.add(s,img_ponte_ricostruito,0,0,0,0);
     ponte_ricostruito_primopiano=PP.assets.image.add(s,img_ponte_ricostruito_primopiano,0,0,0,0);
     ponte_ricostruito_primopiano.visibility.alpha=0;
     let layer_ponte_ricostruito_primopiano = PP.layers.create(s);

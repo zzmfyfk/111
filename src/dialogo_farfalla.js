@@ -61,6 +61,7 @@ function update_dialogo_farfalla(s, player) {
                 casella_zhu_dialogo_farfalla.visibility.alpha = 0;
                 testo_dialogofinale_farfalla2.visibility.alpha = 0;
                 dialog_state_farfalla = 3; // Update state to indicate dialogue is closed
+                PP.scenes.start("finale_normale");
                 break;
         }
     } else if (!PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {

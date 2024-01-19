@@ -516,7 +516,8 @@ function collision_frammento7(s, player, frammento_7) {
 function redirectToLiangIfScoreIsHighEnough(score) {
     if (score >= 70) {
         // 执行跳转到 'liang.html'
-        window.location.href = 'liang.html';
+        liang.visibility.alpha = 1; 
+        //window.location.href = 'liang.html';
     }
 }
 
