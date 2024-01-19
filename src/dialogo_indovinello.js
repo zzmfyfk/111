@@ -120,7 +120,7 @@ function preload_dialogo_indovinello(s){
 
 function create_dialogo_indovinello(s,player){
 
-    mercante_indovinello = PP.assets.image.add(s.img_mercante_indovinello,800,809,0,0);
+    mercante_indovinello = PP.assets.image.add(s,img_mercante_indovinello,1300,1230,0,0);
     PP.physics.add(s,mercante_indovinello,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,mercante_indovinello,overlap_mercante_indovinello);
 
@@ -128,86 +128,84 @@ function create_dialogo_indovinello(s,player){
         player.is_on_mercante_indovinello=true;
     }
 
-    suggerimento_A_indovinello = PP.assets.image.add(s,img_suggerimento_A_indovinello,800,790,0,0);
+    suggerimento_A_indovinello = PP.assets.image.add(s,img_suggerimento_A_indovinello,1300,1200,0,0);
     suggerimento_A_indovinello.visibility.alpha = 0;
 
-    casella_indovinello_mercante = PP.assets.image.add(s,img_casella_indovinello_mercante,-500,939,0,0);
+    casella_indovinello_mercante = PP.assets.image.add(s,img_casella_indovinello_mercante,600,1370,0,0);
     casella_indovinello_mercante.visibility.alpha = 0;
 
-    casella_indovinello_Zhu = PP.assets.image.add(s,img_casella_Zhu,-500,939,0,0);
+    casella_indovinello_Zhu = PP.assets.image.add(s,img_casella_indovinello_Zhu,410,1370,0,0);
     casella_indovinello_Zhu.visibility.alpha = 0;
 
-    testo_indovinello_apertura1 = PP.assets.image.add(s,img_testo_indovinello_apertura1,300,990,0,0);
+    testo_indovinello_apertura1 = PP.assets.image.add(s,img_testo_indovinello_apertura1,1140,1420,0,0);
     testo_indovinello_apertura1.visibility.alpha = 0;
-    testo_indovinello_apertura2 = PP.assets.image.add(s,img_testo_indovinello_apertura2,300,990,0,0);
+    testo_indovinello_apertura2 = PP.assets.image.add(s,img_testo_indovinello_apertura2,1140,1420,0,0);
     testo_indovinello_apertura2.visibility.alpha = 0;
-    testo_indovinello_apertura3 = PP.assets.image.add(s,img_testo_indovinello_apertura3,300,990,0,0);
+    testo_indovinello_apertura3 = PP.assets.image.add(s,img_testo_indovinello_apertura3,1140,1420,0,0);
     testo_indovinello_apertura3.visibility.alpha = 0;
 
-    testo_indovinello1 = PP.assets.image.add(s,img_testo_indovinello1,300,990,0,0);
+    testo_indovinello1 = PP.assets.image.add(s,img_testo_indovinello1,1140,1420,0,0);
     testo_indovinello1.visibility.alpha = 0;
-    testo_indovinello2 = PP.assets.image.add(s,img_testo_indovinello2,300,990,0,0);
-    testo_indovinello2.visibility.alpha = 0;
-    testo_indovinello3 = PP.assets.image.add(s,img_testo_indovinello3,300,990,0,0);
-    testo_indovinello3.visibility.alpha = 0;
-    testo_indovinello4 = PP.assets.image.add(s,img_testo_indovinello4,300,990,0,0);
-    testo_indovinello4.visibility.alpha = 0;
-    testo_indovinello5 = PP.assets.image.add(s,img_testo_indovinello5,300,990,0,0);
-    testo_indovinello5.visibility.alpha = 0;
-
-    testo_indovinello_risposte1 = PP.assets.image.add(s,img_testo_indovinello_risposte1,300,990,0,0);
+    testo_indovinello_risposte1 = PP.assets.image.add(s,img_testo_indovinello_risposte1,1140,1420,0,0);
     testo_indovinello_risposte1.visibility.alpha = 0;
-    testo_indovinello_risposte2 = PP.assets.image.add(s,img_testo_indovinello_risposte2,300,990,0,0);
-    testo_indovinello_risposte2.visibility.alpha = 0;
-    testo_indovinello_risposte3 = PP.assets.image.add(s,img_testo_indovinello_risposte3,300,990,0,0);
-    testo_indovinello_risposte3.visibility.alpha = 0;
-    testo_indovinello_risposte4 = PP.assets.image.add(s,img_testo_indovinello_risposte4,300,990,0,0);
-    testo_indovinello_risposte4.visibility.alpha = 0;
-    testo_indovinello_risposte5 = PP.assets.image.add(s,img_testo_indovinello_risposte5,300,990,0,0);
-    testo_indovinello_risposte5.visibility.alpha = 0;
-
-    testo_indovinello_sbagliato = PP.assets.image.add(s,img_testo_indovinello_sbagliato,300,990,0,0);
-    testo_indovinello_sbagliato.visibility.alpha = 0;
-    testo_indovinello_corretto = PP.assets.image.add(s,img_testo_indovinello_corretto,300,990,0,0);
-    testo_indovinello_corretto.visibility.alpha = 0;
-
-    testo_indovinello_finito = PP.assets.image.add(s,img_testo_indovinello_finito,300,990,0,0);
-    testo_indovinello_finito.visibility.alpha = 0;
-
-    testo_risposte1_S = PP.assets.image.add(s,img_testo_risposte1_S,300,990,0,0);
+    testo_risposte1_S = PP.assets.image.add(s,img_testo_risposte1_S,1140,1420,0,0);
     testo_risposte1_S.visibility.alpha = 0;
-    testo_risposte1_D = PP.assets.image.add(s,img_testo_risposte1_D,300,990,0,0);
+    testo_risposte1_D = PP.assets.image.add(s,img_testo_risposte1_D,1140,1420,0,0);
     testo_risposte1_D.visibility.alpha = 0;
-    testo_risposte1_F = PP.assets.image.add(s,img_testo_risposte1_F,300,990,0,0);
+    testo_risposte1_F = PP.assets.image.add(s,img_testo_risposte1_F,1140,1420,0,0);
     testo_risposte1_F.visibility.alpha = 0;
-
-    testo_risposte2_S = PP.assets.image.add(s,img_testo_risposte2_S,300,990,0,0);
+   
+    testo_indovinello2 = PP.assets.image.add(s,img_testo_indovinello2,1140,1420,0,0);
+    testo_indovinello2.visibility.alpha = 0;
+    testo_indovinello_risposte2 = PP.assets.image.add(s,img_testo_indovinello_risposte2,1140,1420,0,0);
+    testo_indovinello_risposte2.visibility.alpha = 0;
+    testo_risposte2_S = PP.assets.image.add(s,img_testo_risposte2_S,1140,1420,0,0);
     testo_risposte2_S.visibility.alpha = 0;
-    testo_risposte2_D = PP.assets.image.add(s,img_testo_risposte2_D,300,990,0,0);
+    testo_risposte2_D = PP.assets.image.add(s,img_testo_risposte2_D,1140,1420,0,0);
     testo_risposte2_D.visibility.alpha = 0;
-    testo_risposte2_F = PP.assets.image.add(s,img_testo_risposte2_F,300,990,0,0);
+    testo_risposte2_F = PP.assets.image.add(s,img_testo_risposte2_F,1140,1420,0,0);
     testo_risposte2_F.visibility.alpha = 0;
 
-    testo_risposte3_S = PP.assets.image.add(s,img_testo_risposte3_S,300,990,0,0);
+    testo_indovinello3 = PP.assets.image.add(s,img_testo_indovinello3,1140,1420,0,0);
+    testo_indovinello3.visibility.alpha = 0;
+    testo_indovinello_risposte3 = PP.assets.image.add(s,img_testo_indovinello_risposte3,1140,1420,0,0);
+    testo_indovinello_risposte3.visibility.alpha = 0;
+    testo_risposte3_S = PP.assets.image.add(s,img_testo_risposte3_S,1140,1420,0,0);
     testo_risposte3_S.visibility.alpha = 0;
-    testo_risposte3_D = PP.assets.image.add(s,img_testo_risposte3_D,300,990,0,0);
+    testo_risposte3_D = PP.assets.image.add(s,img_testo_risposte3_D,1140,1420,0,0);
     testo_risposte3_D.visibility.alpha = 0;
-    testo_risposte3_F = PP.assets.image.add(s,img_testo_risposte3_F,300,990,0,0);
+    testo_risposte3_F = PP.assets.image.add(s,img_testo_risposte3_F,1140,1420,0,0);
     testo_risposte3_F.visibility.alpha = 0;
 
-    testo_risposte4_S = PP.assets.image.add(s,img_testo_risposte4_S,300,990,0,0);
+    testo_indovinello4 = PP.assets.image.add(s,img_testo_indovinello4,1140,1420,0,0);
+    testo_indovinello4.visibility.alpha = 0;
+    testo_indovinello_risposte4 = PP.assets.image.add(s,img_testo_indovinello_risposte4,1140,1420,0,0);
+    testo_indovinello_risposte4.visibility.alpha = 0;
+    testo_risposte4_S = PP.assets.image.add(s,img_testo_risposte4_S,1140,1420,0,0);
     testo_risposte4_S.visibility.alpha = 0;
-    testo_risposte4_D = PP.assets.image.add(s,img_testo_risposte4_D,300,990,0,0);
+    testo_risposte4_D = PP.assets.image.add(s,img_testo_risposte4_D,1140,1420,0,0);
     testo_risposte4_D.visibility.alpha = 0;
-    testo_risposte4_F = PP.assets.image.add(s,img_testo_risposte4_F,300,990,0,0);
+    testo_risposte4_F = PP.assets.image.add(s,img_testo_risposte4_F,1140,1420,0,0);
     testo_risposte4_F.visibility.alpha = 0;
 
-    testo_risposte5_S = PP.assets.image.add(s,img_testo_risposte5_S,300,990,0,0);
+    testo_indovinello5 = PP.assets.image.add(s,img_testo_indovinello5,1140,1420,0,0);
+    testo_indovinello5.visibility.alpha = 0;
+    testo_indovinello_risposte5 = PP.assets.image.add(s,img_testo_indovinello_risposte5,1140,1420,0,0);
+    testo_indovinello_risposte5.visibility.alpha = 0;
+    testo_risposte5_S = PP.assets.image.add(s,img_testo_risposte5_S,1140,1420,0,0);
     testo_risposte5_S.visibility.alpha = 0;
-    testo_risposte5_D = PP.assets.image.add(s,img_testo_risposte5_D,300,990,0,0);
+    testo_risposte5_D = PP.assets.image.add(s,img_testo_risposte5_D,1140,1420,0,0);
     testo_risposte5_D.visibility.alpha = 0;
-    testo_risposte5_F = PP.assets.image.add(s,img_testo_risposte5_F,300,990,0,0);
+    testo_risposte5_F = PP.assets.image.add(s,img_testo_risposte5_F,1140,1420,0,0);
     testo_risposte5_F.visibility.alpha = 0;
+
+    testo_indovinello_sbagliato = PP.assets.image.add(s,img_testo_indovinello_sbagliato,1140,1420,0,0);
+    testo_indovinello_sbagliato.visibility.alpha = 0;
+    testo_indovinello_corretto = PP.assets.image.add(s,img_testo_indovinello_corretto,1140,1420,0,0);
+    testo_indovinello_corretto.visibility.alpha = 0;
+
+    testo_indovinello_finito = PP.assets.image.add(s,img_testo_indovinello_finito,1140,1420,0,0);
+    testo_indovinello_finito.visibility.alpha = 0;
 
 }
 
@@ -215,7 +213,6 @@ let dialog_state_indovinello = 0;
 let randomNumber = 0;
 let already_guessed = false;
 let enable_indovinello_A = true;
-
 let enable_indovinello_S = true;
 
 function update_dialogo_indovinello(s,player){
@@ -241,7 +238,7 @@ function update_dialogo_indovinello(s,player){
 
                 testo_indovinello_finito.visibility.alpha=1;
 
-                dialog_state_indovinello=8;
+                dialog_state_indovinello=9;
                 player_speed=0;
                 jump_init_speed=0;
                 enable_indovinello_A=false;
@@ -251,9 +248,7 @@ function update_dialogo_indovinello(s,player){
             //introduzione
             if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 0){
                 //il tizio dice ciao cosa vuoi
-                
-                randomNumber = Math.floor(Math.random() * 5) + 1;
-
+                randomNumber = Math.floor(Math.random() * 5) + 1; 
                 suggerimento_A_indovinello.visibility.alpha=0;
 
                 casella_indovinello_mercante.visibility.alpha=1;
@@ -264,7 +259,7 @@ function update_dialogo_indovinello(s,player){
                 dialog_state_indovinello = 1;
                 enable_indovinello_A = false;
             }
-            else if(dialog_state_indovinello == 1 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
+           else if(dialog_state_indovinello == 1 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
                 //Zhu risponde, voglio la tavoletta
                 casella_indovinello_mercante.visibility.alpha=0;
                 testo_indovinello_apertura1.visibility.alpha=0;
@@ -281,7 +276,6 @@ function update_dialogo_indovinello(s,player){
                 //il tizio dice ok allora rispondi all'indovinello
                 casella_indovinello_Zhu.visibility.alpha=0;
                 testo_indovinello_apertura2.visibility.alpha=0;
-
                 casella_indovinello_mercante.visibility.alpha=1;
                 testo_indovinello_apertura3.visibility.alpha=1;
 
@@ -289,13 +283,22 @@ function update_dialogo_indovinello(s,player){
                 jump_init_speed=0;
                 dialog_state_indovinello = 3;
                 enable_indovinello_A = false;
-
             }
+            else if(dialog_state_indovinello == 3 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
+                //il tizio dice ok allora rispondi all'indovinello
+                casella_indovinello_mercante.visibility.alpha=1;
+                testo_indovinello_apertura3.visibility.alpha=1;
 
+                player_speed=0;
+                jump_init_speed=0;
+                dialog_state_indovinello = 4;
+                enable_indovinello_A = false;
+            }
+            
             //primo indovinello
             if(randomNumber == 1){
 
-                if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 3){
+                if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 4){
 
                     testo_indovinello_apertura3.visibility.alpha=0;
 
@@ -303,10 +306,10 @@ function update_dialogo_indovinello(s,player){
 
                     player_speed=0;
                     jump_init_speed=0;
-                    dialog_state_indovinello = 4;
+                    dialog_state_indovinello = 5;
                     enable_indovinello_A = false;
                 }
-                else if(dialog_state_indovinello == 4 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
+                else if(dialog_state_indovinello == 5 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
                     //Compaiono le risposte, con 3 opzioni S D F
                     casella_indovinello_mercante.visibility.alpha=0;
                     testo_indovinello1.visibility.alpha=0;
@@ -316,16 +319,16 @@ function update_dialogo_indovinello(s,player){
     
                     player_speed=0;
                     jump_init_speed=0;
-                    dialog_state_indovinello = 5;
+                    dialog_state_indovinello = 6;
                     enable_indovinello_A = false;
                 }
 
-                if(PP.interactive.kb.is_key_up(s,PP.key_codes.S)){
+               if(PP.interactive.kb.is_key_up(s,PP.key_codes.S)){
 
                     enable_indovinello_S = true;
                 }
 
-                if(enable_indovinello_S && dialog_state_indovinello == 5){
+                if(enable_indovinello_S && dialog_state_indovinello == 6){
                     
                     //D risposta corretta
                     if(PP.interactive.kb.is_key_down(s,PP.key_codes.S)){
@@ -335,7 +338,7 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=7;
+                        dialog_state_indovinello=8;
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
@@ -346,7 +349,7 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=6;//risposta corretta
+                        dialog_state_indovinello=7;//risposta corretta
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
@@ -355,18 +358,19 @@ function update_dialogo_indovinello(s,player){
                         testo_indovinello_risposte1.visibility.alpha=0;
                         testo_risposte1_F.visibility.alpha=1;
 
-                        dialog_state_indovinello=7;
+                        dialog_state_indovinello=8;
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
                 }
             }
 
+            
             //f
             //secondo indovinello
-            if(randomNumber == 2){
+            if(randomNumber == 2 ){
                     
-                if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 3){
+                if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 4){
 
                     testo_indovinello_apertura3.visibility.alpha=0;
 
@@ -374,20 +378,20 @@ function update_dialogo_indovinello(s,player){
 
                     player_speed=0;
                     jump_init_speed=0;
-                    dialog_state_indovinello = 4;
+                    dialog_state_indovinello = 5;
                     enable_indovinello_A = false;
                 }
-                else if(dialog_state_indovinello == 4 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
+                else if(dialog_state_indovinello == 5 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
                     //Compaiono le risposte, con 3 opzioni S D F
                     casella_indovinello_mercante.visibility.alpha=0;
-                    testo_indovinello1.visibility.alpha=0;
+                    testo_indovinello2.visibility.alpha=0;
 
                     casella_indovinello_Zhu.visibility.alpha=1;
                     testo_indovinello_risposte2.visibility.alpha=1;
 
                     player_speed=0;
                     jump_init_speed=0;
-                    dialog_state_indovinello = 5;
+                    dialog_state_indovinello = 6;
                     enable_indovinello_A = false;
                 }
 
@@ -396,7 +400,7 @@ function update_dialogo_indovinello(s,player){
                     enable_indovinello_S = true;
                 }
 
-                if(enable_indovinello_S && dialog_state_indovinello == 5){
+                if(enable_indovinello_S && dialog_state_indovinello == 6){
                     
                     if(PP.interactive.kb.is_key_down(s,PP.key_codes.S)){
 
@@ -405,7 +409,7 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=7;
+                        dialog_state_indovinello=8;
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
@@ -416,7 +420,7 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=7;
+                        dialog_state_indovinello=8;
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
@@ -427,18 +431,18 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=6;//risposta
+                        dialog_state_indovinello=7;//risposta
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
                 }
             }
-
+            
             //s
             //terzo indovinello
-            if(randomNumber == 3){
+            if(randomNumber == 3 ){
                     
-                if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 3){
+                if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 4){
 
                     testo_indovinello_apertura3.visibility.alpha=0;
 
@@ -446,20 +450,20 @@ function update_dialogo_indovinello(s,player){
 
                     player_speed=0;
                     jump_init_speed=0;
-                    dialog_state_indovinello = 4;
+                    dialog_state_indovinello = 5;
                     enable_indovinello_A = false;
                 }
-                else if(dialog_state_indovinello == 4 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
+                else if(dialog_state_indovinello == 5 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
                     //Compaiono le risposte, con 3 opzioni S D F
                     casella_indovinello_mercante.visibility.alpha=0;
-                    testo_indovinello1.visibility.alpha=0;
+                    testo_indovinello3.visibility.alpha=0;
 
                     casella_indovinello_Zhu.visibility.alpha=1;
-                    testo_indovinello_rispost3.visibility.alpha=1;
+                    testo_indovinello_risposte3.visibility.alpha=1;
 
                     player_speed=0;
                     jump_init_speed=0;
-                    dialog_state_indovinello = 5;
+                    dialog_state_indovinello = 6;
                     enable_indovinello_A = false;
                 }
 
@@ -468,7 +472,7 @@ function update_dialogo_indovinello(s,player){
                     enable_indovinello_S = true;
                 }
 
-                if(enable_indovinello_S && dialog_state_indovinello == 5){
+                if(enable_indovinello_S && dialog_state_indovinello == 6){
                     
                     //S risposta corretta
                     if(PP.interactive.kb.is_key_down(s,PP.key_codes.S)){
@@ -478,7 +482,7 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=6;//state di opzione corretta
+                        dialog_state_indovinello=7;//state di opzione corretta
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
@@ -489,7 +493,7 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=7;//risposta sbagliata
+                        dialog_state_indovinello=8;//risposta sbagliata
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
@@ -500,7 +504,7 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=7;//risposta sbagliata
+                        dialog_state_indovinello=8;//risposta sbagliata
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
@@ -510,7 +514,7 @@ function update_dialogo_indovinello(s,player){
             //quarto indovinello
             if(randomNumber == 4){
                     
-                if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 3){
+                if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 4){
 
                     testo_indovinello_apertura3.visibility.alpha=0;
 
@@ -518,20 +522,20 @@ function update_dialogo_indovinello(s,player){
 
                     player_speed=0;
                     jump_init_speed=0;
-                    dialog_state_indovinello = 4;
+                    dialog_state_indovinello = 5;
                     enable_indovinello_A = false;
                 }
-                else if(dialog_state_indovinello == 4 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
+                else if(dialog_state_indovinello == 5 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
                     //Compaiono le risposte, con 3 opzioni S D F
                     casella_indovinello_mercante.visibility.alpha=0;
                     testo_indovinello4.visibility.alpha=0;
 
                     casella_indovinello_Zhu.visibility.alpha=1;
-                    testo_indovinello_rispost4.visibility.alpha=1;
+                    testo_indovinello_risposte4.visibility.alpha=1;
 
                     player_speed=0;
                     jump_init_speed=0;
-                    dialog_state_indovinello = 5;
+                    dialog_state_indovinello = 6;
                     enable_indovinello_A = false;
                 }
 
@@ -540,7 +544,7 @@ function update_dialogo_indovinello(s,player){
                     enable_indovinello_S = true;
                 }
 
-                if(enable_indovinello_S && dialog_state_indovinello == 5){
+                if(enable_indovinello_S && dialog_state_indovinello == 6){
                     
                     //S risposta corretta
                     if(PP.interactive.kb.is_key_down(s,PP.key_codes.S)){
@@ -550,7 +554,7 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=7;//state di opzione corretta
+                        dialog_state_indovinello=8;//state di opzione corretta
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
@@ -561,7 +565,7 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=7;//risposta sbagliata
+                        dialog_state_indovinello=8;//risposta sbagliata
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
@@ -572,7 +576,7 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=6;//risposta
+                        dialog_state_indovinello=7;//risposta
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
@@ -582,7 +586,7 @@ function update_dialogo_indovinello(s,player){
             //quinto indovinello
             if(randomNumber == 5){
                     
-                if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 3){
+                if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 4){
 
                     testo_indovinello_apertura3.visibility.alpha=0;
 
@@ -590,7 +594,7 @@ function update_dialogo_indovinello(s,player){
 
                     player_speed=0;
                     jump_init_speed=0;
-                    dialog_state_indovinello = 4;
+                    dialog_state_indovinello = 5;
                     enable_indovinello_A = false;
                 }
                 else if(dialog_state_indovinello == 4 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
@@ -603,7 +607,7 @@ function update_dialogo_indovinello(s,player){
 
                     player_speed=0;
                     jump_init_speed=0;
-                    dialog_state_indovinello = 5;
+                    dialog_state_indovinello = 6;
                     enable_indovinello_A = false;
                 }
 
@@ -612,23 +616,34 @@ function update_dialogo_indovinello(s,player){
                     enable_indovinello_S = true;
                 }
 
-                if(enable_indovinello_S && dialog_state_indovinello == 5){
+                if(enable_indovinello_S && dialog_state_indovinello == 6){
                     
                     if(PP.interactive.kb.is_key_down(s,PP.key_codes.S)){
 
-                        testo_indovinello_risposte4.visibility.alpha=0;
+                        testo_indovinello_risposte5.visibility.alpha=0;
                         testo_risposte5_S.visibility.alpha=1;
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=7;//state di opzione corretta
+                        dialog_state_indovinello=8;//state di opzione corretta
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
                     else if(PP.interactive.kb.is_key_down(s,PP.key_codes.D)){
 
-                        testo_indovinello_risposte4.visibility.alpha=0;
+                        testo_indovinello_risposte5.visibility.alpha=0;
                         testo_risposte5_D.visibility.alpha=1;
+
+                        player_speed=0;
+                        jump_init_speed=0;
+                        dialog_state_indovinello=8;//risposta sbagliata
+                        enable_indovinello_A=false;
+                        enable_indovinello_S=false;
+                    }
+                    else if (PP.interactive.kb.is_key_down(s,PP.key_codes.F)){
+                        //F risposta sbagliata
+                        testo_indovinello_risposte5.visibility.alpha=0;
+                        testo_risposte5_F.visibility.alpha=1;
 
                         player_speed=0;
                         jump_init_speed=0;
@@ -636,21 +651,10 @@ function update_dialogo_indovinello(s,player){
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
-                    else if (PP.interactive.kb.is_key_down(s,PP.key_codes.F)){
-                        //F risposta sbagliata
-                        testo_indovinello_risposte4.visibility.alpha=0;
-                        testo_risposte5_F.visibility.alpha=1;
-
-                        player_speed=0;
-                        jump_init_speed=0;
-                        dialog_state_indovinello=6;//risposta sbagliata
-                        enable_indovinello_A=false;
-                        enable_indovinello_S=false;
-                    }
                 }
             }
 
-            if(dialog_state_indovinello == 6 && !already_guessed){
+            if(dialog_state_indovinello == 7 && !already_guessed && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
                 //se non hai già indovinato, e hai vinto
                 //qui dirà hai vinto!
                 //e si va a chiudere tutto
@@ -667,12 +671,13 @@ function update_dialogo_indovinello(s,player){
 
                 player_speed=0;
                 jump_init_speed=0;
-                dialog_state_indovinello=8;//state per chiudere tutto
+                dialog_state_indovinello=9;//state per chiudere tutto
                 already_guessed=true;//deve dire true
                 enable_indovinello_A=false;
             }
-            else if(dialog_state_indovinello=7){
+            else if(dialog_state_indovinello==8 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
                 //mi dispiace hai sbagliato, riprova
+                console.log("sbagliato");
                 casella_indovinello_Zhu.visibility.alpha=0;
                 testo_risposte1_S.visibility.alpha=0;
                 testo_risposte1_F.visibility.alpha=0;
@@ -694,10 +699,10 @@ function update_dialogo_indovinello(s,player){
 
                 player_speed=0;
                 jump_init_speed=0;
-                dialog_state_indovinello=8;//state per chiudere tutto
+                dialog_state_indovinello=9;//state per chiudere tutto
                 enable_indovinello_A=false;
             }
-            else if(dialog_state_indovinello == 8 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
+            else if(dialog_state_indovinello == 9 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
                 //chiudo tutto schiacciando A
                 casella_indovinello_mercante.visibility.alpha=0;
                 testo_indovinello_corretto.visibility.alpha=0;
@@ -711,7 +716,6 @@ function update_dialogo_indovinello(s,player){
                 enable_indovinello_A=false;
             }
         }
-
     }
     
     else if(player.is_on_mercante_indovinello == false){
