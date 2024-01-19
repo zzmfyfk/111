@@ -12,8 +12,8 @@ function preload(s) {
     tavola_3 = PP.assets.image.load(s, "assets/images/tavola3.png");
     img_freccia_successivo= PP.assets.image.load(s, "assets/images/freccia_destra.png");
     img_freccia_precedente= PP.assets.image.load(s, "assets/images/freccia_sinistra.png");
-    img_testo_tav1=PP.assets.image.load(s, "assets/images/testo_tav_1.png");
-    img_base_testo1=PP.assets.image.load(s, "assets/images/base_testo.png");
+    img_testo_tav1=PP.assets.image.load(s, "assets/images/testo_tavola3.png");
+    img_base_testo1=PP.assets.image.load(s, "assets/images/base_testo_grande.png");
 
 }
 

@@ -1,5 +1,6 @@
 let tavola_finale_negativo
 let tasto_rigioca;
+let img_home;
 let tasto_home;
 let img_rigioca;
 let base_testo_1;
@@ -10,8 +11,8 @@ function preload(s) {
     tavola_finale_negativo = PP.assets.image.load(s, "assets/images/finale_negativo.png");
     img_home = PP.assets.image.load(s, "assets/images/tasto_home.png");
     img_rigioca = PP.assets.image.load(s, "assets/images/tasto_rigioca.png");
-    img_testo_tav1=PP.assets.image.load(s, "assets/images/testo_tav_1.png");
-    img_base_testo1=PP.assets.image.load(s, "assets/images/base_testo.png");
+    img_testo_tav1=PP.assets.image.load(s, "assets/images/testo_finale_negativo.png");
+    img_base_testo1=PP.assets.image.load(s, "assets/images/base_testo_finale_negativo.png");
 }
 
 function create(s) {
