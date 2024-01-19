@@ -6,6 +6,7 @@ let crediti;
 function preload(s) {
     copertina = PP.assets.image.load(s, "assets/images/copertina.jpg");
     // img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
+   
 }
 
 function create(s) {

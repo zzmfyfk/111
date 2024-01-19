@@ -32,29 +32,34 @@ let img_book_icon;
 let img_book_open;
 let img_timer_icon;
 
+let ponte_iniziale;
+let img_ponte_iniziale_1;
+
 function preload(s) {
     console.log("Executing preload() - SCENE");
 
     // Carichiamo gli asset grafici
-    // img_background = PP.assets.image.load(s, "assets/images/background.png");
     img_player = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_player.png", 99, 150);
+    img_ponte_iniziale_1  = PP.assets.image.load(s, "assets/images/ponte_iniziale_1.png");
 
-
-
+    //Per lo sfondo:
     img_background_1 = PP.assets.image.load(s, "assets/images/parallax/background_1.png");
     img_background_2 = PP.assets.image.load(s, "assets/images/parallax/background_2.png");
     img_background_3 = PP.assets.image.load(s, "assets/images/parallax/background_3.png");
     
-    //carichiamo immagini per l'interfaccia
+    //Per l'interfaccia:
     img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
     img_book_open = PP.assets.image.load(s, "assets/images/menu_book_open.png");
     img_timer_icon   = PP.assets.image.load(s, "assets/images/timer_icon.png");
 
-    preload_player(s);
+    
+
+    //Altri elementi di gioco:
+    preload_nuvola(s);
     preload_giada(s);
     preload_barca(s);
     preload_cassa(s);
-    preload_nuvola(s);
+    
 
     preload_lanterna(s);
     
@@ -83,11 +88,7 @@ function collision_barca(s, player, barca) {
 function create(s) {
     console.log("Executing create() - SCENE");
 
-    
-
     // Inseriamo background e giocatore
-    //  PP.assets.tilesprite.add(s, img_background, 0, 0, 9009, 1296, 0, 0);
-
 
     ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 0, 10800, 1800, 0, 0);
     ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 0,  10800, 1800, 0, 0);
@@ -95,11 +96,12 @@ function create(s) {
 
     // Disabilitiamo il tilesprite scroll factor per tutti i background (lo gestiremo manualmente)
 
-
-
     ts_background_3.tile_geometry.scroll_factor_x = 0;
     ts_background_2.tile_geometry.scroll_factor_x = 0;
     ts_background_1.tile_geometry.scroll_factor_x = 0;
+
+
+    ponte_iniziale = PP.assets.image.add(s, img_ponte_iniziale_1, 0, 0, 0, 0);
 
 
 
@@ -112,7 +114,7 @@ function create(s) {
     PP.layers.add_to_layer(layer_player, player);
     PP.layers.set_z_index(layer_player, 1);
 
-    // Creiamo un pavimento "trasparente"
+    //Creiamo i pavimenti:
     floor = PP.shapes.rectangle_add(s, 825, 964, 1650, 1, "0x000000", 0); //prima parte pavimento iniziale
     // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
@@ -120,23 +122,16 @@ function create(s) {
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor_1 = PP.shapes.rectangle_add(s, 2190, 964, 780, 1, "0x008000", 0); //seconda parte pavimento iniziale
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_1, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
 
     floor_2 = PP.shapes.rectangle_add(s, 3694, 862, 1875, 0, "0x008000", 0); //pavimento dopo ponte pt 1
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_2, PP.physics.type.STATIC);
-
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor_2, collision_floor);
 
     floor_3 = PP.shapes.rectangle_add(s, 9496, 828, 879, 1, "0x008000", 0); //pavimento piattaforma finale
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_3, PP.physics.type.STATIC);
-
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor_3, collision_floor);
 
     floor_4 = PP.shapes.rectangle_add(s, 2005, 1143, 1191, 1, "0x008000", 0); //pavimento sotto 1
@@ -145,19 +140,18 @@ function create(s) {
 
 
     floor_5 = PP.shapes.rectangle_add(s, 5536, 1122, 2553, 1, "0x008000", 0); //pavimento basso dopo ponte 1
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_5, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_5, collision_floor);
 
-   floor_6 = PP.shapes.rectangle_add(s, 7889, 861, 270, 1, "0x008000", 0); //pavimento dopo ponte rotto
+    floor_6 = PP.shapes.rectangle_add(s, 7889, 861, 270, 1, "0x008000", 0); //pavimento dopo ponte rotto
     PP.physics.add(s, floor_6, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_6, collision_floor);
 
-
     floor_7 = PP.shapes.rectangle_add(s, 6051, 862, 2574, 0, "0x008000", 0); //pavimento dopo ponte pt2
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_7, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_7, collision_floor);
+
+    //Creiamo i confini inizili e finali del primo livello:
 
     muroinvisibileinizio = PP.shapes.rectangle_add(s, 594, 648, 1, 1296, "0x000000", 0);
     PP.physics.add(s, muroinvisibileinizio, PP.physics.type.STATIC);
@@ -172,6 +166,7 @@ function create(s) {
 
 
 
+    create_nuvola (s, player);
 
     configure_player_animations(s, player); // Impostazione animazioni giocatore
 
@@ -190,14 +185,8 @@ function create(s) {
     collision_punti_mortali(s, player, fondo);
     
     create_cassa(s, player, cassa);
-  
-    // collision_casse(s, player, cassa);
-     
-    //overlap_casse(s, player, cassaoverlap);
-     
-    // configure_casse_animations(s, img_cassa);
  
-    create_nuvola (s, player);
+    
 
     create_dialogo1(s, player);
 
@@ -225,23 +214,22 @@ function create(s) {
     let menu_cliccabile = PP.assets.image.add(s, img_book_icon,1220, 8, 0, 0);
     menu_cliccabile.tile_geometry.scroll_factor_x = 0;
     menu_cliccabile.tile_geometry.scroll_factor_y = 0;
-    //menu_cliccabile.tile_geometry.scroll_factor_x = 0;
-    //menu_cliccabile.tile_geometry.scroll_factor_y = 0; 
 
     PP.interactive.mouse.add(menu_cliccabile, "pointerdown", clicco_menu);
     menu_open = PP.assets.image.add(s, img_book_open,90, 60, 0, 0);
     menu_open.visibility.alpha = 0;
     menu_open.tile_geometry.scroll_factor_x = 0;
     menu_open.tile_geometry.scroll_factor_y = 0;
-    let layer_menu_open = PP.layers.create(s);
-    PP.layers.add_to_layer(layer_menu_open, menu_open);
-    PP.layers.set_z_index(layer_menu_open, 2);
+    let layer_2 = PP.layers.create(s);
+    PP.layers.add_to_layer(layer_2, menu_open);
+    PP.layers.add_to_layer(layer_2, ponte_iniziale);
+    PP.layers.set_z_index(layer_2, 2);
 
     let timer_icon=PP.assets.image.add(s, img_timer_icon, 100, -1, 0, 0);
     timer_icon.tile_geometry.scroll_factor_x = 0;
     timer_icon.tile_geometry.scroll_factor_y = 0;
 
-    //creo timer
+    //creo meccanismo del timer
     create_timer(s, player);
 
 
@@ -268,10 +256,7 @@ function update(s) {
 
     manage_player_update(s, player);    // Posizione del giocatore e animazioni
 
-    update_giada(s);                // Azioni funghetti
-
-   // manage_player_weapon(s, player);    // Gestione armi
-    //manage_player_weapon(s, player);    // Gestione armi
+    update_giada(s);                // Giade
 
     update_barca(s);
 
@@ -285,7 +270,7 @@ function update(s) {
 
 
 
-    // Aggiorno il punteggio visualizzato:
+    // Aggiorno il punteggio delle giade visualizzato:
     PP.shapes.text_change(txt_score, "Score: " + PP.gameState.get_variable("score"));
 
 
@@ -303,6 +288,7 @@ function destroy(s) {
 
 PP.scenes.add("base", preload, create, update, destroy);
 
+//funzioni per il calcolo delle giade:
 function endLevel() {
     // This function will be called when the timer ends
     checkGiadasAndTransition(this);  // 'this' refers to the scene

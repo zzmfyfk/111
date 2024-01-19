@@ -93,7 +93,7 @@ function create_frammenti(s, player) {
     img_suggerimenti=PP.assets.image.load(s,"assets/images/tasto_A.png");
 
 
-        let frammento_1 = PP.assets.image.add(s, img_frammento_1, 3402,1233, 0, 0);
+        let frammento_1 = PP.assets.image.add(s, img_frammento_1, 3402,1228, 0, 0);
         PP.physics.add(s, frammento_1, PP.physics.type.STATIC);
        // PP.physics.set_collision_rectangle(frammento_1, 69, 57, 55, 14);
         //PP.physics.add_overlap_f(s, player, frammento_1, collision_frammenti);
@@ -106,7 +106,7 @@ function create_frammenti(s, player) {
         }
  
  
-         luce1 = PP.assets.image.add(s,img_luce1,3402,1233,0,0);
+         luce1 = PP.assets.image.add(s,img_luce1,3402,1228,0,0);
          luce1.visibility.alpha = 0;
 
 
@@ -337,7 +337,7 @@ function update_frammento1(s, player){
  
         if(framm_state==0){
  
-            luce1.visibility.alpha=1;
+            luce1.visibility.alpha=0.5;
         }
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
@@ -364,7 +364,7 @@ function update_frammento1(s, player){
 
     if(player.is_on_frammento2==true){
         if(framm_state==0){
-            luce2.visibility.alpha=1;
+            luce2.visibility.alpha=0.5;
         }
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
@@ -390,7 +390,7 @@ function update_frammento1(s, player){
 
     if(player.is_on_frammento3==true){
         if(framm_state==0){
-            luce3.visibility.alpha=1;
+            luce3.visibility.alpha=0.5;
         }
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
@@ -416,7 +416,7 @@ function update_frammento1(s, player){
 
     if(player.is_on_frammento4==true){
         if(framm_state==0){
-            luce4.visibility.alpha=1;
+            luce4.visibility.alpha=0.5;
         }
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
@@ -441,7 +441,7 @@ function update_frammento1(s, player){
 
     if(player.is_on_frammento5==true){
         if(framm_state==0){
-            luce5.visibility.alpha=1;
+            luce5.visibility.alpha=0.5;
         }
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
@@ -466,7 +466,7 @@ function update_frammento1(s, player){
 
     if(player.is_on_frammento6==true){
         if(framm_state==0){
-            luce6.visibility.alpha=1;
+            luce6.visibility.alpha=0.5;
         }
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
@@ -491,7 +491,7 @@ function update_frammento1(s, player){
 
     if(player.is_on_frammento7==true){
         if(framm_state==0){
-            luce7.visibility.alpha=1;
+            luce7.visibility.alpha=0.5;
         }
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){

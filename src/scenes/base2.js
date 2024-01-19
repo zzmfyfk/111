@@ -36,6 +36,8 @@ let menu_open;
 let img_book_icon;
 let img_book_open;
 let img_timer_icon;
+let panni_stesi;
+let img_panni_stesi;
 
 function preload(s) {
     console.log("Executing preload() - SCENE");
@@ -49,7 +51,8 @@ function preload(s) {
     img_background_1_2 = PP.assets.image.load(s, "assets/images/parallax/background_1_2.png");
     img_background_2_2  = PP.assets.image.load(s, "assets/images/parallax/background_2_2.png");
 
-    img_pavimentazione_e_ponte_2  = PP.assets.image.load(s, "assets/images/parallax/pavimentazione_e_ponte_2.png");
+    img_pavimentazione_e_ponte_2  = PP.assets.image.load(s, "assets/images/pavimentazione_e_ponte_2.png");
+    img_panni_stesi= PP.assets.image.load(s, "assets/images/panni_stesi.png");
   
 
 
@@ -87,26 +90,25 @@ function collision_floor(s,player,floor) {
 function create(s) {
     console.log("Executing create() - SCENE");
 
-  
+     player = PP.assets.sprite.add(s, img_player, 1500, 1370, 0.5, 1);
+    // Aggiungiamo il giocatore alla fisica come entità dinamica
+    PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
     ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, 0, 9000, 1590, 0, 0);
     ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0,0, 9000, 1590, 0, 0);
-
-    pavimentazione_e_ponte_2 = PP.assets.image.add(s, img_pavimentazione_e_ponte_2, 0, 0, 0, 0);
-   
 
     // Disabilitiamo il tilesprite scroll factor per tutti i background (lo gestiremo manualmente)
 
     ts_background_2_2.tile_geometry.scroll_factor_x = 0;
     ts_background_1_2.tile_geometry.scroll_factor_x = 0;
-    //ts_pavimentazione_e_ponte_2.tile_geometry.scroll_factor_x = 0;
 
-    player = PP.assets.sprite.add(s, img_player, 1500, 1370, 0.5, 1);
-    // Aggiungiamo il giocatore alla fisica come entità dinamica
-    PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
+    //creo separatamente elementi che dovranno stare in primo piano:
+    pavimentazione_e_ponte_2 = PP.assets.image.add(s, img_pavimentazione_e_ponte_2, 0, 0, 0, 0);
+    panni_stesi = PP.assets.image.add(s, img_panni_stesi, 0, 0, 0, 0);
 
-    //creo un livello specifico per il player, e setto z-index1, così che rimanga in primo piano rispetto agli altri personaggi
+    //creo un livello specifico per il player, e setto z-index1, così che rimanga in primo piano rispetto agli altri personaggi 
     let layer_player = PP.layers.create(s);
+    PP.layers.add_to_layer(layer_player, panni_stesi);
     PP.layers.add_to_layer(layer_player, player);
     PP.layers.set_z_index(layer_player, 1);
     
@@ -121,7 +123,7 @@ function create(s) {
     
 
 
-    // Creiamo un pavimento "trasparente"
+    // Creiamo la pavimentazione:
 
     floor = PP.shapes.rectangle_add(s, 570, 1413.5, 30, 1, "0x000000", 0); // prima piattaformina
     // Aggiungiamo il pavimento alla fisica come entità statica
@@ -130,39 +132,27 @@ function create(s) {
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor = PP.shapes.rectangle_add(s, 597, 1401.5, 30, 1, "0x000000", 0); // seconda piattaformina
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor = PP.shapes.rectangle_add(s, 1219.5, 1392.5, 1209, 1, "0x000000", 0); // prima piattaforma
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor = PP.shapes.rectangle_add(s, 1840.5, 1401.5, 33, 1, "0x000000", 0); // terza piattaformina
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor = PP.shapes.rectangle_add(s, 1872.5, 1413.5, 33, 1, "0x000000", 0); // quarta piattaformina
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor_1 = PP.shapes.rectangle_add(s, 3675, 1401.5, 1668, 1, "0x008000", 0); // rocce prima del ponte
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
     floor_1 = PP.shapes.rectangle_add(s, 8398.5, 1413.5, 4251, 1, "0x008000", 0); // rocce dopo il ponte
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
     muroinvisibileinizio = PP.shapes.rectangle_add(s, 1050, 648, 1, 1296, "0x000000", 0);
@@ -175,8 +165,6 @@ function create(s) {
 
 
     configure_player_animations(s, player); // Impostazione animazioni giocatore
-
-            // Creazione funghetti
 
     create_platform(s, player);
     
@@ -208,18 +196,12 @@ function create(s) {
     // Impostiamo la camera che segua il giocatore
     PP.camera.start_follow(s, player, 0, 220);
 
-    // Esempi di cambio del collision rectangle
-    //PP.physics.set_collision_rectangle(player, 100, 160, 85, 10);
-    //PP.physics.set_collision_circle(player, 80, 50, 10);
-
-
     //create_dialogo_indovinello(s,player);
 
+    //creiamo l'interfaccia di menu:
     let menu_cliccabile = PP.assets.image.add(s, img_book_icon,1220, 8, 0, 0);
     menu_cliccabile.tile_geometry.scroll_factor_x = 0;
     menu_cliccabile.tile_geometry.scroll_factor_y = 0;
-    //menu_cliccabile.tile_geometry.scroll_factor_x = 0;
-    //menu_cliccabile.tile_geometry.scroll_factor_y = 0; 
 
     PP.interactive.mouse.add(menu_cliccabile, "pointerdown", clicco_menu);
     menu_open = PP.assets.image.add(s, img_book_open,90, 60, 0, 0);

@@ -1,7 +1,7 @@
 
     function create_timer(s, player) {
-        PP.timers.add_timer(s, 3000, time_over, false);
-        PP.gameState.set_variable("", 3000);
+        PP.timers.add_timer(s, 300000, time_over, false);
+        PP.gameState.set_variable("", 300000);
 
     
 
@@ -10,7 +10,7 @@
         txt_time.tile_geometry.scroll_factor_y = 0;
 
         function time_over(s) {
-            if (PP.timers.getTime(s) > 3000) {
+            if (PP.timers.getTime(s) > 300000) {
                 console.log("tempo scaduto");
                 PP.scenes.start("finale_negativo");
             }
