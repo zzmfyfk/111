@@ -10,7 +10,7 @@ let testo_dialogofinale_farfalla2;
 
 function preload_dialogo_farfalla(s){
     
-    img_farfalla=PP.assets.image.load(s,"assets/images/Liang_complete.png");
+    img_farfalla=PP.assets.image.load(s,"assets/images/tomba.png");
     img_casella_zhu_dialogo_farfalla = PP.assets.image.load(s,"assets/images/casella_zhu.png");
     img_testo_dialogofinale_farfalla1=PP.assets.image.load(s,"assets/images/testo_dialogofinale_farfalla1.png");
     img_testo_dialogofinale_farfalla2=PP.assets.image.load(s,"assets/images/testo_dialogofinale_farfalla2.png");
@@ -19,7 +19,7 @@ function preload_dialogo_farfalla(s){
 
 function create_dialogo_farfalla(s,player){
 
-    farfalla = PP.assets.image.add(s,img_liang,1700,1238,0,0);
+    farfalla = PP.assets.image.add(s,img_farfalla,1700,1238,0,0);
     PP.physics.add(s,farfalla,PP.physics.type.STATIC);
     s.physics.add.collider(player.ph_obj, farfalla.ph_obj, () => collision_farfalla(s, player, farfalla));
 
@@ -36,7 +36,7 @@ let dialog_state_farfalla = 0;
 let keyA_pressed_farfalla = false; // Flag to track if 'A' key was pressed
 
 function collision_farfalla(s, player, farfalla) {
-    // Show dialogue box and text when player collides with Liang
+    // Show dialogue box and text when player collides with farfalla
     casella_zhu_dialogo_farfalla.visibility.alpha = 1;
     testo_dialogofinale_farfalla1.visibility.alpha = 1;
     dialog_state_farfalla = 1;
