@@ -1,4 +1,4 @@
-/*let img_mercante_indovinello;
+let img_mercante_indovinello;
 let img_casella_indovinello_mercante;
 let img_casella_indovinello_Zhu;
 
@@ -727,4 +727,4 @@ function update_dialogo_indovinello(s,player){
         }
     }
 
-}*/
+}

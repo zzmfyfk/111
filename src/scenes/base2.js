@@ -67,10 +67,9 @@ function preload(s) {
     preload_barca(s);
     preload_frammenti(s);
     //preload_dialogo_indovinello(s);
+    preload_dialogo_liang(s);
+    preload_dialogo_zia_zhou_2(s);
   
-
-  
-
 }
 
 function collider_test(s,a,b) {
@@ -197,6 +196,9 @@ function create(s) {
     PP.camera.start_follow(s, player, 0, 220);
 
     //create_dialogo_indovinello(s,player);
+    create_dialogo_liang(s,player);
+    create__dialogo_zia_zhou_2(s,player);
+
 
     //creiamo l'interfaccia di menu:
     let menu_cliccabile = PP.assets.image.add(s, img_book_icon,1220, 8, 0, 0);
@@ -250,7 +252,7 @@ function update(s) {
     update_frammento5(s, player);
     update_frammento6(s, player);
     update_frammento7(s, player);
- 
+
     
 
     // Aggiorno il punteggio visualizzato:
@@ -261,6 +263,8 @@ function update(s) {
     ts_background_1_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
 
     //update_dialogo_indovinello (s,player,mercante_indovinello);
+    update_dialogo_liang(s,player,liang);
+    update_dialogo_zia_zhou_2(s, player,zia2);
 
 
 }

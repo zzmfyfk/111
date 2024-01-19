@@ -65,6 +65,7 @@ function preload(s) {
     
     preload_dialogo1(s);
     preload_dialogo2(s);
+    preload_dialogo_zia1(s);
 
 }
 
@@ -193,6 +194,8 @@ function create(s) {
     create_dialogo2(s, player);
 
     create_lanterna(s, player, lanterna);
+    
+    create_dialogo_zia1(s,player);
 
 
 
@@ -267,6 +270,8 @@ function update(s) {
     update_cassa(s, player);
 
     update_vaso(s, player);
+
+    update_dialogo_zia1(s,player);
 
 
 
