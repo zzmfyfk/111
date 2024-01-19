@@ -6,6 +6,9 @@ let img_frammento_5;
 let img_frammento_6;
 let img_frammento_7;
 
+let img_suggerimenti;
+let suggerimenti_frammenti;
+
 let fraicon_1;
 let fraicon_2;
 let fraicon_3;
@@ -26,6 +29,8 @@ let luce_frammento7;
 let luce1;
 
 function preload_frammenti(s) {
+
+    img_suggerimenti=PP.assets.image.load(s,"assets/images/tasto_A.png");
     // Load delle immagini del funghetto
     img_frammento_1   = PP.assets.image.load(s, "assets/images/frammento_1.png");
     img_frammento_2   = PP.assets.image.load(s, "assets/images/frammento_2.png");
@@ -89,8 +94,9 @@ function updateFraIcons(score) {
 function create_frammenti(s, player) {
 
 
-
-    img_suggerimenti=PP.assets.image.load(s,"assets/images/tasto_A.png");
+    suggerimenti_frammenti = PP.assets.image.add(s,img_suggerimenti,3410,1195,0,0);
+    suggerimenti_frammenti.visibility.alpha = 0;
+   // img_suggerimenti=PP.assets.image.load(s,"assets/images/tasto_A.png");
 
 
         let frammento_1 = PP.assets.image.add(s, img_frammento_1, 3402,1228, 0, 0);
@@ -530,18 +536,22 @@ function update_frammento1(s, player){
         if(framm_state==0){
  
             luce1.visibility.alpha=0.5;
+            suggerimenti_frammenti.visibility.alpha=1;
+            
         }
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)){
           // 1) distruggo giada
 
           PP.assets.destroy(luce1);
+          PP.assets.destroy(suggerimenti_frammenti);
         }
        }
  
     else if(player.is_on_frammento1==false){
  
         luce1.visibility.alpha=0;
+        suggerimenti_frammenti.visibility.alpha=0;
     }
     
     if(player.is_on_frammento1=false){

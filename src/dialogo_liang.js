@@ -19,7 +19,7 @@ function preload_dialogo_liang(s){
 
 function create_dialogo_liang(s,player){
 
-    liang = PP.assets.image.add(s,img_liang,1700,1238,0,0);
+    liang = PP.assets.image.add(s,img_liang,3700,1238,0,0);
     PP.physics.add(s,liang,PP.physics.type.STATIC);
     s.physics.add.collider(player.ph_obj, liang.ph_obj, () => collision_liang(s, player, liang));
 
