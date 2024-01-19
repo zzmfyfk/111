@@ -86,8 +86,8 @@ function collision_punti_mortali(s,player,fondo) {
     //qui è da inserire un animazione o qualcosa che fa capire che sei "morta" !!
     
     //ora riporto il giocatore al punto iniziale
-    player.geometry.x=936;
-    player.geometry.y=950;
+    player.geometry.x=1500;
+    player.geometry.y= 1390;
 }
 
 
