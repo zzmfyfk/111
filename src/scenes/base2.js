@@ -291,7 +291,7 @@ function update(s) {
 
     ts_background_6_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
     ts_background_5_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.9; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
-    ts_background_4_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.7; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_4_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.8; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
     ts_background_3_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.6;
     ts_background_2_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.5; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
     ts_background_1_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.4;
