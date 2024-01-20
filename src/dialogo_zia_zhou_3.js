@@ -11,8 +11,8 @@ let testo_apertura1_finale_farfalla;
 let testo_apertura2_finale_farfalla;
 
 function preload_dialogo_zia_zhou_3(s){
-    
-    img_zia3=PP.assets.image.load(s,"assets/images/zia_Zhou.png");
+    sprite_ziazhou =PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_ziaZhou.png", 51, 147);
+   // img_zia3=PP.assets.image.load(s,"assets/images/zia_Zhou.png");
     img_casella_zia3=PP.assets.image.load(s,"assets/images/casella_zia_zhou.png");
     img_suggerimento_A_dialogo_zia3=PP.assets.image.load(s,"assets/images/tasto_A.png");
     img_testo_apertura1_finale_farfalla = PP.assets.image.load(s,"assets/images/testo_apertura1_finale_farfalla.png");
@@ -22,10 +22,13 @@ function preload_dialogo_zia_zhou_3(s){
 
 function create__dialogo_zia_zhou_3(s,player){
 
-    zia3=PP.assets.image.add(s,img_zia3,1170,1245,0,0);
+    zia3=PP.assets.sprite.add(s,sprite_ziazhou,1170,1245,0,0);
     zia3.geometry.flip_x = true;
     PP.physics.add(s,zia3,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,zia3,overlap_zia3);
+    PP.assets.sprite.animation_add(zia3, "moving", 0, 1, 1, -1);
+    PP.assets.sprite.animation_play(zia3, "moving");
+
 
     function overlap_zia3(s,player,zia3){
         player.is_on_zia3=true;

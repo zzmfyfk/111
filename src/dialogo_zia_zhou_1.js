@@ -27,7 +27,10 @@ let testo_risposta_finale_dialogo_zia1;
 
 function preload_dialogo_zia1(s){
     
-    img_zia1 = PP.assets.image.load(s,"assets/images/zia_Zhou.png");
+    sprite_ziazhou =PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_ziaZhou.png", 51, 147);
+  
+  
+    //img_zia1 = PP.assets.image.load(s,"assets/images/zia_Zhou.png");
     img_casella_zia_zhou_1 = PP.assets.image.load(s,"assets/images/casella_zia_zhou.png");
     img_casella_Zhu_dialogo_zia1 = PP.assets.image.load(s,"assets/images/casella_zhu.png");
 
@@ -45,9 +48,11 @@ function preload_dialogo_zia1(s){
 
 function create_dialogo_zia1(s,player){
 
-    zia1=PP.assets.image.add(s,img_zia1,7900,712,0,0);
+    zia1=PP.assets.sprite.add(s,sprite_ziazhou,7900,712,0,0);
     PP.physics.add(s,zia1,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,zia1,overlap_zia1);
+    PP.assets.sprite.animation_add(zia1, "moving", 0, 1, 1, -1);
+    PP.assets.sprite.animation_play(zia1, "moving");
 
     function overlap_zia1(s,player,zia1){
         player.is_on_zia1=true;
