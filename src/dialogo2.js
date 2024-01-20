@@ -11,6 +11,8 @@ let img_opzione_original_Zhu;
 let img_opzione_si_Zhu;
 let img_opzione_no_Zhu;
 
+let img_ponte_ricostruito;
+
 
 
 let continua_A_dialogo2;
@@ -33,6 +35,12 @@ let piattaforma_ponte;
 let img_cartellone_ponte;
 let img_testo_ponte_non_riparato;
 let img_casella_ponte;
+let img_suggerimento_A_cartellone;
+
+let cartellone_ponte;
+let testo_ponte_non_riparato;
+let casella_ponte;
+let suggerimento_A_cartellone;
 
 
 function preload_dialogo2(s){
@@ -52,6 +60,11 @@ function preload_dialogo2(s){
     img_opzione_si_Zhu = PP.assets.image.load(s,"assets/images/opzione_si_Zhu.png");
     img_opzione_no_Zhu = PP.assets.image.load(s,"assets/images/opzione_no_Zhu.png");
     img_ponte_ricostruito=PP.assets.image.load(s,"assets/images/ponte_ricostruito.png");
+
+    img_cartellone_ponte = PP.assets.image.load(s,"assets/images/cartellone_ponte.png");
+    img_testo_ponte_non_riparato = PP.assets.image.load(s,"assets/images/testo_ponte_non_riparato.png");
+    img_casella_ponte = PP.assets.image.load(s,"assets/images/casella_ponte.png");
+    img_suggerimento_A_cartellone = PP.assets.image.load(s,"assets/images/tasto_A.png");
 }
 
 function create_dialogo2(s,player){
@@ -60,7 +73,7 @@ function create_dialogo2(s,player){
     PP.physics.add(s,mercante,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,mercante,overlap_mercante);
 
-    function overlap_mercante(s,player_mercante,mercante){
+    function overlap_mercante(s,player,mercante){
         player.is_on_mercante=true;
     }
 
@@ -94,8 +107,26 @@ function create_dialogo2(s,player){
     ponte_ricostruito=PP.assets.image.add(s,img_ponte_ricostruito,0,0,0,0);
     ponte_ricostruito.visibility.alpha=0;
     let layer_ponte_ricostruito = PP.layers.create(s);
-            PP.layers.add_to_layer(layer_ponte_ricostruito, ponte_ricostruito);
-            PP.layers.set_z_index(layer_ponte_ricostruito, 2);
+    PP.layers.add_to_layer(layer_ponte_ricostruito, ponte_ricostruito);
+    PP.layers.set_z_index(layer_ponte_ricostruito, 2);
+
+    /*
+    //cartellone
+    cartellone_ponte = PP.assets.image.add(s,img_cartellone_ponte,900,809,0,0);
+    PP.physics.add(s,cartellone_ponte,PP.physics.type.STATIC);
+    PP.physics.add_overlap_f(s,player,cartellone_ponte,overlap_cartellone_ponte);
+        
+    function overlap_cartellone_ponte(s,player,cartellone_ponte){
+        player.is_on_cartellone_ponte=true;
+    }
+
+    suggerimento_A_cartellone = PP.assets.image.add(s,img_suggerimento_A_cartellone,900,790,0,0);
+    suggerimento_A_cartellone.visibility.alpha=0;
+    casella_ponte = PP.assets = PP.assets.image.add(s,img_casella_Zhu,900,939,0,0);
+    casella_ponte.visibility.alpha=0;
+    //testo_ponte_non_riparato = PP.assets.image.add(s,img_testo_ponte_non_riparato,950,990,0,0);
+    //testo_ponte_non_riparato.visibility.alpha=0;*/
+
 
 }
 
@@ -105,9 +136,47 @@ let enable_mercante_A = true;
 
 let enable_Zhu_S=true;
 
+/*let enable_cartellone_A = true;
+let bridgeRepaired = false; 
+let dialog_state_cartellone=0;*/
+
 
 
 function update_dialogo2(s, player){
+
+    /*if(player.is_on_cartellone_ponte == true && !bridgeRepaired){
+        if(dialog_state_cartellone == 0){
+            suggerimento_A_cartellone.visibility.alpha = 1;
+    }
+        
+        if(PP.interactive.kb.is_key_up(s,PP.key_codes.A)){
+            enable_cartellone_A = true;
+        }
+
+        if(enable_cartellone_A){
+            if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_cartellone == 0){
+                // Show billboard dialog
+                // ... [rest of your billboard interaction code]
+                suggerimento_A_cartellone.visibility.alpha = 0;
+                casella_ponte.visibility.alpha = 1;
+                testo_ponte_non_riparato.visibility.alpha = 1;
+
+            }
+        }
+    } 
+    else if(player.is_on_cartellone_ponte == false){
+        suggerimento_A_cartellone.visibility.alpha = 0;
+    }
+
+    // Check if the bridge is repaired
+    if(bridgeRepaired) {
+        // Hide billboard and its interactions
+        cartellone_ponte.visibility.alpha = 0;
+        suggerimento_A_cartellone.visibility.alpha = 0;
+        casella_ponte.visibility.alpha = 0;
+        //testo_ponte_non_riparato.visibility.alpha = 0;
+    }*/
+    
 
     if(player.is_on_mercante==true){
 
@@ -238,6 +307,7 @@ function update_dialogo2(s, player){
                 player_speed=0;
                 jump_init_speed=0;
                 already_buy=true;
+                //bridgeRepaired = true;
                 player.is_on_mercante=false;
                 enable_mercante_A=false;
                 enable_Zhu_S=false;
@@ -278,4 +348,5 @@ function update_dialogo2(s, player){
     function collision_floor(s,player,floor) {
         player.is_on_platform = true;
     }
+
 }
