@@ -597,7 +597,7 @@ function update_dialogo_indovinello(s,player){
                     dialog_state_indovinello = 5;
                     enable_indovinello_A = false;
                 }
-                else if(dialog_state_indovinello == 4 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
+                else if(dialog_state_indovinello == 5 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
                     //Compaiono le risposte, con 3 opzioni S D F
                     casella_indovinello_mercante.visibility.alpha=0;
                     testo_indovinello5.visibility.alpha=0;
