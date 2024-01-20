@@ -87,7 +87,7 @@ function create_dialogo2(s,player){
 
     PP.physics.add_overlap_f(s,player,mercante,overlap_mercante);
 
-    PP.assets.sprite.animation_add(mercante, "moving", 0, 1, 1, 20);
+    PP.assets.sprite.animation_add(mercante, "moving", 0, 1, 1, -1);
     PP.assets.sprite.animation_play(mercante, "moving");
 
 
@@ -130,22 +130,22 @@ function create_dialogo2(s,player){
                     PP.layers.add_to_layer(layer_ponte_ricostruito_primopiano, ponte_ricostruito_primopiano);
                     PP.layers.set_z_index(layer_ponte_ricostruito_primopiano, 3);
 
-    /*
     //cartellone
-    cartellone_ponte = PP.assets.image.add(s,img_cartellone_ponte,900,809,0,0);
+    cartellone_ponte = PP.assets.image.add(s,img_cartellone_ponte,7060,746,0,0);
     PP.physics.add(s,cartellone_ponte,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,cartellone_ponte,overlap_cartellone_ponte);
         
     function overlap_cartellone_ponte(s,player,cartellone_ponte){
         player.is_on_cartellone_ponte=true;
     }
-
-    suggerimento_A_cartellone = PP.assets.image.add(s,img_suggerimento_A_cartellone,900,790,0,0);
+    
+    suggerimento_A_cartellone = PP.assets.image.add(s,img_suggerimento_A_cartellone,7094,710,0,0);
     suggerimento_A_cartellone.visibility.alpha=0;
-    casella_ponte = PP.assets = PP.assets.image.add(s,img_casella_Zhu,900,939,0,0);
+    
+    casella_ponte = PP.assets.image.add(s,img_casella_ponte,5960,835,0,0);
     casella_ponte.visibility.alpha=0;
-    //testo_ponte_non_riparato = PP.assets.image.add(s,img_testo_ponte_non_riparato,950,990,0,0);
-    //testo_ponte_non_riparato.visibility.alpha=0;*/
+    testo_ponte_non_riparato = PP.assets.image.add(s,img_testo_ponte_non_riparato,6860,930,0,0);
+    testo_ponte_non_riparato.visibility.alpha=0;
 
 
 }
@@ -156,15 +156,15 @@ let enable_mercante_A = true;
 
 let enable_Zhu_S=true;
 
-/*let enable_cartellone_A = true;
+let enable_cartellone_A = true;
 let bridgeRepaired = false; 
-let dialog_state_cartellone=0;*/
+let dialog_state_cartellone=0;
 
 
 
 function update_dialogo2(s, player){
 
-    /*if(player.is_on_cartellone_ponte == true && !bridgeRepaired){
+    if(player.is_on_cartellone_ponte == true && !bridgeRepaired){
         if(dialog_state_cartellone == 0){
             suggerimento_A_cartellone.visibility.alpha = 1;
     }
@@ -181,6 +181,19 @@ function update_dialogo2(s, player){
                 casella_ponte.visibility.alpha = 1;
                 testo_ponte_non_riparato.visibility.alpha = 1;
 
+                player_speed=0;
+                jump_init_speed=0;
+                dialog_state_cartellone=1;
+                enable_cartellone_A = false;
+            }
+            else if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_cartellone == 1){
+                casella_ponte.visibility.alpha = 0;
+                testo_ponte_non_riparato.visibility.alpha = 0;
+
+                dialog_state_cartellone=0;
+                player_speed=250;
+                jump_init_speed=200;
+                enable_cartellone_A = false;
             }
         }
     } 
@@ -194,8 +207,9 @@ function update_dialogo2(s, player){
         cartellone_ponte.visibility.alpha = 0;
         suggerimento_A_cartellone.visibility.alpha = 0;
         casella_ponte.visibility.alpha = 0;
-        //testo_ponte_non_riparato.visibility.alpha = 0;
-    }*/
+        testo_ponte_non_riparato.visibility.alpha = 0;
+
+    }
     
 
     if(player.is_on_mercante==true){
@@ -330,7 +344,7 @@ function update_dialogo2(s, player){
                 player_speed=0;
                 jump_init_speed=0;
                 already_buy=true;
-                //bridgeRepaired = true;
+                bridgeRepaired = true;
                 player.is_on_mercante=false;
                 enable_mercante_A=false;
                 enable_Zhu_S=false;
@@ -365,6 +379,13 @@ function update_dialogo2(s, player){
 
         if(dialog_state1==0){
             suggerimento_A_dialogo2.visibility.alpha=0;
+        }
+    }
+
+    if(player.is_on_cartellone_ponte=false){
+
+        if(dialog_state_cartellone==0){
+            suggerimento_A_cartellone.visibility.alpha=0;
         }
     }
 
