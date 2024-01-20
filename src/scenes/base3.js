@@ -65,6 +65,7 @@ function preload(s) {
     preload_frammenti(s);
     preload_dialogo_indovinello(s);
     preload_dialogo_farfalla(s);
+    preload_dialogo_zia_zhou_3(s);
   
 
   
@@ -216,6 +217,7 @@ function create(s) {
 
     create_dialogo_indovinello(s,player);
     create_dialogo_farfalla(s,player);
+    create__dialogo_zia_zhou_3(s,player);
 
     let menu_cliccabile = PP.assets.image.add(s, img_book_icon,1220, 8, 0, 0);
     menu_cliccabile.tile_geometry.scroll_factor_x = 0;
@@ -282,6 +284,7 @@ function update(s) {
 
     update_dialogo_indovinello (s,player,mercante_indovinello);
     update_dialogo_farfalla(s,player,farfalla);
+    update_dialogo_zia_zhou_3(s, player,zia3);
 
 
 }
