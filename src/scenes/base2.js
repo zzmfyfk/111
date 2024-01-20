@@ -100,6 +100,7 @@ function collider_test(s,a,b) {
 
 function collision_floor(s,player,floor) {
     player.is_on_platform = true;
+    player.is_climbing = false;
 
    //PROVA PER FAR PASSARE DA SOTTO I PAVIMENTI
     if (player.geometry_x< floor_1.geometry_x) {
@@ -209,6 +210,9 @@ function create(s) {
 
     //collision_frammenti (s, player, frammento);
     collision_frammento1(s, player, frammento_1);
+    
+    //creo le scale dell'edificio
+    create_scala_pioli_2 (s, player);
    
     
 
