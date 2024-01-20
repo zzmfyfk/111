@@ -10,6 +10,8 @@ Il nostro videogioco trae ispirazione dalla classica storia cinese di "Liang Sha
 
 ![Finale_negativo](https://github.com/zzmfyfk/lcg-grp6/assets/81992422/26cbb750-d17a-4029-b172-016e5120faee)
 
+Webdemo(gioca diretamente) : https://zzmfyfk.github.io/lcg-grp6/
+
 
 ## Storia
 Il gioco si svolge nell'antica Cina, dove Zhu Yingtai, una donna coraggiosa e intelligente, sfida le convenzioni sociali vestendosi da uomo per poter studiare. Qui incontra e si innamora di Liang Shanbo, senza rivelare la sua vera identità. La nostra narrazione si concentra sulla lotta di Zhu contro le rigide norme sociali e la sua determinazione a perseguire l'amore e l'istruzione.
