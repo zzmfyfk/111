@@ -9,14 +9,11 @@ let casella_zhu_dialogo_liang;
 let testo_dialogofinale_positivo1;
 let testo_dialogofinale_positivo2;
 let dialogoLiangStarted = false;
+let currentScore;
 
 
 function preload_dialogo_liang(s) {
-    let currentScore = PP.gameState.get_variable("score");
 
-
-    // 检查得分是否达到或超过70
-    if (currentScore >= 70) {
 
         sprite_liang = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_Liang.png",54, 156); //preload spritesheet liang
         //img_liang = PP.assets.image.load(s, "assets/images/Liang_complete.png");
@@ -24,13 +21,12 @@ function preload_dialogo_liang(s) {
         img_testo_dialogofinale_positivo1 = PP.assets.image.load(s, "assets/images/testo_dialogofinale_positivo1.png");
         img_testo_dialogofinale_positivo2 = PP.assets.image.load(s, "assets/images/testo_dialogofinale_positivo2.png");
         console.log("Dialogo Liang assets preloaded.");
-    }
 }
 
 
 
 function create_dialogo_liang(s, player) {
-    let currentScore = PP.gameState.get_variable("score");
+    currentScore = PP.gameState.get_variable("score");
 
 
     // 检查得分是否达到或超过70
