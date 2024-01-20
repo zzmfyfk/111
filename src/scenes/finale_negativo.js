@@ -43,6 +43,7 @@ function create(s) {
 }
 
 function rigioca(s) {
+    already_buy = false;
     PP.scenes.start("base");
 }
 

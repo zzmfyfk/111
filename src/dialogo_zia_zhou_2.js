@@ -14,7 +14,9 @@ let fraicon_1;
 
 function preload_dialogo_zia_zhou_2(s){
     
-    img_zia2=PP.assets.image.load(s,"assets/images/zia_Zhou.png");
+    sprite_ziazhou =PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_ziaZhou.png", 51, 147);
+
+    //img_zia2=PP.assets.image.load(s,"assets/images/zia_Zhou.png");
     img_casella_zia2=PP.assets.image.load(s,"assets/images/casella_zia_zhou.png");
     img_suggerimento_A_dialogo_zia2=PP.assets.image.load(s,"assets/images/tasto_A.png");
     img_testo_apertura1_finale_liang = PP.assets.image.load(s,"assets/images/testo_apertura1_finale_liang.png");
@@ -25,10 +27,13 @@ function preload_dialogo_zia_zhou_2(s){
 
 function create__dialogo_zia_zhou_2(s,player){
 
-    zia2=PP.assets.image.add(s,img_zia2,1170,1245,0,0);
+    zia2=PP.assets.sprite.add(s,sprite_ziazhou,1170,1245,0,0);
     zia2.geometry.flip_x = true;
     PP.physics.add(s,zia2,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,zia2,overlap_zia2);
+    PP.assets.sprite.animation_add(zia2, "moving", 0, 1, 1, -1);
+    PP.assets.sprite.animation_play(zia2, "moving");
+
 
     function overlap_zia2(s,player,zia2){
         player.is_on_zia2=true;

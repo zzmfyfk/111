@@ -9,8 +9,9 @@ let testo_genitori;
 let genitori;
 
 function preload_dialogo1(s){
+    sprite_genitori = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_genitori.png", 102, 156);
     
-    img_genitori=PP.assets.image.load(s,"assets/images/genitori.png");
+    //img_genitori=PP.assets.image.load(s,"assets/images/genitori.png");
     img_casella_genitori=PP.assets.image.load(s,"assets/images/casella_genitori.png");
     img_suggerimento_A_dialogo1=PP.assets.image.load(s,"assets/images/tasto_A.png");
     img_testo_genitori=PP.assets.image.load(s,"assets/images/testo_genitori.png");
@@ -19,9 +20,12 @@ function preload_dialogo1(s){
 
 function create_dialogo1(s,player){
 
-    genitori=PP.assets.image.add(s,img_genitori,790,809,0,0);
+    genitori=PP.assets.sprite.add(s,sprite_genitori,790,809,0,0);
     PP.physics.add(s,genitori,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,genitori,overlap_genitori);
+    PP.assets.sprite.animation_add(genitori, "moving", 0, 1, 1, -1);
+    PP.assets.sprite.animation_play(genitori, "moving");
+
 
     function overlap_genitori(s,player,genitori){
         player.is_on_genitori=true;

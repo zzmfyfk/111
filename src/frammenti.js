@@ -302,6 +302,7 @@ let framm_state = 0;
 }*/
 
 
+
 function collision_frammento2(s, player, frammento_2) {
     // In caso di collisione procedo come segue:
     // PP.assets.sprite.animation_play(frammento_1, "lighton");
