@@ -154,7 +154,37 @@ function manage_player_update(s, player) {
     }
     player.is_on_barca = false;
 
-   
+    if (player.is_on_nuvola) {
+        // Movimento orizzontale
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {
+            PP.physics.set_velocity_x(player, player_speed);
+            next_anim = "run";
+            player.geometry.flip_x = false;
+        } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
+            PP.physics.set_velocity_x(player, -player_speed);
+            next_anim = "run";
+            player.geometry.flip_x = true;
+        } else {
+            PP.physics.set_velocity_x(player, 0);
+        }
+    
+        // Controllo per il salto
+        let isJumping = PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE);
+        if (isJumping) {
+            PP.physics.set_velocity_y(player, -jump_init_speed);
+        }
+    
+        // Se il giocatore sta saltando, cambia l'animazione in base alla direzione del movimento verticale
+        if (isJumping && PP.physics.get_velocity_y(player) < 0) {
+            next_anim = "jump_up";
+        } else if (isJumping && PP.physics.get_velocity_y(player) > 0) {
+            next_anim = "jump_down";
+        } else if (!isJumping && PP.physics.get_velocity_x(player) === 0) {
+            next_anim = "stop"; // Se il giocatore è fermo sulla nuvola
+        }
+    }
+    
+    player.is_on_nuvola = false;
       
 
     if (next_anim !== curr_anim) {

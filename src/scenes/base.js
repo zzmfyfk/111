@@ -272,7 +272,8 @@ function update(s) {
     update_vaso(s, player);
 
     update_dialogo_zia1(s,player);
-
+    
+    update_nuvola(s, player);
 
 
     // Aggiorno il punteggio delle giade visualizzato:
