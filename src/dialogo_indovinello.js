@@ -75,7 +75,7 @@ let testo_risposte5_F;
 
 function preload_dialogo_indovinello(s){
 
-    img_mercante_indovinello = PP.assets.image.load(s,"assets/images/mercante.png");
+    img_mercante_indovinello = PP.assets.image.load(s,"assets/images/mercante_indovinello.png");
     img_casella_indovinello_mercante = PP.assets.image.load(s,"assets/images/casella_indovinello_mercante.png");
     img_casella_indovinello_Zhu = PP.assets.image.load(s,"assets/images/casella_zhu.png");
     img_suggerimento_A_indovinello = PP.assets.image.load(s,"assets/images/tasto_A.png");
@@ -120,7 +120,7 @@ function preload_dialogo_indovinello(s){
 
 function create_dialogo_indovinello(s,player){
 
-    mercante_indovinello = PP.assets.image.add(s,img_mercante_indovinello,5500, 1055, 0, 0);
+    mercante_indovinello = PP.assets.image.add(s,img_mercante_indovinello,5500, 1059, 0, 0);
     PP.physics.add(s,mercante_indovinello,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,mercante_indovinello,overlap_mercante_indovinello);
 
@@ -131,7 +131,7 @@ function create_dialogo_indovinello(s,player){
     suggerimento_A_indovinello = PP.assets.image.add(s,img_suggerimento_A_indovinello,5530,1020,0,0);
     suggerimento_A_indovinello.visibility.alpha = 0;
 
-    casella_indovinello_mercante = PP.assets.image.add(s,img_casella_indovinello_mercante,4610,1195,0,0); //prova 4610
+    casella_indovinello_mercante = PP.assets.image.add(s,img_casella_indovinello_mercante,4600,1195,0,0); //prova 4610
     casella_indovinello_mercante.visibility.alpha = 0
 
     casella_indovinello_Zhu = PP.assets.image.add(s,img_casella_indovinello_Zhu,4610,1195,0,0);
