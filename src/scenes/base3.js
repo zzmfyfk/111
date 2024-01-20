@@ -63,7 +63,7 @@ function preload(s) {
 
     
     preload_frammenti(s);
-    //preload_dialogo_indovinello(s);
+    preload_dialogo_indovinello(s);
     preload_dialogo_farfalla(s);
   
 
@@ -214,7 +214,7 @@ function create(s) {
     //PP.physics.set_collision_circle(player, 80, 50, 10);
 
 
-    //create_dialogo_indovinello(s,player);
+    create_dialogo_indovinello(s,player);
     create_dialogo_farfalla(s,player);
 
     let menu_cliccabile = PP.assets.image.add(s, img_book_icon,1220, 8, 0, 0);
@@ -280,7 +280,7 @@ function update(s) {
     ts_background_2_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
     ts_background_1_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
 
-    //update_dialogo_indovinello (s,player,mercante_indovinello);
+    update_dialogo_indovinello (s,player,mercante_indovinello);
     update_dialogo_farfalla(s,player,farfalla);
 
 
