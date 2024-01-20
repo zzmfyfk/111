@@ -86,7 +86,7 @@ function preload(s) {
     preload_player(s);
 
 
-    preload_barca(s);
+    preload_nuvola(s);
     preload_frammenti(s);
     //preload_dialogo_indovinello(s);
     preload_dialogo_liang(s);
@@ -203,6 +203,8 @@ function create(s) {
 
     create_frammenti (s, player);
 
+    create_nuvola (s, player);
+
     //mercante overlap   
     
 
@@ -282,7 +284,7 @@ function update(s) {
     update_frammento5(s, player);
     update_frammento6(s, player);
     update_frammento7(s, player);
-
+    update_nuvola(s);
     
 
     // Aggiorno il punteggio visualizzato:

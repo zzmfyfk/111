@@ -31,10 +31,6 @@ function create_barca(s, player) {
     PP.physics.set_allow_gravity(barca, false);    
     PP.physics.add_collider_f(s, player, barca, collision_barca);
     PP.physics.set_velocity_x(barca, 100);
-
-
-    // Riduco i collision boundaries in modo che
-    // l'erba non causi un "innalzamento" del giocatore
     PP.physics.set_collision_rectangle(barca, 270, 54, 0, 20);
 
 }
