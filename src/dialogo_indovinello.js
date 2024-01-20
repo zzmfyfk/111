@@ -120,7 +120,7 @@ function preload_dialogo_indovinello(s){
 
 function create_dialogo_indovinello(s,player){
 
-    mercante_indovinello = PP.assets.image.add(s,img_mercante_indovinello,1300,1230,0,0);
+    mercante_indovinello = PP.assets.image.add(s,img_mercante_indovinello,5500, 1055, 0, 0);
     PP.physics.add(s,mercante_indovinello,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,mercante_indovinello,overlap_mercante_indovinello);
 
@@ -128,84 +128,134 @@ function create_dialogo_indovinello(s,player){
         player.is_on_mercante_indovinello=true;
     }
 
-    suggerimento_A_indovinello = PP.assets.image.add(s,img_suggerimento_A_indovinello,1300,1200,0,0);
+    suggerimento_A_indovinello = PP.assets.image.add(s,img_suggerimento_A_indovinello,5530,1020,0,0);
     suggerimento_A_indovinello.visibility.alpha = 0;
 
-    casella_indovinello_mercante = PP.assets.image.add(s,img_casella_indovinello_mercante,600,1370,0,0);
-    casella_indovinello_mercante.visibility.alpha = 0;
+    casella_indovinello_mercante = PP.assets.image.add(s,img_casella_indovinello_mercante,4610,1195,0,0); //prova 4610
+    casella_indovinello_mercante.visibility.alpha = 0
 
-    casella_indovinello_Zhu = PP.assets.image.add(s,img_casella_indovinello_Zhu,410,1370,0,0);
+    casella_indovinello_Zhu = PP.assets.image.add(s,img_casella_indovinello_Zhu,4610,1195,0,0);
     casella_indovinello_Zhu.visibility.alpha = 0;
 
-    testo_indovinello_apertura1 = PP.assets.image.add(s,img_testo_indovinello_apertura1,1140,1420,0,0);
+    testo_indovinello_apertura1 = PP.assets.image.add(s,img_testo_indovinello_apertura1,5340,1245,0,0);
     testo_indovinello_apertura1.visibility.alpha = 0;
-    testo_indovinello_apertura2 = PP.assets.image.add(s,img_testo_indovinello_apertura2,1140,1420,0,0);
+    testo_indovinello_apertura2 = PP.assets.image.add(s,img_testo_indovinello_apertura2,5340,1245,0,0);
     testo_indovinello_apertura2.visibility.alpha = 0;
-    testo_indovinello_apertura3 = PP.assets.image.add(s,img_testo_indovinello_apertura3,1140,1420,0,0);
+    testo_indovinello_apertura3 = PP.assets.image.add(s,img_testo_indovinello_apertura3,5340,1245,0,0);
     testo_indovinello_apertura3.visibility.alpha = 0;
 
-    testo_indovinello1 = PP.assets.image.add(s,img_testo_indovinello1,1140,1420,0,0);
+    testo_indovinello1 = PP.assets.image.add(s,img_testo_indovinello1,5340,1245,0,0);
     testo_indovinello1.visibility.alpha = 0;
-    testo_indovinello_risposte1 = PP.assets.image.add(s,img_testo_indovinello_risposte1,1140,1420,0,0);
+    testo_indovinello_risposte1 = PP.assets.image.add(s,img_testo_indovinello_risposte1,5340,1245,0,0);
     testo_indovinello_risposte1.visibility.alpha = 0;
-    testo_risposte1_S = PP.assets.image.add(s,img_testo_risposte1_S,1140,1420,0,0);
+    testo_risposte1_S = PP.assets.image.add(s,img_testo_risposte1_S,5340,1245,0,0);
     testo_risposte1_S.visibility.alpha = 0;
-    testo_risposte1_D = PP.assets.image.add(s,img_testo_risposte1_D,1140,1420,0,0);
+    testo_risposte1_D = PP.assets.image.add(s,img_testo_risposte1_D,5340,1245,0,0);
     testo_risposte1_D.visibility.alpha = 0;
-    testo_risposte1_F = PP.assets.image.add(s,img_testo_risposte1_F,1140,1420,0,0);
+    testo_risposte1_F = PP.assets.image.add(s,img_testo_risposte1_F,5340,1245,0,0);
     testo_risposte1_F.visibility.alpha = 0;
    
-    testo_indovinello2 = PP.assets.image.add(s,img_testo_indovinello2,1140,1420,0,0);
+    testo_indovinello2 = PP.assets.image.add(s,img_testo_indovinello2,5340,1245,0,0);
     testo_indovinello2.visibility.alpha = 0;
-    testo_indovinello_risposte2 = PP.assets.image.add(s,img_testo_indovinello_risposte2,1140,1420,0,0);
+    testo_indovinello_risposte2 = PP.assets.image.add(s,img_testo_indovinello_risposte2,5340,1245,0,0);
     testo_indovinello_risposte2.visibility.alpha = 0;
-    testo_risposte2_S = PP.assets.image.add(s,img_testo_risposte2_S,1140,1420,0,0);
+    testo_risposte2_S = PP.assets.image.add(s,img_testo_risposte2_S,5340,1245,0,0);
     testo_risposte2_S.visibility.alpha = 0;
-    testo_risposte2_D = PP.assets.image.add(s,img_testo_risposte2_D,1140,1420,0,0);
+    testo_risposte2_D = PP.assets.image.add(s,img_testo_risposte2_D,5340,1245,0,0);
     testo_risposte2_D.visibility.alpha = 0;
-    testo_risposte2_F = PP.assets.image.add(s,img_testo_risposte2_F,1140,1420,0,0);
+    testo_risposte2_F = PP.assets.image.add(s,img_testo_risposte2_F,5340,1245,0,0);
     testo_risposte2_F.visibility.alpha = 0;
 
-    testo_indovinello3 = PP.assets.image.add(s,img_testo_indovinello3,1140,1420,0,0);
+    testo_indovinello3 = PP.assets.image.add(s,img_testo_indovinello3,5340,1245,0,0);
     testo_indovinello3.visibility.alpha = 0;
-    testo_indovinello_risposte3 = PP.assets.image.add(s,img_testo_indovinello_risposte3,1140,1420,0,0);
+    testo_indovinello_risposte3 = PP.assets.image.add(s,img_testo_indovinello_risposte3,5340,1245,0,0);
     testo_indovinello_risposte3.visibility.alpha = 0;
-    testo_risposte3_S = PP.assets.image.add(s,img_testo_risposte3_S,1140,1420,0,0);
+    testo_risposte3_S = PP.assets.image.add(s,img_testo_risposte3_S,5340,1245,0,0);
     testo_risposte3_S.visibility.alpha = 0;
-    testo_risposte3_D = PP.assets.image.add(s,img_testo_risposte3_D,1140,1420,0,0);
+    testo_risposte3_D = PP.assets.image.add(s,img_testo_risposte3_D,5340,1245,0,0);
     testo_risposte3_D.visibility.alpha = 0;
-    testo_risposte3_F = PP.assets.image.add(s,img_testo_risposte3_F,1140,1420,0,0);
+    testo_risposte3_F = PP.assets.image.add(s,img_testo_risposte3_F,5340,1245,0,0);
     testo_risposte3_F.visibility.alpha = 0;
 
-    testo_indovinello4 = PP.assets.image.add(s,img_testo_indovinello4,1140,1420,0,0);
+    testo_indovinello4 = PP.assets.image.add(s,img_testo_indovinello4,5340,1245,0,0);
     testo_indovinello4.visibility.alpha = 0;
-    testo_indovinello_risposte4 = PP.assets.image.add(s,img_testo_indovinello_risposte4,1140,1420,0,0);
+    testo_indovinello_risposte4 = PP.assets.image.add(s,img_testo_indovinello_risposte4,5340,1245,0,0);
     testo_indovinello_risposte4.visibility.alpha = 0;
-    testo_risposte4_S = PP.assets.image.add(s,img_testo_risposte4_S,1140,1420,0,0);
+    testo_risposte4_S = PP.assets.image.add(s,img_testo_risposte4_S,5340,1245,0,0);
     testo_risposte4_S.visibility.alpha = 0;
-    testo_risposte4_D = PP.assets.image.add(s,img_testo_risposte4_D,1140,1420,0,0);
+    testo_risposte4_D = PP.assets.image.add(s,img_testo_risposte4_D,5340,1245,0,0);
     testo_risposte4_D.visibility.alpha = 0;
-    testo_risposte4_F = PP.assets.image.add(s,img_testo_risposte4_F,1140,1420,0,0);
+    testo_risposte4_F = PP.assets.image.add(s,img_testo_risposte4_F,5340,1245,0,0);
     testo_risposte4_F.visibility.alpha = 0;
 
-    testo_indovinello5 = PP.assets.image.add(s,img_testo_indovinello5,1140,1420,0,0);
+    testo_indovinello5 = PP.assets.image.add(s,img_testo_indovinello5,5340,1245,0,0);
     testo_indovinello5.visibility.alpha = 0;
-    testo_indovinello_risposte5 = PP.assets.image.add(s,img_testo_indovinello_risposte5,1140,1420,0,0);
+    testo_indovinello_risposte5 = PP.assets.image.add(s,img_testo_indovinello_risposte5,5340,1245,0,0);
     testo_indovinello_risposte5.visibility.alpha = 0;
-    testo_risposte5_S = PP.assets.image.add(s,img_testo_risposte5_S,1140,1420,0,0);
+    testo_risposte5_S = PP.assets.image.add(s,img_testo_risposte5_S,5340,1245,0,0);
     testo_risposte5_S.visibility.alpha = 0;
-    testo_risposte5_D = PP.assets.image.add(s,img_testo_risposte5_D,1140,1420,0,0);
+    testo_risposte5_D = PP.assets.image.add(s,img_testo_risposte5_D,5340,1245,0,0);
     testo_risposte5_D.visibility.alpha = 0;
-    testo_risposte5_F = PP.assets.image.add(s,img_testo_risposte5_F,1140,1420,0,0);
+    testo_risposte5_F = PP.assets.image.add(s,img_testo_risposte5_F,5340,1245,0,0);
     testo_risposte5_F.visibility.alpha = 0;
 
-    testo_indovinello_sbagliato = PP.assets.image.add(s,img_testo_indovinello_sbagliato,1140,1420,0,0);
+    testo_indovinello_sbagliato = PP.assets.image.add(s,img_testo_indovinello_sbagliato,5340,1245,0,0);
     testo_indovinello_sbagliato.visibility.alpha = 0;
-    testo_indovinello_corretto = PP.assets.image.add(s,img_testo_indovinello_corretto,1140,1420,0,0);
+    testo_indovinello_corretto = PP.assets.image.add(s,img_testo_indovinello_corretto,5340,1245,0,0);
     testo_indovinello_corretto.visibility.alpha = 0;
 
-    testo_indovinello_finito = PP.assets.image.add(s,img_testo_indovinello_finito,1140,1420,0,0);
+    testo_indovinello_finito = PP.assets.image.add(s,img_testo_indovinello_finito,5340,1245,0,0);
     testo_indovinello_finito.visibility.alpha = 0;
+
+    let layer_dialogo_base = PP.layers.create(s);
+             
+    PP.layers.add_to_layer(layer_dialogo_base , suggerimento_A_indovinello );
+    PP.layers.add_to_layer(layer_dialogo_base ,casella_indovinello_mercante );
+    PP.layers.add_to_layer(layer_dialogo_base ,casella_indovinello_Zhu );
+    
+    PP.layers.set_z_index(layer_dialogo_base, 3);
+
+    let layer_dialogo = PP.layers.create(s);
+    PP.layers.add_to_layer(layer_dialogo , testo_indovinello_apertura1 );
+    PP.layers.add_to_layer(layer_dialogo , testo_indovinello_apertura2 );
+    PP.layers.add_to_layer(layer_dialogo , testo_indovinello_apertura3 );
+
+    PP.layers.add_to_layer(layer_dialogo , testo_indovinello1 );
+    PP.layers.add_to_layer(layer_dialogo ,testo_indovinello_risposte1 );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte1_S );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte1_D );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte1_F );
+    PP.layers.add_to_layer(layer_dialogo , testo_indovinello2 );
+    PP.layers.add_to_layer(layer_dialogo ,testo_indovinello_risposte2 );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte2_S );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte2_D );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte2_F );
+    PP.layers.add_to_layer(layer_dialogo , testo_indovinello2 );
+    PP.layers.add_to_layer(layer_dialogo ,testo_indovinello_risposte2 );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte2_S );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte2_D );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte2_F );
+    PP.layers.add_to_layer(layer_dialogo , testo_indovinello3 );
+    PP.layers.add_to_layer(layer_dialogo ,testo_indovinello_risposte3 );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte3_S );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte3_D );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte3_F );
+    PP.layers.add_to_layer(layer_dialogo , testo_indovinello4 );
+    PP.layers.add_to_layer(layer_dialogo ,testo_indovinello_risposte4 );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte4_S );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte4_D );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte4_F );
+    PP.layers.add_to_layer(layer_dialogo , testo_indovinello5 );
+    PP.layers.add_to_layer(layer_dialogo ,testo_indovinello_risposte5 );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte5_S );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte5_D );
+    PP.layers.add_to_layer(layer_dialogo ,testo_risposte5_F );
+    PP.layers.add_to_layer(layer_dialogo ,testo_indovinello_corretto );
+    PP.layers.add_to_layer(layer_dialogo ,testo_indovinello_sbagliato );
+    PP.layers.add_to_layer(layer_dialogo ,testo_indovinello_finito );
+
+    PP.layers.set_z_index(layer_dialogo, 4);
+
 
 }
 
