@@ -227,7 +227,7 @@ function create(s) {
     // con la camera (essendo HUD deve rimanere fisso)
     txt_score.tile_geometry.scroll_factor_x = 0;
     txt_score.tile_geometry.scroll_factor_y = 0;
-
+    txt_score.ph_obj.setVisible(false);
 
     // Impostiamo la camera che segua il giocatore
     PP.camera.start_follow(s, player, 0, 220);
