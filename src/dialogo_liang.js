@@ -29,17 +29,18 @@ function create_dialogo_liang(s, player) {
     // 检查得分是否达到或超过70
     if (currentScore >= 70) {
 
-        liang = PP.assets.image.add(s, img_liang, 0, 1238, 0, 0);
+        liang = PP.assets.image.add(s, img_liang, 3410, 1195, 0, 0);
         PP.physics.add(s, liang, PP.physics.type.STATIC);
         //s.physics.add.collider(player.ph_obj, liang.ph_obj, () => collision_liang(s, player, liang));
 
-        casella_zhu_dialogo_liang = PP.assets.image.add(s, img_casella_zhu_dialogo_liang, 650, 1370, 0, 0);
+        casella_zhu_dialogo_liang = PP.assets.image.add(s, img_casella_zhu_dialogo_liang, 3410, 1195, 0, 0);
         casella_zhu_dialogo_liang.visibility.alpha = 0;
-        testo_dialogofinale_positivo1 = PP.assets.image.add(s, img_testo_dialogofinale_positivo1, 1430, 1420, 0, 0);
+        testo_dialogofinale_positivo1 = PP.assets.image.add(s, img_testo_dialogofinale_positivo1, 3410, 1420, 0, 0);
         testo_dialogofinale_positivo1.visibility.alpha = 0;
-        testo_dialogofinale_positivo2 = PP.assets.image.add(s, img_testo_dialogofinale_positivo2, 1430, 1420, 0, 0);
+        testo_dialogofinale_positivo2 = PP.assets.image.add(s, img_testo_dialogofinale_positivo2, 3410, 1420, 0, 0);
         testo_dialogofinale_positivo2.visibility.alpha = 0;
         console.log("Dialogo Liang elements created.");
+        s.physics.add.overlap(player.ph_obj, liang.ph_obj, () => collision_liang(s, player, liang));
     }
 }
 
@@ -47,15 +48,13 @@ let dialog_state_liang = 0;
 let keyA_pressed = false; // Flag to track if 'A' key was pressed
 
 function collision_liang(s, player, liang) {
-    let currentScore = PP.gameState.get_variable("score");
 
-    // 检查得分是否达到或超过70
-    if (currentScore >= 70) {
         // Show dialogue box and text when player collides with Liang
         casella_zhu_dialogo_liang.visibility.alpha = 1;
         testo_dialogofinale_positivo1.visibility.alpha = 1;
         dialog_state_liang = 1;
-    }
+        console.log("Dialogo Liang tocca.");
+   
 }
 function update_dialogo_liang(s, player) {
 
