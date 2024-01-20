@@ -248,8 +248,7 @@ function update_dialogo_indovinello(s,player){
             //introduzione
             if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 0){
                 //il tizio dice ciao cosa vuoi
-                //randomNumber = Math.floor(Math.random() * 5) + 1; 
-                randomNumber = 5;
+                randomNumber = Math.floor(Math.random() * 5) + 1; 
                 suggerimento_A_indovinello.visibility.alpha=0;
 
                 casella_indovinello_mercante.visibility.alpha=1;
