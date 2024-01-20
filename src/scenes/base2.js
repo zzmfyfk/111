@@ -185,6 +185,22 @@ function create(s) {
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
+    floor_2 = PP.shapes.rectangle_add(s, 7471, 945, 141, 1, "0x008000",0); //ed piano 1 sx
+    PP.physics.add(s, floor_2, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, floor_2, collision_floor);
+
+    floor_2 = PP.shapes.rectangle_add(s,8001, 945, 648, 1, "0x008000",0); //ed piano 1 dx
+    PP.physics.add(s, floor_2, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, floor_2, collision_floor);
+
+    floor_2 = PP.shapes.rectangle_add(s,7864, 510, 921, 1, "0x008000",0); //ed piano 2
+    PP.physics.add(s, floor_2, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, floor_2, collision_floor);
+
+    floor_2 = PP.shapes.rectangle_add(s,7864, 79, 921, 1, "0x008000",0); //ed piano 2
+    PP.physics.add(s, floor_2, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, floor_2, collision_floor);
+
     //creo i confini del livello
     muroinvisibileinizio = PP.shapes.rectangle_add(s, 1210, 648, 1, 1296, "0x000000", 0);
     PP.physics.add(s, muroinvisibileinizio, PP.physics.type.STATIC);
