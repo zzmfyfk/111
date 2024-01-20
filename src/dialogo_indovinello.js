@@ -740,4 +740,3 @@ function update_dialogo_indovinello(s,player){
     }
 
 }
-0
