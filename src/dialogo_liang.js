@@ -29,7 +29,7 @@ function create_dialogo_liang(s, player) {
     // 检查得分是否达到或超过70
     if (currentScore >= 70) {
 
-        liang = PP.assets.image.add(s, img_liang, 0, 1238, 0, 0);
+        liang = PP.assets.image.add(s, img_liang, 3410, 1195, 0, 0);
         PP.physics.add(s, liang, PP.physics.type.STATIC);
         //s.physics.add.collider(player.ph_obj, liang.ph_obj, () => collision_liang(s, player, liang));
 
@@ -39,7 +39,7 @@ function create_dialogo_liang(s, player) {
         testo_dialogofinale_positivo1.visibility.alpha = 0;
         testo_dialogofinale_positivo2 = PP.assets.image.add(s, img_testo_dialogofinale_positivo2, 1430, 1420, 0, 0);
         testo_dialogofinale_positivo2.visibility.alpha = 0;
-        console.log("Dialogo Liang elements created.");
+              console.log("Dialogo Liang elements created.");
     }
 }
 
