@@ -248,7 +248,8 @@ function update_dialogo_indovinello(s,player){
             //introduzione
             if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 0){
                 //il tizio dice ciao cosa vuoi
-                randomNumber = Math.floor(Math.random() * 5) + 1; 
+                //randomNumber = Math.floor(Math.random() * 5) + 1; 
+                randomNumber = 5;
                 suggerimento_A_indovinello.visibility.alpha=0;
 
                 casella_indovinello_mercante.visibility.alpha=1;
@@ -258,6 +259,7 @@ function update_dialogo_indovinello(s,player){
                 jump_init_speed=0;
                 dialog_state_indovinello = 1;
                 enable_indovinello_A = false;
+
             }
            else if(dialog_state_indovinello == 1 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
                 //Zhu risponde, voglio la tavoletta
@@ -266,6 +268,7 @@ function update_dialogo_indovinello(s,player){
 
                 casella_indovinello_Zhu.visibility.alpha=1;
                 testo_indovinello_apertura2.visibility.alpha=1;
+                console.log("state1",dialog_state_indovinello);
 
                 player_speed=0;
                 jump_init_speed=0;
@@ -278,6 +281,7 @@ function update_dialogo_indovinello(s,player){
                 testo_indovinello_apertura2.visibility.alpha=0;
                 casella_indovinello_mercante.visibility.alpha=1;
                 testo_indovinello_apertura3.visibility.alpha=1;
+                console.log("state2",dialog_state_indovinello);
 
                 player_speed=0;
                 jump_init_speed=0;
@@ -288,11 +292,14 @@ function update_dialogo_indovinello(s,player){
                 //il tizio dice ok allora rispondi all'indovinello
                 casella_indovinello_mercante.visibility.alpha=1;
                 testo_indovinello_apertura3.visibility.alpha=1;
+                console.log("state3",dialog_state_indovinello);
 
                 player_speed=0;
                 jump_init_speed=0;
                 dialog_state_indovinello = 4;
                 enable_indovinello_A = false;
+                console.log("rand",randomNumber);
+
             }
             
             //primo indovinello
@@ -369,7 +376,6 @@ function update_dialogo_indovinello(s,player){
             //f
             //secondo indovinello
             if(randomNumber == 2 ){
-                    
                 if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 4){
 
                     testo_indovinello_apertura3.visibility.alpha=0;
@@ -441,7 +447,7 @@ function update_dialogo_indovinello(s,player){
             //s
             //terzo indovinello
             if(randomNumber == 3 ){
-                    
+
                 if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 4){
 
                     testo_indovinello_apertura3.visibility.alpha=0;
@@ -513,13 +519,12 @@ function update_dialogo_indovinello(s,player){
 
             //quarto indovinello
             if(randomNumber == 4){
-                    
+
                 if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 4){
 
                     testo_indovinello_apertura3.visibility.alpha=0;
 
                     testo_indovinello4.visibility.alpha=1;
-
                     player_speed=0;
                     jump_init_speed=0;
                     dialog_state_indovinello = 5;
@@ -555,6 +560,7 @@ function update_dialogo_indovinello(s,player){
                         player_speed=0;
                         jump_init_speed=0;
                         dialog_state_indovinello=8;//state di opzione corretta
+
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
@@ -585,7 +591,7 @@ function update_dialogo_indovinello(s,player){
 
             //quinto indovinello
             if(randomNumber == 5){
-                    
+
                 if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_indovinello == 4){
 
                     testo_indovinello_apertura3.visibility.alpha=0;
@@ -594,11 +600,14 @@ function update_dialogo_indovinello(s,player){
 
                     player_speed=0;
                     jump_init_speed=0;
+
                     dialog_state_indovinello = 5;
                     enable_indovinello_A = false;
                 }
                 else if(dialog_state_indovinello == 5 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
                     //Compaiono le risposte, con 3 opzioni S D F
+                    console.log("entrato in 1 ",randomNumber);
+
                     casella_indovinello_mercante.visibility.alpha=0;
                     testo_indovinello5.visibility.alpha=0;
 
@@ -732,3 +741,4 @@ function update_dialogo_indovinello(s,player){
     }
 
 }
+0
