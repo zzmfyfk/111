@@ -1,9 +1,17 @@
-let img_farfalla;
+//let img_tomba;
+let img_tombarotta;
+let tombarotta;
+
+
+let img_tomba;
+let tomba;
+
 let img_casella_zhu_dialogo_farfalla;
 let img_testo_dialogofinale_farfalla1;
 let img_testo_dialogofinale_farfalla2;
 
 let farfalla;
+let img_farfalla;
 let casella_zhu_dialogo_farfalla;
 let testo_dialogofinale_farfalla1;
 let testo_dialogofinale_farfalla2;
@@ -11,30 +19,32 @@ let testo_dialogofinale_farfalla2;
 let dialogoFarfallaStarted = false;
 
 function preload_dialogo_farfalla(s){
+    img_tomba=PP.assets.image.load(s,"assets/images/tomba.png");
+    img_farfalla=PP.assets.image.load(s,"assets/images/spritesheet farfalla.png");
 
      let currentScore = PP.gameState.get_variable("score");
+     img_tombarotta = PP.assets.image.load(s,"assets/images/tombarotta.png");
 
     // 检查得分是否达到或超过70
     if (currentScore >= 70) {
-         img_tombarotta = PP.assets.image.load(s,"assets/images/tombarotta.png");
-         img_farfalla=PP.assets.image.load(s,"assets/images/tomba.png");
+         
+       
     img_casella_zhu_dialogo_farfalla = PP.assets.image.load(s,"assets/images/casella_zhu.png");
     img_testo_dialogofinale_farfalla1=PP.assets.image.load(s,"assets/images/testo_dialogofinale_farfalla1.png");
     img_testo_dialogofinale_farfalla2=PP.assets.image.load(s,"assets/images/testo_dialogofinale_farfalla2.png");
     }
 }
 
-//function create_dialogo_liang(s, player) {
-    
-    
-   /* img_farfalla=PP.assets.image.load(s,"assets/images/tomba.png");
-    img_casella_zhu_dialogo_farfalla = PP.assets.image.load(s,"assets/images/casella_zhu.png");
-    img_testo_dialogofinale_farfalla1=PP.assets.image.load(s,"assets/images/testo_dialogofinale_farfalla1.png");
-    img_testo_dialogofinale_farfalla2=PP.assets.image.load(s,"assets/images/testo_dialogofinale_farfalla2.png");*/
-
 
 
 function create_dialogo_farfalla(s,player){ //
+    tomba =  PP.assets.image.add(s,img_tomba,9400, 1235,0,0);
+    tomba.visibility.alpha = 1; 
+    tombarotta=PP.assets.image.add(s,img_tombarotta,9400, 1235,0,0);
+    tombarotta.visibility.alpha = 0;
+    
+    
+    PP.physics.add(s,tomba,PP.physics.type.STATIC);
     let currentScore = PP.gameState.get_variable("score");
     /*farfalla = PP.assets.image.add(s,img_farfalla,9400, 1255,0,0);
     PP.physics.add(s,farfalla,PP.physics.type.STATIC);
@@ -51,12 +61,13 @@ function create_dialogo_farfalla(s,player){ //
     // 检查得分是否达到或超过70
     if (currentScore >= 70) {
         
-        PP.assets.destroy(tomba);
-       
-       
-        farfalla = PP.assets.image.add(s,img_farfalla,9400, 1245,0,0);
-        PP.physics.add(s,farfalla,PP.physics.type.STATIC);
-        s.physics.add.collider(player.ph_obj, farfalla.ph_obj, () => collision_farfalla(s, player, farfalla));
+        //PP.assets.destroy(farfalla);
+      //tombarotta=PP.assets.image.add(s,img_tombarotta,9400, 1235,0,0);
+      tombarotta.visibility.alpha = 1;
+      tomba.visibility.alpha = 0;
+        farfalla = PP.assets.image.add(s,img_farfalla,9400, 1245,0,0);   
+        PP.physics.add(s,tombarotta,PP.physics.type.STATIC);
+        s.physics.add.collider(player.ph_obj, tombarotta.ph_obj, () => collision_farfalla(s, player, tombarotta));
        
 
         casella_zhu_dialogo_farfalla = PP.assets.image.add(s,img_casella_zhu_dialogo_farfalla,8462, 1380,0,0);
@@ -67,10 +78,11 @@ function create_dialogo_farfalla(s,player){ //
     testo_dialogofinale_farfalla2.visibility.alpha = 0;
 
         console.log("Dialogo farfalla elements created.");
-        s.physics.add.collider(player.ph_obj, farfalla.ph_obj, () => collision_farfalla(s, player, farfalla));
+        //s.physics.add.collider(player.ph_obj, farfalla.ph_obj, () => collision_farfalla(s, player, farfalla));
 
         let layer_dialogo_farfalla = PP.layers.create(s);
               PP.layers.add_to_layer(layer_dialogo_farfalla,  casella_zhu_dialogo_farfalla);
+              //PP.layers.add_to_layer(layer_dialogo_farfalla,  tombarotta);
              
               PP.layers.set_z_index(layer_dialogo_farfalla, 3);
 
@@ -88,11 +100,12 @@ function create_dialogo_farfalla(s,player){ //
 let dialog_state_farfalla = 0;
 let keyA_pressed = false; // Flag to track if 'A' key was pressed
 
-function collision_farfalla(s, player, farfalla) {
+function collision_farfalla(s, player, tombarotta) {
 
         // Show dialogue box and text when player collides with Liang
         casella_zhu_dialogo_farfalla.visibility.alpha = 1;
         testo_dialogofinale_farfalla1.visibility.alpha = 1;
+        //BUG NON CARICA I TESTI
         dialog_state_farfalla = 1;
         player_speed=0;
         console.log("Dialogo farfalla tocca.");
@@ -120,6 +133,8 @@ function update_dialogo_farfalla(s, player) {
                 // Transition from the first to the second part of the dialogue
                 testo_dialogofinale_farfalla1.visibility.alpha = 0; // Hide first text
                 testo_dialogofinale_farfalla2.visibility.alpha = 1; // Show second text
+
+                //BUG NON CARICA I TESTI
                 dialog_state_farfalla = 2; // Update state
                 break;
 

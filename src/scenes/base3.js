@@ -49,13 +49,12 @@ let img_timer_icon;
 let panni_stesi;
 let img_panni_stesi;
 
-let img_tomba;
-let tomba;
+
 
 function preload(s) {
     console.log("Executing preload() - SCENE");
 
-    img_tomba=PP.assets.image.load(s,"assets/images/tomba.png");
+    
 
     // Carichiamo gli asset grafici
    // img_background = PP.assets.image.load(s, "assets/images/background.png");
@@ -148,8 +147,7 @@ function create(s) {
     PP.layers.set_z_index(layer_1, 2);
 
 
-    tomba =  PP.assets.image.add(s,img_tomba,9400, 1235,0,0);
-    PP.physics.add(s,tomba,PP.physics.type.STATIC);
+    
 
     
 
@@ -308,7 +306,7 @@ function update(s) {
 
 
     update_dialogo_indovinello (s,player,mercante_indovinello);
-    update_dialogo_farfalla(s,player,farfalla);
+    update_dialogo_farfalla(s,player);
     update_dialogo_zia_zhou_3(s, player, zia3);
 
     let currentScore = PP.gameState.get_variable("score");
