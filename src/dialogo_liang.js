@@ -7,42 +7,60 @@ let liang;
 let casella_zhu_dialogo_liang;
 let testo_dialogofinale_positivo1;
 let testo_dialogofinale_positivo2;
+let dialogoLiangStarted = false;
 
-function preload_dialogo_liang(s){
-    
-    img_liang=PP.assets.image.load(s,"assets/images/Liang_complete.png");
-    img_casella_zhu_dialogo_liang = PP.assets.image.load(s,"assets/images/casella_zhu.png");
-    img_testo_dialogofinale_positivo1=PP.assets.image.load(s,"assets/images/testo_dialogofinale_positivo1.png");
-    img_testo_dialogofinale_positivo2=PP.assets.image.load(s,"assets/images/testo_dialogofinale_positivo2.png");
+function preload_dialogo_liang(s) {
+    let currentScore = PP.gameState.get_variable("score");
 
+    // 检查得分是否达到或超过70
+    if (currentScore >= 70) {
+
+        img_liang = PP.assets.image.load(s, "assets/images/Liang_complete.png");
+        img_casella_zhu_dialogo_liang = PP.assets.image.load(s, "assets/images/casella_zhu.png");
+        img_testo_dialogofinale_positivo1 = PP.assets.image.load(s, "assets/images/testo_dialogofinale_positivo1.png");
+        img_testo_dialogofinale_positivo2 = PP.assets.image.load(s, "assets/images/testo_dialogofinale_positivo2.png");
+        console.log("Dialogo Liang assets preloaded.");
+    }
 }
 
-function create_dialogo_liang(s,player){
+function create_dialogo_liang(s, player) {
+    let currentScore = PP.gameState.get_variable("score");
 
-    liang = PP.assets.image.add(s,img_liang,9000,1238,0,0);
-    PP.physics.add(s,liang,PP.physics.type.STATIC);
-    //s.physics.add.collider(player.ph_obj, liang.ph_obj, () => collision_liang(s, player, liang));
+    // 检查得分是否达到或超过70
+    if (currentScore >= 70) {
 
-    casella_zhu_dialogo_liang = PP.assets.image.add(s,img_casella_zhu_dialogo_liang,650,1370,0,0);
-    casella_zhu_dialogo_liang.visibility.alpha=0;
-    testo_dialogofinale_positivo1 = PP.assets.image.add(s,img_testo_dialogofinale_positivo1,1430,1420,0,0);
-    testo_dialogofinale_positivo1.visibility.alpha = 0;
-    testo_dialogofinale_positivo2 = PP.assets.image.add(s,img_testo_dialogofinale_positivo2,1430,1420,0,0);
-    testo_dialogofinale_positivo2.visibility.alpha = 0;
+        liang = PP.assets.image.add(s, img_liang, 0, 1238, 0, 0);
+        PP.physics.add(s, liang, PP.physics.type.STATIC);
+        //s.physics.add.collider(player.ph_obj, liang.ph_obj, () => collision_liang(s, player, liang));
 
+        casella_zhu_dialogo_liang = PP.assets.image.add(s, img_casella_zhu_dialogo_liang, 650, 1370, 0, 0);
+        casella_zhu_dialogo_liang.visibility.alpha = 0;
+        testo_dialogofinale_positivo1 = PP.assets.image.add(s, img_testo_dialogofinale_positivo1, 1430, 1420, 0, 0);
+        testo_dialogofinale_positivo1.visibility.alpha = 0;
+        testo_dialogofinale_positivo2 = PP.assets.image.add(s, img_testo_dialogofinale_positivo2, 1430, 1420, 0, 0);
+        testo_dialogofinale_positivo2.visibility.alpha = 0;
+        console.log("Dialogo Liang elements created.");
+    }
 }
 
 let dialog_state_liang = 0;
 let keyA_pressed = false; // Flag to track if 'A' key was pressed
 
 function collision_liang(s, player, liang) {
-    // Show dialogue box and text when player collides with Liang
-    casella_zhu_dialogo_liang.visibility.alpha = 1;
-    testo_dialogofinale_positivo1.visibility.alpha = 1;
-    dialog_state_liang = 1;
-}
+    let currentScore = PP.gameState.get_variable("score");
 
+    // 检查得分是否达到或超过70
+    if (currentScore >= 70) {
+        // Show dialogue box and text when player collides with Liang
+        casella_zhu_dialogo_liang.visibility.alpha = 1;
+        testo_dialogofinale_positivo1.visibility.alpha = 1;
+        dialog_state_liang = 1;
+    }
+}
 function update_dialogo_liang(s, player) {
+
+
+
     // Check if 'A' key is down and wasn't pressed before
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.A) && !keyA_pressed) {
         
