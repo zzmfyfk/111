@@ -34,11 +34,11 @@ function create__dialogo_zia_zhou_3(s,player){
     suggerimento_A_dialogo_zia3 = PP.assets.image.add(s,img_suggerimento_A_dialogo_zia3,1182,1200,0,0);
     suggerimento_A_dialogo_zia3.visibility.alpha = 0;
 
-    casella_zia3=PP.assets.image.add(s,img_casella_zia3,232,1370,0,0);
+    casella_zia3=PP.assets.image.add(s,img_casella_zia3,312,1370,0,0);
     casella_zia3.visibility.alpha=0;
-    testo_apertura1_finale_farfalla = PP.assets.image.add(s,img_testo_apertura1_finale_farfalla,1000,1382,0,0);
+    testo_apertura1_finale_farfalla = PP.assets.image.add(s,img_testo_apertura1_finale_farfalla,1070,1415,0,0);
     testo_apertura1_finale_farfalla.visibility.alpha=0;
-    testo_apertura2_finale_farfalla = PP.assets.image.add(s,img_testo_apertura2_finale_farfalla,1000,1382,0,0);
+    testo_apertura2_finale_farfalla = PP.assets.image.add(s,img_testo_apertura2_finale_farfalla,1070,1415,0,0);
     testo_apertura2_finale_farfalla.visibility.alpha=0;
 
 }
