@@ -44,6 +44,7 @@ function create(s) {
 
 function rigioca(s) {
     already_buy = false;
+    bridgeRepaired = false;
     PP.scenes.start("base");
 }
 
