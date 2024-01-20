@@ -66,6 +66,7 @@ function collision_liang(s, player, liang) {
         casella_zhu_dialogo_liang.visibility.alpha = 1;
         testo_dialogofinale_positivo1.visibility.alpha = 1;
         dialog_state_liang = 1;
+        player_speed=0;
         console.log("Dialogo Liang tocca.");
    
 }

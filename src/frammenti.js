@@ -1,6 +1,6 @@
-let img_frammento_1;
+//let img_frammento_1;
 let img_frammento_2;
-let img_frammento_3;
+//let img_frammento_3;
 let img_frammento_4;
 let img_frammento_5;
 let img_frammento_6;
@@ -9,41 +9,42 @@ let img_frammento_7;
 let img_suggerimenti;
 let suggerimenti_frammenti;
 
-let fraicon_1;
+//let fraicon_1;
 let fraicon_2;
-let fraicon_3;
+//let fraicon_3;
 let fraicon_4;
 let fraicon_5;
 let fraicon_6;
 let fraicon_7;
 let fraicons;
 
-let luce_frammento1;
+//let luce_frammento1;
 let luce_frammento2;
-let luce_frammento3;
+//let luce_frammento3;
 let luce_frammento4;
 let luce_frammento5;
 let luce_frammento6;
 let luce_frammento7;
 
 let luce1;
+let luce2;
 
 function preload_frammenti(s) {
 
     img_suggerimenti=PP.assets.image.load(s,"assets/images/tasto_C.png");
     // Load delle immagini del funghetto
-    img_frammento_1   = PP.assets.image.load(s, "assets/images/frammento_1.png");
+    //img_frammento_1   = PP.assets.image.load(s, "assets/images/frammento_1.png");
     img_frammento_2   = PP.assets.image.load(s, "assets/images/frammento_2.png");
-    img_frammento_3   = PP.assets.image.load(s, "assets/images/frammento_3.png");
+    //img_frammento_3   = PP.assets.image.load(s, "assets/images/frammento_3.png");
     img_frammento_4   = PP.assets.image.load(s, "assets/images/frammento_4.png");
     img_frammento_5   = PP.assets.image.load(s, "assets/images/frammento_5.png");
     img_frammento_6   = PP.assets.image.load(s, "assets/images/frammento_6.png");
     img_frammento_7   = PP.assets.image.load(s, "assets/images/frammento_7.png");
    // img_frammento_01 = PP.assets.image.load(s, "assets/images/frammento_01.png");
 
-   img_luce1= PP.assets.image.load(s,"assets/images/luce_frammento1.png");
+   //img_luce1= PP.assets.image.load(s,"assets/images/luce_frammento1.png");
    img_luce2= PP.assets.image.load(s,"assets/images/luce_frammento2.png");
-   img_luce3= PP.assets.image.load(s,"assets/images/luce_frammento3.png");
+   //img_luce3= PP.assets.image.load(s,"assets/images/luce_frammento3.png");
    img_luce4= PP.assets.image.load(s,"assets/images/luce_frammento4.png");
    img_luce5= PP.assets.image.load(s,"assets/images/luce_frammento5.png");
    img_luce6= PP.assets.image.load(s,"assets/images/luce_frammento6.png");
@@ -99,7 +100,7 @@ function create_frammenti(s, player) {
    // img_suggerimenti=PP.assets.image.load(s,"assets/images/tasto_A.png");
 
 
-        let frammento_1 = PP.assets.image.add(s, img_frammento_1, 3402,1228, 0, 0);
+        /*let frammento_1 = PP.assets.image.add(s, img_frammento_1, 3402,1228, 0, 0);
         PP.physics.add(s, frammento_1, PP.physics.type.STATIC);
        // PP.physics.set_collision_rectangle(frammento_1, 69, 57, 55, 14);
         //PP.physics.add_overlap_f(s, player, frammento_1, collision_frammenti);
@@ -114,11 +115,11 @@ function create_frammenti(s, player) {
  
  
          luce1 = PP.assets.image.add(s,img_luce1,3402,1228,0,0);
-         luce1.visibility.alpha = 0;
+         luce1.visibility.alpha = 0;*/
 
 
 
-        let frammento_2 = PP.assets.image.add(s, img_frammento_2, 5530, 1089, 0, 0);
+        let frammento_2 = PP.assets.image.add(s, img_frammento_2, 3402,1228, 0, 0);
         PP.physics.add(s, frammento_2, PP.physics.type.STATIC);
         //PP.physics.add_overlap_f(s, player, frammento_2, collision_frammenti);
         PP.physics.add_overlap_f(s, player, frammento_2, collision_frammento2);
@@ -131,7 +132,7 @@ function create_frammenti(s, player) {
         }
  
  
-       luce2 = PP.assets.image.add(s,img_luce2, 5530, 1089,0,0);
+       luce2 = PP.assets.image.add(s,img_luce2, 3402,1228,0,0);
        luce2.visibility.alpha = 0;
 
 
@@ -139,7 +140,7 @@ function create_frammenti(s, player) {
 
 
 
-        let frammento_3 = PP.assets.image.add(s, img_frammento_1, 5382, 345, 0, 0);
+       /* let frammento_3 = PP.assets.image.add(s, img_frammento_1, 5382, 345, 0, 0);
         PP.physics.add(s, frammento_3, PP.physics.type.STATIC);
         PP.physics.add_overlap_f(s, player, frammento_3, collision_frammento3);
         PP.physics.add_overlap_f(s, player, frammento_3, overlap_frammento3);
@@ -151,7 +152,7 @@ function create_frammenti(s, player) {
         }
  
        luce3 = PP.assets.image.add(s,img_luce3,5382, 345,0,0);
-       luce3.visibility.alpha = 0;
+       luce3.visibility.alpha = 0;*/
 
 
 
@@ -216,11 +217,11 @@ function create_frammenti(s, player) {
       luce7 = PP.assets.image.add(s,img_luce7,8397, 1149,0,0);
       luce7.visibility.alpha = 0;
 
-    let fraicon_1 = PP.assets.image.add(s, img_frammento_1, 10, 10, 0, 0);
+    /*let fraicon_1 = PP.assets.image.add(s, img_frammento_1, 10, 10, 0, 0);
     fraicon_1.tile_geometry.scroll_factor_x = 0;
     fraicon_1.tile_geometry.scroll_factor_y = 0;
     fraicon_1.id = "frammento_1"; // 设置标识符
-    fraicon_1.ph_obj.setAlpha(0.5);
+    fraicon_1.ph_obj.setAlpha(0.5);*/
 
     let fraicon_2 = PP.assets.image.add(s, img_frammento_2, 60, 10, 0, 0);
     fraicon_2.tile_geometry.scroll_factor_x = 0;
@@ -228,11 +229,11 @@ function create_frammenti(s, player) {
     fraicon_2.id = "frammento_2"; // 设置标识符
     fraicon_2.ph_obj.setAlpha(0.5);
 
-    let fraicon_3 = PP.assets.image.add(s, img_frammento_3, 110, 10, 0, 0);
+    /*let fraicon_3 = PP.assets.image.add(s, img_frammento_3, 110, 10, 0, 0);
     fraicon_3.tile_geometry.scroll_factor_x = 0;
     fraicon_3.tile_geometry.scroll_factor_y = 0;
     fraicon_3.id = "frammento_3"; // 设置标识符
-    fraicon_3.ph_obj.setAlpha(0.5);
+    fraicon_3.ph_obj.setAlpha(0.5);*/
 
     let fraicon_4 = PP.assets.image.add(s, img_frammento_4, 160, 10, 0, 0);
     fraicon_4.tile_geometry.scroll_factor_x = 0;
@@ -259,8 +260,8 @@ function create_frammenti(s, player) {
     fraicon_7.id = "frammento_7"; // 设置标识符
     fraicon_7.ph_obj.setAlpha(0.5);
 
-    fraicons = [fraicon_1, fraicon_2, fraicon_3, fraicon_4, fraicon_5, fraicon_6, fraicon_7];
-    fraicon_1.id = "frammento_1"; // 设置标识符
+    fraicons = [ fraicon_2, fraicon_4, fraicon_5, fraicon_6, fraicon_7];
+    //fraicon_1.id = "frammento_1"; // 设置标识符
 
 
 }
@@ -268,14 +269,14 @@ function create_frammenti(s, player) {
 
 let framm_state = 0;
 
-function collision_frammento1(s, player, frammento_1) {
+ /*function collision_frammento1(s, player, frammento_1) {
     // In caso di collisione procedo come segue:
    // PP.assets.sprite.animation_play(frammento_1, "lighton");
 
    player.is_on_frammenti = true;
   
 
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.C) && !frammento_1.collected) {
+   if (PP.interactive.kb.is_key_down(s, PP.key_codes.C) && !frammento_1.collected) {
 
         frammento_1.ph_obj.x = 10; // X 坐标
         frammento_1.ph_obj.y = 10; // Y 坐标
@@ -293,12 +294,12 @@ function collision_frammento1(s, player, frammento_1) {
 
     // 2) aumento di 10 lo score
     let prev_score = PP.gameState.get_variable("score");
-    PP.gameState.set_variable("score", prev_score + 10);
+    PP.gameState.set_variable("score", prev_score + 70);
 
     
 }
     
-}
+}*/
 
 
 function collision_frammento2(s, player, frammento_2) {
@@ -333,7 +334,7 @@ function collision_frammento2(s, player, frammento_2) {
 
 }
 
-function collision_frammento3(s, player, frammento_3) {
+/*function collision_frammento3(s, player, frammento_3) {
     // In caso di collisione procedo come segue:
     // PP.assets.sprite.animation_play(frammento_1, "lighton");
 
@@ -363,7 +364,7 @@ function collision_frammento3(s, player, frammento_3) {
 
     }
 
-}
+}*/
 
 function collision_frammento4(s, player, frammento_4) {
     // In caso di collisione procedo come segue:
@@ -542,7 +543,7 @@ function redirectToLiangIfScoreIsHighEnough(score) {
 
 
 
-function update_frammento1(s, player){
+/*function update_frammento1(s, player){
 
     if(player.is_on_frammento1==true){
  
@@ -573,23 +574,26 @@ function update_frammento1(s, player){
             luce1.visibility.alpha=0;
         }
     }
- }
+ }*/
  
  function update_frammento2(s, player){
 
     if(player.is_on_frammento2==true){
         if(framm_state==0){
             luce2.visibility.alpha=0.5;
+            suggerimenti_frammenti.visibility.alpha=1;
         }
        
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.C)){
           // 1) distruggo giada
           PP.assets.destroy(luce2);
+          PP.assets.destroy(suggerimenti_frammenti);
         }
        }
  
     else if(player.is_on_frammento2==false){
         luce2.visibility.alpha=0;
+        suggerimenti_frammenti.visibility.alpha=0;
     }
     
     if(player.is_on_frammento2=false){
@@ -600,7 +604,7 @@ function update_frammento1(s, player){
  }
  
 
- function update_frammento3(s, player){
+ /*function update_frammento3(s, player){
 
     if(player.is_on_frammento3==true){
         if(framm_state==0){
@@ -623,7 +627,7 @@ function update_frammento1(s, player){
             luce3.visibility.alpha=0;
         }
     }
- }
+ }*/
  
  
  function update_frammento4(s, player){

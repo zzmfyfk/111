@@ -33,9 +33,9 @@ let is_menu_open = false;
 
 let frammento;
 let frammenti;
-let frammento_1;
+//let frammento_1;
 let frammento_2;
-let frammento_3;
+//let frammento_3;
 let frammento_4;
 let frammento_5;
 let frammento_6;
@@ -199,25 +199,25 @@ function create(s) {
 
     create_platform(s, player);
     
-    create_personaggi (s,player);
+    create_personaggi(s,player);
 
     //overlap_frammenti(s, player, frammento_1);
 
-    create_frammenti (s, player);
+    create_frammenti(s, player);
 
-    create_nuvola (s, player);
+    create_nuvola(s, player);
 
     //mercante overlap   
     
 
     //collision_frammenti (s, player, frammento);
-    collision_frammento1(s, player, frammento_1);
+    //collision_frammento1(s, player, frammento_1);
     
     //creo le scale dell'edificio
-    create_scala_pioli_2 (s, player);
+    create_scala_pioli_2(s, player);
    
     
-
+    
 
     // Creo una variabile per lo "score" della scena
     PP.gameState.set_variable("score", 0);
@@ -234,7 +234,10 @@ function create(s) {
 
     create_dialogo_indovinello(s,player);
     create_dialogo_liang(s,player);
+
+    //console.log(frammento_2)
     create__dialogo_zia_zhou_2(s,player);
+    
 
 
     //creiamo l'interfaccia di menu:
@@ -282,9 +285,9 @@ function update(s) {
     manage_player_update(s, player);    // Posizione del giocatore e animazioni
 
     //update_frammenti (s, frammenti);               // Azioni funghetti
-    update_frammento1(s, player);
+    //update_frammento1(s, player);
     update_frammento2(s, player);
-    update_frammento3(s, player);
+    //update_frammento3(s, player);
     update_frammento4(s, player);
     update_frammento5(s, player);
     update_frammento6(s, player);

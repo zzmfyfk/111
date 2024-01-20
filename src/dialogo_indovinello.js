@@ -72,8 +72,13 @@ let testo_risposte5_S;
 let testo_risposte5_D;
 let testo_risposte5_F;
 
+let img_frammento_3;
+let fraicon_3;
+
 
 function preload_dialogo_indovinello(s){
+
+    img_frammento_3   = PP.assets.image.load(s, "assets/images/frammento_3.png");
 
     img_mercante_indovinello = PP.assets.image.load(s,"assets/images/mercante.png");
     img_casella_indovinello_mercante = PP.assets.image.load(s,"assets/images/casella_indovinello_mercante.png");
@@ -119,6 +124,11 @@ function preload_dialogo_indovinello(s){
 }
 
 function create_dialogo_indovinello(s,player){
+
+    fraicon_3 = PP.assets.image.add(s, img_frammento_3, 110, 10, 0, 0);
+    fraicon_3.tile_geometry.scroll_factor_x = 0;
+    fraicon_3.tile_geometry.scroll_factor_y = 0;
+    fraicon_3.visibility.alpha=0.5;
 
     mercante_indovinello = PP.assets.image.add(s,img_mercante_indovinello,5500, 1055, 0, 0);
     PP.physics.add(s,mercante_indovinello,PP.physics.type.STATIC);
@@ -408,6 +418,9 @@ function update_dialogo_indovinello(s,player){
                         dialog_state_indovinello=7;//risposta corretta
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
+
+                       
+
                     }
                     else if (PP.interactive.kb.is_key_down(s,PP.key_codes.F)){
                         //F risposta sbagliata
@@ -726,6 +739,8 @@ function update_dialogo_indovinello(s,player){
 
                 casella_indovinello_mercante.visibility.alpha=1;
                 testo_indovinello_corretto.visibility.alpha=1;
+
+                fraicon_3.visibility.alpha=1;
 
                 player_speed=0;
                 jump_init_speed=0;

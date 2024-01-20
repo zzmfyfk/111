@@ -9,6 +9,8 @@ let casella_zia2;
 let zia2;
 let testo_apertura1_finale_liang;
 let testo_apertura2_finale_liang;
+let img_frammento_1
+let fraicon_1;
 
 function preload_dialogo_zia_zhou_2(s){
     
@@ -17,7 +19,8 @@ function preload_dialogo_zia_zhou_2(s){
     img_suggerimento_A_dialogo_zia2=PP.assets.image.load(s,"assets/images/tasto_A.png");
     img_testo_apertura1_finale_liang = PP.assets.image.load(s,"assets/images/testo_apertura1_finale_liang.png");
     img_testo_apertura2_finale_liang = PP.assets.image.load(s,"assets/images/testo_apertura2_finale_liang.png");
-
+   
+    img_frammento_1   = PP.assets.image.load(s, "assets/images/frammento_1.png");
 }
 
 function create__dialogo_zia_zhou_2(s,player){
@@ -41,12 +44,20 @@ function create__dialogo_zia_zhou_2(s,player){
     testo_apertura2_finale_liang = PP.assets.image.add(s,img_testo_apertura2_finale_liang,1070,1415,0,0);
     testo_apertura2_finale_liang.visibility.alpha=0;
 
+    //fraicon2
+    fraicon_1 = PP.assets.image.add(s, img_frammento_1, 10, 10, 0, 0);
+    fraicon_1.tile_geometry.scroll_factor_x = 0;
+    fraicon_1.tile_geometry.scroll_factor_y = 0;
+    fraicon_1.visibility.alpha=0.5;
+    
+    
+
 }
 
 let dialog_state_zia2 = 0;
 let enable_A_zia2= true;
 
-function update_dialogo_zia_zhou_2(s, player){
+function update_dialogo_zia_zhou_2(s, player, frammento){
 
     if(player.is_on_zia2==true){
 
@@ -88,6 +99,20 @@ function update_dialogo_zia_zhou_2(s, player){
                 player_speed=0;
                 jump_init_speed=0;
                 enable_A_zia2=false;
+
+                let prev_score = PP.gameState.get_variable("score");
+                PP.gameState.set_variable("score", prev_score + 70);
+                console.log(PP.gameState.get_variable("score"));
+
+                fraicon_1.visibility.alpha=1;
+
+                
+
+               
+
+                
+
+
             }
             else if(dialog_state_zia2==2&&PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
 
@@ -95,7 +120,7 @@ function update_dialogo_zia_zhou_2(s, player){
                 testo_apertura2_finale_liang.visibility.alpha=0;
 
                 player.is_on_genitori=false;
-                dialog_state_zia2=0;
+                //dialog_state_zia2=0;
                 player_speed=250;
                 jump_init_speed=200;
                 enable_A_zia2=false;
