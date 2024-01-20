@@ -1,8 +1,18 @@
 let img_background;
 let img_player;
+
+let img_background_6_2;
+let img_background_5_2;
+let img_background_4_2;
+let img_background_3_2;
 let img_background_2_2;
 let img_background_1_2;
 
+
+let ts_background_6_2;
+let ts_background_5_2;
+let ts_background_4_2;
+let ts_background_3_2;
 let ts_background_2_2;
 let ts_background_1_2;
 let pavimentazione_e_ponte_2;
@@ -36,9 +46,16 @@ let menu_open;
 let img_book_icon;
 let img_book_open;
 let img_timer_icon;
+let panni_stesi;
+let img_panni_stesi;
+
+let img_tomba;
+let tomba;
 
 function preload(s) {
     console.log("Executing preload() - SCENE");
+
+    img_tomba=PP.assets.image.load(s,"assets/images/tomba.png");
 
     // Carichiamo gli asset grafici
    // img_background = PP.assets.image.load(s, "assets/images/background.png");
@@ -48,8 +65,16 @@ function preload(s) {
     
     img_background_1_2 = PP.assets.image.load(s, "assets/images/parallax/background_1_2.png");
     img_background_2_2  = PP.assets.image.load(s, "assets/images/parallax/background_2_2.png");
+    img_background_3_2 = PP.assets.image.load(s, "assets/images/parallax/background_3_2.png");
+    img_background_4_2  = PP.assets.image.load(s, "assets/images/parallax/background_4_2.png");
+    img_background_5_2 = PP.assets.image.load(s, "assets/images/parallax/background_5_2.png");
+    img_background_6_2  = PP.assets.image.load(s, "assets/images/parallax/background_6_2.png");
+
+
+
 
     img_pavimentazione_e_ponte_2  = PP.assets.image.load(s, "assets/images/pavimentazione_e_ponte_2.png");
+    img_panni_stesi= PP.assets.image.load(s, "assets/images/panni_stesi.png");
   
 
 
@@ -61,15 +86,12 @@ function preload(s) {
     preload_player(s);
 
 
-    
+    preload_nuvola(s);
     preload_frammenti(s);
     preload_dialogo_indovinello(s);
     preload_dialogo_farfalla(s);
     preload_dialogo_zia_zhou_3(s);
   
-
-  
-
 }
 
 function collider_test(s,a,b) {
@@ -78,6 +100,7 @@ function collider_test(s,a,b) {
 
 function collision_floor(s,player,floor) {
     player.is_on_platform = true;
+    player.is_climbing = false;
 
    //PROVA PER FAR PASSARE DA SOTTO I PAVIMENTI
     if (player.geometry_x< floor_1.geometry_x) {
@@ -89,26 +112,33 @@ function collision_floor(s,player,floor) {
 function create(s) {
     console.log("Executing create() - SCENE");
 
-  
+     player = PP.assets.sprite.add(s, img_player, 1450, 1393, 0.5, 1);
+    // Aggiungiamo il giocatore alla fisica come entità dinamica
+    PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
-    ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, 0, 9000, 1590, 0, 0);
-    ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0,0, 9000, 1590, 0, 0);
-
-    pavimentazione_e_ponte_2 = PP.assets.image.add(s, img_pavimentazione_e_ponte_2, 0, 0, 0, 0);
-   
+    ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, 455, 8000, 1060, 0, 0);
+    ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0, 715, 5000, 663, 0, 0);
+    ts_background_3_2 = PP.assets.tilesprite.add(s, img_background_3_2, 0, 715, 5000, 663, 0, 0);
+    ts_background_4_2 = PP.assets.tilesprite.add(s, img_background_4_2, 0, 715, 5000, 663, 0, 0);
+    ts_background_5_2 = PP.assets.tilesprite.add(s, img_background_5_2, 0, 800, 4000, 530, 0, 0);
+    ts_background_6_2 = PP.assets.tilesprite.add(s, img_background_6_2, 0,0, 12000, 1590, 0, 0);
 
     // Disabilitiamo il tilesprite scroll factor per tutti i background (lo gestiremo manualmente)
 
     ts_background_2_2.tile_geometry.scroll_factor_x = 0;
     ts_background_1_2.tile_geometry.scroll_factor_x = 0;
-    //ts_pavimentazione_e_ponte_2.tile_geometry.scroll_factor_x = 0;
+    ts_background_3_2.tile_geometry.scroll_factor_x = 0;
+    ts_background_4_2.tile_geometry.scroll_factor_x = 0;
+    ts_background_5_2.tile_geometry.scroll_factor_x = 0;
+    ts_background_6_2.tile_geometry.scroll_factor_x = 0;
 
-    player = PP.assets.sprite.add(s, img_player, 1500, 1370, 0.5, 1);
-    // Aggiungiamo il giocatore alla fisica come entità dinamica
-    PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
+    //creo separatamente elementi che dovranno stare in primo piano:
+    pavimentazione_e_ponte_2 = PP.assets.image.add(s, img_pavimentazione_e_ponte_2, 0, 0, 0, 0);
+    panni_stesi = PP.assets.image.add(s, img_panni_stesi, 0, 0, 0, 0);
 
-    //creo un livello specifico per il player, e setto z-index1, così che rimanga in primo piano rispetto agli altri personaggi
+    //creo un livello specifico per il player, e setto z-index1, così che rimanga in primo piano rispetto agli altri personaggi 
     let layer_player = PP.layers.create(s);
+    PP.layers.add_to_layer(layer_player, panni_stesi);
     PP.layers.add_to_layer(layer_player, player);
     PP.layers.set_z_index(layer_player, 1);
     
@@ -123,7 +153,7 @@ function create(s) {
     
 
 
-    // Creiamo un pavimento "trasparente"
+    // Creiamo la pavimentazione:
 
     floor = PP.shapes.rectangle_add(s, 570, 1413.5, 30, 1, "0x000000", 0); // prima piattaformina
     // Aggiungiamo il pavimento alla fisica come entità statica
@@ -132,42 +162,31 @@ function create(s) {
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor = PP.shapes.rectangle_add(s, 597, 1401.5, 30, 1, "0x000000", 0); // seconda piattaformina
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor = PP.shapes.rectangle_add(s, 1219.5, 1392.5, 1209, 1, "0x000000", 0); // prima piattaforma
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor = PP.shapes.rectangle_add(s, 1840.5, 1401.5, 33, 1, "0x000000", 0); // terza piattaformina
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor = PP.shapes.rectangle_add(s, 1872.5, 1413.5, 33, 1, "0x000000", 0); // quarta piattaformina
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor_1 = PP.shapes.rectangle_add(s, 3675, 1401.5, 1668, 1, "0x008000", 0); // rocce prima del ponte
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
     floor_1 = PP.shapes.rectangle_add(s, 8398.5, 1413.5, 4251, 1, "0x008000", 0); // rocce dopo il ponte
-    // Aggiungiamo il pavimento alla fisica come entità statica
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
-    // Creiamo un collider tra pavimento e giocatore
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
-    muroinvisibileinizio = PP.shapes.rectangle_add(s, 1050, 648, 1, 1296, "0x000000", 0);
+    //creo i confini del livello
+    muroinvisibileinizio = PP.shapes.rectangle_add(s, 1210, 648, 1, 1296, "0x000000", 0);
     PP.physics.add(s, muroinvisibileinizio, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, muroinvisibileinizio, collision_muroinvisibile);
 
@@ -178,8 +197,6 @@ function create(s) {
 
     configure_player_animations(s, player); // Impostazione animazioni giocatore
 
-            // Creazione funghetti
-
     create_platform(s, player);
     
     create_personaggi (s,player);
@@ -188,11 +205,16 @@ function create(s) {
 
     create_frammenti (s, player);
 
+    create_nuvola (s, player);
+
     //mercante overlap   
     
 
     //collision_frammenti (s, player, frammento);
-    collision_frammento1(s, player, frammento_1);
+    //collision_frammento1(s, player, frammento_1);
+    
+    //creo le scale dell'edificio
+    create_scala_pioli_2 (s, player);
    
     
 
@@ -210,20 +232,15 @@ function create(s) {
     // Impostiamo la camera che segua il giocatore
     PP.camera.start_follow(s, player, 0, 220);
 
-    // Esempi di cambio del collision rectangle
-    //PP.physics.set_collision_rectangle(player, 100, 160, 85, 10);
-    //PP.physics.set_collision_circle(player, 80, 50, 10);
-
-
     create_dialogo_indovinello(s,player);
     create_dialogo_farfalla(s,player);
     create__dialogo_zia_zhou_3(s,player);
 
+
+    //creiamo l'interfaccia di menu:
     let menu_cliccabile = PP.assets.image.add(s, img_book_icon,1220, 8, 0, 0);
     menu_cliccabile.tile_geometry.scroll_factor_x = 0;
     menu_cliccabile.tile_geometry.scroll_factor_y = 0;
-    //menu_cliccabile.tile_geometry.scroll_factor_x = 0;
-    //menu_cliccabile.tile_geometry.scroll_factor_y = 0; 
 
     PP.interactive.mouse.add(menu_cliccabile, "pointerdown", clicco_menu);
     menu_open = PP.assets.image.add(s, img_book_open,90, 60, 0, 0);
@@ -265,26 +282,45 @@ function update(s) {
     manage_player_update(s, player);    // Posizione del giocatore e animazioni
 
     //update_frammenti (s, frammenti);               // Azioni funghetti
-    update_frammento1(s, player);
+    //update_frammento1(s, player);
     update_frammento2(s, player);
-    update_frammento3(s, player);
+    //update_frammento3(s, player);
     update_frammento4(s, player);
     update_frammento5(s, player);
     update_frammento6(s, player);
     update_frammento7(s, player);
- 
+    update_nuvola(s);
     
 
     // Aggiorno il punteggio visualizzato:
     PP.shapes.text_change(txt_score, "Score: " + PP.gameState.get_variable("score"));
 
 
-    ts_background_2_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
-    ts_background_1_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_6_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_5_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.9; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_4_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.8; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_3_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.6;
+    ts_background_2_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.5; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_1_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.4;
+
+
+
 
     update_dialogo_indovinello (s,player,mercante_indovinello);
     update_dialogo_farfalla(s,player,farfalla);
-    update_dialogo_zia_zhou_3(s, player,zia3);
+    update_dialogo_zia_zhou_3(s, player, zia3);
+
+    let currentScore = PP.gameState.get_variable("score");
+    if (currentScore >= 70 && !dialogoFarfallaStarted) {
+        dialogoFarfallaStarted = true;
+        preload_dialogo_farfalla(s);
+        create_dialogo_farfalla(s, player); // 假设 'player' 是当前场景中玩家对象的引用
+        console.log("Dialogo Liang started.");
+    }
+
+    if (dialogoFarfallaStarted) {
+        update_dialogo_farfalla(s, player);
+    }
 
 
 }
@@ -294,4 +330,5 @@ function destroy(s) {
 
 }
 
-PP.scenes.add("base", preload, create, update, destroy);
+PP.scenes.add("base3", preload, create, update, destroy);
+
