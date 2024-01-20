@@ -35,6 +35,7 @@ let img_testo_risposte5_S;
 let img_testo_risposte5_D;
 let img_testo_risposte5_F;
 
+let sprite_mercanteindovinello;
 let mercante_indovinello;
 let casella_indovinello_mercante;
 let casella_indovinello_Zhu;
@@ -75,7 +76,10 @@ let testo_risposte5_F;
 
 function preload_dialogo_indovinello(s){
 
-    img_mercante_indovinello = PP.assets.image.load(s,"assets/images/mercante.png");
+    sprite_mercanteindovinello = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_mercanteindovinello.png", 81, 153);
+
+
+  //  img_mercante_indovinello = PP.assets.image.load(s,"assets/images/mercante.png");
     img_casella_indovinello_mercante = PP.assets.image.load(s,"assets/images/casella_indovinello_mercante.png");
     img_casella_indovinello_Zhu = PP.assets.image.load(s,"assets/images/casella_zhu.png");
     img_suggerimento_A_indovinello = PP.assets.image.load(s,"assets/images/tasto_A.png");
@@ -120,9 +124,11 @@ function preload_dialogo_indovinello(s){
 
 function create_dialogo_indovinello(s,player){
 
-    mercante_indovinello = PP.assets.image.add(s,img_mercante_indovinello,5500, 1055, 0, 0);
+    mercante_indovinello = PP.assets.sprite.add(s,sprite_mercanteindovinello,5500, 1055, 0, 0);
     PP.physics.add(s,mercante_indovinello,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,mercante_indovinello,overlap_mercante_indovinello);
+    PP.assets.sprite.animation_add(mercante_indovinello, "moving", 0, 1, 1, -1);
+    PP.assets.sprite.animation_play(mercante_indovinello, "moving");
 
     function overlap_mercante_indovinello(s,player,mercante_indovinello){
         player.is_on_mercante_indovinello=true;

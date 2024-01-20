@@ -13,7 +13,7 @@ function preload_dialogo_liang(s) {
     let currentScore = PP.gameState.get_variable("score");
 
     // 检查得分是否达到或超过70
-    if (currentScore >= 70) {
+    if (currentScore >= 10) {
 
         img_liang = PP.assets.image.load(s, "assets/images/Liang_complete.png");
         img_casella_zhu_dialogo_liang = PP.assets.image.load(s, "assets/images/casella_zhu.png");
@@ -27,9 +27,9 @@ function create_dialogo_liang(s, player) {
     let currentScore = PP.gameState.get_variable("score");
 
     // 检查得分是否达到或超过70
-    if (currentScore >= 70) {
+    if (currentScore >= 10) {
 
-        liang = PP.assets.image.add(s, img_liang, 9400, 1255, 0, 0);
+        liang = PP.assets.image.add(s, img_liang, 1450, 1393, 0, 0);
         PP.physics.add(s, liang, PP.physics.type.STATIC);
         //s.physics.add.collider(player.ph_obj, liang.ph_obj, () => collision_liang(s, player, liang));
 

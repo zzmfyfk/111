@@ -295,9 +295,9 @@ function collision_frammento1(s, player, frammento_1) {
     let prev_score = PP.gameState.get_variable("score");
     PP.gameState.set_variable("score", prev_score + 10);
 
-    
 }
-    
+
+
 }
 
 

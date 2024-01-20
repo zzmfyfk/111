@@ -47,7 +47,12 @@ let suggerimento_A_cartellone;
 
 function preload_dialogo2(s){
     
-    img_mercante = PP.assets.image.load(s,"assets/images/mercante.png");
+    sprite_mercantelegno = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_mercantelegno.png", 102, 153);
+
+
+
+
+   // img_mercante = PP.assets.image.load(s,"assets/images/mercante.png");
     img_casella_mercante = PP.assets.image.load(s,"assets/images/casella_mercante.png");
     img_casella_Zhu = PP.assets.image.load(s,"assets/images/casella_zhu.png");
 
@@ -72,9 +77,19 @@ function preload_dialogo2(s){
 
 function create_dialogo2(s,player){
 
-    mercante=PP.assets.image.add(s,img_mercante,5530,970,0,0);
-    PP.physics.add(s,mercante,PP.physics.type.STATIC);
+  //  mercante=PP.assets.image.add(s,img_mercante,5530,970,0,0);
+   // PP.physics.add(s,mercante,PP.physics.type.STATIC);
+   // PP.physics.add_overlap_f(s,player,mercante,overlap_mercante);
+
+
+    mercante = PP.assets.sprite.add(s, sprite_mercantelegno, 5530,970,0,0);
+    PP.physics.add(s, mercante, PP.physics.type.STATIC);
+
     PP.physics.add_overlap_f(s,player,mercante,overlap_mercante);
+
+    PP.assets.sprite.animation_add(mercante, "moving", 0, 1, 1, -1);
+    PP.assets.sprite.animation_play(mercante, "moving");
+
 
     function overlap_mercante(s,player,mercante){
         player.is_on_mercante=true;
