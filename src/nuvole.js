@@ -24,22 +24,24 @@ function create_nuvola(s, player) {
    //PP.physics.add_collider_f(s, player, nuvola_1, collision_platform);
    //PP.physics.set_collision_rectangle(nuvola_1, 200, 1, 25, 1);
 
-   nuvola_1 = PP.assets.image.add(s, img_nuvola,  1600, 350, 0, 0);
+   nuvola_1 = PP.assets.image.add(s, img_nuvola,  1600, 300, 0, 0);
    PP.physics.add(s, nuvola_1, PP.physics.type.DYNAMIC); 
    PP.physics.set_immovable(nuvola_1, true);
    PP.physics.set_allow_gravity(nuvola_1, false);    
    PP.physics.add_collider_f(s, player, nuvola_1, collision_nuvola);
    PP.physics.set_velocity_y(nuvola_1, 50);
-   PP.physics.set_collision_rectangle(nuvola_1, 200, 1, 25, 1);
-    //let nuvola_2 = PP.assets.image.add(s, img_nuvola, 1500, 350, 0, 0);
-  // PP.physics.add(s, nuvola_2, PP.physics.type.STATIC); 
-  // PP.physics.add_collider_f(s, player, nuvola_2, collision_platform);
-  // PP.physics.set_collision_rectangle(nuvola_2, 267, 1, 25, 1);
+   PP.physics.set_collision_rectangle(nuvola_1, 180, 1, 25, 1);
+      
+   
+   let nuvola_2 = PP.assets.image.add(s, img_nuvola, 1320, 300, 0, 0);
+    PP.physics.add(s, nuvola_2, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, nuvola_2, collision_platform);
+    PP.physics.set_collision_rectangle(nuvola_2, 180, 1, 25, 1);
 
-   let nuvola_3 = PP.assets.image.add(s, img_nuvola, 1900, 450, 0, 0);
-   PP.physics.add(s, nuvola_3, PP.physics.type.STATIC); 
-   PP.physics.add_collider_f(s, player, nuvola_3, collision_nuvola);
-   PP.physics.set_collision_rectangle(nuvola_3, 267, 1, 25, 1);
+  // let nuvola_3 = PP.assets.image.add(s, img_nuvola, 1900, 450, 0, 0);
+  // PP.physics.add(s, nuvola_3, PP.physics.type.STATIC); 
+  // PP.physics.add_collider_f(s, player, nuvola_3, collision_nuvola);
+   //PP.physics.set_collision_rectangle(nuvola_3, 180, 1, 25, 1);
 
    //nuvola_2 = PP.assets.image.add(s, img_nuvola,  1350, 350, 0, 0);
    //PP.physics.add(s, nuvola_2, PP.physics.type.DYNAMIC); 
@@ -60,10 +62,10 @@ function update_nuvola(s) {
    // }
 
     if (nuvola_1 && nuvola_1.geometry) {
-        if (nuvola_1.geometry.y >= 450) {
-            PP.physics.set_velocity_y(nuvola_1, -50);
-        } else if (nuvola_1.geometry.y <=  350) {
-            PP.physics.set_velocity_y(nuvola_1, 50);
+        if (nuvola_1.geometry.y >= 600) {
+            PP.physics.set_velocity_y(nuvola_1, -60);
+        } else if (nuvola_1.geometry.y <=  300) {
+            PP.physics.set_velocity_y(nuvola_1, 60);
         }
     }
 }
