@@ -1,18 +1,8 @@
 let img_background;
 let img_player;
-
-let img_background_6_2;
-let img_background_5_2;
-let img_background_4_2;
-let img_background_3_2;
 let img_background_2_2;
 let img_background_1_2;
 
-
-let ts_background_6_2;
-let ts_background_5_2;
-let ts_background_4_2;
-let ts_background_3_2;
 let ts_background_2_2;
 let ts_background_1_2;
 let pavimentazione_e_ponte_2;
@@ -65,13 +55,6 @@ function preload(s) {
     
     img_background_1_2 = PP.assets.image.load(s, "assets/images/parallax/background_1_2.png");
     img_background_2_2  = PP.assets.image.load(s, "assets/images/parallax/background_2_2.png");
-    img_background_3_2 = PP.assets.image.load(s, "assets/images/parallax/background_3_2.png");
-    img_background_4_2  = PP.assets.image.load(s, "assets/images/parallax/background_4_2.png");
-    img_background_5_2 = PP.assets.image.load(s, "assets/images/parallax/background_5_2.png");
-    img_background_6_2  = PP.assets.image.load(s, "assets/images/parallax/background_6_2.png");
-
-
-
 
     img_pavimentazione_e_ponte_2  = PP.assets.image.load(s, "assets/images/pavimentazione_e_ponte_2.png");
     img_panni_stesi= PP.assets.image.load(s, "assets/images/panni_stesi.png");
@@ -80,7 +63,7 @@ function preload(s) {
 
 
     img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
-    img_book_open = PP.assets.image.load(s, "assets/images/menu_book_open_3.png");
+    img_book_open = PP.assets.image.load(s, "assets/images/menu_book_open.png");
     img_timer_icon   = PP.assets.image.load(s, "assets/images/timer_icon.png");
 
     preload_player(s);
@@ -88,7 +71,7 @@ function preload(s) {
 
     preload_barca(s);
     preload_frammenti(s);
-    preload_dialogo_indovinello(s);
+    //preload_dialogo_indovinello(s);
     preload_dialogo_liang(s);
     preload_dialogo_zia_zhou_2(s);
   
@@ -111,25 +94,17 @@ function collision_floor(s,player,floor) {
 function create(s) {
     console.log("Executing create() - SCENE");
 
-     player = PP.assets.sprite.add(s, img_player, 1450, 1393, 0.5, 1);
+     player = PP.assets.sprite.add(s, img_player, 1500, 1370, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
-    ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, 455, 8000, 1060, 0, 0);
-    ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0, 715, 5000, 663, 0, 0);
-    ts_background_3_2 = PP.assets.tilesprite.add(s, img_background_3_2, 0, 715, 5000, 663, 0, 0);
-    ts_background_4_2 = PP.assets.tilesprite.add(s, img_background_4_2, 0, 715, 5000, 663, 0, 0);
-    ts_background_5_2 = PP.assets.tilesprite.add(s, img_background_5_2, 0, 800, 4000, 530, 0, 0);
-    ts_background_6_2 = PP.assets.tilesprite.add(s, img_background_6_2, 0,0, 12000, 1590, 0, 0);
+    ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, 0, 9000, 1590, 0, 0);
+    ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0,0, 9000, 1590, 0, 0);
 
     // Disabilitiamo il tilesprite scroll factor per tutti i background (lo gestiremo manualmente)
 
     ts_background_2_2.tile_geometry.scroll_factor_x = 0;
     ts_background_1_2.tile_geometry.scroll_factor_x = 0;
-    ts_background_3_2.tile_geometry.scroll_factor_x = 0;
-    ts_background_4_2.tile_geometry.scroll_factor_x = 0;
-    ts_background_5_2.tile_geometry.scroll_factor_x = 0;
-    ts_background_6_2.tile_geometry.scroll_factor_x = 0;
 
     //creo separatamente elementi che dovranno stare in primo piano:
     pavimentazione_e_ponte_2 = PP.assets.image.add(s, img_pavimentazione_e_ponte_2, 0, 0, 0, 0);
@@ -184,8 +159,7 @@ function create(s) {
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
-    //creo i confini del livello
-    muroinvisibileinizio = PP.shapes.rectangle_add(s, 1210, 648, 1, 1296, "0x000000", 0);
+    muroinvisibileinizio = PP.shapes.rectangle_add(s, 1050, 648, 1, 1296, "0x000000", 0);
     PP.physics.add(s, muroinvisibileinizio, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, muroinvisibileinizio, collision_muroinvisibile);
 
@@ -226,7 +200,7 @@ function create(s) {
     // Impostiamo la camera che segua il giocatore
     PP.camera.start_follow(s, player, 0, 220);
 
-    create_dialogo_indovinello(s,player);
+    //create_dialogo_indovinello(s,player);
     create_dialogo_liang(s,player);
     create__dialogo_zia_zhou_2(s,player);
 
@@ -290,17 +264,10 @@ function update(s) {
     PP.shapes.text_change(txt_score, "Score: " + PP.gameState.get_variable("score"));
 
 
-    ts_background_6_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
-    ts_background_5_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.9; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
-    ts_background_4_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.8; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
-    ts_background_3_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.6;
-    ts_background_2_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.5; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
-    ts_background_1_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.4;
+    ts_background_2_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_1_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 1; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
 
-
-
-
-    update_dialogo_indovinello (s,player,mercante_indovinello);
+    //update_dialogo_indovinello (s,player,mercante_indovinello);
     update_dialogo_liang(s,player,liang);
     update_dialogo_zia_zhou_2(s, player,zia2);
 
