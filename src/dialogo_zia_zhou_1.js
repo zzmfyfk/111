@@ -45,7 +45,7 @@ function preload_dialogo_zia1(s){
 
 function create_dialogo_zia1(s,player){
 
-    zia1=PP.assets.image.add(s,img_zia1,700,809,0,0);
+    zia1=PP.assets.image.add(s,img_zia1,7900,712,0,0);
     PP.physics.add(s,zia1,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,zia1,overlap_zia1);
 
@@ -53,28 +53,28 @@ function create_dialogo_zia1(s,player){
         player.is_on_zia1=true;
     }
 
-    suggerimento_A_dialogo_zia1 = PP.assets.image.add(s,img_suggerimento_A_dialogo_zia1,700,780,0,0);
+    suggerimento_A_dialogo_zia1 = PP.assets.image.add(s,img_suggerimento_A_dialogo_zia1,7900,683,0,0);
     suggerimento_A_dialogo_zia1.visibility.alpha = 0;
 
-    casella_zia_zhou_1 = PP.assets.image.add(s,img_casella_zia_zhou_1,-400,939,0,0);
+    casella_zia_zhou_1 = PP.assets.image.add(s,img_casella_zia_zhou_1,6800,842,0,0);
     casella_zia_zhou_1.visibility.alpha=0;
 
-    casella_Zhu_dialogo_zia1=PP.assets.image.add(s,img_casella_Zhu,-400,939,0,0);
+    casella_Zhu_dialogo_zia1=PP.assets.image.add(s,img_casella_Zhu,6800,842,0,0);
     casella_Zhu_dialogo_zia1.visibility.alpha=0;
 
-    testo_dialogo1_zia_zhou_apertura = PP.assets.image.add(s,img_testo_dialogo1_zia_zhou_apertura,300,990,0,0);
+    testo_dialogo1_zia_zhou_apertura = PP.assets.image.add(s,img_testo_dialogo1_zia_zhou_apertura,7500,893,0,0);
     testo_dialogo1_zia_zhou_apertura.visibility.alpha = 0;
-    testo_opzione_dialogo_zia1 = PP.assets.image.add(s,img_testo_opzione_dialogo_zia1,300,990,0,0);
+    testo_opzione_dialogo_zia1 = PP.assets.image.add(s,img_testo_opzione_dialogo_zia1,7500,893,0,0);
     testo_opzione_dialogo_zia1.visibility.alpha = 0;
-    testo_opzione_si_dialogo_zia1 = PP.assets.image.add(s,img_testo_opzione_si_dialogo_zia1,300,990,0,0);
+    testo_opzione_si_dialogo_zia1 = PP.assets.image.add(s,img_testo_opzione_si_dialogo_zia1,7500,893,0,0);
     testo_opzione_si_dialogo_zia1.visibility.alpha = 0;
-    testo_opzione_no_dialogo_zia1 = PP.assets.image.add(s,img_testo_opzione_no_dialogo_zia1,300,990,0,0);
+    testo_opzione_no_dialogo_zia1 = PP.assets.image.add(s,img_testo_opzione_no_dialogo_zia1,7500,893,0,0);
     testo_opzione_no_dialogo_zia1.visibility.alpha = 0;
-    testo_risposta_si_dialogo_zia1 = PP.assets.image.add(s,img_testo_risposta_si_dialogo_zia1,300,990,0,0);
+    testo_risposta_si_dialogo_zia1 = PP.assets.image.add(s,img_testo_risposta_si_dialogo_zia1,7500,893,0,0);
     testo_risposta_si_dialogo_zia1.visibility.alpha = 0;
-    testo_risposta_no_dialogo_zia1 = PP.assets.image.add(s,img_testo_risposta_no_dialogo_zia1,300,990,0,0);
+    testo_risposta_no_dialogo_zia1 = PP.assets.image.add(s,img_testo_risposta_no_dialogo_zia1,7500,893,0,0);
     testo_risposta_no_dialogo_zia1.visibility.alpha = 0;
-    testo_risposta_finale_dialogo_zia1 = PP.assets.image.add(s,img_testo_risposta_finale_dialogo_zia1,300,990,0,0);
+    testo_risposta_finale_dialogo_zia1 = PP.assets.image.add(s,img_testo_risposta_finale_dialogo_zia1,7500,893,0,0);
     testo_risposta_finale_dialogo_zia1.visibility.alpha = 0;
 
 }
@@ -114,7 +114,7 @@ function update_dialogo_zia1(s, player){
                 dialog_state_zia1=6;
                 player_speed=0;
                 jump_init_speed=0;
-                enable_mercante_A=false;
+                enable_dialogo_zia1_A=false;
                 return;
             }
             
@@ -229,7 +229,6 @@ function update_dialogo_zia1(s, player){
 
                 casella_zia_zhou_1.visibility.alpha=0;
                 testo_risposta_finale_dialogo_zia1.visibility.alpha=0;
-
                 dialog_state_zia1=0;
                 player_speed=250;
                 jump_init_speed=200;

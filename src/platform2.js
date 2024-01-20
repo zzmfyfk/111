@@ -17,11 +17,12 @@ function create_platform(s, player) {
    // PP.physics.add_collider(s, player, platformacqua_1);
     //collisione per far saltare
    PP.physics.add_collider_f(s, player, platformacqua_1, collision_platform);
-    
+    //PP.physics.set_bounce_y(  player, 1);
 
     platformacqua_2 =  PP.shapes.rectangle_add(s, 2341.5, 1428, 141, 6, "0x000000", 0); // seconda ninfea
     PP.physics.add(s, platformacqua_2, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, platformacqua_2, collision_platform);
+    
     
 
     platformacqua_3 =  PP.shapes.rectangle_add(s, 2614.5, 1428, 141, 6, "0x000000", 0); // terza ninfea
@@ -86,8 +87,8 @@ function collision_punti_mortali(s,player,fondo) {
     //qui è da inserire un animazione o qualcosa che fa capire che sei "morta" !!
     
     //ora riporto il giocatore al punto iniziale
-    player.geometry.x=1500;
-    player.geometry.y= 1390;
+    player.geometry.x=1450;
+    player.geometry.y= 1380;
 }
 
 

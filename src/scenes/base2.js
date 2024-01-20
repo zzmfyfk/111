@@ -88,7 +88,7 @@ function preload(s) {
 
     preload_nuvola(s);
     preload_frammenti(s);
-    //preload_dialogo_indovinello(s);
+    preload_dialogo_indovinello(s);
     preload_dialogo_liang(s);
     preload_dialogo_zia_zhou_2(s);
   
@@ -100,6 +100,7 @@ function collider_test(s,a,b) {
 
 function collision_floor(s,player,floor) {
     player.is_on_platform = true;
+    player.is_climbing = false;
 
    //PROVA PER FAR PASSARE DA SOTTO I PAVIMENTI
     if (player.geometry_x< floor_1.geometry_x) {
@@ -111,7 +112,7 @@ function collision_floor(s,player,floor) {
 function create(s) {
     console.log("Executing create() - SCENE");
 
-     player = PP.assets.sprite.add(s, img_player, 1500, 1390, 0.5, 1);
+     player = PP.assets.sprite.add(s, img_player, 1450, 1393, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -184,7 +185,8 @@ function create(s) {
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
-    muroinvisibileinizio = PP.shapes.rectangle_add(s, 1050, 648, 1, 1296, "0x000000", 0);
+    //creo i confini del livello
+    muroinvisibileinizio = PP.shapes.rectangle_add(s, 1210, 648, 1, 1296, "0x000000", 0);
     PP.physics.add(s, muroinvisibileinizio, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, muroinvisibileinizio, collision_muroinvisibile);
 
@@ -210,6 +212,9 @@ function create(s) {
 
     //collision_frammenti (s, player, frammento);
     collision_frammento1(s, player, frammento_1);
+    
+    //creo le scale dell'edificio
+    create_scala_pioli_2 (s, player);
    
     
 
@@ -227,7 +232,7 @@ function create(s) {
     // Impostiamo la camera che segua il giocatore
     PP.camera.start_follow(s, player, 0, 220);
 
-    //create_dialogo_indovinello(s,player);
+    create_dialogo_indovinello(s,player);
     create_dialogo_liang(s,player);
     create__dialogo_zia_zhou_2(s,player);
 
@@ -301,7 +306,7 @@ function update(s) {
 
 
 
-    //update_dialogo_indovinello (s,player,mercante_indovinello);
+    update_dialogo_indovinello (s,player,mercante_indovinello);
     update_dialogo_liang(s,player,liang);
     update_dialogo_zia_zhou_2(s, player,zia2);
 

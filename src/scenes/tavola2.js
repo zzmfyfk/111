@@ -28,7 +28,7 @@ function create(s) {
 
     //CREO TASTO PER PASSARE A TAVOLA SUCCESIVA
 
-freccia_successivo = PP.assets.image.add(s, img_freccia_successivo, 80, 380, 0, 0);
+freccia_successivo = PP.assets.image.add(s, img_freccia_successivo, 80, 20, 0, 0);
 
 
 PP.interactive.mouse.add(freccia_successivo, "pointerdown", down_freccia_successivo);
@@ -37,7 +37,7 @@ PP.interactive.mouse.add(freccia_successivo, "pointerout", out_freccia_successiv
 
     //CREO TASTO PER PASSARE A TAVOLA PRECEDENTE
 
-    freccia_precedente = PP.assets.image.add(s, img_freccia_precedente, 20, 380, 0, 0);
+    freccia_precedente = PP.assets.image.add(s, img_freccia_precedente, 20, 20, 0, 0);
     
     
     PP.interactive.mouse.add(freccia_precedente, "pointerdown", down_freccia_precedente);

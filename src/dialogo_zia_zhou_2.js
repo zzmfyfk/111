@@ -22,7 +22,8 @@ function preload_dialogo_zia_zhou_2(s){
 
 function create__dialogo_zia_zhou_2(s,player){
 
-    zia2=PP.assets.image.add(s,img_zia2,1600,1238,0,0);
+    zia2=PP.assets.image.add(s,img_zia2,1170,1245,0,0);
+    zia2.geometry.flip_x = true;
     PP.physics.add(s,zia2,PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s,player,zia2,overlap_zia2);
 
@@ -30,14 +31,14 @@ function create__dialogo_zia_zhou_2(s,player){
         player.is_on_zia2=true;
     }
 
-    suggerimento_A_dialogo_zia2 = PP.assets.image.add(s,img_suggerimento_A_dialogo_zia2,1600,1200,0,0);
+    suggerimento_A_dialogo_zia2 = PP.assets.image.add(s,img_suggerimento_A_dialogo_zia2,1182,1200,0,0);
     suggerimento_A_dialogo_zia2.visibility.alpha = 0;
 
-    casella_zia2=PP.assets.image.add(s,img_casella_zia2,650,1370,0,0);
+    casella_zia2=PP.assets.image.add(s,img_casella_zia2,232,1370,0,0);
     casella_zia2.visibility.alpha=0;
-    testo_apertura1_finale_liang = PP.assets.image.add(s,img_testo_apertura1_finale_liang,1430,1420,0,0);
+    testo_apertura1_finale_liang = PP.assets.image.add(s,img_testo_apertura1_finale_liang,1000,1382,0,0);
     testo_apertura1_finale_liang.visibility.alpha=0;
-    testo_apertura2_finale_liang = PP.assets.image.add(s,img_testo_apertura2_finale_liang,1430,1420,0,0);
+    testo_apertura2_finale_liang = PP.assets.image.add(s,img_testo_apertura2_finale_liang,1000,1382,0,0);
     testo_apertura2_finale_liang.visibility.alpha=0;
 
 }

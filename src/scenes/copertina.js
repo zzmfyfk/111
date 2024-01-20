@@ -123,15 +123,7 @@ function out_crediti(s) {
 
 
 function update(s) {
-    //premendo space, si torna alla copertina
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {
-        window.location.href = 'story_tavola2.html'
-
-    }
-
-
-
-    //da inserire tasti che permettono di scegliere tra rigioca e torna alla copertina
+   
 }
 
 function destroy(s) {
