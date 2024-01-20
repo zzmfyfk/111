@@ -227,7 +227,7 @@ function create(s) {
     // con la camera (essendo HUD deve rimanere fisso)
     txt_score.tile_geometry.scroll_factor_x = 0;
     txt_score.tile_geometry.scroll_factor_y = 0;
-    txt_score.ph_obj.setVisible(false);
+
 
     // Impostiamo la camera che segua il giocatore
     PP.camera.start_follow(s, player, 0, 220);
@@ -308,7 +308,19 @@ function update(s) {
 
     update_dialogo_indovinello (s,player,mercante_indovinello);
     update_dialogo_liang(s,player,liang);
-    update_dialogo_zia_zhou_2(s, player,zia2);
+    update_dialogo_zia_zhou_2(s, player, zia2);
+
+    let currentScore = PP.gameState.get_variable("score");
+    if (currentScore >= 70 && !dialogoLiangStarted) {
+        dialogoLiangStarted = true;
+        preload_dialogo_liang(s);
+        create_dialogo_liang(s, player); // 假设 'player' 是当前场景中玩家对象的引用
+        console.log("Dialogo Liang started.");
+    }
+
+    if (dialogoLiangStarted) {
+        update_dialogo_liang(s, player);
+    }
 
 
 }
