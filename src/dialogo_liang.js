@@ -21,6 +21,7 @@ function preload_dialogo_liang(s) {
         img_testo_dialogofinale_positivo1 = PP.assets.image.load(s, "assets/images/testo_dialogofinale_positivo1.png");
         img_testo_dialogofinale_positivo2 = PP.assets.image.load(s, "assets/images/testo_dialogofinale_positivo2.png");
         console.log("Dialogo Liang assets preloaded.");
+        //
 }
 
 
@@ -39,11 +40,11 @@ function create_dialogo_liang(s, player) {
         PP.assets.sprite.animation_add(liang, "moving", 0, 1, 1, -1); //carico l'animazione
         PP.assets.sprite.animation_play(liang, "moving");//dovrebbe far partire l'animazione 
 
-        casella_zhu_dialogo_liang = PP.assets.image.add(s, img_casella_zhu_dialogo_liang, 8462, 1380, 0, 0);
+        casella_zhu_dialogo_liang = PP.assets.image.add(s, img_casella_zhu_dialogo_liang, 8562, 1380, 0, 0);
         casella_zhu_dialogo_liang.visibility.alpha = 0;
-        testo_dialogofinale_positivo1 = PP.assets.image.add(s, img_testo_dialogofinale_positivo1, 9320, 1329, 0, 0);
+        testo_dialogofinale_positivo1 = PP.assets.image.add(s, img_testo_dialogofinale_positivo1, 9300, 1425, 0, 0);
         testo_dialogofinale_positivo1.visibility.alpha = 0;
-        testo_dialogofinale_positivo2 = PP.assets.image.add(s, img_testo_dialogofinale_positivo2, 9320, 1329, 0, 0);
+        testo_dialogofinale_positivo2 = PP.assets.image.add(s, img_testo_dialogofinale_positivo2, 9300, 1425, 0, 0);
         testo_dialogofinale_positivo2.visibility.alpha = 0;
         console.log("Dialogo Liang elements created.");
         s.physics.add.collider(player.ph_obj, liang.ph_obj, () => collision_liang(s, player, liang));
@@ -53,15 +54,15 @@ function create_dialogo_liang(s, player) {
               PP.layers.add_to_layer(layer_dialogo_liang,  casella_zhu_dialogo_liang);
              
               PP.layers.set_z_index(layer_dialogo_liang, 3);
+                PP.layers.add_to_layer(layer_dialogo_liang , testo_dialogofinale_positivo1);
+              PP.layers.add_to_layer(layer_dialogo_liang , testo_dialogofinale_positivo2);
 
 
 
-
-              let layer_dialogo_liang_testo = PP.layers.create(s);
+              //let layer_dialogo_liang_testo = PP.layers.create(s);
              
-              PP.layers.add_to_layer(layer_dialogo_liang_testo , testo_dialogofinale_positivo1);
-              PP.layers.add_to_layer(layer_dialogo_liang_testo , testo_dialogofinale_positivo2);
-              PP.layers.set_z_index(layer_dialogo_liang, 4);
+              
+              //PP.layers.set_z_index(layer_dialogo_liang, 4);
 
 
     }
