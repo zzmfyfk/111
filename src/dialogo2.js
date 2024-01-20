@@ -30,6 +30,11 @@ let mercante;
 let ponte_ricostruito;
 let piattaforma_ponte;
 
+let img_cartellone_ponte;
+let img_testo_ponte_non_riparato;
+let img_casella_ponte;
+
+
 function preload_dialogo2(s){
     
     img_mercante = PP.assets.image.load(s,"assets/images/mercante.png");
