@@ -18,6 +18,7 @@ function preload_dialogo_zia_zhou_3(s){
     img_testo_apertura1_finale_farfalla = PP.assets.image.load(s,"assets/images/testo_apertura1_finale_farfalla.png");
     img_testo_apertura2_finale_farfalla = PP.assets.image.load(s,"assets/images/testo_apertura2_finale_farfalla.png");
 
+    img_frammento_1   = PP.assets.image.load(s, "assets/images/frammento_1.png");
 }
 
 function create__dialogo_zia_zhou_3(s,player){
@@ -43,6 +44,11 @@ function create__dialogo_zia_zhou_3(s,player){
     testo_apertura1_finale_farfalla.visibility.alpha=0;
     testo_apertura2_finale_farfalla = PP.assets.image.add(s,img_testo_apertura2_finale_farfalla,1070,1415,0,0);
     testo_apertura2_finale_farfalla.visibility.alpha=0;
+
+    fraicon_1 = PP.assets.image.add(s, img_frammento_1, 10, 10, 0, 0);
+    fraicon_1.tile_geometry.scroll_factor_x = 0;
+    fraicon_1.tile_geometry.scroll_factor_y = 0;
+    fraicon_1.visibility.alpha=0.5;
 
 }
 
@@ -91,6 +97,12 @@ function update_dialogo_zia_zhou_3(s, player){
                 player_speed=0;
                 jump_init_speed=0;
                 enable_A_zia3=false;
+
+                let prev_score = PP.gameState.get_variable("score");
+                PP.gameState.set_variable("score", prev_score + 10);
+                console.log(PP.gameState.get_variable("score"));
+
+                fraicon_1.visibility.alpha=1;
             }
             else if(dialog_state_zia3==2 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
 
@@ -98,7 +110,7 @@ function update_dialogo_zia_zhou_3(s, player){
                 testo_apertura2_finale_farfalla.visibility.alpha=0;
 
                 player.is_on_genitori=false;
-                dialog_state_zia3=0;
+                //dialog_state_zia3=0;
                 player_speed=250;
                 jump_init_speed=200;
                 enable_A_zia3=false;

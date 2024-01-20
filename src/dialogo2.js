@@ -87,7 +87,7 @@ function create_dialogo2(s,player){
 
     PP.physics.add_overlap_f(s,player,mercante,overlap_mercante);
 
-    PP.assets.sprite.animation_add(mercante, "moving", 0, 1, 1, -1);
+    PP.assets.sprite.animation_add(mercante, "moving", 0, 1, 1, 20);
     PP.assets.sprite.animation_play(mercante, "moving");
 
 

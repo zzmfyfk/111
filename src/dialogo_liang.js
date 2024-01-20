@@ -18,14 +18,15 @@ function preload_dialogo_liang(s) {
     // 检查得分是否达到或超过70
     if (currentScore >= 70) {
 
-
-        img_liang = PP.assets.image.load(s, "assets/images/Liang_complete.png");
+        sprite_liang = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_Liang.png",54, 156); //preload spritesheet liang
+        //img_liang = PP.assets.image.load(s, "assets/images/Liang_complete.png");
         img_casella_zhu_dialogo_liang = PP.assets.image.load(s, "assets/images/casella_zhu.png");
         img_testo_dialogofinale_positivo1 = PP.assets.image.load(s, "assets/images/testo_dialogofinale_positivo1.png");
         img_testo_dialogofinale_positivo2 = PP.assets.image.load(s, "assets/images/testo_dialogofinale_positivo2.png");
         console.log("Dialogo Liang assets preloaded.");
     }
 }
+
 
 
 function create_dialogo_liang(s, player) {
@@ -36,10 +37,11 @@ function create_dialogo_liang(s, player) {
     if (currentScore >= 70) {
 
 
-        liang = PP.assets.image.add(s, img_liang, 9400, 1255, 0, 0);
+        liang = PP.assets.sprite.add(s, sprite_liang, 9400, 1255, 0, 0); //crea la sprite
         PP.physics.add(s, liang, PP.physics.type.STATIC);
         //s.physics.add.collider(player.ph_obj, liang.ph_obj, () => collision_liang(s, player, liang));
-
+        PP.assets.sprite.animation_add(liang, "moving", 0, 1, 1, -1); //carico l'animazione
+        PP.assets.sprite.animation_play(liang, "moving");//dovrebbe far partire l'animazione 
 
         casella_zhu_dialogo_liang = PP.assets.image.add(s, img_casella_zhu_dialogo_liang, 8462, 1380, 0, 0);
         casella_zhu_dialogo_liang.visibility.alpha = 0;

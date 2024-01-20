@@ -113,10 +113,7 @@ function update_dialogo_zia_zhou_2(s, player, frammento){
 
                 
 
-               
-
-                
-
+        
 
             }
             else if(dialog_state_zia2==2&&PP.interactive.kb.is_key_down(s,PP.key_codes.A)){

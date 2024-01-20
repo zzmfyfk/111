@@ -148,7 +148,8 @@ function create(s) {
     PP.layers.set_z_index(layer_1, 2);
 
 
-
+    tomba =  PP.assets.image.add(s,img_tomba,9400, 1235,0,0);
+    PP.physics.add(s,tomba,PP.physics.type.STATIC);
 
     
 
@@ -181,7 +182,7 @@ function create(s) {
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
-    floor_1 = PP.shapes.rectangle_add(s, 8398.5, 1413.5, 4251, 1, "0x008000", 0); // rocce dopo il ponte
+    floor_1 = PP.shapes.rectangle_add(s, 8398.5, 1400, 4251, 1, "0x008000", 0); // rocce dopo il ponte
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 

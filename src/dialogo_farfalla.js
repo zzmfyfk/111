@@ -16,7 +16,7 @@ function preload_dialogo_farfalla(s){
 
     // 检查得分是否达到或超过70
     if (currentScore >= 70) {
-
+         img_tombarotta = PP.assets.image.load(s,"assets/images/tombarotta.png");
          img_farfalla=PP.assets.image.load(s,"assets/images/tomba.png");
     img_casella_zhu_dialogo_farfalla = PP.assets.image.load(s,"assets/images/casella_zhu.png");
     img_testo_dialogofinale_farfalla1=PP.assets.image.load(s,"assets/images/testo_dialogofinale_farfalla1.png");
@@ -50,7 +50,11 @@ function create_dialogo_farfalla(s,player){ //
 
     // 检查得分是否达到或超过70
     if (currentScore >= 70) {
-        farfalla = PP.assets.image.add(s,img_farfalla,9400, 1255,0,0);
+        
+        PP.assets.destroy(tomba);
+       
+       
+        farfalla = PP.assets.image.add(s,img_farfalla,9400, 1245,0,0);
         PP.physics.add(s,farfalla,PP.physics.type.STATIC);
         s.physics.add.collider(player.ph_obj, farfalla.ph_obj, () => collision_farfalla(s, player, farfalla));
        
