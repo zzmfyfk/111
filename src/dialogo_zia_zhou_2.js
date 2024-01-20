@@ -101,7 +101,7 @@ function update_dialogo_zia_zhou_2(s, player, frammento){
                 enable_A_zia2=false;
 
                 let prev_score = PP.gameState.get_variable("score");
-                PP.gameState.set_variable("score", prev_score + 70);
+                PP.gameState.set_variable("score", prev_score + 10);
                 console.log(PP.gameState.get_variable("score"));
 
                 fraicon_1.visibility.alpha=1;

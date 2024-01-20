@@ -739,7 +739,11 @@ function update_dialogo_indovinello(s,player){
 
                 casella_indovinello_mercante.visibility.alpha=1;
                 testo_indovinello_corretto.visibility.alpha=1;
-
+                
+                //Aggiorno il punteggio e l'interfaccia:
+                let prev_score = PP.gameState.get_variable("score");
+                PP.gameState.set_variable("score", prev_score + 10);
+                console.log(PP.gameState.get_variable("score"));
                 fraicon_3.visibility.alpha=1;
 
                 player_speed=0;
