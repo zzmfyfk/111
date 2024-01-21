@@ -34,14 +34,14 @@ function create_dialogo1(s,player){
         player.is_on_genitori=true;
     }
 
-    continua_A_dialogo1=PP.assets.image.add(s,img_continua_A_dialogo1,828,785,0,0);
-    continua_A_dialogo1.visibility.alpha = 0;
+    //continua_A_dialogo1=PP.assets.image.add(s,img_continua_A_dialogo1,930,990,0,0);
+    //continua_A_dialogo1.visibility.alpha = 0;
     suggerimento_A_dialogo1 = PP.assets.image.add(s,img_suggerimento_A_dialogo1,828,785,0,0);
     suggerimento_A_dialogo1.visibility.alpha = 0;
 
-    casella_genitori=PP.assets.image.add(s,img_casella_genitori,-100,939,0,0);
+    casella_genitori=PP.assets.image.add(s,img_casella_genitori,-30,939,0,0);
     casella_genitori.visibility.alpha=0;
-    testo_genitori=PP.assets.image.add(s,img_testo_genitori,690,985,0,0);
+    testo_genitori=PP.assets.image.add(s,img_testo_genitori,750,985,0,0);
     testo_genitori.visibility.alpha=0;
 
 }
@@ -69,7 +69,7 @@ function update_dialogo1(s, player){
 
                 console.log("player is talking");
                 console.log("state:",dialog_state);
-                continua_A_dialogo1.visibility.alpha = 1;
+                //continua_A_dialogo1.visibility.alpha = 1;
                 suggerimento_A_dialogo1.visibility.alpha=0;
 
                 casella_genitori.visibility.alpha=1;
@@ -85,7 +85,7 @@ function update_dialogo1(s, player){
                 console.log("fine dialogo");
                 console.log("state:",dialog_state);
 
-                continua_A_dialogo1.visibility.alpha = 0;
+                //continua_A_dialogo1.visibility.alpha = 0;
                 casella_genitori.visibility.alpha=0;
                 testo_genitori.visibility.alpha=0;
 
