@@ -7,7 +7,7 @@ let img_testo_copertina;
 
 
 function preload(s) {
-    copertina = PP.assets.image.load(s, "assets/images/copertina.jpg");
+    copertina = PP.assets.image.load(s, "assets/images/copertina.png");
     img_testo_copertina= PP.assets.image.load(s, "assets/images/testo_copertina.png");
     // img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
 
