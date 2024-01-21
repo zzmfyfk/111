@@ -129,7 +129,7 @@ function create(s) {
     ts_background_4_2 = PP.assets.tilesprite.add(s, img_background_4_2, 0, 0, 12000, 1590, 0, 0);
     ts_background_5_2 = PP.assets.tilesprite.add(s, img_background_5_2, 0, 0, 12000, 1590, 0, 0);
     ts_background_6_2 = PP.assets.tilesprite.add(s, img_background_6_2, 0,0, 12000, 1590, 0, 0);
-    ts_background_7_2 = PP.assets.tilesprite.add(s, img_background_7_2, 0,0, 12000, 1590, 0, 0);
+    ts_background_7_2 = PP.assets.tilesprite.add(s, img_background_7_2, 0,-110, 12000, 1590, 0, 0);
     ts_background_8_2 = PP.assets.tilesprite.add(s, img_background_8_2, 0,0, 12000, 1590, 0, 0);
     
     
