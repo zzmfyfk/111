@@ -1,12 +1,29 @@
 let img_background;
 let img_player;
 let img_background_3;
-let img_background_2;
-let img_background_1;
+//let img_background_2;
+//let img_background_1;
 
+//let img_background_8_2;
+let img_background_7_2;
+let img_background_6_2;
+let img_background_5_2;
+let img_background_4_2;
+let img_background_3_2;
+let img_background_2_2;
+let img_background_1_2;
+
+//let ts_background_8_2;
+let ts_background_7_2;
+let ts_background_6_2;
+let ts_background_5_2;
+let ts_background_4_2;
+let ts_background_3_2;
+let ts_background_2_2;
+let ts_background_1_2;
 let ts_background_3;
-let ts_background_2;
-let ts_background_1;
+//let ts_background_2;
+//let ts_background_1;
 let mercante;
 let muroinvisibileinizio;
 let muroinvisibilefine;
@@ -43,10 +60,19 @@ function preload(s) {
     img_ponte_iniziale_1  = PP.assets.image.load(s, "assets/images/ponte_iniziale_1.png");
 
     //Per lo sfondo:
-    img_background_1 = PP.assets.image.load(s, "assets/images/parallax/background_1.png");
-    img_background_2 = PP.assets.image.load(s, "assets/images/parallax/background_2.png");
-    img_background_3 = PP.assets.image.load(s, "assets/images/parallax/background_3.png");
+    //img_background_1 = PP.assets.image.load(s, "assets/images/parallax/background_1.png");
+    //img_background_2 = PP.assets.image.load(s, "assets/images/parallax/background_2.png");
+   
     
+    img_background_1_2 = PP.assets.image.load(s, "assets/images/parallax/background_1_2.png");
+    img_background_2_2  = PP.assets.image.load(s, "assets/images/parallax/background_2_2.png");
+    img_background_3_2 = PP.assets.image.load(s, "assets/images/parallax/background_3_2.png");
+    img_background_4_2  = PP.assets.image.load(s, "assets/images/parallax/background_4_2.png");
+    img_background_5_2 = PP.assets.image.load(s, "assets/images/parallax/background_5_2.png");
+    img_background_6_2  = PP.assets.image.load(s, "assets/images/parallax/background_6_2.png");
+    img_background_7_2 = PP.assets.image.load(s, "assets/images/parallax/background_7_2.png");
+    img_background_3 = PP.assets.image.load(s, "assets/images/parallax/background_3.png");
+
     //Per l'interfaccia:
     img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
     img_book_open = PP.assets.image.load(s, "assets/images/menu_book_open.png");
@@ -90,16 +116,28 @@ function create(s) {
     console.log("Executing create() - SCENE");
 
     // Inseriamo background e giocatore
-
-    ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 0, 10800, 1296 , 0, 0);
-    ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 93,  10800, 1203  , 0, 0);
+    ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, - 700,12000, 1590, 0, 0);
+    ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0, -300, 12000, 1590, 0, 0);
+    ts_background_3_2 = PP.assets.tilesprite.add(s, img_background_3_2, 0, -300, 12000, 1590, 0, 0);
+    ts_background_4_2 = PP.assets.tilesprite.add(s, img_background_4_2, 0, -300, 12000, 1590, 0, 0);
+    ts_background_5_2 = PP.assets.tilesprite.add(s, img_background_5_2, 0, -300, 12000, 1590, 0, 0);
+    ts_background_6_2 = PP.assets.tilesprite.add(s, img_background_6_2, 0,-300, 12000, 1590, 0, 0);
+    ts_background_7_2 = PP.assets.tilesprite.add(s, img_background_7_2, 0,-300, 12000, 1590, 0, 0);
+   // ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 0, 10800, 1296 , 0, 0);
+   // ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 93,  10800, 1203  , 0, 0);
     ts_background_3 = PP.assets.tilesprite.add(s, img_background_3, 0, -252, 10800, 1800, 0, 0);
 
     // Disabilitiamo il tilesprite scroll factor per tutti i background (lo gestiremo manualmente)
-
+    ts_background_2_2.tile_geometry.scroll_factor_x = 0;
+    ts_background_1_2.tile_geometry.scroll_factor_x = 0;
+    ts_background_3_2.tile_geometry.scroll_factor_x = 0;
+    ts_background_4_2.tile_geometry.scroll_factor_x = 0;
+    ts_background_5_2.tile_geometry.scroll_factor_x = 0;
+    ts_background_6_2.tile_geometry.scroll_factor_x = 0;
+    ts_background_7_2.tile_geometry.scroll_factor_x = 0;
     ts_background_3.tile_geometry.scroll_factor_x = 0;
-    ts_background_2.tile_geometry.scroll_factor_x = 0;
-    ts_background_1.tile_geometry.scroll_factor_x = 0;
+    //ts_background_2.tile_geometry.scroll_factor_x = 0;
+    //ts_background_1.tile_geometry.scroll_factor_x = 0;
 
 
     ponte_iniziale = PP.assets.image.add(s, img_ponte_iniziale_1, 0, 0, 0, 0);
@@ -283,9 +321,15 @@ function update(s) {
 
 
     ts_background_3.tile_geometry.x = PP.camera.get_scroll_x(s) * 1;
-    ts_background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.5; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
-    ts_background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.3; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
-
+   // ts_background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.5; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+   // ts_background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.3; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_7_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.9;
+    ts_background_6_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.8; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_5_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.7; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_4_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.6; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_3_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.5;
+    ts_background_2_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.4; //imporstiamo  lo sfondo in foreground in modo che possa muoversi
+    ts_background_1_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.3;
 
 }
 
