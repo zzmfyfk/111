@@ -120,6 +120,7 @@ function manage_player_update(s, player) {
                 next_anim = "jump_down";
             }
         }else if(player.is_climbing) {
+            console.log("here")
             PP.physics.set_velocity_y(player, 0);
             next_anim = "climbstop";
 
