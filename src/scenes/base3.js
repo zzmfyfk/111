@@ -24,7 +24,7 @@ let muroinvisibilefine;
 let player;
 let floor;
 let floor_1;
-let floor_2;
+
 let floor_3;
 let txt_score;
 let img_pavimentazione_e_ponte_2;
@@ -49,13 +49,12 @@ let img_timer_icon;
 let panni_stesi;
 let img_panni_stesi;
 
-let img_tomba;
-let tomba;
+
 
 function preload(s) {
     console.log("Executing preload() - SCENE");
 
-    img_tomba=PP.assets.image.load(s,"assets/images/tomba.png");
+    
 
     // Carichiamo gli asset grafici
    // img_background = PP.assets.image.load(s, "assets/images/background.png");
@@ -148,8 +147,7 @@ function create(s) {
     PP.layers.set_z_index(layer_1, 2);
 
 
-    tomba =  PP.assets.image.add(s,img_tomba,9400, 1235,0,0);
-    PP.physics.add(s,tomba,PP.physics.type.STATIC);
+    //
 
     
 
@@ -185,6 +183,23 @@ function create(s) {
     floor_1 = PP.shapes.rectangle_add(s, 8398.5, 1400, 4251, 1, "0x008000", 0); // rocce dopo il ponte
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
+
+    //piattaforme dell'edificio a fine livello:
+    tetto_1_sx = PP.shapes.rectangle_add(s, 7485, 945, 165, 1, "0x008000",0); //ed piano 1 sx
+    PP.physics.add(s, tetto_1_sx, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_1_sx, collision_floor);
+
+    tetto_1_dx = PP.shapes.rectangle_add(s,7983, 945, 670, 1, "0x008000",0); //ed piano 1 dx
+    PP.physics.add(s, tetto_1_dx, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_1_dx, collision_floor);
+
+    tetto_2_sx = PP.shapes.rectangle_add(s,7864, 510, 921, 1, "0x008000",0); //ed piano 2
+    PP.physics.add(s, tetto_2_sx, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_2_sx, collision_floor);
+
+    tetto_2_sx = PP.shapes.rectangle_add(s,7864, 79, 921, 1, "0x008000",0); //ed piano 2
+    PP.physics.add(s, tetto_2_sx, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_2_sx, collision_floor);
 
     //creo i confini del livello
     muroinvisibileinizio = PP.shapes.rectangle_add(s, 1210, 648, 1, 1296, "0x000000", 0);
@@ -308,7 +323,7 @@ function update(s) {
 
 
     update_dialogo_indovinello (s,player,mercante_indovinello);
-    update_dialogo_farfalla(s,player,farfalla);
+    update_dialogo_farfalla(s,player);
     update_dialogo_zia_zhou_3(s, player, zia3);
 
     let currentScore = PP.gameState.get_variable("score");

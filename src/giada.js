@@ -85,14 +85,14 @@ function create_giada(s, player) {
         PP.assets.sprite.animation_add( giada_tetto1, "light", 0,3,4,-1);
         PP.assets.sprite.animation_play( giada_tetto1, "light");
 
-        giada_ponte = PP.assets.sprite.add(s,sprite_giada,  2817, 516, 0.5, 1);
+        giada_ponte = PP.assets.sprite.add(s,sprite_giada,  3140, 490, 0.5, 1);
         PP.physics.add(s,  giada_ponte, PP.physics.type.STATIC);
         PP.physics.set_collision_rectangle( giada_ponte, 21, 27, 39, 36); 
         PP.physics.add_overlap_f(s, player,  giada_ponte, collision_giada);
         PP.assets.sprite.animation_add( giada_ponte, "light", 0,3,4,-1);
         PP.assets.sprite.animation_play( giada_ponte, "light");
 
-        giada_lanterna = PP.assets.sprite.add(s,sprite_giada,  5586,700, 0.5, 1);
+        giada_lanterna = PP.assets.sprite.add(s,sprite_giada,  5586,725, 0.5, 1);
         PP.physics.add(s,  giada_lanterna, PP.physics.type.STATIC);
         PP.physics.set_collision_rectangle( giada_lanterna, 21, 27, 39, 36); 
         PP.physics.add_overlap_f(s, player,  giada_lanterna, collision_giada);
