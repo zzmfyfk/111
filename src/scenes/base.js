@@ -275,6 +275,8 @@ function update(s) {
     
     update_nuvola(s, player);
 
+    update_lanterna (s, player);
+
 
     // Aggiorno il punteggio delle giade visualizzato:
     PP.shapes.text_change(txt_score, "Score: " + PP.gameState.get_variable("score"));
