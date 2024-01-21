@@ -120,13 +120,13 @@ function create(s) {
     console.log("Executing create() - SCENE");
 
     // Inseriamo background e giocatore
-    ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, - 700,12000, 1590, 0, 0);
-    ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0, -300, 12000, 1590, 0, 0);
-    ts_background_3_2 = PP.assets.tilesprite.add(s, img_background_3_2, 0, -300, 12000, 1590, 0, 0);
-    ts_background_4_2 = PP.assets.tilesprite.add(s, img_background_4_2, 0, -300, 12000, 1590, 0, 0);
-    ts_background_5_2 = PP.assets.tilesprite.add(s, img_background_5_2, 0, -300, 12000, 1590, 0, 0);
-    ts_background_6_2 = PP.assets.tilesprite.add(s, img_background_6_2, 0,-300, 12000, 1590, 0, 0);
-    ts_background_7_2 = PP.assets.tilesprite.add(s, img_background_7_2, 0,-300, 12000, 1590, 0, 0);
+    ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, - 800,12000, 1590, 0, 0);
+    ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0, -400, 12000, 1590, 0, 0);
+    ts_background_3_2 = PP.assets.tilesprite.add(s, img_background_3_2, 0, -400, 12000, 1590, 0, 0);
+    ts_background_4_2 = PP.assets.tilesprite.add(s, img_background_4_2, 0, -400, 12000, 1590, 0, 0);
+    ts_background_5_2 = PP.assets.tilesprite.add(s, img_background_5_2, 0, -400, 12000, 1590, 0, 0);
+    ts_background_6_2 = PP.assets.tilesprite.add(s, img_background_6_2, 0,-400, 12000, 1590, 0, 0);
+    ts_background_7_2 = PP.assets.tilesprite.add(s, img_background_7_2, 0,-510, 12000, 2000, 0, 0);
    // ts_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 0, 10800, 1296 , 0, 0);
    // ts_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 93,  10800, 1203  , 0, 0);
     ts_background_3 = PP.assets.tilesprite.add(s, img_background_3, 0, -252, 10800, 1800, 0, 0);
