@@ -52,6 +52,9 @@ let img_panni_stesi;
 let img_liang;
 let liang;
 
+let img_albero_2;
+let  albero_livello_2;
+
 function preload(s) {
     console.log("Executing preload() - SCENE");
 
@@ -69,6 +72,8 @@ function preload(s) {
     img_background_4_2  = PP.assets.image.load(s, "assets/images/parallax/background_4_2.png");
     img_background_5_2 = PP.assets.image.load(s, "assets/images/parallax/background_5_2.png");
     img_background_6_2  = PP.assets.image.load(s, "assets/images/parallax/background_6_2.png");
+
+    img_albero_2 = PP.assets.image.load(s, "assets/images/albero_livello_2");
 
 
 
@@ -136,9 +141,12 @@ function create(s) {
     pavimentazione_e_ponte_2 = PP.assets.image.add(s, img_pavimentazione_e_ponte_2, 0, 0, 0, 0);
     panni_stesi = PP.assets.image.add(s, img_panni_stesi, 0, 0, 0, 0);
 
+    albero_livello_2 = PP.assets.image.add(s, img_albero_2, 0, 0, 0, 0);
+
     //creo un livello specifico per il player, e setto z-index1, così che rimanga in primo piano rispetto agli altri personaggi 
     let layer_player = PP.layers.create(s);
     PP.layers.add_to_layer(layer_player, panni_stesi);
+    PP.layers.add_to_layer(layer_player, albero_livello_2);
     PP.layers.add_to_layer(layer_player, player);
     PP.layers.set_z_index(layer_player, 1);
     

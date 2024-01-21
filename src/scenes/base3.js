@@ -49,6 +49,9 @@ let img_timer_icon;
 let panni_stesi;
 let img_panni_stesi;
 
+let img_albero_2;
+let  albero_livello_2;
+
 
 
 function preload(s) {
@@ -59,7 +62,7 @@ function preload(s) {
     // Carichiamo gli asset grafici
    // img_background = PP.assets.image.load(s, "assets/images/background.png");
    img_player = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_player.png", 99, 150);
-   
+   img_albero_2 = PP.assets.image.load(s, "assets/images/albero_livello_2");
 
     
     img_background_1_2 = PP.assets.image.load(s, "assets/images/parallax/background_1_2.png");
@@ -115,6 +118,10 @@ function create(s) {
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
+    albero_livello_2 = PP.assets.image.add(s, img_albero_2, 0, 0, 0, 0);
+
+    
+
     ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, 455, 8000, 1060, 0, 0);
     ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0, 715, 5000, 663, 0, 0);
     ts_background_3_2 = PP.assets.tilesprite.add(s, img_background_3_2, 0, 715, 5000, 663, 0, 0);
@@ -138,6 +145,7 @@ function create(s) {
     //creo un livello specifico per il player, e setto z-index1, così che rimanga in primo piano rispetto agli altri personaggi 
     let layer_player = PP.layers.create(s);
     PP.layers.add_to_layer(layer_player, panni_stesi);
+    PP.layers.add_to_layer(layer_player, albero_livello_2);
     PP.layers.add_to_layer(layer_player, player);
     PP.layers.set_z_index(layer_player, 1);
     
