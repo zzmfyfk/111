@@ -15,7 +15,7 @@ let img_ponte_ricostruito;
 
 
 
-let continua_A_dialogo2;
+//let continua_A_dialogo2;
 let casella_mercante;
 let casella_Zhu;
 
@@ -57,7 +57,7 @@ function preload_dialogo2(s){
     img_casella_Zhu = PP.assets.image.load(s,"assets/images/casella_zhu.png");
 
     img_suggerimento_A_dialogo2 = PP.assets.image.load(s,"assets/images/tasto_A.png");
-    img_continua_A_dialogo2 = PP.assets.image.load(s,"assets/images/continua_A.png");
+    //img_continua_A_dialogo2 = PP.assets.image.load(s,"assets/images/continua_A.png");
 
     img_testo1_mercante = PP.assets.image.load(s,"assets/images/testo1_mercante.png");
     img_testo2_mercante = PP.assets.image.load(s,"assets/images/testo2_mercante.png");
@@ -104,8 +104,8 @@ function create_dialogo2(s,player){
     casella_Zhu=PP.assets.image.add(s,img_casella_Zhu,4558,1100,0,0);
     casella_Zhu.visibility.alpha=0;
 
-    continua_A_dialogo2=PP.assets.image.add(s,img_continua_A_dialogo2,5930,1220,0,0);
-    continua_A_dialogo2.visibility.alpha=0;
+    //continua_A_dialogo2=PP.assets.image.add(s,img_continua_A_dialogo2,5930,1220,0,0);
+    //continua_A_dialogo2.visibility.alpha=0;
 
     testo1_mercante=PP.assets.image.add(s,img_testo1_mercante,5320,1148,0,0);
     testo1_mercante.visibility.alpha=0;
@@ -235,7 +235,7 @@ function update_dialogo2(s, player){
 
                 casella_mercante.visibility.alpha=1;
 
-                continua_A_dialogo2.visibility.alpha=1;
+                //continua_A_dialogo2.visibility.alpha=1;
                 testo3_mercante.visibility.alpha=1;
 
                 dialog_state1=5;
@@ -253,7 +253,7 @@ function update_dialogo2(s, player){
                 suggerimento_A_dialogo2.visibility.alpha=0;
 
                 casella_mercante.visibility.alpha=1;
-                continua_A_dialogo2.visibility.alpha=1;
+                //continua_A_dialogo2.visibility.alpha=1;
                 testo1_mercante.visibility.alpha=1;
 
                 dialog_state1=1;
@@ -268,7 +268,7 @@ function update_dialogo2(s, player){
 
                 casella_mercante.visibility.alpha=0;
                 testo1_mercante.visibility.alpha=0;
-                continua_A_dialogo2.visibility.alpha=0;
+                //continua_A_dialogo2.visibility.alpha=0;
 
                 casella_Zhu.visibility.alpha=1;
                 opzione_original_Zhu.visibility.alpha=1;
@@ -310,7 +310,7 @@ function update_dialogo2(s, player){
                     piattaforma_ponte =  PP.shapes.rectangle_add(s, 7550,  861, 400, 0, "0x000000", 1);
                     PP.physics.add(s, piattaforma_ponte, PP.physics.type.STATIC); 
                     PP.physics.add_collider_f(s, player, piattaforma_ponte, collision_floor);
-                    continua_A_dialogo2.visibility.alpha=1;
+                    //continua_A_dialogo2.visibility.alpha=1;
                     
                     dialog_state1=3;
                     player_speed=0;
@@ -322,7 +322,7 @@ function update_dialogo2(s, player){
                     //Schiaccio D, No non compro
                     opzione_original_Zhu.visibility.alpha=0;
                     opzione_no_Zhu.visibility.alpha=1;
-                    continua_A_dialogo2.visibility.alpha=1;
+                    //continua_A_dialogo2.visibility.alpha=1;
 
                     dialog_state1=5;
                     player_speed=0;
@@ -355,7 +355,7 @@ function update_dialogo2(s, player){
                 casella_mercante.visibility.alpha=0;
                 casella_Zhu.visibility.alpha=0;
 
-                continua_A_dialogo2.visibility.alpha=0;
+                //continua_A_dialogo2.visibility.alpha=0;
                 testo3_mercante.visibility.alpha=0;
                 opzione_si_Zhu.visibility.alpha=0;
                 opzione_no_Zhu.visibility.alpha=0;

@@ -1,9 +1,11 @@
 let img_genitori;
 let img_casella_genitori;
 let img_suggerimento_A_dialogo1;
+let img_continua_A_dialogo1;
 let img_testo_genitori;
 
 let suggerimento_A_dialogo1;
+let continua_A_dialogo1;
 let casella_genitori;
 let testo_genitori;
 let genitori;
@@ -15,6 +17,7 @@ function preload_dialogo1(s){
     img_casella_genitori=PP.assets.image.load(s,"assets/images/casella_genitori.png");
     img_suggerimento_A_dialogo1=PP.assets.image.load(s,"assets/images/tasto_A.png");
     img_testo_genitori=PP.assets.image.load(s,"assets/images/testo_genitori.png");
+    img_continua_A_dialogo1=PP.assets.image.load(s,"assets/images/continua_A.png");
 
 }
 
@@ -31,6 +34,8 @@ function create_dialogo1(s,player){
         player.is_on_genitori=true;
     }
 
+    continua_A_dialogo1=PP.assets.image.add(s,img_continua_A_dialogo1,828,785,0,0);
+    continua_A_dialogo1.visibility.alpha = 0;
     suggerimento_A_dialogo1 = PP.assets.image.add(s,img_suggerimento_A_dialogo1,828,785,0,0);
     suggerimento_A_dialogo1.visibility.alpha = 0;
 
@@ -64,8 +69,9 @@ function update_dialogo1(s, player){
 
                 console.log("player is talking");
                 console.log("state:",dialog_state);
-
+                continua_A_dialogo1.visibility.alpha = 1;
                 suggerimento_A_dialogo1.visibility.alpha=0;
+
                 casella_genitori.visibility.alpha=1;
                 testo_genitori.visibility.alpha=1;
 
@@ -79,6 +85,7 @@ function update_dialogo1(s, player){
                 console.log("fine dialogo");
                 console.log("state:",dialog_state);
 
+                continua_A_dialogo1.visibility.alpha = 0;
                 casella_genitori.visibility.alpha=0;
                 testo_genitori.visibility.alpha=0;
 
