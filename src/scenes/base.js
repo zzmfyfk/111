@@ -57,6 +57,7 @@ let img_ponte_iniziale_1;
 
 function preload(s) {
     console.log("Executing preload() - SCENE");
+    document.getElementById('loading-screen').style.display = 'block';
 
     // Carichiamo gli asset grafici
     img_player = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_player.png", 99, 150);
@@ -118,6 +119,8 @@ function collision_barca(s, player, barca) {
 
 function create(s) {
     console.log("Executing create() - SCENE");
+
+    document.getElementById('loading-screen').style.display = 'none';
 
     // Inseriamo background e giocatore
     ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, - 800,12000, 1590, 0, 0);

@@ -58,7 +58,10 @@ let liang;
 function preload(s) {
     console.log("Executing preload() - SCENE");
 
+    document.getElementById('loading-screen').style.display = 'block';
+
     img_liang = PP.assets.image.load(s, "assets/images/Liang_complete.png");
+
 
     // Carichiamo gli asset grafici
     // img_background = PP.assets.image.load(s, "assets/images/background.png");
@@ -116,6 +119,8 @@ function collision_floor(s, player, floor) {
 
 function create(s) {
     console.log("Executing create() - SCENE");
+
+    document.getElementById('loading-screen').style.display = 'none';
 
     player = PP.assets.sprite.add(s, img_player, 1450, 1393, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica

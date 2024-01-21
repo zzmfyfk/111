@@ -15,7 +15,7 @@ function preload(s) {
 
 function create(s) {
 
-    
+    document.getElementById('loading-screen').style.display = 'none';
     PP.assets.tilesprite.add(s, copertina, 0, 0, 0, 0, 0, 0);
 testo_copertina=PP.assets.image.add(s, img_testo_copertina, 60,600, 0, 0);
     //crezione dei testi "gioca" "storia" "crediti":
