@@ -28,6 +28,9 @@ let mercante;
 let muroinvisibileinizio;
 let muroinvisibilefine;
 
+let ringhiere;
+let img_ringhiere;
+
 let giadaCount = 0;
 let player;
 let floor;
@@ -58,6 +61,7 @@ function preload(s) {
     // Carichiamo gli asset grafici
     img_player = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_player.png", 99, 150);
     img_ponte_iniziale_1  = PP.assets.image.load(s, "assets/images/ponte_iniziale_1.png");
+    img_ringhiere  = PP.assets.image.load(s, "assets/images/ringhiere_livello_1.png");
 
     //Per lo sfondo:
     //img_background_1 = PP.assets.image.load(s, "assets/images/parallax/background_1.png");
@@ -141,16 +145,18 @@ function create(s) {
 
 
     ponte_iniziale = PP.assets.image.add(s, img_ponte_iniziale_1, 0, 0, 0, 0);
-
+   
 
 
     player = PP.assets.sprite.add(s, img_player, 936, 1518, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);
+     ringhiere = PP.assets.image.add(s, img_ringhiere, 0, 0, 0, 0);
 
     //creo un livello specifico per il player, e setto z-index1, così che rimanga in primo piano rispetto agli altri personaggi
     let layer_player = PP.layers.create(s);
     PP.layers.add_to_layer(layer_player, player);
+    PP.layers.add_to_layer(layer_player,ringhiere);
     PP.layers.set_z_index(layer_player, 1);
 
     //Creiamo i pavimenti:
