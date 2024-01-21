@@ -745,7 +745,7 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=8;
+                        dialog_state_indovinello=7;
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
@@ -767,7 +767,7 @@ function update_dialogo_indovinello(s,player){
 
                         player_speed=0;
                         jump_init_speed=0;
-                        dialog_state_indovinello=7;//risposta
+                        dialog_state_indovinello=8;//risposta
                         enable_indovinello_A=false;
                         enable_indovinello_S=false;
                     }
