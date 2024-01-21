@@ -156,7 +156,7 @@ function create_frammenti(s, player) {
 
 
 
-        let frammento_4 = PP.assets.image.add(s, img_frammento_4,6546, 1221, 0, 0);
+        let frammento_4 = PP.assets.image.add(s, img_frammento_4,6546, 1205, 0, 0);
         PP.physics.add(s, frammento_4, PP.physics.type.STATIC);
        PP.physics.add_overlap_f(s, player,frammento_4, collision_frammento4);
        PP.physics.add_overlap_f(s, player, frammento_4, overlap_frammento4);
@@ -167,7 +167,7 @@ function create_frammenti(s, player) {
            player.is_on_frammento4=true;
        }
 
-      luce4 = PP.assets.image.add(s,img_luce4,6546, 1221,0,0);
+      luce4 = PP.assets.image.add(s,img_luce4,6546, 1205,0,0);
       luce4.visibility.alpha = 0;
 
 
