@@ -3,7 +3,6 @@ let img_casella_zia_zhou_1;
 let img_casella_Zhu_dialogo_zia1;
 
 let img_suggerimento_A_dialogo_zia1;
-let img_continua_A_dialogo_zia1;
 let img_testo_dialogo1_zia_zhou_apertura;
 let img_testo_opzione_dialogo_zia1;
 let img_testo_opzione_si_dialogo_zia1;
