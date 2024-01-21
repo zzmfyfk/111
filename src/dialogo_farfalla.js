@@ -80,11 +80,11 @@ function create_dialogo_farfalla(s,player){ //
         s.physics.add.collider(player.ph_obj, tombarotta.ph_obj, () => collision_farfalla(s, player, tombarotta));
        
 
-        casella_zhu_dialogo_farfalla = PP.assets.image.add(s,img_casella_zhu_dialogo_farfalla, 8562, 1380, 0, 0);
+        casella_zhu_dialogo_farfalla = PP.assets.image.add(s,img_casella_zhu_dialogo_farfalla, 8532, 1380, 0, 0);
     casella_zhu_dialogo_farfalla.visibility.alpha=0;
-    testo_dialogofinale_farfalla1 = PP.assets.image.add(s,img_testo_dialogofinale_farfalla1, 9300, 1425, 0, 0);
+    testo_dialogofinale_farfalla1 = PP.assets.image.add(s,img_testo_dialogofinale_farfalla1, 9270, 1430, 0, 0);
     testo_dialogofinale_farfalla1.visibility.alpha = 0;
-    testo_dialogofinale_farfalla2 = PP.assets.image.add(s,img_testo_dialogofinale_farfalla2,9300, 1425, 0, 0);
+    testo_dialogofinale_farfalla2 = PP.assets.image.add(s,img_testo_dialogofinale_farfalla2,9270, 1430, 0, 0);
     testo_dialogofinale_farfalla2.visibility.alpha = 0;
 
         console.log("Dialogo farfalla elements created.");
