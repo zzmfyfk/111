@@ -112,8 +112,10 @@ function collision_farfalla(s, player, tombarotta) {
         // Show dialogue box and text when player collides with Liang
         casella_zhu_dialogo_farfalla.visibility.alpha = 1;
         testo_dialogofinale_farfalla1.visibility.alpha = 1;
+
         dialog_state_farfalla = 1;
         player_speed=0;
+        jump_init_speed=0;
         console.log("Dialogo farfalla tocca.");
    
 }
@@ -146,6 +148,8 @@ function update_dialogo_farfalla(s, player) {
                 testo_dialogofinale_farfalla2.visibility.alpha = 1; // Show second text
 
                 //BUG NON CARICA I TESTI
+                player_speed=0;
+                jump_init_speed=0;
                 dialog_state_farfalla = 2; // Update state
                 break;
 

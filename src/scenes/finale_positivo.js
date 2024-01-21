@@ -61,7 +61,7 @@ function create(s) {
         }*/
 
 function home(s) {
-    PP.scenes.start("copertina");
+    window.location.href = 'index.html';
 }
 function over_home(s) {
     
