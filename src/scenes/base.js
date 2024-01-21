@@ -198,7 +198,7 @@ function create(s) {
 
     //Creiamo i confini inizili e finali del primo livello:
 
-    muroinvisibileinizio = PP.shapes.rectangle_add(s, 594, 648, 1, 1296, "0x000000", 0);
+    muroinvisibileinizio = PP.shapes.rectangle_add(s, 640, 648, 1, 1296, "0x000000", 0);
     PP.physics.add(s, muroinvisibileinizio, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, muroinvisibileinizio, collision_muroinvisibile);
 
