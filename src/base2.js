@@ -185,6 +185,8 @@ function create(s) {
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
+    
+
     //creo i confini del livello
     muroinvisibileinizio = PP.shapes.rectangle_add(s, 1210, 648, 1, 1296, "0x000000", 0);
     PP.physics.add(s, muroinvisibileinizio, PP.physics.type.STATIC);
@@ -206,6 +208,8 @@ function create(s) {
     create_frammenti (s, player);
 
     create_nuvola (s, player);
+
+    
 
     //mercante overlap   
     

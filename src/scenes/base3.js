@@ -24,10 +24,7 @@ let muroinvisibilefine;
 let player;
 let floor;
 let floor_1;
-let tetto_1_dx;
-let tetto_2_sx;
-let tetto_1_sx;
-let tetto_2_dx;
+
 let floor_3;
 let txt_score;
 let img_pavimentazione_e_ponte_2;
@@ -188,11 +185,11 @@ function create(s) {
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
     //piattaforme dell'edificio a fine livello:
-    tetto_1_sx = PP.shapes.rectangle_add(s, 7471, 945, 150, 1, "0x008000",0); //ed piano 1 sx
+    tetto_1_sx = PP.shapes.rectangle_add(s, 7485, 945, 165, 1, "0x008000",0); //ed piano 1 sx
     PP.physics.add(s, tetto_1_sx, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_1_sx, collision_floor);
 
-    tetto_1_dx = PP.shapes.rectangle_add(s,8001, 945, 657, 1, "0x008000",0); //ed piano 1 dx
+    tetto_1_dx = PP.shapes.rectangle_add(s,7983, 945, 670, 1, "0x008000",0); //ed piano 1 dx
     PP.physics.add(s, tetto_1_dx, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_1_dx, collision_floor);
 
