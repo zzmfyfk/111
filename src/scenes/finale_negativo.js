@@ -46,6 +46,7 @@ function rigioca(s) {
     already_buy = false;
     bridgeRepaired = false;
     PP.scenes.start("base");
+        location.reload();
 }
 
 function over_rigioca(s) {
