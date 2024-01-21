@@ -15,11 +15,11 @@ function preload_platform(s) {
 function create_platform(s, player) {
 
 
-    tetto_1 =  PP.shapes.rectangle_add(s, 1333, 621, 51, 1, "0x000000", 0); //da scale pt 1
+    tetto_1 =  PP.shapes.rectangle_add(s, 1333, 623, 51, 1, "0x000000", 0); //da scale pt 1
     PP.physics.add(s, tetto_1, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_1, collision_platform);
 
-    tetto_2 =  PP.shapes.rectangle_add(s, 1490, 621, 102, 1, "0x000000", 0); // da scale pt 2
+    tetto_2 =  PP.shapes.rectangle_add(s, 1500, 623, 129, 1, "0x000000", 0); // da scale pt 2
     PP.physics.add(s, tetto_2, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_2, collision_platform);
 
@@ -27,11 +27,11 @@ function create_platform(s, player) {
     PP.physics.add(s, tetto_2_partesinistra, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_2_partesinistra, collision_platform);
 
-    tetto_3 =  PP.shapes.rectangle_add(s, 936, 267, 700, 0, "0x000000", 0); //tetto in alto edificio 1
+    tetto_3 =  PP.shapes.rectangle_add(s, 957, 260, 774, 0, "0x000000", 0); //tetto in alto edificio 1
     PP.physics.add(s, tetto_3, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_3, collision_platform);
 
-    tetto_4 =  PP.shapes.rectangle_add(s, 1294, 564, 27, 1, "0x000000", 0); //minipezzo ed 1
+    tetto_4 =  PP.shapes.rectangle_add(s, 1308, 564, 42, 1, "0x000000", 0); //minipezzo ed 1
     PP.physics.add(s, tetto_4, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_4, collision_platform);
 

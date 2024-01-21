@@ -121,7 +121,7 @@ function create(s) {
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);
 
-    ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, -200,12000, 1590, 0, 0);
+    ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, -400,12000, 1590, 0, 0);
     ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0, 0, 12000, 1590, 0, 0);
     ts_background_3_2 = PP.assets.tilesprite.add(s, img_background_3_2, 0, 0, 12000, 1590, 0, 0);
     ts_background_4_2 = PP.assets.tilesprite.add(s, img_background_4_2, 0, 0, 12000, 1590, 0, 0);

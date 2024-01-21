@@ -182,7 +182,7 @@ function create(s) {
     PP.physics.add(s, floor_5, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_5, collision_floor);
 
-    floor_6 = PP.shapes.rectangle_add(s, 7889, 861, 270, 1, "0x008000", 0); //pavimento dopo ponte rotto
+    floor_6 = PP.shapes.rectangle_add(s, 7915, 861, 219, 1, "0x008000", 0); //pavimento dopo ponte rotto
     PP.physics.add(s, floor_6, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_6, collision_floor);
 
