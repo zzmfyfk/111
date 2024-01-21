@@ -226,10 +226,10 @@ function create(s) {
     create_personaggi (s,player);
 
     //overlap_frammenti(s, player, frammento_1);
-
+    create_nuvola (s, player);
     create_frammenti (s, player);
 
-    create_nuvola (s, player);
+    
 
     //mercante overlap   
     
