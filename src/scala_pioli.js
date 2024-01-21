@@ -6,7 +6,7 @@ function create_scala_pioli(s, player){
     PP.physics.add(s, scala_1, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, scala_1, overlap_scala_1);
 
-    let end_scale=PP.shapes.rectangle_add(s, 1398, 500, 40 , 40,"0x000000", 0);
+    let end_scale=PP.shapes.rectangle_add(s, 1398, 484, 40 , 10,"0x000000", 0);
     PP.physics.add(s, end_scale, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, end_scale, overlap_fine_scala);      //fine scala superiore
 
@@ -15,7 +15,7 @@ function create_scala_pioli(s, player){
     PP.physics.add(s, scala_3, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, scala_3, overlap_scala_1);
 
-    let end_scale_3=PP.shapes.rectangle_add(s, 3760, 430, 40 , 40,"0x000000", 0);
+    let end_scale_3=PP.shapes.rectangle_add(s, 3760, 410, 40 , 10,"0x000000", 0);
     PP.physics.add(s, end_scale_3, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, end_scale_3, overlap_fine_scala);      //fine scala superiore
 
