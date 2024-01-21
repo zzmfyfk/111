@@ -7,7 +7,7 @@ function create_punti_mortali(s, player) {
     PP.physics.add(s, fondo, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, fondo, collision_punti_mortali)
     
-    acqua = PP.shapes.rectangle_add(s,8000, 955, 4000, 0, "0x008000", 0);
+    acqua = PP.shapes.rectangle_add(s,9000, 955, 4000, 0, "0x008000", 0);
     PP.physics.add(s, acqua, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, acqua, collision_punti_mortali);
 }

@@ -150,6 +150,16 @@ function manage_player_update(s, player) {
             PP.physics.set_velocity_y(player, -jump_init_speed);
         }
 
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {
+            PP.physics.set_velocity_x(player, player_speed);
+            next_anim = "run";
+        } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
+            PP.physics.set_velocity_x(player, -player_speed);
+            next_anim = "run";
+        } else {
+            PP.physics.set_velocity_x(player, 0);
+            next_anim = "stop";
+        }
         // Non gestisco qui le animazioni del salto, ma piu' avanti
     }
     player.is_on_barca = false;
