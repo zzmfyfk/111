@@ -39,6 +39,11 @@ function create_platform(s, player) {
     PP.physics.add(s, tetto_ponte, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_ponte, collision_platform);
 
+    tetto_ponte_1 =  PP.shapes.rectangle_add(s,3145, 559, 909, 1, "0x000000", 0); //tetto suu edificio  ponte
+    PP.physics.add(s, tetto_ponte_1, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_ponte_1, collision_platform);
+
+
     tetto_5 =  PP.shapes.rectangle_add(s, 3690, 543, 54, 0, "0x000000", 0); //tetto sx edificio pt1
     PP.physics.add(s, tetto_5, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_5, collision_platform);

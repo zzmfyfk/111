@@ -784,7 +784,7 @@ function update_dialogo_indovinello(s,player){
                 testo_risposte2_F.visibility.alpha=0;
                 testo_risposte3_S.visibility.alpha=0;
                 testo_risposte4_F.visibility.alpha=0;
-                testo_risposte5_F.visibility.alpha=0;
+                testo_risposte5_S.visibility.alpha=0;
 
                 casella_indovinello_mercante.visibility.alpha=1;
                 testo_indovinello_corretto.visibility.alpha=1;
@@ -817,7 +817,7 @@ function update_dialogo_indovinello(s,player){
                 testo_risposte4_S.visibility.alpha=0;
                 testo_risposte4_D.visibility.alpha=0;
 
-                testo_risposte5_S.visibility.alpha=0;
+                testo_risposte5_F.visibility.alpha=0;
                 testo_risposte5_D.visibility.alpha=0;
 
                 casella_indovinello_mercante.visibility.alpha=1;
