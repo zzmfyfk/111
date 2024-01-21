@@ -157,6 +157,7 @@ function create_platform(s, player) {
 
     function collision_platform(s,player, platform) {
         player.is_on_platform = true;
+        player.is_climbing = false;
     }
 
 

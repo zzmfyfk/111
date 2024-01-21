@@ -196,6 +196,8 @@ function create(s) {
     PP.physics.add(s, floor_7, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_7, collision_floor);
 
+    
+
     //Creiamo i confini inizili e finali del primo livello:
 
     muroinvisibileinizio = PP.shapes.rectangle_add(s, 640, 648, 1, 1296, "0x000000", 0);
