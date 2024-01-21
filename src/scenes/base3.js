@@ -188,11 +188,11 @@ function create(s) {
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
     //piattaforme dell'edificio a fine livello:
-    tetto_1_sx = PP.shapes.rectangle_add(s, 7471, 945, 141, 1, "0x008000",0); //ed piano 1 sx
+    tetto_1_sx = PP.shapes.rectangle_add(s, 7471, 945, 150, 1, "0x008000",0); //ed piano 1 sx
     PP.physics.add(s, tetto_1_sx, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_1_sx, collision_floor);
 
-    tetto_1_dx = PP.shapes.rectangle_add(s,8001, 945, 648, 1, "0x008000",0); //ed piano 1 dx
+    tetto_1_dx = PP.shapes.rectangle_add(s,8001, 945, 657, 1, "0x008000",0); //ed piano 1 dx
     PP.physics.add(s, tetto_1_dx, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, tetto_1_dx, collision_floor);
 
