@@ -20,6 +20,8 @@ let dialogoFarfallaStarted = false;
 
 function preload_dialogo_farfalla(s){
     img_tomba=PP.assets.image.load(s,"assets/images/tomba.png");
+    sprite_farfalla =PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_farfalla.png",54, 156);
+    
     img_farfalla=PP.assets.image.load(s,"assets/images/spritesheet farfalla.png");
 
      let currentScore = PP.gameState.get_variable("score");
@@ -65,8 +67,11 @@ function create_dialogo_farfalla(s,player){ //
       //tombarotta=PP.assets.image.add(s,img_tombarotta,9400, 1235,0,0);
       tombarotta.visibility.alpha = 1;
       tomba.visibility.alpha = 0;
-        farfalla = PP.assets.image.add(s,img_farfalla,9400, 1245,0,0);   
+        farfalla = PP.assets.sprite.add(s, sprite_farfalla, 9400, 1255, 0, 0);   
         PP.physics.add(s,tombarotta,PP.physics.type.STATIC);
+        PP.assets.sprite.animation_add(farfalla, "moving", 0, 7, 4, -1); //carico l'animazione
+        PP.assets.sprite.animation_play(farfalla, "moving");
+       
         s.physics.add.collider(player.ph_obj, tombarotta.ph_obj, () => collision_farfalla(s, player, tombarotta));
        
 
