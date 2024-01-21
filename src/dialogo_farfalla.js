@@ -19,22 +19,26 @@ let testo_dialogofinale_farfalla2;
 let dialogoFarfallaStarted = false;
 
 function preload_dialogo_farfalla(s){
+    /*sprite_liang = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_Liang.png",54, 156); //preload spritesheet liang
+        //img_liang = PP.assets.image.load(s, "assets/images/Liang_complete.png");
+        img_casella_zhu_dialogo_liang = PP.assets.image.load(s, "assets/images/casella_zhu.png");
+        img_testo_dialogofinale_positivo1 = PP.assets.image.load(s, "assets/images/testo_dialogofinale_positivo1.png");
+        img_testo_dialogofinale_positivo2 = PP.assets.image.load(s, "assets/images/testo_dialogofinale_positivo2.png");
+        console.log("Dialogo Liang assets preloaded.");
+        //*/
     img_tomba=PP.assets.image.load(s,"assets/images/tomba.png");
     sprite_farfalla =PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_farfalla.png",54, 156);
     
     img_farfalla=PP.assets.image.load(s,"assets/images/spritesheet farfalla.png");
-
-     let currentScore = PP.gameState.get_variable("score");
-     img_tombarotta = PP.assets.image.load(s,"assets/images/tombarotta.png");
-
-    // 检查得分是否达到或超过70
-    if (currentScore >= 70) {
+     img_tombarotta = PP.assets.image.load(s,"assets/images/tombarotta.png")
+    
          
        
     img_casella_zhu_dialogo_farfalla = PP.assets.image.load(s,"assets/images/casella_zhu.png");
     img_testo_dialogofinale_farfalla1=PP.assets.image.load(s,"assets/images/testo_dialogofinale_farfalla1.png");
     img_testo_dialogofinale_farfalla2=PP.assets.image.load(s,"assets/images/testo_dialogofinale_farfalla2.png");
-    }
+    
+
 }
 
 
@@ -75,11 +79,11 @@ function create_dialogo_farfalla(s,player){ //
         s.physics.add.collider(player.ph_obj, tombarotta.ph_obj, () => collision_farfalla(s, player, tombarotta));
        
 
-        casella_zhu_dialogo_farfalla = PP.assets.image.add(s,img_casella_zhu_dialogo_farfalla,8462, 1380,0,0);
+        casella_zhu_dialogo_farfalla = PP.assets.image.add(s,img_casella_zhu_dialogo_farfalla, 8562, 1380, 0, 0);
     casella_zhu_dialogo_farfalla.visibility.alpha=0;
-    testo_dialogofinale_farfalla1 = PP.assets.image.add(s,img_testo_dialogofinale_farfalla1, 9320, 1329,0,0);
+    testo_dialogofinale_farfalla1 = PP.assets.image.add(s,img_testo_dialogofinale_farfalla1, 9300, 1425, 0, 0);
     testo_dialogofinale_farfalla1.visibility.alpha = 0;
-    testo_dialogofinale_farfalla2 = PP.assets.image.add(s,img_testo_dialogofinale_farfalla2,9320, 1329,0,0);
+    testo_dialogofinale_farfalla2 = PP.assets.image.add(s,img_testo_dialogofinale_farfalla2,9300, 1425, 0, 0);
     testo_dialogofinale_farfalla2.visibility.alpha = 0;
 
         console.log("Dialogo farfalla elements created.");
@@ -88,15 +92,12 @@ function create_dialogo_farfalla(s,player){ //
         let layer_dialogo_farfalla = PP.layers.create(s);
               PP.layers.add_to_layer(layer_dialogo_farfalla,  casella_zhu_dialogo_farfalla);
               //PP.layers.add_to_layer(layer_dialogo_farfalla,  tombarotta);
-             
+             PP.layers.add_to_layer(layer_dialogo_farfalla , testo_dialogofinale_farfalla1);
+              PP.layers.add_to_layer(layer_dialogo_farfalla , testo_dialogofinale_farfalla2);
               PP.layers.set_z_index(layer_dialogo_farfalla, 3);
 
 
-              let layer_dialogo_farfalla_testo = PP.layers.create(s);
-             
-              PP.layers.add_to_layer(layer_dialogo_farfalla_testo , testo_dialogofinale_farfalla1);
-              PP.layers.add_to_layer(layer_dialogo_farfalla_testo , testo_dialogofinale_farfalla2);
-              PP.layers.set_z_index(layer_dialogo_farfalla, 4);
+              
 
     }
 }

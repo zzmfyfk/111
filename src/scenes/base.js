@@ -226,7 +226,7 @@ function create(s) {
     let layer_2 = PP.layers.create(s);
     PP.layers.add_to_layer(layer_2, menu_open);
     PP.layers.add_to_layer(layer_2, ponte_iniziale);
-    PP.layers.set_z_index(layer_2, 2);
+    PP.layers.set_z_index(layer_2, 4);
 
     let timer_icon=PP.assets.image.add(s, img_timer_icon, 100, -1, 0, 0);
     timer_icon.tile_geometry.scroll_factor_x = 0;
