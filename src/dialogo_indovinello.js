@@ -80,9 +80,11 @@ let fraicon_3;
 
 function preload_dialogo_indovinello(s){
 
+    sprite_mercanteindovinello = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_mercanteindovinello.png", 80, 153);
+    
     img_frammento_3   = PP.assets.image.load(s, "assets/images/frammento_3.png");
 
-    img_mercante_indovinello = PP.assets.image.load(s,"assets/images/mercante_indovinello.png");
+    //img_mercante_indovinello = PP.assets.image.load(s,"assets/images/mercante_indovinello.png");
     img_casella_indovinello_mercante = PP.assets.image.load(s,"assets/images/casella_indovinello_mercante.png");
     img_casella_indovinello_Zhu = PP.assets.image.load(s,"assets/images/casella_zhu.png");
     img_suggerimento_A_indovinello = PP.assets.image.load(s,"assets/images/tasto_A.png");
@@ -128,15 +130,23 @@ function preload_dialogo_indovinello(s){
 
 function create_dialogo_indovinello(s,player){
 
+    mercante_indovinello = PP.assets.sprite.add(s, sprite_mercanteindovinello, 5500, 1059,0,0);
+    PP.physics.add(s, mercante_indovinello, PP.physics.type.STATIC)
+
+    PP.physics.add_overlap_f(s,player,mercante_indovinello,overlap_mercante_indovinello);
+
+    PP.assets.sprite.animation_add(mercante_indovinello, "moving", 0, 1, 1, -1);
+    PP.assets.sprite.animation_play(mercante_indovinello, "moving");
+  
     fraicon_3 = PP.assets.image.add(s, img_frammento_3, 110, 10, 0, 0);
     fraicon_3.tile_geometry.scroll_factor_x = 0;
     fraicon_3.tile_geometry.scroll_factor_y = 0;
     fraicon_3.visibility.alpha=0.5;
 
-    mercante_indovinello = PP.assets.image.add(s,img_mercante_indovinello,5500, 1059, 0, 0);
+    //mercante_indovinello = PP.assets.image.add(s,img_mercante_indovinello,5500, 1059, 0, 0);
     
-    PP.physics.add(s,mercante_indovinello,PP.physics.type.STATIC);
-    PP.physics.add_overlap_f(s,player,mercante_indovinello,overlap_mercante_indovinello);
+    //PP.physics.add(s,mercante_indovinello,PP.physics.type.STATIC);
+    //PP.physics.add_overlap_f(s,player,mercante_indovinello,overlap_mercante_indovinello);
 
     function overlap_mercante_indovinello(s,player,mercante_indovinello){
         player.is_on_mercante_indovinello=true;
