@@ -71,6 +71,12 @@ function create_platform(s, player) {
     platform_sopra_ponte_4=  PP.shapes.rectangle_add(s, 5974.5, 663.5, 165, 1, "0x000000", 0); // terza ninfea
     PP.physics.add(s, platform_sopra_ponte_4, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, platform_sopra_ponte_4, collision_platform);
+
+    platform_sopra_ponte_5=  PP.shapes.rectangle_add(s, 5661, 500, 1, 165, "0x000000", 0); // terza ninfea
+    PP.physics.add(s, platform_sopra_ponte_5, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, platform_sopra_ponte_5, collision_platform);
+
+    
     
     //collisione per far saltare
    
@@ -78,6 +84,7 @@ function create_platform(s, player) {
    
 function collision_platform(s,player, platform) {
         player.is_on_platform = true;
+        player.is_climbing = false;
     }
    
  
