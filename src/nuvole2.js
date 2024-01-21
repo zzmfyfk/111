@@ -20,17 +20,17 @@ function create_nuvola(s, player) {
     PP.physics.set_allow_gravity(nuvola, false);    
     PP.physics.add_collider_f(s, player, nuvola, collision_nuvola);
     PP.physics.set_velocity_x(nuvola, 100);
-    PP.physics.set_collision_rectangle(nuvola, 180, 1, 25, 1);
+    PP.physics.set_collision_rectangle(nuvola, 200, 1, 25, 1);
     
     let nuvola_1 = PP.assets.image.add(s, img_nuvola, 6549, 798, 0, 0);
     PP.physics.add(s, nuvola_1, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, nuvola_1, collision_nuvola);
-    PP.physics.set_collision_rectangle(nuvola_1, 180, 1, 25, 1);
+    PP.physics.set_collision_rectangle(nuvola_1, 200, 1, 25, 1);
 
     let nuvola_2 = PP.assets.image.add(s, img_nuvola,6279, 700, 0, 0);
     PP.physics.add(s, nuvola_2, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, nuvola_2, collision_nuvola);
-    PP.physics.set_collision_rectangle(nuvola_2, 180, 1, 25, 1);
+    PP.physics.set_collision_rectangle(nuvola_2, 200, 1, 25, 1);
 
 
     nuvola_3 = PP.assets.image.add(s, img_nuvola, 6600, 573, 0, 0);
@@ -39,7 +39,7 @@ function create_nuvola(s, player) {
     PP.physics.set_allow_gravity(nuvola_3, false);    
     PP.physics.add_collider_f(s, player, nuvola_3, collision_nuvola);
     PP.physics.set_velocity_x(nuvola_3, 100);
-    PP.physics.set_collision_rectangle(nuvola_3, 180, 1, 25, 1);
+    PP.physics.set_collision_rectangle(nuvola_3, 200, 1, 25, 1);
 }
 
 function update_nuvola(s) {
