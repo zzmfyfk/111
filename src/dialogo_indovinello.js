@@ -152,7 +152,7 @@ function create_dialogo_indovinello(s,player){
         player.is_on_mercante_indovinello=true;
     }
 
-    ssuggerimento_A_indovinello = PP.assets.image.add(s,img_suggerimento_A_indovinello,5530,1020,0,0);
+    suggerimento_A_indovinello = PP.assets.image.add(s,img_suggerimento_A_indovinello,5530,1020,0,0);
     suggerimento_A_indovinello.visibility.alpha = 0;
 
     casella_indovinello_mercante = PP.assets.image.add(s,img_casella_indovinello_mercante,4593,1187,0,0); //prova 4610
