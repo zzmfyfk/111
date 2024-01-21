@@ -222,7 +222,7 @@ function create(s) {
     PP.physics.add(s, muroinvisibileinizio, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, muroinvisibileinizio, collision_muroinvisibile);
 
-    muroinvisibilefine = PP.shapes.rectangle_add(s, 10500, 648, 1, 1296, "0x000000", 0);
+    muroinvisibilefine = PP.shapes.rectangle_add(s, 9835, 648, 1, 1296, "0x000000", 0);
     PP.physics.add(s, muroinvisibilefine, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, muroinvisibilefine, collision_muroinvisibile);
 

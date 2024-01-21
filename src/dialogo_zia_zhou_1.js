@@ -3,7 +3,6 @@ let img_casella_zia_zhou_1;
 let img_casella_Zhu_dialogo_zia1;
 
 let img_suggerimento_A_dialogo_zia1;
-let img_continua_A_dialogo_zia1;
 let img_testo_dialogo1_zia_zhou_apertura;
 let img_testo_opzione_dialogo_zia1;
 let img_testo_opzione_si_dialogo_zia1;
@@ -64,22 +63,22 @@ function create_dialogo_zia1(s,player){
     casella_zia_zhou_1 = PP.assets.image.add(s,img_casella_zia_zhou_1,6962,837,0,0);
     casella_zia_zhou_1.visibility.alpha=0;
 
-    casella_Zhu_dialogo_zia1=PP.assets.image.add(s,img_casella_Zhu,6962,837,0,0);
+    casella_Zhu_dialogo_zia1=PP.assets.image.add(s,img_casella_Zhu,6970,837,0,0);
     casella_Zhu_dialogo_zia1.visibility.alpha=0;
 
-    testo_dialogo1_zia_zhou_apertura = PP.assets.image.add(s,img_testo_dialogo1_zia_zhou_apertura,7730,849,0,0);
+    testo_dialogo1_zia_zhou_apertura = PP.assets.image.add(s,img_testo_dialogo1_zia_zhou_apertura,7730,879,0,0);
     testo_dialogo1_zia_zhou_apertura.visibility.alpha = 0;
-    testo_opzione_dialogo_zia1 = PP.assets.image.add(s,img_testo_opzione_dialogo_zia1,7730,849,0,0);
+    testo_opzione_dialogo_zia1 = PP.assets.image.add(s,img_testo_opzione_dialogo_zia1,7730,884,0,0);
     testo_opzione_dialogo_zia1.visibility.alpha = 0;
-    testo_opzione_si_dialogo_zia1 = PP.assets.image.add(s,img_testo_opzione_si_dialogo_zia1,7730,849,0,0);
+    testo_opzione_si_dialogo_zia1 = PP.assets.image.add(s,img_testo_opzione_si_dialogo_zia1,7730,884,0,0);
     testo_opzione_si_dialogo_zia1.visibility.alpha = 0;
-    testo_opzione_no_dialogo_zia1 = PP.assets.image.add(s,img_testo_opzione_no_dialogo_zia1,7730,849,0,0);
+    testo_opzione_no_dialogo_zia1 = PP.assets.image.add(s,img_testo_opzione_no_dialogo_zia1,7730,884,0,0);
     testo_opzione_no_dialogo_zia1.visibility.alpha = 0;
-    testo_risposta_si_dialogo_zia1 = PP.assets.image.add(s,img_testo_risposta_si_dialogo_zia1,7730,849,0,0);
+    testo_risposta_si_dialogo_zia1 = PP.assets.image.add(s,img_testo_risposta_si_dialogo_zia1,7730,884,0,0);
     testo_risposta_si_dialogo_zia1.visibility.alpha = 0;
-    testo_risposta_no_dialogo_zia1 = PP.assets.image.add(s,img_testo_risposta_no_dialogo_zia1,7730,849,0,0);
+    testo_risposta_no_dialogo_zia1 = PP.assets.image.add(s,img_testo_risposta_no_dialogo_zia1,7730,884,0,0);
     testo_risposta_no_dialogo_zia1.visibility.alpha = 0;
-    testo_risposta_finale_dialogo_zia1 = PP.assets.image.add(s,img_testo_risposta_finale_dialogo_zia1,7730,849,0,0);
+    testo_risposta_finale_dialogo_zia1 = PP.assets.image.add(s,img_testo_risposta_finale_dialogo_zia1,7730,884,0,0);
     testo_risposta_finale_dialogo_zia1.visibility.alpha = 0;
 
     let layer_dialogo = PP.layers.create(s);
@@ -121,7 +120,7 @@ function update_dialogo_zia1(s, player){
         if(enable_dialogo_zia1_A){
             
             if(PP.interactive.kb.is_key_down(s,PP.key_codes.A) && dialog_state_zia1 == 0 && already_pass){
-                //hai gia comprato stupid.
+                //hai gia
                 console.log("player is talking");
                 console.log("state:",dialog_state1);
 
@@ -153,7 +152,7 @@ function update_dialogo_zia1(s, player){
                 enable_dialogo_zia1_A=false;
             }
             else if(dialog_state_zia1==1 && PP.interactive.kb.is_key_down(s,PP.key_codes.A)){
-                //opzione si compro o no non compro
+            
                 console.log("primo dialogo");
                 console.log("state:",dialog_state1);
 
