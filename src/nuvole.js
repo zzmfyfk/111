@@ -1,4 +1,5 @@
 let nuvola_2;
+let nuvola_1;
 
 
 function preload_nuvola(s) {

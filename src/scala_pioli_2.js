@@ -1,5 +1,5 @@
 function create_scala_pioli_2(s, player){
-    let scala_1 = PP.shapes.rectangle_add(s, 7600, 1190, 10 , 485,"0x000000", 0); //scala 1 tetto
+    let scala_1 = PP.shapes.rectangle_add(s, 7608, 1185, 10 , 485,"0x000000", 0); //scala 1 tetto
     PP.physics.add(s, scala_1, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, scala_1, overlap_scala_1);
 

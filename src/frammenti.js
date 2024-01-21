@@ -156,7 +156,7 @@ function create_frammenti(s, player) {
 
 
 
-        let frammento_4 = PP.assets.image.add(s, img_frammento_4,3402,1228, 0, 0);
+        let frammento_4 = PP.assets.image.add(s, img_frammento_4,6546, 1205, 0, 0);
         PP.physics.add(s, frammento_4, PP.physics.type.STATIC);
        PP.physics.add_overlap_f(s, player,frammento_4, collision_frammento4);
        PP.physics.add_overlap_f(s, player, frammento_4, overlap_frammento4);
@@ -167,11 +167,11 @@ function create_frammenti(s, player) {
            player.is_on_frammento4=true;
        }
 
-      luce4 = PP.assets.image.add(s,img_luce4,6546, 1221,0,0);
+      luce4 = PP.assets.image.add(s,img_luce4,6546, 1205,0,0);
       luce4.visibility.alpha = 0;
 
 
-        let frammento_5 = PP.assets.image.add(s, img_frammento_5, 3422,1228, 0, 0);
+        let frammento_5 = PP.assets.image.add(s, img_frammento_5, 8121, 330, 0, 0);
         PP.physics.add(s, frammento_5, PP.physics.type.STATIC);
         PP.physics.add_overlap_f(s, player,frammento_5, collision_frammento5);
        PP.physics.add_overlap_f(s, player, frammento_5, overlap_frammento5);
@@ -187,7 +187,7 @@ function create_frammenti(s, player) {
       luce5.visibility.alpha = 0;
 
 
-        let frammento_6 = PP.assets.image.add(s, img_frammento_6,3442,1228, 0, 0);
+        let frammento_6 = PP.assets.image.add(s, img_frammento_6,7977, 873, 0, 0);
         PP.physics.add(s, frammento_6, PP.physics.type.STATIC);
         PP.physics.add_overlap_f(s, player, frammento_6, collision_frammento6);
        PP.physics.add_overlap_f(s, player, frammento_6, overlap_frammento6);
@@ -202,7 +202,7 @@ function create_frammenti(s, player) {
       luce6 = PP.assets.image.add(s,img_luce6,7977, 873,0,0);
       luce6.visibility.alpha = 0;
 
-        let frammento_7 = PP.assets.image.add(s, img_frammento_7, 3452,1228, 0, 0);
+        let frammento_7 = PP.assets.image.add(s, img_frammento_7, 5750, 510, 0, 0);
         PP.physics.add(s, frammento_7, PP.physics.type.STATIC);
         PP.physics.add_overlap_f(s, player,frammento_7, collision_frammento7);
         PP.physics.add_overlap_f(s, player, frammento_7, overlap_frammento7);
@@ -214,7 +214,7 @@ function create_frammenti(s, player) {
        }
 
 
-      luce7 = PP.assets.image.add(s,img_luce7,8397, 1149,0,0);
+      luce7 = PP.assets.image.add(s,img_luce7,5750, 510,0,0);
       luce7.visibility.alpha = 0;
 
     /*let fraicon_1 = PP.assets.image.add(s, img_frammento_1, 10, 10, 0, 0);

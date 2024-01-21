@@ -3,6 +3,15 @@ let platformacqua_2;
 let platformacqua_3;
 let scale;
 let acqua;
+let platform_sopra_ponte_1;
+let platform_sopra_ponte_2;
+let platform_sopra_ponte_3;
+let platform_sopra_ponte_4;
+
+let tetto_1_dx;
+let tetto_2_sx;
+let tetto_1_sx;
+let tetto_2_dx;
 
 function preload_platform(s) {
     
@@ -28,10 +37,40 @@ function create_platform(s, player) {
     platformacqua_3 =  PP.shapes.rectangle_add(s, 2614.5, 1428, 141, 6, "0x000000", 0); // terza ninfea
     PP.physics.add(s, platformacqua_3, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, platformacqua_3, collision_platform);
+
+    tetto_1_sx = PP.shapes.rectangle_add(s, 7485, 945, 165, 1, "0x008000",0); //ed piano 1 sx
+    PP.physics.add(s, tetto_1_sx, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_1_sx, collision_platform);
+
+    tetto_1_dx = PP.shapes.rectangle_add(s,7983, 945, 670, 1, "0x008000",0); //ed piano 1 dx
+    PP.physics.add(s, tetto_1_dx, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_1_dx, collision_platform);
+
+    tetto_2_sx = PP.shapes.rectangle_add(s,7864, 510, 921, 1, "0x008000",0); //ed piano 2
+    PP.physics.add(s, tetto_2_sx, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_2_sx, collision_platform);
+
+    tetto_2_sx = PP.shapes.rectangle_add(s,7864, 79, 921, 1, "0x008000",0); //ed piano 2
+    PP.physics.add(s, tetto_2_sx, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, tetto_2_sx,collision_platform);
     
 
     
-    
+    platform_sopra_ponte_1=  PP.shapes.rectangle_add(s, 5793, 582.5, 258, 1, "0x000000", 0); // terza ninfea
+    PP.physics.add(s, platform_sopra_ponte_1, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, platform_sopra_ponte_1, collision_platform);
+
+    platform_sopra_ponte_2=  PP.shapes.rectangle_add(s, 4983, 582.5, 258, 1, "0x000000", 0); // terza ninfea
+    PP.physics.add(s, platform_sopra_ponte_2, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, platform_sopra_ponte_2, collision_platform);
+
+    platform_sopra_ponte_3=  PP.shapes.rectangle_add(s, 4801.5, 582.5, 258, 1, "0x000000", 0); // terza ninfea
+    PP.physics.add(s, platform_sopra_ponte_3, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, platform_sopra_ponte_3, collision_platform);
+
+    platform_sopra_ponte_4=  PP.shapes.rectangle_add(s, 5974.5, 663.5, 165, 1, "0x000000", 0); // terza ninfea
+    PP.physics.add(s, platform_sopra_ponte_4, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, platform_sopra_ponte_4, collision_platform);
     
     //collisione per far saltare
    

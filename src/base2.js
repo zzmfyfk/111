@@ -24,7 +24,7 @@ let muroinvisibilefine;
 let player;
 let floor;
 let floor_1;
-
+let floor_2;
 let floor_3;
 let txt_score;
 let img_pavimentazione_e_ponte_2;
@@ -49,20 +49,21 @@ let img_timer_icon;
 let panni_stesi;
 let img_panni_stesi;
 
+let img_liang;
+let liang;
+
 let img_albero_2;
 let  albero_livello_2;
-
-
 
 function preload(s) {
     console.log("Executing preload() - SCENE");
 
-    
+    img_liang=PP.assets.image.load(s,"assets/images/Liang_complete.png");
 
     // Carichiamo gli asset grafici
    // img_background = PP.assets.image.load(s, "assets/images/background.png");
    img_player = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_player.png", 99, 150);
-   img_albero_2 = PP.assets.image.load(s, "assets/images/albero_livello_2");
+   
 
     
     img_background_1_2 = PP.assets.image.load(s, "assets/images/parallax/background_1_2.png");
@@ -71,6 +72,8 @@ function preload(s) {
     img_background_4_2  = PP.assets.image.load(s, "assets/images/parallax/background_4_2.png");
     img_background_5_2 = PP.assets.image.load(s, "assets/images/parallax/background_5_2.png");
     img_background_6_2  = PP.assets.image.load(s, "assets/images/parallax/background_6_2.png");
+
+    img_albero_2 = PP.assets.image.load(s, "assets/images/albero_livello_2");
 
 
 
@@ -82,7 +85,7 @@ function preload(s) {
 
 
     img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
-    img_book_open = PP.assets.image.load(s, "assets/images/menu_book_open_2.png");
+    img_book_open = PP.assets.image.load(s, "assets/images/menu_book_open_3.png");
     img_timer_icon   = PP.assets.image.load(s, "assets/images/timer_icon.png");
 
     preload_player(s);
@@ -91,8 +94,8 @@ function preload(s) {
     preload_nuvola(s);
     preload_frammenti(s);
     preload_dialogo_indovinello(s);
-    preload_dialogo_farfalla(s);
-    preload_dialogo_zia_zhou_3(s);
+    preload_dialogo_liang(s);
+    preload_dialogo_zia_zhou_2(s);
   
 }
 
@@ -118,10 +121,6 @@ function create(s) {
     // Aggiungiamo il giocatore alla fisica come entità dinamica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
-    albero_livello_2 = PP.assets.image.add(s, img_albero_2, 0, 0, 0, 0);
-
-    
-
     ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, 455, 8000, 1060, 0, 0);
     ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0, 715, 5000, 663, 0, 0);
     ts_background_3_2 = PP.assets.tilesprite.add(s, img_background_3_2, 0, 715, 5000, 663, 0, 0);
@@ -142,6 +141,8 @@ function create(s) {
     pavimentazione_e_ponte_2 = PP.assets.image.add(s, img_pavimentazione_e_ponte_2, 0, 0, 0, 0);
     panni_stesi = PP.assets.image.add(s, img_panni_stesi, 0, 0, 0, 0);
 
+    albero_livello_2 = PP.assets.image.add(s, img_albero_2, 0, 0, 0, 0);
+
     //creo un livello specifico per il player, e setto z-index1, così che rimanga in primo piano rispetto agli altri personaggi 
     let layer_player = PP.layers.create(s);
     PP.layers.add_to_layer(layer_player, panni_stesi);
@@ -155,7 +156,7 @@ function create(s) {
     PP.layers.set_z_index(layer_1, 2);
 
 
-    //
+
 
     
 
@@ -188,26 +189,11 @@ function create(s) {
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
-    floor_1 = PP.shapes.rectangle_add(s, 8398.5, 1400, 4251, 1, "0x008000", 0); // rocce dopo il ponte
+    floor_1 = PP.shapes.rectangle_add(s, 8398.5, 1413.5, 4251, 1, "0x008000", 0); // rocce dopo il ponte
     PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
-    //piattaforme dell'edificio a fine livello:
-    tetto_1_sx = PP.shapes.rectangle_add(s, 7485, 945, 165, 1, "0x008000",0); //ed piano 1 sx
-    PP.physics.add(s, tetto_1_sx, PP.physics.type.STATIC); 
-    PP.physics.add_collider_f(s, player, tetto_1_sx, collision_floor);
-
-    tetto_1_dx = PP.shapes.rectangle_add(s,7983, 945, 670, 1, "0x008000",0); //ed piano 1 dx
-    PP.physics.add(s, tetto_1_dx, PP.physics.type.STATIC); 
-    PP.physics.add_collider_f(s, player, tetto_1_dx, collision_floor);
-
-    tetto_2_sx = PP.shapes.rectangle_add(s,7864, 510, 921, 1, "0x008000",0); //ed piano 2
-    PP.physics.add(s, tetto_2_sx, PP.physics.type.STATIC); 
-    PP.physics.add_collider_f(s, player, tetto_2_sx, collision_floor);
-
-    tetto_2_sx = PP.shapes.rectangle_add(s,7864, 79, 921, 1, "0x008000",0); //ed piano 2
-    PP.physics.add(s, tetto_2_sx, PP.physics.type.STATIC); 
-    PP.physics.add_collider_f(s, player, tetto_2_sx, collision_floor);
+    
 
     //creo i confini del livello
     muroinvisibileinizio = PP.shapes.rectangle_add(s, 1210, 648, 1, 1296, "0x000000", 0);
@@ -226,8 +212,10 @@ function create(s) {
     create_personaggi (s,player);
 
     //overlap_frammenti(s, player, frammento_1);
-    create_nuvola (s, player);
+
     create_frammenti (s, player);
+
+    create_nuvola (s, player);
 
     
 
@@ -235,7 +223,7 @@ function create(s) {
     
 
     //collision_frammenti (s, player, frammento);
-    //collision_frammento1(s, player, frammento_1);
+    collision_frammento1(s, player, frammento_1);
     
     //creo le scale dell'edificio
     create_scala_pioli_2 (s, player);
@@ -251,14 +239,14 @@ function create(s) {
     // con la camera (essendo HUD deve rimanere fisso)
     txt_score.tile_geometry.scroll_factor_x = 0;
     txt_score.tile_geometry.scroll_factor_y = 0;
-    txt_score.ph_obj.setVisible(false);
 
+    txt_score.ph_obj.setVisible(false);
     // Impostiamo la camera che segua il giocatore
     PP.camera.start_follow(s, player, 0, 220);
 
     create_dialogo_indovinello(s,player);
-    create_dialogo_farfalla(s,player);
-    create__dialogo_zia_zhou_3(s,player);
+    create_dialogo_liang(s,player);
+    create__dialogo_zia_zhou_2(s,player);
 
 
     //creiamo l'interfaccia di menu:
@@ -306,9 +294,9 @@ function update(s) {
     manage_player_update(s, player);    // Posizione del giocatore e animazioni
 
     //update_frammenti (s, frammenti);               // Azioni funghetti
-    //update_frammento1(s, player);
+    update_frammento1(s, player);
     update_frammento2(s, player);
-    //update_frammento3(s, player);
+    update_frammento3(s, player);
     update_frammento4(s, player);
     update_frammento5(s, player);
     update_frammento6(s, player);
@@ -331,19 +319,19 @@ function update(s) {
 
 
     update_dialogo_indovinello (s,player,mercante_indovinello);
-    update_dialogo_farfalla(s,player);
-    update_dialogo_zia_zhou_3(s, player, zia3);
+    update_dialogo_liang(s,player,liang);
+    update_dialogo_zia_zhou_2(s, player, zia2);
 
     let currentScore = PP.gameState.get_variable("score");
-    if (currentScore >= 70 && !dialogoFarfallaStarted) {
-        dialogoFarfallaStarted = true;
-        preload_dialogo_farfalla(s);
-        create_dialogo_farfalla(s, player); // 假设 'player' 是当前场景中玩家对象的引用
+    if (currentScore >= 70 && !dialogoLiangStarted) {
+        dialogoLiangStarted = true;
+        preload_dialogo_liang(s);
+        create_dialogo_liang(s, player); // 假设 'player' 是当前场景中玩家对象的引用
         console.log("Dialogo Liang started.");
     }
 
-    if (dialogoFarfallaStarted) {
-        update_dialogo_farfalla(s, player);
+    if (dialogoLiangStarted) {
+        update_dialogo_liang(s, player);
     }
 
 
@@ -354,5 +342,4 @@ function destroy(s) {
 
 }
 
-PP.scenes.add("base3", preload, create, update, destroy);
-
+PP.scenes.add("base", preload, create, update, destroy);

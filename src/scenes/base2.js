@@ -58,35 +58,35 @@ let liang;
 function preload(s) {
     console.log("Executing preload() - SCENE");
 
-    img_liang=PP.assets.image.load(s,"assets/images/Liang_complete.png");
+    img_liang = PP.assets.image.load(s, "assets/images/Liang_complete.png");
 
     // Carichiamo gli asset grafici
-   // img_background = PP.assets.image.load(s, "assets/images/background.png");
-   img_player = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_player.png", 99, 150);
-   
+    // img_background = PP.assets.image.load(s, "assets/images/background.png");
+    img_player = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_player.png", 99, 150);
 
-    
+
+
     img_background_1_2 = PP.assets.image.load(s, "assets/images/parallax/background_1_2.png");
-    img_background_2_2  = PP.assets.image.load(s, "assets/images/parallax/background_2_2.png");
+    img_background_2_2 = PP.assets.image.load(s, "assets/images/parallax/background_2_2.png");
     img_background_3_2 = PP.assets.image.load(s, "assets/images/parallax/background_3_2.png");
-    img_background_4_2  = PP.assets.image.load(s, "assets/images/parallax/background_4_2.png");
+    img_background_4_2 = PP.assets.image.load(s, "assets/images/parallax/background_4_2.png");
     img_background_5_2 = PP.assets.image.load(s, "assets/images/parallax/background_5_2.png");
-    img_background_6_2  = PP.assets.image.load(s, "assets/images/parallax/background_6_2.png");
+    img_background_6_2 = PP.assets.image.load(s, "assets/images/parallax/background_6_2.png");
     img_background_7_2 = PP.assets.image.load(s, "assets/images/parallax/background_7_2.png");
     img_background_8_2  = PP.assets.image.load(s, "assets/images/parallax/background_8_2.png");
 
 
 
 
-    img_pavimentazione_e_ponte_2  = PP.assets.image.load(s, "assets/images/pavimentazione_e_ponte_2.png");
-    img_panni_stesi= PP.assets.image.load(s, "assets/images/panni_stesi.png");
-  
+    img_pavimentazione_e_ponte_2 = PP.assets.image.load(s, "assets/images/pavimentazione_e_ponte_2.png");
+    img_panni_stesi = PP.assets.image.load(s, "assets/images/panni_stesi.png");
+
 
 
 
     img_book_icon = PP.assets.image.load(s, "assets/images/menu_book_icon.png");
     img_book_open = PP.assets.image.load(s, "assets/images/menu_book_open_3.png");
-    img_timer_icon   = PP.assets.image.load(s, "assets/images/timer_icon.png");
+    img_timer_icon = PP.assets.image.load(s, "assets/images/timer_icon.png");
 
     preload_player(s);
 
@@ -96,30 +96,30 @@ function preload(s) {
     preload_dialogo_indovinello(s);
     preload_dialogo_liang(s);
     preload_dialogo_zia_zhou_2(s);
-  
+
 }
 
-function collider_test(s,a,b) {
+function collider_test(s, a, b) {
     console.log("Player colliding with the box!");
 }
 
-function collision_floor(s,player,floor) {
+function collision_floor(s, player, floor) {
     player.is_on_platform = true;
     player.is_climbing = false;
 
-   //PROVA PER FAR PASSARE DA SOTTO I PAVIMENTI
-    if (player.geometry_x< floor_1.geometry_x) {
+    //PROVA PER FAR PASSARE DA SOTTO I PAVIMENTI
+    if (player.geometry_x < floor_1.geometry_x) {
 
-        player.is_on_platform =false
+        player.is_on_platform = false
     }
 }
 
 function create(s) {
     console.log("Executing create() - SCENE");
 
-     player = PP.assets.sprite.add(s, img_player, 1450, 1393, 0.5, 1);
+    player = PP.assets.sprite.add(s, img_player, 1450, 1393, 0.5, 1);
     // Aggiungiamo il giocatore alla fisica come entità dinamica
-    PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
+    PP.physics.add(s, player, PP.physics.type.DYNAMIC);
 
     ts_background_1_2 = PP.assets.tilesprite.add(s, img_background_1_2, 0, -200,12000, 1590, 0, 0);
     ts_background_2_2 = PP.assets.tilesprite.add(s, img_background_2_2, 0, 0, 12000, 1590, 0, 0);
@@ -153,7 +153,7 @@ function create(s) {
     PP.layers.add_to_layer(layer_player, panni_stesi);
     PP.layers.add_to_layer(layer_player, player);
     PP.layers.set_z_index(layer_player, 1);
-    
+
     //creo un altro livello per ciò che deve stare in primo piano rispetto al player
     let layer_1 = PP.layers.create(s);
     PP.layers.add_to_layer(layer_1, pavimentazione_e_ponte_2);
@@ -162,7 +162,7 @@ function create(s) {
 
 
 
-    
+
 
 
     // Creiamo la pavimentazione:
@@ -178,7 +178,7 @@ function create(s) {
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor = PP.shapes.rectangle_add(s, 1219.5, 1392.5, 1209, 1, "0x000000", 0); // prima piattaforma
-    PP.physics.add(s, floor, PP.physics.type.STATIC); 
+    PP.physics.add(s, floor, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor = PP.shapes.rectangle_add(s, 1840.5, 1401.5, 33, 1, "0x000000", 0); // terza piattaformina
@@ -190,27 +190,27 @@ function create(s) {
     PP.physics.add_collider_f(s, player, floor, collision_floor);
 
     floor_1 = PP.shapes.rectangle_add(s, 3675, 1401.5, 1668, 1, "0x008000", 0); // rocce prima del ponte
-    PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
+    PP.physics.add(s, floor_1, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
     floor_1 = PP.shapes.rectangle_add(s, 8398.5, 1413.5, 4251, 1, "0x008000", 0); // rocce dopo il ponte
-    PP.physics.add(s, floor_1, PP.physics.type.STATIC); 
+    PP.physics.add(s, floor_1, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_1, collision_floor);
 
-    floor_2 = PP.shapes.rectangle_add(s, 7471, 945, 141, 1, "0x008000",0); //ed piano 1 sx
-    PP.physics.add(s, floor_2, PP.physics.type.STATIC); 
+    floor_2 = PP.shapes.rectangle_add(s, 7471, 945, 141, 1, "0x008000", 0); //ed piano 1 sx
+    PP.physics.add(s, floor_2, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_2, collision_floor);
 
-    floor_2 = PP.shapes.rectangle_add(s,8001, 945, 648, 1, "0x008000",0); //ed piano 1 dx
-    PP.physics.add(s, floor_2, PP.physics.type.STATIC); 
+    floor_2 = PP.shapes.rectangle_add(s, 8001, 945, 648, 1, "0x008000", 0); //ed piano 1 dx
+    PP.physics.add(s, floor_2, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_2, collision_floor);
 
-    floor_2 = PP.shapes.rectangle_add(s,7864, 510, 921, 1, "0x008000",0); //ed piano 2
-    PP.physics.add(s, floor_2, PP.physics.type.STATIC); 
+    floor_2 = PP.shapes.rectangle_add(s, 7864, 510, 921, 1, "0x008000", 0); //ed piano 2
+    PP.physics.add(s, floor_2, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_2, collision_floor);
 
-    floor_2 = PP.shapes.rectangle_add(s,7864, 79, 921, 1, "0x008000",0); //ed piano 2
-    PP.physics.add(s, floor_2, PP.physics.type.STATIC); 
+    floor_2 = PP.shapes.rectangle_add(s, 7864, 79, 921, 1, "0x008000", 0); //ed piano 2
+    PP.physics.add(s, floor_2, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, floor_2, collision_floor);
 
     //creo i confini del livello
@@ -226,26 +226,26 @@ function create(s) {
     configure_player_animations(s, player); // Impostazione animazioni giocatore
 
     create_platform(s, player);
-    
-    create_personaggi(s,player);
+
+    create_personaggi(s, player);
 
     //overlap_frammenti(s, player, frammento_1);
 
-    create_frammenti(s, player);
+
 
     create_nuvola(s, player);
-
+    create_frammenti(s, player);
     //mercante overlap   
-    
+
 
     //collision_frammenti (s, player, frammento);
     //collision_frammento1(s, player, frammento_1);
-    
+
     //creo le scale dell'edificio
     create_scala_pioli_2(s, player);
-   
-    
-    
+
+
+
 
     // Creo una variabile per lo "score" della scena
     PP.gameState.set_variable("score", 0);
@@ -260,21 +260,21 @@ function create(s) {
     // Impostiamo la camera che segua il giocatore
     PP.camera.start_follow(s, player, 0, 220);
 
-    create_dialogo_indovinello(s,player);
-    create_dialogo_liang(s,player);
+    create_dialogo_indovinello(s, player);
+    create_dialogo_liang(s, player);
 
     //console.log(frammento_2)
-    create__dialogo_zia_zhou_2(s,player);
-    
+    create__dialogo_zia_zhou_2(s, player);
+
 
 
     //creiamo l'interfaccia di menu:
-    let menu_cliccabile = PP.assets.image.add(s, img_book_icon,1220, 8, 0, 0);
+    let menu_cliccabile = PP.assets.image.add(s, img_book_icon, 1220, 8, 0, 0);
     menu_cliccabile.tile_geometry.scroll_factor_x = 0;
     menu_cliccabile.tile_geometry.scroll_factor_y = 0;
 
     PP.interactive.mouse.add(menu_cliccabile, "pointerdown", clicco_menu);
-    menu_open = PP.assets.image.add(s, img_book_open,90, 60, 0, 0);
+    menu_open = PP.assets.image.add(s, img_book_open, 90, 60, 0, 0);
     menu_open.visibility.alpha = 0;
     menu_open.tile_geometry.scroll_factor_x = 0;
     menu_open.tile_geometry.scroll_factor_y = 0;
@@ -282,7 +282,7 @@ function create(s) {
     PP.layers.add_to_layer(layer_menu_open, menu_open);
     PP.layers.set_z_index(layer_menu_open, 2);
 
-    
+
 
 }
 
@@ -290,14 +290,14 @@ function clicco_menu(s) {
     if (!is_menu_open) {
         menu_open.visibility.alpha = 1;
         is_menu_open = true;
-        player_speed=0;
-        jump_init_speed=0;
+        player_speed = 0;
+        jump_init_speed = 0;
         console.log("ismenuOpen: ", is_menu_open);
-    }else {
+    } else {
         menu_open.visibility.alpha = 0;
         is_menu_open = false;
-        player_speed=250;
-        jump_init_speed=200;
+        player_speed = 250;
+        jump_init_speed = 200;
         console.log("ismenuOpen: ", is_menu_open);
     }
 }
@@ -321,7 +321,7 @@ function update(s) {
     update_frammento6(s, player);
     update_frammento7(s, player);
     update_nuvola(s);
-    
+
 
     // Aggiorno il punteggio visualizzato:
     PP.shapes.text_change(txt_score, "Score: " + PP.gameState.get_variable("score"));
@@ -338,8 +338,8 @@ function update(s) {
 
 
 
-    update_dialogo_indovinello (s,player,mercante_indovinello);
-    update_dialogo_liang(s,player,liang);
+    update_dialogo_indovinello(s, player, mercante_indovinello);
+    update_dialogo_liang(s, player, liang);
     update_dialogo_zia_zhou_2(s, player, zia2);
 
     let currentScore = PP.gameState.get_variable("score");
