@@ -103,7 +103,7 @@ function manage_player_update(s, player) {
 
     } else if (player.is_on_scala_pioli) {
         PP.physics.set_allow_gravity(player, false);
-    
+        PP.physics.set_velocity_y(player, 0);
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
             PP.physics.set_velocity_y(player, -70);
             player.is_climbing = true;
