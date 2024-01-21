@@ -17,6 +17,7 @@ let testo_dialogofinale_farfalla1;
 let testo_dialogofinale_farfalla2;
 
 let dialogoFarfallaStarted = false;
+let currentScore;
 
 function preload_dialogo_farfalla(s){
     /*sprite_liang = PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_Liang.png",54, 156); //preload spritesheet liang
@@ -27,6 +28,8 @@ function preload_dialogo_farfalla(s){
         console.log("Dialogo Liang assets preloaded.");
         //*/
     img_tomba=PP.assets.image.load(s,"assets/images/tomba.png");
+    sprite_farfalla =PP.assets.sprite.load_spritesheet(s, "assets/images/spritesheet_farfalla.png",87, 66);
+    
     img_farfalla=PP.assets.image.load(s,"assets/images/spritesheet farfalla.png");
      img_tombarotta = PP.assets.image.load(s,"assets/images/tombarotta.png")
     
@@ -49,7 +52,7 @@ function create_dialogo_farfalla(s,player){ //
     
     
     PP.physics.add(s,tomba,PP.physics.type.STATIC);
-    let currentScore = PP.gameState.get_variable("score");
+    currentScore = PP.gameState.get_variable("score");
     /*farfalla = PP.assets.image.add(s,img_farfalla,9400, 1255,0,0);
     PP.physics.add(s,farfalla,PP.physics.type.STATIC);
     s.physics.add.collider(player.ph_obj, farfalla.ph_obj, () => collision_farfalla(s, player, farfalla));
@@ -67,10 +70,13 @@ function create_dialogo_farfalla(s,player){ //
         
         //PP.assets.destroy(farfalla);
       //tombarotta=PP.assets.image.add(s,img_tombarotta,9400, 1235,0,0);
-      tombarotta.visibility.alpha = 1;
-      tomba.visibility.alpha = 0;
-        farfalla = PP.assets.image.add(s,img_farfalla,9400, 1245,0,0);   
+      //tombarotta.visibility.alpha = 1;
+      //tomba.visibility.alpha = 0;
+        farfalla = PP.assets.sprite.add(s, sprite_farfalla, 9400, 1255, 0, 0);   
         PP.physics.add(s,tombarotta,PP.physics.type.STATIC);
+        PP.assets.sprite.animation_add(farfalla, "moving", 0, 7, 4, -1); //carico l'animazione
+        PP.assets.sprite.animation_play(farfalla, "moving");
+       
         s.physics.add.collider(player.ph_obj, tombarotta.ph_obj, () => collision_farfalla(s, player, tombarotta));
        
 
@@ -106,7 +112,6 @@ function collision_farfalla(s, player, tombarotta) {
         // Show dialogue box and text when player collides with Liang
         casella_zhu_dialogo_farfalla.visibility.alpha = 1;
         testo_dialogofinale_farfalla1.visibility.alpha = 1;
-        //BUG NON CARICA I TESTI
         dialog_state_farfalla = 1;
         player_speed=0;
         console.log("Dialogo farfalla tocca.");
@@ -125,6 +130,11 @@ function collision_farfalla(s, player, tombarotta) {
 
 function update_dialogo_farfalla(s, player) {
     // Check if 'A' key is down and wasn't pressed before
+    if(currentScore >= 70){
+        tombarotta.visibility.alpha = 1;
+        tomba.visibility.alpha = 0;
+    }
+
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.A) && !keyA_pressed_farfalla) {
         
         keyA_pressed_farfalla = true; // Set flag to true as key is pressed
